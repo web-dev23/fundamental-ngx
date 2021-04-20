@@ -205,10 +205,8 @@ export const API_FILES = {
         'NotificationHeaderComponent',
         'NotificationBodyComponent',
         'NotificationFooterComponent',
-        'DefaultNotificationComponent',
         'NotificationContainer',
         'NotificationConfig',
-        'NotificationDefault',
         'NotificationRef'
     ],
     objectIdentifier: ['ObjectIdentifierComponent'],
