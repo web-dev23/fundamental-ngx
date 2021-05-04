@@ -5,6 +5,8 @@ import {
     Component,
     ComponentFactoryResolver,
     ComponentRef,
+    ContentChild,
+    ContentChildren,
     ElementRef,
     EmbeddedViewRef,
     HostListener,
@@ -13,11 +15,15 @@ import {
     Optional,
     OnInit,
     OnDestroy,
+    Renderer2,
     TemplateRef,
     Type,
     ViewChild,
     ViewContainerRef,
-    ViewEncapsulation
+    ViewEncapsulation,
+    forwardRef,
+    QueryList,
+    AfterContentInit
 } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { NotificationRef } from '../notification-utils/notification-ref';
@@ -27,6 +33,7 @@ import { KeyUtil } from '../../utils/functions/key-util';
 import { ESCAPE } from '@angular/cdk/keycodes';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { MessageStripComponent } from '../../message-strip/message-strip.component';
 
 @Component({
     selector: 'fd-notification',
@@ -44,10 +51,14 @@ import { filter } from 'rxjs/operators';
     },
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NotificationComponent extends AbstractFdNgxClass implements OnInit, AfterViewInit, OnDestroy {
+export class NotificationComponent extends AbstractFdNgxClass implements OnInit, AfterViewInit, AfterContentInit, OnDestroy {
     /** @hidden */
     @ViewChild('vc', { read: ViewContainerRef })
     containerRef: ViewContainerRef;
+
+    /** @hidden */
+    @ContentChildren(forwardRef(() => MessageStripComponent), { descendants: true })
+    messageStrip: QueryList<MessageStripComponent>;
 
     /** User defined width for the notification */
     @HostBinding('style.width')
@@ -89,6 +100,7 @@ export class NotificationComponent extends AbstractFdNgxClass implements OnInit,
         private componentFactoryResolver: ComponentFactoryResolver,
         private cdRef: ChangeDetectorRef,
         private _router: Router,
+        private _renderer: Renderer2,
         @Optional() private notificationConfig: NotificationConfig,
         @Optional() private notificationRef: NotificationRef
     ) {
@@ -112,6 +124,17 @@ export class NotificationComponent extends AbstractFdNgxClass implements OnInit,
             if (this.childContent instanceof TemplateRef) {
                 this._loadFromTemplate(this.childContent);
             }
+        }
+
+        this.cdRef.detectChanges();
+    }
+
+    ngAfterContentInit(): void { 
+        if (this.messageStrip) {
+            this.messageStrip.forEach(item => {
+                item.marginBottom = '1rem';
+            });
+            // this.messageStrip.marginBottom = '1rem';
         }
         this.cdRef.detectChanges();
     }

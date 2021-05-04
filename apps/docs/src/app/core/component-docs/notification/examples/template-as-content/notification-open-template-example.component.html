@@ -2,6 +2,9 @@
 <span style="margin-left: 24px;">{{ closeReason }}</span>
 
 <ng-template let-notification #notificationTemplate>
+    <fd-message-strip type="success" [dismissible]="false">
+        A warning message strip.
+    </fd-message-strip>
     <fd-notification-body>
         <fd-avatar [circle]="true" size="xs" glyph="batch-payments"></fd-avatar>
         <fd-notification-content>
