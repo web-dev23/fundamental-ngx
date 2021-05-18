@@ -18,14 +18,14 @@ import {
     Output,
     QueryList,
     SimpleChanges,
-    ViewChild,
+    ViewChild, ViewChildren,
     ViewEncapsulation
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { BehaviorSubject, isObservable, merge, Observable, of, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, startWith, switchMap } from 'rxjs/operators';
 
-import { FdDropEvent, RtlService } from '@fundamental-ngx/core';
+import { FdDropEvent, RtlService, TableRowDirective } from '@fundamental-ngx/core';
 
 import { isDataSource } from '../../domain';
 import { getNestedValue } from '../../utils/object';
@@ -274,6 +274,10 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
     /** @hidden */
     @ContentChildren(TableColumn)
     readonly columns: QueryList<TableColumn>;
+
+    /** @hidden */
+    @ViewChildren(TableRowDirective)
+    tableRows: QueryList<TableRowDirective>;
 
     /** @hidden */
     _tableColumnsSubject: BehaviorSubject<TableColumn[]> = new BehaviorSubject([]);

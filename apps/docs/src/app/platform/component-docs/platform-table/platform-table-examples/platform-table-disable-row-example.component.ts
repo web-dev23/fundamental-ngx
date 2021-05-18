@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { FdDate } from '@fundamental-ngx/core';
@@ -6,25 +6,35 @@ import {
     TableDataSource,
     TableDataProvider,
     TableState,
-    TableRowSelectionChangeEvent
+    TableRowSelectionChangeEvent,
+    TableComponent
 } from '@fundamental-ngx/platform';
 
 @Component({
     selector: 'fdp-platform-table-disable-row-example',
-    templateUrl: './platform-table-disable-row-example.component.html'
+    templateUrl: './platform-table-disable-row-example.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlatformTableDisableRowExampleComponent {
+export class PlatformTableDisableRowExampleComponent implements AfterViewInit {
 
     source: TableDataSource<ExampleItem>;
 
-    constructor() {
+    @ViewChild(TableComponent)
+    table: TableComponent;
+
+    constructor(private _cdRef: ChangeDetectorRef) {
         this.source = new TableDataSource(new TableDataProviderExample());
+    }
+
+    ngAfterViewInit(): void {
+        this.table.tableRows.toArray()[1].unnavigable = true;
+        this._cdRef.detectChanges();
     }
 
     onRowSelectionChange(event: TableRowSelectionChangeEvent<ExampleItem>): void {
         console.log(event);
     }
-    
+
 }
 
 export interface ExampleItem {
@@ -38,7 +48,6 @@ export interface ExampleItem {
     statusColor?: string;
     date: FdDate;
     verified: boolean;
-    unnavigable?: boolean;
 }
 
 /**
@@ -97,8 +106,7 @@ const ITEMS: ExampleItem[] = [
         status: 'Stocked on demand',
         statusColor: 'informative',
         date: new FdDate(2020, 1, 7),
-        verified: true,
-        unnavigable: true
+        verified: true
     },
     {
         name: 'Astro Laptop 1516',
@@ -110,8 +118,7 @@ const ITEMS: ExampleItem[] = [
         status: 'Out of stock',
         statusColor: 'negative',
         date: new FdDate(2020, 2, 5),
-        verified: true,
-        unnavigable: true
+        verified: true
     },
     {
         name: 'Astro Phone 6',
@@ -123,8 +130,7 @@ const ITEMS: ExampleItem[] = [
         status: 'Stocked on demand',
         statusColor: 'informative',
         date: new FdDate(2020, 1, 12),
-        verified: true,
-        unnavigable: true
+        verified: true
     },
     {
         name: 'Beam Breaker B-1',
