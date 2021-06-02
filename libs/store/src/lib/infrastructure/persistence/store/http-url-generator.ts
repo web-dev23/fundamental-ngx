@@ -82,3 +82,4 @@ export class DefaultHttpUrlGenerator implements HttpUrlGenerator {
 const normalize = (str: string) => {
     return str.replace(/^[\/\s]+|[\/\s]+$/g, '');
 };
+

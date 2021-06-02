@@ -29,3 +29,11 @@ export type EntityComplexPath = {
     default?: string;
 } & EntityOperationComplexPath;
 
+/**
+ * Resource template variables map
+ */
+export type ResourceTemplateVars = {
+    [option: string]: string;
+    primaryId?: string;
+}
+

@@ -7,7 +7,11 @@ import {
     CachePolicy,
     EntityType,
     BaseEntity,
-    ChainingStrategyFieldsMap, Type, EntityDTOType
+    ChainingStrategyFieldsMap,
+    Type,
+    EntityDTOType,
+    ResourceTemplateVars,
+    RESTResource
 } from '../../../domain/public_api';
 import { DefaultEntityStore, EntityStore } from './entity-store';
 import { QueryBuilder } from '../query/query-builder';
@@ -62,6 +66,7 @@ export class DefaultEntityStoreBuilder<T extends BaseEntity<EntityDTOType<T>>> i
     protected cachePolicy: CachePolicy | null = null;
     protected fetchPolicy: FetchPolicy | null = null;
     protected chainingStrategyMap: ChainingStrategyFieldsMap<T> | null = null;
+    protected resourceTemplateVars: ResourceTemplateVars | null = null;
 
     constructor(
         protected readonly entityClass: EntityType<T>,
@@ -93,13 +98,9 @@ export class DefaultEntityStoreBuilder<T extends BaseEntity<EntityDTOType<T>>> i
 
     create(): EntityStore<T> {
         const entityCollectionService = this.entityCollectionsService.getEntityCollectionService<T>(this.entityClass);
-        const queryBuilder = new QueryBuilder(
-            new DefaultQueryService(this.entityClass, entityCollectionService));
+        const queryBuilder = new QueryBuilder(new DefaultQueryService(this.entityClass, entityCollectionService));
 
-        const result = new DefaultEntityStore<T>(
-            this.entityClass,
-            entityCollectionService,
-            queryBuilder, {
+        const result = new DefaultEntityStore<T>(this.entityClass, entityCollectionService, queryBuilder, {
             cachePolicy: this.cachePolicy,
             fetchPolicy: this.fetchPolicy,
             chainingStrategy: this.chainingStrategyMap
@@ -124,22 +125,18 @@ export class DefaultEntityStoreBuilderFactory implements EntityStoreBuilderFacto
 }
 
 export class DefaultQueryService<TModel extends BaseEntity<EntityDTOType<TModel>>> extends QueryService<TModel> {
-    constructor(
-        private entity: Type<TModel>,
-        private service: EntityCollectionService<EntityDTOType<TModel>>) {
+    constructor(private entity: Type<TModel>, private service: EntityCollectionService<EntityDTOType<TModel>>) {
         super();
     }
 
     getByKey(id: string): Observable<TModel> {
-        return this.service.getByKey(id).pipe(
-            map((dto: EntityDTOType<TModel>) => instanceForType(this.entity, dto))
-        );
+        return this.service.getByKey(id).pipe(map((dto: EntityDTOType<TModel>) => instanceForType(this.entity, dto)));
     }
 
     getWithQuery(query: QuerySnapshot<EntityDTOType<TModel>>): Observable<TModel[]> {
         return this.service.getWithQuery(query).pipe(
             map((data: EntityDTOType<TModel>[]) => {
-                return data.map(dto => instanceForType(this.entity, dto));
+                return data.map((dto) => instanceForType(this.entity, dto));
             })
         );
     }
@@ -150,3 +147,23 @@ export class DefaultQueryService<TModel extends BaseEntity<EntityDTOType<TModel>
 }
 
 //#endregion
+
+export interface SubResourceStoreBuilder {
+    /**
+     * Create Sub Resource Entity Store for a given Entity
+     * @param subResource Sub Resource Entity to create a linked entity store
+     */
+    subResource<T extends BaseEntity<EntityDTOType<T>>>(subResource: EntityType<T>): EntityStore<T>;
+}
+
+export class DefaultSubResourceStoreBuilder implements SubResourceStoreBuilder {
+    constructor(
+        protected readonly parentEntityClass: EntityType<unknown>,
+        protected readonly entityStoreBuilderFactory: EntityStoreBuilderFactory
+    ) {}
+
+    subResource<T extends BaseEntity<EntityDTOType<T>>>(subResource: EntityType<T>): EntityStore<T> {
+        const store = this.entityStoreBuilderFactory.create(subResource).create();
+        return store;
+    }
+}

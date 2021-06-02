@@ -10,3 +10,5 @@ export abstract class Composite<T> {
         this.value = dto;
     }
 }
+
+export type CompositeDTOType<T> = T extends Composite<infer DTO> ? DTO : never;
