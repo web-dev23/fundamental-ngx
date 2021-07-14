@@ -461,7 +461,7 @@ export class ComboboxComponent implements ComboboxInterface, ControlValueAccesso
     }
 
     get isEmptyValue(): boolean {
-        return this.inputText.trim().length === 0;
+        return this.inputText?.trim().length === 0;
     }
 
     /** Get the input text of the input. */
@@ -493,6 +493,7 @@ export class ComboboxComponent implements ComboboxInterface, ControlValueAccesso
             this._propagateChange();
         }
         this.onTouched();
+        this.isOpenChangeHandle(false);
         this._cdRef.detectChanges();
     }
 
