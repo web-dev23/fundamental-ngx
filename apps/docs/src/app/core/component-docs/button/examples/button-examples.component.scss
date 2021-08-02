@@ -2,3 +2,11 @@
     margin-right: 12px;
     margin-bottom: 10px;
 }
+
+:host{
+
+  --fdButton_Fusion_Primary_Color: #dc052d;
+  --fdButton_Fusion_Primary_Color_Hover: #e33757;
+  --fdButton_Fusion_Secondary_Color: purple;
+  --fdButton_Fusion_Secondary_Color_Hover: #939;
+}
