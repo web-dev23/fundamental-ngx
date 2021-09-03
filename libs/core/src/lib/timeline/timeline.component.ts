@@ -14,7 +14,7 @@ import {
     QueryList,
     SimpleChanges,
     TrackByFunction,
-    ViewChild,
+    ViewChild, ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -25,11 +25,18 @@ import { TimelinePositionControlService } from './services/timeline-position-con
 import { TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
 import { RtlService } from '@fundamental-ngx/core/utils';
 import { takeUntil } from 'rxjs/operators';
+import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
 
 @Component({
     selector: 'fd-timeline',
     template: `
-        <ng-container fdTimelineNodeOutlet></ng-container>`,
+        <div class="fd-timeline__list fd-timeline__list--first">
+            <ng-container fdTimelineNodeOutlet></ng-container>
+        </div>
+        <div class="fd-timeline__main-line"></div>
+        <div class="fd-timeline__list fd-timeline__list--second">
+            <ng-container fdTimelineSecondListOutlet></ng-container>
+        </div>`,
     styleUrls: ['./timeline.component.scss'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -70,7 +77,11 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     /* Outlets within the timeline template where the dataNodes will be inserted. */
     /** @hidden */
     @ViewChild(TimelineNodeOutletDirective, { static: true })
-    private _nodeOutlet: TimelineNodeOutletDirective;
+    private _firstListOutlet: TimelineNodeOutletDirective;
+
+    /** @hidden */
+    @ViewChild(TimelineSecondListOutletDirective, { static: true })
+    private _secondListOutlet: TimelineSecondListOutletDirective;
 
     /** The timeline node template for the timeline */
     /** @hidden */
@@ -78,7 +89,8 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     private _nodeDefs: QueryList<TimelineNodeDefDirective<T>>;
 
     /** Differ used to find the changes in the data provided by the data source. */
-    private _dataDiffer: IterableDiffer<T>;
+    private _dataDifferForFirstList: IterableDiffer<T>;
+    private _dataDifferForSecondList: IterableDiffer<T>;
 
     private _isRtl: boolean = null;
 
@@ -96,7 +108,8 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
 
     /** @hidden */
     ngOnInit(): void {
-        this._dataDiffer = this._differs.find([]).create(this.trackBy);
+        this._dataDifferForFirstList = this._differs.find([]).create(this.trackBy);
+        this._dataDifferForSecondList = this._differs.find([]).create(this.trackBy);
 
         this._rtlService?.rtl
             .pipe(takeUntil(this._onDestroy))
@@ -127,7 +140,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
 
     /** @hidden */
     ngOnDestroy(): void {
-        this._nodeOutlet.viewContainer.clear();
+        this._firstListOutlet.viewContainer.clear();
         this._onDestroy.next();
         this._onDestroy.complete();
     }
@@ -139,18 +152,28 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     /** @hidden */
     private switchDataSource(data: T[]): void {
         if (!data) {
-            this._nodeOutlet.viewContainer.clear();
+            this._firstListOutlet.viewContainer.clear();
             return;
         }
         if (this._nodeDefs) {
-            this._renderNodeChanges(this.dataSource);
+            const dataForFirstList = [];
+            const dataForSecondList = [];
+            this.dataSource.forEach((item, index) => {
+                if (index % 2 === 0) {
+                    dataForFirstList.push(item);
+                } else {
+                    dataForSecondList.push(item);
+                }
+            });
+            this._renderNodeChanges(dataForFirstList, this._dataDifferForFirstList, this._firstListOutlet.viewContainer);
+            this._renderNodeChanges(dataForSecondList, this._dataDifferForSecondList, this._secondListOutlet.viewContainer);
         }
     }
 
     /** Check for changes made in the data and render each change (node added/removed/moved). */
     /** @hidden */
-    private _renderNodeChanges(data: T[]): void {
-        const changes = this._dataDiffer.diff(data);
+    private _renderNodeChanges(data: T[], differ: IterableDiffer<T>, vcr: ViewContainerRef): void {
+        const changes = differ.diff(data);
         if (!changes) {
             return;
         }
@@ -158,18 +181,18 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
                                   adjustedPreviousIndex: number | null,
                                   currentIndex: number | null) => {
             if (item.previousIndex === null) {
-                this._insertNode(this.dataSource[currentIndex], currentIndex);
+                this._insertNode(this.dataSource[currentIndex], currentIndex, vcr);
             } else if (currentIndex === null) {
-                this._nodeOutlet.viewContainer.remove(adjustedPreviousIndex);
+                vcr.remove(adjustedPreviousIndex);
             } else {
-                const view = this._nodeOutlet.viewContainer.get(adjustedPreviousIndex);
-                this._nodeOutlet.viewContainer.move(view, currentIndex);
+                const view = vcr.get(adjustedPreviousIndex);
+                vcr.move(view, currentIndex);
             }
         });
 
         this._cd.detectChanges();
-        this._timelinePositionControlService.calculatePositions();
-        this._cd.detectChanges();
+        // this._timelinePositionControlService.calculatePositions();
+        // this._cd.detectChanges();
     }
 
     private _setPositionStrategy(): void {
@@ -184,13 +207,13 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
      * within the data node view container.
      */
     /** @hidden */
-    private _insertNode(nodeData: T, index: number): void {
+    private _insertNode(nodeData: T, index: number, vcr: ViewContainerRef): void {
         const node = this._getNodeDef(index);
 
         // Node context that will be provided to created embedded view
         const context = new TimelineNodeOutletContext<T>(nodeData);
 
-        this._nodeOutlet.viewContainer.createEmbeddedView(node.template, context, index);
+        vcr.createEmbeddedView(node.template, context, index);
     }
 
     /**
