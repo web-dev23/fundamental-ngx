@@ -15,7 +15,7 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
   @Input()
   glyph: string;
 
-  @ViewChild('lastLine')
+  @ViewChild('lineEl')
   lastLine: ElementRef;
 
   _position: TimelineNodePosition;

@@ -1,9 +1,9 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-  selector: '[fdTimelineNodeOutlet], [fd-timeline-node-outlet]'
+  selector: '[fdTimelineFirstListOutlet]'
 })
-export class TimelineNodeOutletDirective {
+export class TimelineFirstListOutletDirective {
     /*Ref to ViewContainerRef instance*/
     constructor(
         public viewContainer: ViewContainerRef

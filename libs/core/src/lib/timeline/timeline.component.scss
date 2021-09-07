@@ -4,18 +4,11 @@
 $line-container-width: 1.5rem;
 $line-width: 0.0625rem;
 
-.fd-timeline__node-container {
-    position: absolute;
-}
-
 .fd-timeline__post {
     flex-grow: 1;
 }
 
 .fd-timeline__node-wrapper {
-    @include fd-flex();
-    position: relative;
-    box-sizing: border-box;
 
     &--vertical {
         .fd-timeline__node-container {
@@ -208,7 +201,14 @@ $line-width: 0.0625rem;
     //align-items: center;
 }
 
+.fd-timeline__node-container {
+    position: absolute;
+}
+
 .fd-timeline__node-wrapper {
+    @include fd-flex();
+    position: relative;
+    box-sizing: border-box;
     width: 320px;
 
     .fd-timeline__post {
@@ -216,20 +216,71 @@ $line-width: 0.0625rem;
     }
 }
 
-.fd-timeline__main-line {
-    height: 24px;
+.fd-timeline__node-container {
+    height: $line-container-width;
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.fd-timeline__main-line {
+    height: $line-container-width;
+    width: 100%;
+}
+
+.fd-timeline__icon-wrapper {
+    flex: 0;
+    padding-left: 1.281rem;
+    padding-right: 0.25rem;
 }
 
 .fd-timeline__list {
     display: flex;
+    position: relative;
 
     &--first {
         align-items: flex-end;
+
+        .fd-timeline__node-container {
+            bottom: -$line-container-width;
+        }
+
+        .fd-timeline__post {
+            @include fd-after() {
+                @include fd-timeline-arrow-rotate(135deg);
+
+                left: $fd-timeline-arrow-offset;
+                bottom: $fd-timeline-post-arrow-offset;
+            }
+
+            @include fd-after-rtl() {
+                left: auto;
+                right: $fd-timeline-arrow-offset;
+            }
+        }
+
     }
 
     &--second {
         align-items: flex-start;
         margin-left: 75px;
+
+        .fd-timeline__node-container {
+            top: -$line-container-width;
+        }
+
+        .fd-timeline__post {
+            @include fd-after() {
+                @include fd-timeline-arrow-rotate(315deg);
+
+                left: $fd-timeline-arrow-offset;
+                top: $fd-timeline-post-arrow-offset;
+            }
+
+            @include fd-after-rtl() {
+                left: auto;
+                right: $fd-timeline-arrow-offset;
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@ import { TextModule } from '@fundamental-ngx/core/text';
 
 import { TimelineComponent } from './timeline.component';
 import { TimelineNodeDefDirective } from './directives/timeline-node-def.directive';
-import { TimelineNodeOutletDirective } from './directives/timeline-node-outlet.directive';
+import { TimelineFirstListOutletDirective } from './directives/timeline-first-list-outlet.directive';
 import { TimelineNodeHeaderComponent } from './components/timeline-node-header/timeline-node-header.component';
 import { TimelineNodeHeaderInfoComponent } from './components/timeline-node-header/timeline-node-header-info/timeline-node-header-info.component';
 import { TimelineNodeBodyComponent } from './components/timeline-node-body/timeline-node-body.component';
@@ -15,15 +15,16 @@ import { TimelineNodeComponent } from './components/timeline-node/timeline-node.
 import { TimelineNodeHeaderInfoTitleDirective } from './directives/class-bindings/timeline-node-header-info-title.directive';
 import { TimelineNodeHeaderInfoTextDirective } from './directives/class-bindings/timeline-node-header-info-text.directive';
 import { TimelineHeaderInfoSubTitleDirective } from './directives/class-bindings/timeline-header-info-sub-title.directive';
-import { TimelineNodePositionControlDirective } from './directives/timeline-node-position-control.directive';
+import { TimelineNodeListDirective } from './directives/timeline-node-list.directive';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
+import { TimelineDrawDirective } from './directives/timeline-draw.directive';
 
 
 @NgModule({
     declarations: [
         TimelineComponent,
         TimelineNodeDefDirective,
-        TimelineNodeOutletDirective,
+        TimelineFirstListOutletDirective,
         TimelineNodeHeaderComponent,
         TimelineNodeHeaderInfoComponent,
         TimelineNodeBodyComponent,
@@ -32,8 +33,9 @@ import { TimelineSecondListOutletDirective } from './directives/timeline-second-
         TimelineNodeHeaderInfoTitleDirective,
         TimelineNodeHeaderInfoTextDirective,
         TimelineHeaderInfoSubTitleDirective,
-        TimelineNodePositionControlDirective,
+        TimelineNodeListDirective,
         TimelineSecondListOutletDirective,
+        TimelineDrawDirective,
     ],
     imports: [
         CommonModule,
@@ -50,7 +52,7 @@ import { TimelineSecondListOutletDirective } from './directives/timeline-second-
         TimelineNodeComponent,
         TimelineNodeHeaderInfoTitleDirective,
         TimelineNodeHeaderInfoTextDirective,
-        TimelineHeaderInfoSubTitleDirective
+        TimelineHeaderInfoSubTitleDirective,
     ]
 })
 export class TimelineModule {

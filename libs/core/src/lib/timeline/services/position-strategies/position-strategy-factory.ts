@@ -1,5 +1,5 @@
 import { BaseStrategy } from './base-strategy';
-import { StrategyOptions, TimeLinePositionStrategy } from '../../types';
+import { StrategyOptions, TimeLinePositionStrategy, TimelineSidePosition } from '../../types';
 import { VerticalDoubleSidesStrategy } from './vertical-double-sides-strategy';
 import { HorizontalTopSideStrategy } from './horizontal-top-side-strategy';
 import { HorizontalBottomSideStrategy } from './horizontal-bottom-side-strategy';
@@ -25,6 +25,25 @@ export class PositionStrategyFactory {
             default:
                 return new VerticalRightSideStrategy(options);
         }
+    }
+
+    static getLists(dataSource: any[], position: TimelineSidePosition): any[] {
+        let dataForFirstList = [];
+        let dataForSecondList = [];
+        if (position === 'left' || position === 'top') {
+            dataForFirstList = [...dataSource];
+        } else if (position === 'right' || position === 'bottom') {
+            dataForSecondList = [...dataSource];
+        } else {
+            dataSource.forEach((item, index) => {
+                if (index % 2 === 0) {
+                    dataForFirstList.push(item);
+                } else {
+                    dataForSecondList.push(item);
+                }
+            });
+        }
+        return [dataForFirstList, dataForSecondList];
     }
 }
 

@@ -10,33 +10,29 @@ import {
     IterableDiffers,
     OnChanges,
     OnDestroy,
-    OnInit, Optional,
+    OnInit,
+    Optional,
     QueryList,
     SimpleChanges,
     TrackByFunction,
-    ViewChild, ViewContainerRef,
+    ViewChild,
+    ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { TimelineNodeOutletDirective } from './directives/timeline-node-outlet.directive';
+import { TimelineFirstListOutletDirective } from './directives/timeline-first-list-outlet.directive';
 import { TimelineNodeDefDirective, TimelineNodeOutletContext } from './directives/timeline-node-def.directive';
 import { TimelinePositionControlService } from './services/timeline-position-control.service';
 import { TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
 import { RtlService } from '@fundamental-ngx/core/utils';
 import { takeUntil } from 'rxjs/operators';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
+import { PositionStrategyFactory } from './services/position-strategies/position-strategy-factory';
 
 @Component({
     selector: 'fd-timeline',
-    template: `
-        <div class="fd-timeline__list fd-timeline__list--first">
-            <ng-container fdTimelineNodeOutlet></ng-container>
-        </div>
-        <div class="fd-timeline__main-line"></div>
-        <div class="fd-timeline__list fd-timeline__list--second">
-            <ng-container fdTimelineSecondListOutlet></ng-container>
-        </div>`,
+    templateUrl: './timeline.component.html',
     styleUrls: ['./timeline.component.scss'],
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -76,8 +72,8 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
 
     /* Outlets within the timeline template where the dataNodes will be inserted. */
     /** @hidden */
-    @ViewChild(TimelineNodeOutletDirective, { static: true })
-    private _firstListOutlet: TimelineNodeOutletDirective;
+    @ViewChild(TimelineFirstListOutletDirective, { static: true })
+    private _firstListOutlet: TimelineFirstListOutletDirective;
 
     /** @hidden */
     @ViewChild(TimelineSecondListOutletDirective, { static: true })
@@ -156,17 +152,9 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
             return;
         }
         if (this._nodeDefs) {
-            const dataForFirstList = [];
-            const dataForSecondList = [];
-            this.dataSource.forEach((item, index) => {
-                if (index % 2 === 0) {
-                    dataForFirstList.push(item);
-                } else {
-                    dataForSecondList.push(item);
-                }
-            });
-            this._renderNodeChanges(dataForFirstList, this._dataDifferForFirstList, this._firstListOutlet.viewContainer);
-            this._renderNodeChanges(dataForSecondList, this._dataDifferForSecondList, this._secondListOutlet.viewContainer);
+            const [first, second] = PositionStrategyFactory.getLists(data, this.layout);
+            this._renderNodeChanges(first, this._dataDifferForFirstList, this._firstListOutlet.viewContainer);
+            this._renderNodeChanges(second, this._dataDifferForSecondList, this._secondListOutlet.viewContainer);
         }
     }
 
