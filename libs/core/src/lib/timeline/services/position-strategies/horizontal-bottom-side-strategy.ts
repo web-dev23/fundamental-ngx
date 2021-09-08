@@ -9,19 +9,14 @@ export class HorizontalBottomSideStrategy extends BaseStrategy {
     }
 
     calculatePosition(nodes: TimelineNodeComponent[]): any {
-        let prevEdge = 0;
-        nodes.forEach(node => {
-            const el = node.el.nativeElement;
-            el.classList.add('fd-timeline__node-wrapper--horizontal');
-            el.classList.add('fd-timeline__node-wrapper--bottom');
-            el.style.width = this.horizontalNodeWidth + 'px';
-            el.style.left = prevEdge + 'px';
-            el.style.top =  0;
-
-
-            prevEdge += 320;
-
-            node.lastLine.nativeElement.style.flexGrow = 1;
+        nodes.forEach((node, index) => {
+            const nextNode = nodes[index + 1];
+            if (nextNode) {
+                const width = (nextNode.el.nativeElement.offsetLeft) - node.el.nativeElement.offsetLeft - 14;
+                node.lastLine.nativeElement.style.width = width + 'px';
+            } else {
+                node.lastLine.nativeElement.style.opacity = '0';
+            }
         });
     }
 }

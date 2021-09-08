@@ -9,12 +9,14 @@ export class VerticalRightSideStrategy extends BaseStrategy {
     }
 
     calculatePosition(nodes: TimelineNodeComponent[]): void {
-        nodes.forEach(node => {
-            const el = node.el.nativeElement;
-            el.classList.add('fd-timeline__node-wrapper--vertical');
-            const dotPosition = el.offsetTop + this.arrowOffset;
-            node.lastLine.nativeElement.style.height = el.offsetHeight + el.offsetTop - dotPosition + 'px';
-            el.classList.add('fd-timeline__node-wrapper--right');
-        })
+        nodes.forEach((node, index) => {
+            const nextNode = nodes[index + 1];
+            if (nextNode) {
+                const width = (nextNode.el.nativeElement.offsetTop) - node.el.nativeElement.offsetTop;
+                node.lastLine.nativeElement.style.height = width + 'px';
+            } else {
+                node.lastLine.nativeElement.style.opacity = '0';
+            }
+        });
     }
 }

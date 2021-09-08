@@ -42,6 +42,7 @@ export class TimelinePositionControlService {
 
     switchRtlMode(isRtl: boolean): void {
         this._positionStrategy.switchRtlMode(isRtl);
+        this._positionStrategy.calculatePosition(this._nodeItems);
     }
 
     destroy(): void {

@@ -1,8 +1,6 @@
 <div class="fd-timeline__node-container">
-    <div class="fd-timeline__icon-wrapper">
-        <div class="fd-timeline__node" [class.fd-timeline__node--icon]="!!glyph">
-            <fd-icon *ngIf="glyph" [glyph]="glyph"></fd-icon>
-        </div>
+    <div class="fd-timeline__node" [class.fd-timeline__node--icon]="!!glyph">
+        <fd-icon *ngIf="glyph" [glyph]="glyph"></fd-icon>
     </div>
     <div #lineEl class="fd-timeline__connecting-line"></div>
 </div>

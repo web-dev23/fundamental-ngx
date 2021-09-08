@@ -40,7 +40,9 @@ import { PositionStrategyFactory } from './services/position-strategies/position
     host: {
         role: 'timeline',
         'arial-label': 'timeline',
-        'class': 'fd-timeline'
+        'class': 'fd-timeline',
+        '[class.fd-timeline--horizontal]': 'axis === "horizontal"',
+        '[class.fd-timeline--vertical]': 'axis === "vertical"',
     }
 })
 export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, AfterViewInit {
@@ -84,6 +86,12 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     @ContentChildren(TimelineNodeDefDirective, { descendants: true })
     private _nodeDefs: QueryList<TimelineNodeDefDirective<T>>;
 
+    /** @hidden */
+    canShowFirstList = true;
+
+    /** @hidden */
+    canShowSecondList = true;
+
     /** Differ used to find the changes in the data provided by the data source. */
     private _dataDifferForFirstList: IterableDiffer<T>;
     private _dataDifferForSecondList: IterableDiffer<T>;
@@ -107,6 +115,9 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         this._dataDifferForFirstList = this._differs.find([]).create(this.trackBy);
         this._dataDifferForSecondList = this._differs.find([]).create(this.trackBy);
 
+        this.canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
+        this.canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
+
         this._rtlService?.rtl
             .pipe(takeUntil(this._onDestroy))
             .subscribe(rtl => {
@@ -120,6 +131,8 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     /** @hidden */
     ngOnChanges(changes: SimpleChanges): void {
         if ('axis' in changes || 'layout' in changes) {
+            this.canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
+            this.canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
             this._setPositionStrategy();
         }
         if ('dataSource' in changes && !changes['dataSource'].firstChange) {
@@ -153,8 +166,11 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         }
         if (this._nodeDefs) {
             const [first, second] = PositionStrategyFactory.getLists(data, this.layout);
-            this._renderNodeChanges(first, this._dataDifferForFirstList, this._firstListOutlet.viewContainer);
-            this._renderNodeChanges(second, this._dataDifferForSecondList, this._secondListOutlet.viewContainer);
+            this._renderNodeChanges(first, this._dataDifferForFirstList, this._firstListOutlet?.viewContainer);
+            this._renderNodeChanges(second, this._dataDifferForSecondList, this._secondListOutlet?.viewContainer);
+            this._cd.detectChanges();
+            this._timelinePositionControlService.calculatePositions();
+            this._cd.detectChanges();
         }
     }
 
@@ -169,7 +185,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
                                   adjustedPreviousIndex: number | null,
                                   currentIndex: number | null) => {
             if (item.previousIndex === null) {
-                this._insertNode(this.dataSource[currentIndex], currentIndex, vcr);
+                this._insertNode(data[currentIndex], currentIndex, vcr);
             } else if (currentIndex === null) {
                 vcr.remove(adjustedPreviousIndex);
             } else {
@@ -177,10 +193,6 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
                 vcr.move(view, currentIndex);
             }
         });
-
-        this._cd.detectChanges();
-        // this._timelinePositionControlService.calculatePositions();
-        // this._cd.detectChanges();
     }
 
     private _setPositionStrategy(): void {

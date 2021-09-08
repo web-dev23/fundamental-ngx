@@ -15,7 +15,6 @@ import { TimelineNodeComponent } from './components/timeline-node/timeline-node.
 import { TimelineNodeHeaderInfoTitleDirective } from './directives/class-bindings/timeline-node-header-info-title.directive';
 import { TimelineNodeHeaderInfoTextDirective } from './directives/class-bindings/timeline-node-header-info-text.directive';
 import { TimelineHeaderInfoSubTitleDirective } from './directives/class-bindings/timeline-header-info-sub-title.directive';
-import { TimelineNodeListDirective } from './directives/timeline-node-list.directive';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
 import { TimelineDrawDirective } from './directives/timeline-draw.directive';
 
@@ -33,7 +32,6 @@ import { TimelineDrawDirective } from './directives/timeline-draw.directive';
         TimelineNodeHeaderInfoTitleDirective,
         TimelineNodeHeaderInfoTextDirective,
         TimelineHeaderInfoSubTitleDirective,
-        TimelineNodeListDirective,
         TimelineSecondListOutletDirective,
         TimelineDrawDirective,
     ],

@@ -13,11 +13,11 @@ export class PositionStrategyFactory {
             case 'vertical-right':
                 return new VerticalRightSideStrategy(options);
             case 'vertical-left':
-                return new VerticalLeftSideStrategy(options);
+                return new VerticalRightSideStrategy(options);
             case 'vertical-double':
                 return new VerticalDoubleSidesStrategy(options);
             case 'horizontal-top':
-                return new HorizontalTopSideStrategy(options);
+                return new HorizontalBottomSideStrategy(options);
             case 'horizontal-bottom':
                 return new HorizontalBottomSideStrategy(options);
             case 'horizontal-double':

@@ -1,7 +1,7 @@
-<div class="fd-timeline__list fd-timeline__list--first">
+<div [class.fd-timeline__list--empty]="!canShowFirstList" class="fd-timeline__list fd-timeline__list--first">
     <ng-container fdTimelineFirstListOutlet></ng-container>
 </div>
 <div class="fd-timeline__main-line"></div>
-<div class="fd-timeline__list fd-timeline__list--second">
+<div [class.fd-timeline__list--empty]="!canShowSecondList" class="fd-timeline__list fd-timeline__list--second">
     <ng-container fdTimelineSecondListOutlet></ng-container>
 </div>

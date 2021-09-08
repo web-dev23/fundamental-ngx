@@ -9,26 +9,32 @@ export class HorizontalDoubleSidesStrategy extends BaseStrategy {
     }
 
     calculatePosition(nodes: TimelineNodeComponent[]): any {
-        // let prevTopEdge = 0;
-        // let prevBottomEdge = 75;
-        // const parentHeight = nodes[0].el.nativeElement.parentElement.clientHeight;
-        // nodes.forEach((node, index) => {
-        //     const el = node.el.nativeElement;
-        //     el.classList.add('fd-timeline__node-wrapper--horizontal');
-        //     el.style.width = this.horizontalNodeWidth + 'px';
-        //     if (index % 2 === 0) {
-        //         el.classList.add('fd-timeline__node-wrapper--top');
-        //         el.style.left = prevTopEdge + 'px';
-        //         el.style.top =  parentHeight / 2 + 12 - el.offsetHeight - 24 + 'px';
-        //         prevTopEdge += 320;
-        //     } else {
-        //         el.classList.add('fd-timeline__node-wrapper--bottom');
-        //         el.style.left = prevBottomEdge + 'px';
-        //         prevBottomEdge += 320;
-        //     }
-        //
-        //
-        //     node.lastLine.nativeElement.style.flexGrow = 1;
-        // });
+        const lastIndexInFirstList = Math.floor(nodes.length / 2);
+        const firstList = nodes.slice(0, lastIndexInFirstList + 1);
+        const secondList = nodes.slice(lastIndexInFirstList + 1, nodes.length);
+
+
+        firstList.forEach((node, index) => {
+            const el = node.el.nativeElement;
+            const parallelNode = secondList[index];
+            if (parallelNode) {
+                const width = (parallelNode.el.nativeElement.offsetLeft) - el.offsetLeft - 14;
+                node.lastLine.nativeElement.style.width = width + 'px';
+            }
+        });
+
+        secondList.forEach((node, index) => {
+            const el = node.el.nativeElement;
+            const parallelNode = firstList[index];
+            if (parallelNode) {
+                const width = (parallelNode.el.nativeElement.offsetLeft + parallelNode.el.nativeElement.offsetWidth) - el.offsetLeft - 14;
+                node.lastLine.nativeElement.style.width = width + 'px';
+            }
+        });
+
+        const lastNode = firstList.length === secondList.length
+            ? secondList[secondList.length - 1]
+            : firstList[firstList.length - 1];
+        lastNode.lastLine.nativeElement.style.opacity = '0';
     }
 }
