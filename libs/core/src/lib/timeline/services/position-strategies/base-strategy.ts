@@ -1,25 +1,78 @@
 import { TimelineNodeComponent } from '../../components/timeline-node/timeline-node.component';
+import { TimelineAxis } from '../../types';
 
 export abstract class BaseStrategy {
 
-    arrowOffset = 30;
-    horizontalNodeWidth = 320;
+    private readonly SMALL_OFFSET = 14;
+    private readonly BIG_OFFSET = 46;
 
-    protected _isRtl = false;
+    abstract calculatePosition(nodes: TimelineNodeComponent[]): any;
 
-    constructor(options) {
-        this._isRtl = options.isRtl;
-        // this.arrowOffset = this._convertRemToPixels(1.8);
+    protected _getOffset(node: TimelineNodeComponent): number {
+        return node.glyph ? this.BIG_OFFSET : this.SMALL_OFFSET;
     }
 
-    // ToDO: add memorizing pattern
-    static convertRemToPixels(rem: number = 1): number {
-        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    protected _getTwoListFromOne(nodes: TimelineNodeComponent[]): [TimelineNodeComponent[], TimelineNodeComponent[]] {
+        const lastIndexInFirstList = Math.floor(nodes.length / 2);
+        const firstList = nodes.slice(0, lastIndexInFirstList + 1);
+        const secondList = nodes.slice(lastIndexInFirstList + 1, nodes.length);
+        return [firstList, secondList];
     }
 
-    switchRtlMode(isRtl: boolean): void {
-        this._isRtl = isRtl;
+    protected _setStylesForSingleList(nodes: TimelineNodeComponent[], axis: TimelineAxis): void {
+        const [offsetProperty, sizeProperty] = axis === 'horizontal'
+            ? ['offsetLeft', 'width']
+            : ['offsetTop', 'height'];
+
+        nodes.forEach((node, index) => {
+            const nextNode = nodes[index + 1];
+            if (nextNode) {
+                const size = (nextNode.el.nativeElement[offsetProperty]) - node.el.nativeElement[offsetProperty] - this._getOffset(node);
+                node.lastLine.nativeElement.style[sizeProperty] = size + 'px';
+            } else {
+                node.lastLine.nativeElement.style.opacity = '0';
+            }
+        });
     }
 
-    calculatePosition(nodes: TimelineNodeComponent[]): any {}
+    protected _setStylesForDoubleList(nodes: TimelineNodeComponent[], axis: TimelineAxis): void {
+        const [firstList, secondList] = this._getTwoListFromOne(nodes);
+        const [offsetProp, sizeProp, sizeOffsetProp] = axis === 'horizontal'
+            ? ['offsetLeft', 'width', 'offsetWidth']
+            : ['offsetTop', 'height', 'offsetHeight'];
+
+        secondList.forEach((node, index) => {
+            const el = node.el.nativeElement;
+            const parallelNode = firstList[index];
+
+            if (axis === 'vertical') {
+                const prevNode = secondList[index - 1];
+                const diffBetween = prevNode
+                    ? (parallelNode.el.nativeElement.offsetTop + 24) - (prevNode.el.nativeElement.offsetTop + prevNode.el.nativeElement.offsetHeight)
+                    : -1;
+                if (diffBetween > 0) {
+                    prevNode.el.nativeElement.style.paddingBottom = `${diffBetween}px`;
+                }
+            }
+
+            const diff = (parallelNode.el.nativeElement[offsetProp] + parallelNode.el.nativeElement[sizeOffsetProp]) - el[offsetProp] - this._getOffset(node);
+            node.lastLine.nativeElement.style[sizeProp] = diff + 'px';
+        });
+
+
+        firstList.forEach((node, index) => {
+            const el = node.el.nativeElement;
+            const parallelNode = secondList[index];
+            if (parallelNode) {
+                const diff = (parallelNode.el.nativeElement[offsetProp]) - el[offsetProp] - this._getOffset(node);
+                node.lastLine.nativeElement.style[sizeProp] = diff + 'px';
+            }
+        });
+
+        const lastNode = firstList.length === secondList.length
+            ? secondList[secondList.length - 1]
+            : firstList[firstList.length - 1];
+        lastNode.lastLine.nativeElement.style.opacity = '0';
+
+    }
 }

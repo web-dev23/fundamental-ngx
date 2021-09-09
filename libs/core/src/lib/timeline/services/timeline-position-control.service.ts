@@ -23,7 +23,7 @@ export class TimelinePositionControlService {
     }
 
     setStrategy(strategy: TimeLinePositionStrategy, options: Partial<StrategyOptions> = {}): void {
-        this._positionStrategy = PositionStrategyFactory.getStrategy(strategy, options);
+        this._positionStrategy = PositionStrategyFactory.getStrategy(strategy);
     }
 
     registerNode(node: TimelineNodeComponent): void {
@@ -38,11 +38,6 @@ export class TimelinePositionControlService {
 
     moveNode(previousIndex: number, currentIndex: number): void {
 
-    }
-
-    switchRtlMode(isRtl: boolean): void {
-        this._positionStrategy.switchRtlMode(isRtl);
-        this._positionStrategy.calculatePosition(this._nodeItems);
     }
 
     destroy(): void {

@@ -2,6 +2,10 @@
     <ng-container fdTimelineFirstListOutlet></ng-container>
 </div>
 <div class="fd-timeline__main-line"></div>
-<div [class.fd-timeline__list--empty]="!canShowSecondList" class="fd-timeline__list fd-timeline__list--second">
+<div
+    [class.fd-timeline__list--empty]="!canShowSecondList"
+    [class.fd-timeline__list--with-offset]="canShowFirstList"
+    class="fd-timeline__list fd-timeline__list--second"
+>
     <ng-container fdTimelineSecondListOutlet></ng-container>
 </div>

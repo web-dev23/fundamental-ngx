@@ -35,7 +35,7 @@ $line-width: 0.0625rem;
 
 .fd-timeline__node-container {
     position: absolute;
-    @include fd-set-padding-left(1rem);
+    //@include fd-set-padding-left(1rem);
     height: $line-container-width;
 }
 
@@ -63,6 +63,9 @@ $line-width: 0.0625rem;
     flex-grow: 1;
 }
 
+.fd-timeline__connecting-line {
+    flex-shrink: 0;
+}
 
 .fd-timeline {
     display: flex;
@@ -73,6 +76,12 @@ $line-width: 0.0625rem;
 
         .fd-timeline__node-wrapper {
             width: 20rem;
+
+            &--icon {
+                .fd-timeline__icon-wrapper {
+                    @include fd-set-padding-left(0.25rem);
+                }
+            }
         }
 
         .fd-timeline__post {
@@ -93,8 +102,13 @@ $line-width: 0.0625rem;
 
         .fd-timeline__icon-wrapper {
             flex: 0;
-            padding-left: 1.281rem;
-            padding-right: 0.25rem;
+            @include fd-set-padding-left(1.281rem);
+            @include fd-set-padding-right(0.25rem);
+
+            @include fd-rtl() {
+                padding-left: 0.25rem;
+                padding-right: 1.281rem;
+            }
         }
 
         .fd-timeline__list {
@@ -125,7 +139,6 @@ $line-width: 0.0625rem;
 
             &--second {
                 align-items: flex-start;
-                @include fd-set-padding-left(4.688rem);
 
                 .fd-timeline__node-container {
                     top: -$line-container-width;
@@ -146,6 +159,10 @@ $line-width: 0.0625rem;
                     }
                 }
             }
+
+            &--with-offset {
+                @include fd-set-padding-left(4.688rem);
+            }
         }
 
     }
@@ -155,7 +172,11 @@ $line-width: 0.0625rem;
         align-items: stretch;
 
         .fd-timeline__node-wrapper {
-            //width: 30rem;
+            &--icon {
+                .fd-timeline__icon-wrapper {
+                    padding-top: 0.25rem;
+                }
+            }
         }
 
         .fd-timeline__post {
@@ -191,7 +212,8 @@ $line-width: 0.0625rem;
             &--first {
 
                 .fd-timeline__node-container {
-                    right: -$line-container-width;
+                    @include fd-set-position-right(-$line-container-width);
+
                 }
 
                 .fd-timeline__post {
@@ -217,8 +239,6 @@ $line-width: 0.0625rem;
             }
 
             &--second {
-                padding-top: 4.688rem;
-
                 .fd-timeline__node-container {
                     @include fd-set-position-left(-$line-container-width);
                 }
@@ -239,6 +259,10 @@ $line-width: 0.0625rem;
                         right: $fd-timeline-post-arrow-offset;
                     }
                 }
+            }
+
+            &--with-offset {
+                padding-top: 1.5rem;
             }
 
             &--empty {
