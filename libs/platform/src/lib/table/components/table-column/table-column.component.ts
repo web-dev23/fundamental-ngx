@@ -25,7 +25,7 @@ import { FdpHeaderCellDef } from '../../directives/table-header.directive';
 import { TableColumn } from './table-column';
 import { TableService } from '../../table.service';
 
-enum ColumnAlignEnum {
+export enum ColumnAlignEnum {
     Start = 'left',
     Center = 'center',
     End = 'right'

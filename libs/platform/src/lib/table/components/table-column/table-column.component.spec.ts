@@ -2,7 +2,8 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { RtlService } from '@fundamental-ngx/core/utils';
-import { TableColumnComponent } from './table-column.component';
+import { ColumnAlignEnum, TableColumnComponent } from './table-column.component';
+import { ColumnAlign } from '@fundamental-ngx/platform';
 
 describe('TableColumnComponent', () => {
     let component: TableColumnComponent;
@@ -34,21 +35,21 @@ describe('TableColumnComponent', () => {
     });
 
     it('should set align to center', () => {
-        component.align = 'center';
+        component.align = ColumnAlign.CENTER;
         fixture.detectChanges();
 
         expect((<any>component)._align).toEqual('center');
     });
 
     it('should set align to right', () => {
-        component.align = 'start';
+        component.align = ColumnAlign.START;
         fixture.detectChanges();
 
         expect((<any>component)._align).toEqual('right');
     });
 
     it('should set align to left', () => {
-        component.align = 'end';
+        component.align = ColumnAlign.END;
         fixture.detectChanges();
 
         expect((<any>component)._align).toEqual('left');
