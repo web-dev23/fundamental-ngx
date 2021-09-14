@@ -549,6 +549,9 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/core/icon"
+          ],
           "options": {
             "outputPath": "dist/libs/core/icon",
             "tsConfig": "libs/core/src/lib/icon/tsconfig.lib.json",
