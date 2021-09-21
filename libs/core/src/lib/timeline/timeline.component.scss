@@ -98,6 +98,7 @@ $line-width: 0.0625rem;
             width: 100%;
             display: flex;
             align-items: center;
+            @include fd-set-position-left(0.5rem);
         }
 
         .fd-timeline__icon-wrapper {
@@ -176,6 +177,10 @@ $line-width: 0.0625rem;
                 .fd-timeline__icon-wrapper {
                     padding-top: 0.25rem;
                 }
+
+                .fd-timeline__node--icon {
+                    margin: 0;
+                }
             }
         }
 
@@ -196,6 +201,7 @@ $line-width: 0.0625rem;
             display: flex;
             flex-direction: column;
             align-items: center;
+            top: 0.5rem;
         }
 
         .fd-timeline__icon-wrapper {

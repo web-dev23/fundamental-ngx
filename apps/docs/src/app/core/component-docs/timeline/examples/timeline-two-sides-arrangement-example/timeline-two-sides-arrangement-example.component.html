@@ -1,7 +1,7 @@
 <div style="overflow: auto; height: 500px">
     <fd-timeline *ngIf="canShowComponent" [dataSource]="data">
 
-        <fd-timeline-node *fdTimelineNodeDef="let node">
+        <fd-timeline-node *fdTimelineNodeDef="let node" [glyph]="node.glyph">
 
             <fd-timeline-node-header>
                 <fd-avatar [circle]="true" size="xs" [label]="node.user.name" [image]="node.user.avatar"></fd-avatar>

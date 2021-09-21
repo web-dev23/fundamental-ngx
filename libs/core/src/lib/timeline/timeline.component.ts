@@ -26,7 +26,6 @@ import { TimelineNodeDefDirective, TimelineNodeOutletContext } from './directive
 import { TimelinePositionControlService } from './services/timeline-position-control.service';
 import { TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
 import { RtlService } from '@fundamental-ngx/core/utils';
-import { takeUntil } from 'rxjs/operators';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
 import { PositionStrategyFactory } from './services/position-strategies/position-strategy-factory';
 
@@ -64,7 +63,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
      * Axis for layout
      */
     @Input()
-    axis: TimelineAxis = 'vertical';
+    axis: TimelineAxis = 'horizontal';
 
     /**
      * Axis for layout

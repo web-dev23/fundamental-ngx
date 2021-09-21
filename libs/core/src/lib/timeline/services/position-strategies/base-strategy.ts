@@ -4,7 +4,7 @@ import { TimelineAxis } from '../../types';
 export abstract class BaseStrategy {
 
     private readonly SMALL_OFFSET = 14;
-    private readonly BIG_OFFSET = 46;
+    private readonly BIG_OFFSET = 30;
 
     abstract calculatePosition(nodes: TimelineNodeComponent[]): any;
 
@@ -46,6 +46,7 @@ export abstract class BaseStrategy {
             const parallelNode = firstList[index];
 
             if (axis === 'vertical') {
+                secondList[index].el.nativeElement.style.marginTop = '14px';
                 const prevNode = secondList[index - 1];
                 const diffBetween = prevNode
                     ? (parallelNode.el.nativeElement.offsetTop + 24) - (prevNode.el.nativeElement.offsetTop + prevNode.el.nativeElement.offsetHeight)
