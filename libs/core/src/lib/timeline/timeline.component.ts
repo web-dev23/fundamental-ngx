@@ -116,15 +116,6 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
 
         this.canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
         this.canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
-
-        // this._rtlService?.rtl
-        //     .pipe(takeUntil(this._onDestroy))
-        //     .subscribe(rtl => {
-        //         if (this._isRtl !== null) {
-        //             this._timelinePositionControlService.switchRtlMode(rtl);
-        //         }
-        //         this._isRtl = rtl;
-        //     })
     }
 
     /** @hidden */
