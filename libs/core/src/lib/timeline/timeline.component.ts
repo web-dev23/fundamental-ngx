@@ -24,10 +24,9 @@ import { Subject } from 'rxjs';
 import { TimelineFirstListOutletDirective } from './directives/timeline-first-list-outlet.directive';
 import { TimelineNodeDefDirective, TimelineNodeOutletContext } from './directives/timeline-node-def.directive';
 import { TimelinePositionControlService } from './services/timeline-position-control.service';
-import { TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
+import { GroupByType, GroupedData, TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
 import { RtlService } from '@fundamental-ngx/core/utils';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
-import { PositionStrategyFactory } from './services/position-strategies/position-strategy-factory';
 
 @Component({
     selector: 'fd-timeline',
@@ -42,6 +41,7 @@ import { PositionStrategyFactory } from './services/position-strategies/position
         'class': 'fd-timeline',
         '[class.fd-timeline--horizontal]': 'axis === "horizontal"',
         '[class.fd-timeline--vertical]': 'axis === "vertical"',
+        '[class.fd-timeline--grouping]': '!!groupByProperty',
     }
 })
 export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, AfterViewInit {
@@ -63,13 +63,25 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
      * Axis for layout
      */
     @Input()
-    axis: TimelineAxis = 'horizontal';
+    axis: TimelineAxis = 'vertical';
 
     /**
      * Axis for layout
      */
     @Input()
-    layout: TimelineSidePosition = 'double';
+    layout: TimelineSidePosition = 'left';
+
+    /**
+     * Key to group timeline
+     */
+    @Input()
+    groupByProperty: string;
+
+    /**
+     * Key to group timeline
+     */
+    @Input()
+    groupByType: GroupByType = 'year';
 
     /* Outlets within the timeline template where the dataNodes will be inserted. */
     /** @hidden */
@@ -86,10 +98,13 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     private _nodeDefs: QueryList<TimelineNodeDefDirective<T>>;
 
     /** @hidden */
-    canShowFirstList = true;
+    _canShowFirstList = true;
 
     /** @hidden */
-    canShowSecondList = true;
+    _canShowSecondList = true;
+
+    /** @hidden */
+    _groupedNodes: GroupedData[] = [];
 
     /** Differ used to find the changes in the data provided by the data source. */
     private _dataDifferForFirstList: IterableDiffer<T>;
@@ -113,16 +128,16 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     ngOnInit(): void {
         this._dataDifferForFirstList = this._differs.find([]).create(this.trackBy);
         this._dataDifferForSecondList = this._differs.find([]).create(this.trackBy);
-
-        this.canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
-        this.canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
     }
 
     /** @hidden */
     ngOnChanges(changes: SimpleChanges): void {
-        if ('axis' in changes || 'layout' in changes) {
-            this.canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
-            this.canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
+        if ('axis' in changes || 'layout' in changes || 'groupByProperty' in changes) {
+            if (this.layout === 'double' && this.groupByProperty) {
+                this.layout = this.axis === 'vertical' ? 'left' : 'top';
+            }
+            this._canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
+            this._canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
             this._setPositionStrategy();
         }
         if ('dataSource' in changes && !changes['dataSource'].firstChange) {
@@ -155,10 +170,18 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
             return;
         }
         if (this._nodeDefs) {
-            const [first, second] = PositionStrategyFactory.getLists(data, this.layout);
-            this._renderNodeChanges(first, this._dataDifferForFirstList, this._firstListOutlet?.viewContainer);
-            this._renderNodeChanges(second, this._dataDifferForSecondList, this._secondListOutlet?.viewContainer);
+            const [first, second] = this._getListsToRender(data);
+            if (first.length) {
+                this._renderNodeChanges(first, this._dataDifferForFirstList, this._firstListOutlet?.viewContainer);
+            }
+            if (second.length) {
+                this._renderNodeChanges(second, this._dataDifferForSecondList, this._secondListOutlet?.viewContainer);
+            }
             this._cd.detectChanges();
+            if (this.groupByProperty && this.groupByType) {
+                this._groupedNodes = this._timelinePositionControlService.getGroupedNodes(this.groupByProperty, this.dataSource, this.groupByType);
+                this._cd.detectChanges();
+            }
             this._timelinePositionControlService.calculatePositions();
             this._cd.detectChanges();
         }
@@ -188,7 +211,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     private _setPositionStrategy(): void {
         this._timelinePositionControlService.setStrategy(`${this.axis}-${this.layout}` as TimeLinePositionStrategy,
             {
-                isRtl: this._isRtl,
+                grouping: !!this.groupByType
             });
     }
 
@@ -216,5 +239,25 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
             return this._nodeDefs.first;
         }
         return this._nodeDefs[i];
+    }
+
+
+    private _getListsToRender(dataSource: any[]): any[] {
+        let dataForFirstList = [];
+        let dataForSecondList = [];
+        if (this.layout === 'left' || this.layout === 'top') {
+            dataForFirstList = [...dataSource];
+        } else if (this.layout === 'right' || this.layout === 'bottom') {
+            dataForSecondList = [...dataSource];
+        } else {
+            dataSource.forEach((item, index) => {
+                if (index % 2 === 0) {
+                    dataForFirstList.push(item);
+                } else {
+                    dataForSecondList.push(item);
+                }
+            });
+        }
+        return [dataForFirstList, dataForSecondList];
     }
 }

@@ -9,8 +9,15 @@ export type TimelineAxis = 'vertical' | 'horizontal';
 
 export type TimelineSidePosition = 'left' | 'right' | 'top' | 'bottom' | 'double';
 
+export type GroupByType = 'year' | 'month' | 'week' | 'day';
+
 export type TimeLinePositionStrategy = `${TimelineAxis}-${TimelineSidePosition}`;
 
 export interface StrategyOptions {
-    isRtl: boolean;
+    grouping: boolean;
+}
+
+export interface GroupedData {
+    label: string;
+    elements: HTMLElement[];
 }

@@ -1,10 +1,17 @@
 import { TimelineNodeComponent } from '../../components/timeline-node/timeline-node.component';
-import { TimelineAxis } from '../../types';
+import { StrategyOptions, TimelineAxis } from '../../types';
 
 export abstract class BaseStrategy {
 
     private readonly SMALL_OFFSET = 14;
     private readonly BIG_OFFSET = 30;
+    private readonly PADDING_TOP_FOR_GROUP_HANDLER = 52;
+    private grouping = false;
+
+    // constructor(options: StrategyOptions) {
+    //     this.grouping = !!options.grouping;
+    // }
+
 
     abstract calculatePosition(nodes: TimelineNodeComponent[]): any;
 

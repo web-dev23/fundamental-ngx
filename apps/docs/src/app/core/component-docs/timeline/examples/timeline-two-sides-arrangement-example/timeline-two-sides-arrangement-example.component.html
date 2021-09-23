@@ -1,5 +1,5 @@
 <div style="overflow: auto; height: 500px">
-    <fd-timeline *ngIf="canShowComponent" [dataSource]="data">
+    <fd-timeline *ngIf="canShowComponent" [dataSource]="data" groupByProperty="date" groupByType="year">
 
         <fd-timeline-node *fdTimelineNodeDef="let node" [glyph]="node.glyph">
 

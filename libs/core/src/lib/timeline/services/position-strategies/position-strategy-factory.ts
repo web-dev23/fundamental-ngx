@@ -24,24 +24,5 @@ export class PositionStrategyFactory {
                 return new VerticalSingleSideStrategy();
         }
     }
-
-    static getLists(dataSource: any[], position: TimelineSidePosition): any[] {
-        let dataForFirstList = [];
-        let dataForSecondList = [];
-        if (position === 'left' || position === 'top') {
-            dataForFirstList = [...dataSource];
-        } else if (position === 'right' || position === 'bottom') {
-            dataForSecondList = [...dataSource];
-        } else {
-            dataSource.forEach((item, index) => {
-                if (index % 2 === 0) {
-                    dataForFirstList.push(item);
-                } else {
-                    dataForSecondList.push(item);
-                }
-            });
-        }
-        return [dataForFirstList, dataForSecondList];
-    }
 }
 

@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { TIMELINE_EXAMPLE_DATA } from '../timeline-basic-example/timeline-example-data';
 import { DocsThemeService } from '../../../../../documentation/services/docs-theme.service';
-import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -28,7 +27,8 @@ export class TimelineTwoSidesArrangementExampleComponent implements OnDestroy {
         // });
         setTimeout(() => {
             this.canShowComponent = true;
-        }, 1000)
+        }, 1000);
+        // this.canShowComponent = true;
     }
 
     ngOnDestroy(): void {

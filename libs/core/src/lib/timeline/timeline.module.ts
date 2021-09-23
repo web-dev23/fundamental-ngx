@@ -17,6 +17,8 @@ import { TimelineNodeHeaderInfoTextDirective } from './directives/class-bindings
 import { TimelineHeaderInfoSubTitleDirective } from './directives/class-bindings/timeline-header-info-sub-title.directive';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
 import { TimelineDrawDirective } from './directives/timeline-draw.directive';
+import { GroupingNodesDirective } from './directives/grouping-nodes.directive';
+import { TimelineGroupControlComponent } from './components/timeline-group-control/timeline-group-control.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { TimelineDrawDirective } from './directives/timeline-draw.directive';
         TimelineHeaderInfoSubTitleDirective,
         TimelineSecondListOutletDirective,
         TimelineDrawDirective,
+        GroupingNodesDirective,
+        TimelineGroupControlComponent,
     ],
     imports: [
         CommonModule,
