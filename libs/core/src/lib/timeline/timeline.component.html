@@ -3,7 +3,7 @@
     [class.fd-timeline__list--grouping]="!!groupByProperty"
     class="fd-timeline__list fd-timeline__list--first"
 >
-    <ng-container>
+    <ng-container *ngIf="_canShowFirstList">
         <fd-timeline-group-control
             *ngFor="let group of _groupedNodes"
             [nodesGroup]="group"

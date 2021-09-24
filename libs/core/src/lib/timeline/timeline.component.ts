@@ -63,13 +63,13 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
      * Axis for layout
      */
     @Input()
-    axis: TimelineAxis = 'vertical';
+    axis: TimelineAxis = 'horizontal';
 
     /**
      * Axis for layout
      */
     @Input()
-    layout: TimelineSidePosition = 'left';
+    layout: TimelineSidePosition = 'top';
 
     /**
      * Key to group timeline

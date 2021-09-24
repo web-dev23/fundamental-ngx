@@ -114,7 +114,7 @@ $fd-timeline-group-arrow-border: 0.0625rem solid var(--sapButton_BorderColor) !d
         @include fd-reset();
         @include fd-flex-vertical-center();
         @include fd-timeline-fake-outline();
-        @include fd-set-margin-right($fd-timeline-group-header-bar-offset);
+        //@include fd-set-margin-right($fd-timeline-group-header-bar-offset);
 
         cursor: pointer;
         width: fit-content;
