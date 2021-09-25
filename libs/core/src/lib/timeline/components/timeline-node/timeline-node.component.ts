@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { TimelineNodePosition } from '../../types';
+import { Component, ElementRef, Input, OnDestroy, OnInit, Optional, ViewChild } from '@angular/core';
+import { ListNames, TimelineNodePosition } from '../../types';
+import { TimelineNodeListDirective } from '../../directives/timeline-node-list.directive';
 import { TimelinePositionControlService } from '../../services/timeline-position-control.service';
 
 @Component({
@@ -23,6 +24,10 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
 
     _cssClasses: string[];
 
+    isFirstList: boolean;
+
+    tabIndex = 0;
+
     constructor(
         public el: ElementRef,
         private _timelinePositionControl: TimelinePositionControlService
@@ -30,6 +35,7 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
+        this.isFirstList = this.el.nativeElement.parentElement.closest('fd-timeline__list--first');
         this._timelinePositionControl.registerNode(this);
     }
 
@@ -44,5 +50,9 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
     setClasses(classes: string[]): void {
         console.log(classes);
         this._cssClasses = classes;
+    }
+
+    setListName(name: ListNames): void {
+        // this.listName = name;
     }
 }

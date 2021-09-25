@@ -20,9 +20,16 @@ export abstract class BaseStrategy {
     }
 
     protected _getTwoListFromOne(nodes: TimelineNodeComponent[]): [TimelineNodeComponent[], TimelineNodeComponent[]] {
-        const lastIndexInFirstList = Math.floor(nodes.length / 2);
-        const firstList = nodes.slice(0, lastIndexInFirstList + 1);
-        const secondList = nodes.slice(lastIndexInFirstList + 1, nodes.length);
+        // const lastIndexInFirstList = Math.floor(nodes.length / 2);
+        // const firstList = nodes.slice(0, lastIndexInFirstList + 1);
+        // const secondList = nodes.slice(lastIndexInFirstList + 1, nodes.length);
+        const firstList = [];
+        const secondList = [];
+        nodes.forEach(node => {
+            node.isFirstList
+                ? firstList.push(node)
+                : secondList.push(node);
+        });
         return [firstList, secondList];
     }
 

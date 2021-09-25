@@ -19,6 +19,7 @@ import { TimelineSecondListOutletDirective } from './directives/timeline-second-
 import { TimelineDrawDirective } from './directives/timeline-draw.directive';
 import { GroupingNodesDirective } from './directives/grouping-nodes.directive';
 import { TimelineGroupControlComponent } from './components/timeline-group-control/timeline-group-control.component';
+import { TimelineNodeListDirective } from './directives/timeline-node-list.directive';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { TimelineGroupControlComponent } from './components/timeline-group-contr
         TimelineDrawDirective,
         GroupingNodesDirective,
         TimelineGroupControlComponent,
+        TimelineNodeListDirective,
     ],
     imports: [
         CommonModule,

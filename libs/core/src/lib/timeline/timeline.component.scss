@@ -79,6 +79,7 @@ $line-width: 0.0625rem;
     display: flex;
     justify-content: center;
     padding: 0.188rem;
+    position: relative;
 
     &--horizontal {
         flex-direction: column;
@@ -131,10 +132,6 @@ $line-width: 0.0625rem;
 
                 &.fd-timeline__list--grouping {
                     padding-top: 3.625rem;
-
-                    .fd-timeline__group-header {
-                        top: 1rem;
-                    }
                 }
 
                 .fd-timeline__node-container {
@@ -194,6 +191,9 @@ $line-width: 0.0625rem;
             }
         }
 
+        .fd-timeline__group-header {
+            top: 1rem;
+        }
     }
 
     &--vertical {

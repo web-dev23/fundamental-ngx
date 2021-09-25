@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { TimelineNodeComponent } from '../components/timeline-node/timeline-node.component';
 import { Subject } from 'rxjs';
-import { GroupByType, GroupedData, StrategyOptions, TimeLinePositionStrategy } from '../types';
+import { GroupByType, GroupedData, ListNames, StrategyOptions, TimeLinePositionStrategy } from '../types';
 import { BaseStrategy } from './position-strategies/base-strategy';
 import { PositionStrategyFactory } from './position-strategies/position-strategy-factory';
 import moment from 'moment';
@@ -10,7 +10,7 @@ import { TimelineGroupControlComponent } from '../components/timeline-group-cont
 @Injectable()
 export class TimelinePositionControlService {
 
-    private _unsortedItems = new Set<TimelineNodeComponent>();
+    private _lists: {[key: string]: TimelineNodeComponent[]};
     private _nodeItems: TimelineNodeComponent[] = [];
     private _groupItems: TimelineGroupControlComponent[] = [];
     private readonly _destroyed = new Subject<void>();
@@ -31,12 +31,11 @@ export class TimelinePositionControlService {
     }
 
     registerNode(node: TimelineNodeComponent): void {
-        this._unsortedItems.add(node);
         this._nodeItems.push(node);
+        node.tabIndex = this._nodeItems.length - 1;
     }
 
     removeNode(node: TimelineNodeComponent): void {
-        this._unsortedItems.delete(node);
         this._nodeItems = this._nodeItems.filter(item => item !== node);
     }
 
@@ -59,7 +58,7 @@ export class TimelinePositionControlService {
             if (!buffer[dataItem[groupedKey]]) {
                 buffer[dataItem[groupedKey]] = [];
             }
-            buffer[dataItem[groupedKey]].push(this._nodeItems[index].el.nativeElement);
+            buffer[dataItem[groupedKey]].push(this._nodeItems[index]);
         });
         Object.keys(buffer).forEach(key => {
             result.push({
@@ -85,7 +84,6 @@ export class TimelinePositionControlService {
     }
 
     destroy(): void {
-        this._unsortedItems.clear();
         this._destroyed.next();
         this._destroyed.complete();
     }

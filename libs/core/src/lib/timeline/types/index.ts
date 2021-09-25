@@ -1,3 +1,5 @@
+import { TimelineNodeComponent } from '@fundamental-ngx/core';
+
 export interface TimelineNodePosition {
     top?: string;
     right?: string;
@@ -11,6 +13,8 @@ export type TimelineSidePosition = 'left' | 'right' | 'top' | 'bottom' | 'double
 
 export type GroupByType = 'year' | 'month' | 'week' | 'day';
 
+export type ListNames = 'first' | 'second';
+
 export type TimeLinePositionStrategy = `${TimelineAxis}-${TimelineSidePosition}`;
 
 export interface StrategyOptions {
@@ -19,5 +23,5 @@ export interface StrategyOptions {
 
 export interface GroupedData {
     label: string;
-    elements: HTMLElement[];
+    elements: TimelineNodeComponent[];
 }

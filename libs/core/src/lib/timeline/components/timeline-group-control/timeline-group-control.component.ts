@@ -29,7 +29,6 @@ export class TimelineGroupControlComponent implements OnInit {
     ) {
     }
 
-
     ngOnInit(): void {
         this._timelinePositionControlService.registerGroup(this);
     }
@@ -41,13 +40,13 @@ export class TimelineGroupControlComponent implements OnInit {
     }
 
     private _setHeaderPositionForHorizontalAxis(): void {
-        const firstNodePositionLeft = this.nodesGroup.elements[0].offsetLeft;
+        const firstNodePositionLeft = this.nodesGroup.elements[0].el.nativeElement.offsetLeft;
         this._el.nativeElement.style.left = `${firstNodePositionLeft + OFFSET_FOR_FOCUS_BORDER}px`;
     }
 
     private _setHeaderPositionForVerticalAxis(): void {
-        const firstNodePositionTop = this.nodesGroup.elements[0].offsetTop;
+        const firstNodePositionTop = this.nodesGroup.elements[0].el.nativeElement.offsetTop;
         this._el.nativeElement.style.top = `${firstNodePositionTop + OFFSET_FOR_FOCUS_BORDER}px`;
-        this.nodesGroup.elements[0].style.marginTop = `52px`;
+        this.nodesGroup.elements[0].el.nativeElement.style.marginTop = `52px`;
     }
 }

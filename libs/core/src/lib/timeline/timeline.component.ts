@@ -69,7 +69,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
      * Axis for layout
      */
     @Input()
-    layout: TimelineSidePosition = 'top';
+    layout: TimelineSidePosition = 'double';
 
     /**
      * Key to group timeline
@@ -133,9 +133,9 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     /** @hidden */
     ngOnChanges(changes: SimpleChanges): void {
         if ('axis' in changes || 'layout' in changes || 'groupByProperty' in changes) {
-            if (this.layout === 'double' && this.groupByProperty) {
-                this.layout = this.axis === 'vertical' ? 'left' : 'top';
-            }
+            // if (this.layout === 'double' && this.groupByProperty) {
+            //     this.layout = this.axis === 'vertical' ? 'left' : 'top';
+            // }
             this._canShowFirstList = this.layout !== 'right' && this.layout !== 'bottom';
             this._canShowSecondList = this.layout !== 'left' && this.layout !== 'top';
             this._setPositionStrategy();
@@ -242,7 +242,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     }
 
 
-    private _getListsToRender(dataSource: any[]): any[] {
+    private _getListsToRender(dataSource: T[]): T[][] {
         let dataForFirstList = [];
         let dataForSecondList = [];
         if (this.layout === 'left' || this.layout === 'top') {
@@ -250,6 +250,16 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         } else if (this.layout === 'right' || this.layout === 'bottom') {
             dataForSecondList = [...dataSource];
         } else {
+            return this._getDoubleList(dataSource)
+        }
+        return [dataForFirstList, dataForSecondList];
+    }
+
+    private _getDoubleList(dataSource: T[]): T[][] {
+        const dataForFirstList = [];
+        const dataForSecondList = [];
+
+        if (!this.groupByProperty) {
             dataSource.forEach((item, index) => {
                 if (index % 2 === 0) {
                     dataForFirstList.push(item);
@@ -257,7 +267,33 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
                     dataForSecondList.push(item);
                 }
             });
+        } else {
+            const arrToSplit = this._getGroupedItems(dataSource);
+            arrToSplit.forEach(item => {
+                if (item.length === 1) {
+                    dataForFirstList.push(item[0]);
+                    return;
+                }
+                item.forEach((groupedItem, index) => {
+                    if (index % 2 === 0) {
+                        dataForFirstList.push(groupedItem);
+                    } else {
+                        dataForSecondList.push(groupedItem);
+                    }
+                });
+            });
         }
         return [dataForFirstList, dataForSecondList];
+    }
+
+    private _getGroupedItems(data: T[]): T[][] {
+        const buffer = {};
+        data.forEach((dataItem) => {
+            if (!buffer[dataItem[this.groupByProperty]]) {
+                buffer[dataItem[this.groupByProperty]] = [];
+            }
+            buffer[dataItem[this.groupByProperty]].push(dataItem);
+        });
+        return Object.values(buffer)
     }
 }
