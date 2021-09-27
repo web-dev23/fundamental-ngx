@@ -17,6 +17,10 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
     @Input()
     glyph: string;
 
+    /* Glyph of the current timeline node.*/
+    @Input()
+    groupItem: any;
+
     @ViewChild('lineEl')
     lastLine: ElementRef;
 
@@ -35,7 +39,7 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.isFirstList = this.el.nativeElement.parentElement.closest('fd-timeline__list--first');
+        this.isFirstList = !!this.el.nativeElement.parentElement.closest('.fd-timeline__list--first');
         this._timelinePositionControl.registerNode(this);
     }
 

@@ -15,6 +15,7 @@ export class TimelinePositionControlService {
     private _groupItems: TimelineGroupControlComponent[] = [];
     private readonly _destroyed = new Subject<void>();
     private _positionStrategy: BaseStrategy;
+    private _groups: GroupedData[] = [];
 
     constructor(
         private _ngZone: NgZone
@@ -23,7 +24,7 @@ export class TimelinePositionControlService {
 
     calculatePositions(): void {
         this._groupItems.forEach(group => group.calculatePosition());
-        this._positionStrategy.calculatePosition(this._nodeItems);
+        this._positionStrategy.calculatePosition(this._nodeItems, this._groups);
     }
 
     setStrategy(strategy: TimeLinePositionStrategy, options: Partial<StrategyOptions> = {}): void {
@@ -54,11 +55,11 @@ export class TimelinePositionControlService {
     getGroupedNodes(groupedKey: string, data: any, type: GroupByType): GroupedData[] {
         const result = [];
         const buffer = {};
-        data.forEach((dataItem, index) => {
-            if (!buffer[dataItem[groupedKey]]) {
-                buffer[dataItem[groupedKey]] = [];
+        this._nodeItems.forEach((node, index) => {
+            if (!buffer[node.groupItem[groupedKey]]) {
+                buffer[node.groupItem[groupedKey]] = [];
             }
-            buffer[dataItem[groupedKey]].push(this._nodeItems[index]);
+            buffer[node.groupItem[groupedKey]].push(node);
         });
         Object.keys(buffer).forEach(key => {
             result.push({
@@ -66,6 +67,7 @@ export class TimelinePositionControlService {
                 elements: buffer[key]
             });
         });
+        this._groups = result;
         return result;
     }
 
