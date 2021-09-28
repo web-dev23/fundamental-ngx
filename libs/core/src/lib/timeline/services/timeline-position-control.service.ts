@@ -56,10 +56,11 @@ export class TimelinePositionControlService {
         const result = [];
         const buffer = {};
         this._nodeItems.forEach((node, index) => {
-            if (!buffer[node.groupItem[groupedKey]]) {
-                buffer[node.groupItem[groupedKey]] = [];
+            const key = this._getGroupHeaderLabel(node.groupItem[groupedKey], type);
+            if (!buffer[key]) {
+                buffer[key] = [];
             }
-            buffer[node.groupItem[groupedKey]].push(node);
+            buffer[key].push(node);
         });
         Object.keys(buffer).forEach(key => {
             result.push({

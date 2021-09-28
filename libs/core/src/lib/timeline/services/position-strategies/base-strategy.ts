@@ -7,6 +7,7 @@ export abstract class BaseStrategy {
     private readonly BIG_OFFSET = 30;
     private readonly PADDING_TOP_FOR_GROUP_HANDLER = 52;
     private grouping = false;
+    private lastRenderedNode: TimelineNodeComponent = null;
 
     axis: TimelineAxis;
 
@@ -74,10 +75,19 @@ export abstract class BaseStrategy {
                 }
             }
 
+            if (this.lastRenderedNode && index === secondList.length - 1) {
+                const parallel = firstList[index];
+                this.fitLastNode(parallel);
+            }
+
             // ???
             const diff = (parallelNode.el.nativeElement[offsetProp] + parallelNode.el.nativeElement[sizeOffsetProp]) - el[offsetProp] - this._getOffset(node);
+            debugger;
             node.lastLine.nativeElement.style[sizeProp] = diff + 'px';
+
         });
+
+        this.lastRenderedNode = secondList[secondList.length - 1];
 
 
         firstList.forEach((node, index) => {
@@ -106,6 +116,11 @@ export abstract class BaseStrategy {
         //     : firstList[firstList.length - 1];
         // lastNode.lastLine.nativeElement.style.opacity = '0';
 
+    }
+
+    private fitLastNode(currentNode: TimelineNodeComponent): void {
+        const lastEl = this.lastRenderedNode.el.nativeElement;
+        lastEl.style.marginRight = currentNode.el.nativeElement.offsetLeft -  lastEl.offsetLeft - lastEl.offsetWidth + 75 + 'px';
     }
 
 
@@ -147,6 +162,10 @@ export abstract class BaseStrategy {
                 return targetList[i - 1];
             }
         }
+    }
+
+    protected _log(node: TimelineNodeComponent): void {
+        console.log(node.el.nativeElement.querySelector('.fd-timeline__post-header-text').innerHTML);
     }
 
 
