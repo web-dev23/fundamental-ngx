@@ -11,14 +11,11 @@ export class HorizontalDoubleSidesStrategy extends BaseStrategy {
                 const group = groups[i];
                 if (group.elements.length === 1) {
                     singleListBuffer.push(group.elements[0]);
-                    debugger;
-                    if (i === groups.length - 1) {
+                    if (i < groups.length - 1) {
                         continue;
                     }
                 }
-                debugger;
                 if (singleListBuffer.length) {
-                    // debugger;
                     this._setStylesForSingleList(singleListBuffer, 'horizontal');
                 }
                 singleListBuffer = [];

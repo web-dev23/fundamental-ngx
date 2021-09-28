@@ -83,14 +83,21 @@ export abstract class BaseStrategy {
         firstList.forEach((node, index) => {
             const el = node.el.nativeElement;
             const parallelNode = secondList[index];
+            const diff = parallelNode
+                ? parallelNode.el.nativeElement[offsetProp] - el[offsetProp] - this._getOffset(node)
+                : el[sizeOffsetProp] - this._getOffset(node);
+            const a = el[sizeOffsetProp];
             // debugger;
-            if (parallelNode) {
-                const a = parallelNode.el.nativeElement[offsetProp];
-                const b = el[offsetProp];
-                const diff = (parallelNode.el.nativeElement[offsetProp]) - el[offsetProp] - this._getOffset(node);
-                // debugger;
-                node.lastLine.nativeElement.style[sizeProp] = diff + 'px';
-            }
+            node.lastLine.nativeElement.style[sizeProp] = diff + 'px';
+            // debugger;
+            // if (!parallelNode) {
+            //     const a = el[offsetProp] ;
+            //     const b = el.style[sizeProp];
+            //     debugger;
+            //     const diff = (parallelNode.el.nativeElement[offsetProp]) - el[offsetProp] - this._getOffset(node);
+            //     debugger;
+            //     node.lastLine.nativeElement.style[sizeProp] = diff + 'px';
+            // }
         });
 
         // Last node shouldn't have last line
