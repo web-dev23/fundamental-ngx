@@ -1,3 +1,5 @@
+import { InjectionToken } from '@angular/core';
+export const THUMBNAIL_ID = new InjectionToken<string>('');
 export interface Media {
     title: string;
     thumbnailUrl: string;

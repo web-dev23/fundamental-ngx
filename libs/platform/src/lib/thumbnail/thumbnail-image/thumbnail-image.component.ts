@@ -7,12 +7,13 @@ import {
     OnChanges,
     SimpleChanges,
     OnInit,
-    ChangeDetectorRef
+    ChangeDetectorRef,
+    Inject
 } from '@angular/core';
 
 import { RtlService } from '@fundamental-ngx/core/utils';
 import { DialogService } from '@fundamental-ngx/core/dialog';
-import { Media } from '../thumbnail.interfaces';
+import { Media, THUMBNAIL_ID } from '../thumbnail.interfaces';
 import { ThumbnailDetailsComponent } from '../thumbnail-details/thumbnail-details.component';
 
 @Component({
@@ -45,7 +46,8 @@ export class ThumbnailImageComponent implements OnChanges, OnInit {
     constructor(
         protected _changeDetectorRef: ChangeDetectorRef,
         private _dialogService: DialogService,
-        @Optional() private _rtlService: RtlService
+        @Optional() private _rtlService: RtlService,
+        @Inject(THUMBNAIL_ID) private thumbnailId: string
     ) {}
 
     /** @hidden */
@@ -69,6 +71,7 @@ export class ThumbnailImageComponent implements OnChanges, OnInit {
         this.mediaList.forEach((item) => (item.selected = false));
         this.mediaList.forEach((item) => (item.overlayRequired = false));
         selectedMedia.selected = true;
+        console.log('thumbnailid', this.thumbnailId);
         const dialogRef = this._dialogService.open(ThumbnailDetailsComponent, {
             backdropClickCloseable: false,
             escKeyCloseable: false,
@@ -76,9 +79,10 @@ export class ThumbnailImageComponent implements OnChanges, OnInit {
                 selectedMedia: selectedMedia,
                 mediaList: mediaList,
                 rtl: this._isRtl(),
-                maxImages: this.maxImages
+                maxImages: this.maxImages,
+                thumbnailId: this.thumbnailId
             },
-            ariaLabelledBy: 'fdp-thumbnail-dialog-header'
+            ariaLabelledBy: this.thumbnailId
         });
     }
 

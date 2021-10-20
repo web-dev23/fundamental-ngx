@@ -6,14 +6,16 @@ import {
     OnInit,
     Optional,
     Output,
-    ViewEncapsulation
+    ViewEncapsulation,
+    Inject
 } from '@angular/core';
 
 import { RtlService } from '@fundamental-ngx/core/utils';
 import { DialogService } from '@fundamental-ngx/core/dialog';
 import { BaseComponent } from '@fundamental-ngx/platform/shared';
 import { ThumbnailDetailsComponent } from './thumbnail-details/thumbnail-details.component';
-import { Media } from './thumbnail.interfaces';
+import { Media, THUMBNAIL_ID } from './thumbnail.interfaces';
+let uniqueId = 0;
 
 export class ThumbnailClickedEvent<T extends ThumbnailComponent = ThumbnailComponent, K = Media> {
     constructor(
@@ -28,7 +30,13 @@ export class ThumbnailClickedEvent<T extends ThumbnailComponent = ThumbnailCompo
     selector: 'fdp-thumbnail',
     templateUrl: './thumbnail.component.html',
     styleUrls: ['./thumbnail.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    providers: [
+        {
+            provide: THUMBNAIL_ID,
+            useValue: 'fd-thumbnail-dialog-header-' + uniqueId++
+        }
+    ]
 })
 export class ThumbnailComponent extends BaseComponent implements OnInit {
     /** List of media objects to display. */
@@ -53,7 +61,8 @@ export class ThumbnailComponent extends BaseComponent implements OnInit {
     constructor(
         protected _changeDetectorRef: ChangeDetectorRef,
         private _dialogService: DialogService,
-        @Optional() private readonly _rtlService: RtlService
+        @Optional() private readonly _rtlService: RtlService,
+        @Inject(THUMBNAIL_ID) private thumbnailId: string
     ) {
         super(_changeDetectorRef);
     }
@@ -73,15 +82,17 @@ export class ThumbnailComponent extends BaseComponent implements OnInit {
 
     openDialog(selectedMedia: Media, mediaList: Media[]): void {
         mediaList.forEach((item) => (item.overlayRequired = false));
+        console.log('thumbnailid', this.thumbnailId);
         const dialogRef = this._dialogService.open(ThumbnailDetailsComponent, {
             backdropClickCloseable: false,
             escKeyCloseable: false,
-            ariaLabelledBy: 'fdp-thumbnail-dialog-header',
+            ariaLabelledBy: this.thumbnailId,
             data: {
                 selectedMedia: selectedMedia,
                 mediaList: mediaList,
                 rtl: this._isRtl(),
-                maxImages: this.maxImagesDisplay
+                maxImages: this.maxImagesDisplay,
+                thumbnailId: this.thumbnailId
             }
         });
     }
