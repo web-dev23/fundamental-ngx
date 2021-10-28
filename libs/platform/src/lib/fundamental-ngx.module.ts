@@ -47,6 +47,7 @@ import { PlatformThumbnailModule } from '@fundamental-ngx/platform/thumbnail';
 import { PlatformUploadCollectionModule } from '@fundamental-ngx/platform/upload-collection';
 import { PlatformValueHelpDialogModule } from '@fundamental-ngx/platform/value-help-dialog';
 import { PlatformWizardGeneratorModule } from '@fundamental-ngx/platform/wizard-generator';
+import { PlatformIconTabBarModule } from '@fundamental-ngx/platform/icon-tab-bar';
 
 @NgModule({
     imports: [CommonModule, FormsModule],
@@ -95,7 +96,8 @@ import { PlatformWizardGeneratorModule } from '@fundamental-ngx/platform/wizard-
         PlatformTimePickerModule,
         PlatformDatePickerModule,
         PlatformFormGeneratorModule,
-        PlatformSearchFieldMobileModule
+        PlatformSearchFieldMobileModule,
+        PlatformIconTabBarModule
     ],
     providers: []
 })
