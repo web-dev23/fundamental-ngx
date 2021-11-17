@@ -16,6 +16,7 @@ import { TimelineNodeHeaderInfoTitleDirective } from './directives/class-binding
 import { TimelineNodeHeaderInfoTextDirective } from './directives/class-bindings/timeline-node-header-info-text.directive';
 import { TimelineHeaderInfoSubTitleDirective } from './directives/class-bindings/timeline-header-info-sub-title.directive';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
+import { TimelineGroupHeaderComponent } from './components/timeline-group-header/timeline-group-header.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { TimelineSecondListOutletDirective } from './directives/timeline-second-
         TimelineNodeHeaderInfoTitleDirective,
         TimelineNodeHeaderInfoTextDirective,
         TimelineHeaderInfoSubTitleDirective,
-        TimelineSecondListOutletDirective
+        TimelineSecondListOutletDirective,
+        TimelineGroupHeaderComponent
     ],
     imports: [CommonModule, IconModule, TextModule],
     exports: [
@@ -43,7 +45,8 @@ import { TimelineSecondListOutletDirective } from './directives/timeline-second-
         TimelineNodeComponent,
         TimelineNodeHeaderInfoTitleDirective,
         TimelineNodeHeaderInfoTextDirective,
-        TimelineHeaderInfoSubTitleDirective
+        TimelineHeaderInfoSubTitleDirective,
+        TimelineGroupHeaderComponent
     ]
 })
 export class TimelineModule {}

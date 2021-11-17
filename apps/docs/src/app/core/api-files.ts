@@ -396,6 +396,7 @@ export const API_FILES = {
         'TimelineNodeHeaderInfoTitleDirective',
         'TimelineNodeHeaderInfoTextDirective',
         'TimelineNodeActionDirective',
-        'TimelineHeaderInfoSubTitleDirective'
+        'TimelineHeaderInfoSubTitleDirective',
+        'TimelineGroupHeaderComponent'
     ]
 };

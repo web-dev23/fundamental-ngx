@@ -12,6 +12,7 @@ import { AvatarModule } from '@fundamental-ngx/core/avatar';
 import { TimelineHorizontalAxisExampleComponent } from './examples/timeline-horizontal-axis-example.component';
 import { TimelineHorizontalDoubleSideExampleComponent } from './examples/timeline-horizontal-double-side-example.component';
 import { TimelineVerticalDoubleSideExampleComponent } from './examples/timeline-vertical-double-side-example.component';
+import { TimelineGroupExampleComponent } from './examples/timeline-group-example/timeline-group-example.component';
 
 const routes: Routes = [
     {
@@ -31,7 +32,8 @@ const routes: Routes = [
         TimelineBasicExampleComponent,
         TimelineHorizontalAxisExampleComponent,
         TimelineHorizontalDoubleSideExampleComponent,
-        TimelineVerticalDoubleSideExampleComponent
+        TimelineVerticalDoubleSideExampleComponent,
+        TimelineGroupExampleComponent
     ],
     imports: [RouterModule.forChild(routes), SharedDocumentationPageModule, TimelineModule, AvatarModule],
     exports: [RouterModule]

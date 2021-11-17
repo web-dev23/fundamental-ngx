@@ -6,6 +6,7 @@ export * from './components/timeline-node-header/timeline-node-header-info/timel
 export * from './components/timeline-node-body/timeline-node-body.component';
 export * from './components/timeline-node-footer/timeline-node-footer.component';
 export * from './components/timeline-node/timeline-node.component';
+export * from './components/timeline-group-header/timeline-group-header.component';
 export * from './directives/class-bindings/timeline-node-header-info-title.directive';
 export * from './directives/class-bindings/timeline-node-header-info-text.directive';
 export * from './directives/class-bindings/timeline-header-info-sub-title.directive';

@@ -1,8 +1,11 @@
 import {
+    AfterViewChecked,
     AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    ComponentFactory,
+    ComponentFactoryResolver,
     ContentChildren,
     Input,
     IterableChangeRecord,
@@ -12,6 +15,7 @@ import {
     OnChanges,
     OnDestroy,
     OnInit,
+    Optional,
     QueryList,
     SimpleChanges,
     TrackByFunction,
@@ -28,6 +32,8 @@ import { TimelineNodeDefDirective, TimelineNodeOutletContext } from './directive
 import { TimelinePositionControlService } from './services/timeline-position-control.service';
 import { TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
+import { TimelineGroupHeaderComponent } from './components/timeline-group-header/timeline-group-header.component';
+import { TimelineNodeComponent } from './components/timeline-node/timeline-node.component';
 
 @Component({
     selector: 'fd-timeline',
@@ -44,7 +50,7 @@ import { TimelineSecondListOutletDirective } from './directives/timeline-second-
         '[class.fd-timeline--vertical]': 'axis === "vertical"'
     }
 })
-export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, AfterViewInit, AfterViewChecked {
     /**
      * Data array to render
      */
@@ -56,6 +62,13 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
      */
     @Input()
     trackBy: TrackByFunction<T>;
+
+    /**
+     * (Optional) Function used to group timeline items.
+     */
+    @Input()
+    @Optional()
+    groupBy: TrackByFunction<T>;
 
     /**
      * Axis for timeline
@@ -85,6 +98,10 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     private _nodeDefs: QueryList<TimelineNodeDefDirective<T>>;
 
     /** @hidden */
+    @ContentChildren(TimelineNodeComponent, { descendants: true })
+    private _timelineNodes: QueryList<TimelineNodeComponent>;
+
+    /** @hidden */
     _canShowFirstList = true;
 
     /** @hidden */
@@ -103,7 +120,8 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         private _cd: ChangeDetectorRef,
         private _timelinePositionControlService: TimelinePositionControlService,
         private _viewportRuler: ViewportRuler,
-        private _ngZone: NgZone
+        private _ngZone: NgZone,
+        private _resolver: ComponentFactoryResolver
     ) {}
 
     /** @hidden */
@@ -138,6 +156,12 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
             .subscribe(() => this._ngZone.run(() => this._timelinePositionControlService.calculatePositions()));
         this._setPositionStrategy();
         this.switchDataSource(this.dataSource);
+    }
+
+    ngAfterViewChecked(): void {
+        if (this.groupBy) {
+            this._timelineNodes.changes.subscribe(() => this._handleGroups());
+        }
     }
 
     /** @hidden */
@@ -188,6 +212,14 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         );
     }
 
+    /** @hidden */
+    private _handleGroups(): void {
+        console.log(this._timelineNodes);
+        this._timelineNodes.forEach((node, index) => {
+            console.log(node);
+        });
+    }
+
     private _setPositionStrategy(): void {
         this._timelinePositionControlService.setStrategy(`${this.axis}-${this.layout}` as TimeLinePositionStrategy);
     }
@@ -204,6 +236,10 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         const context = new TimelineNodeOutletContext<T>(nodeData);
 
         vcr.createEmbeddedView(node.template, context, index);
+
+        // const factory = this._resolver.resolveComponentFactory(TimelineGroupHeaderComponent);
+        // const timelineGroupHeader = vcr.createComponent(factory);
+        // timelineGroupHeader.instance.groupTitle = 'asdf';
     }
 
     /**

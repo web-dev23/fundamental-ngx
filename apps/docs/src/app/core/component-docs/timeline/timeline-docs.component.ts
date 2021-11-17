@@ -7,6 +7,8 @@ import * as timelineTemplateExampleHtml from '!raw-loader!./examples/timeline-te
 import * as timelineHorizontalAxisExampleTs from '!raw-loader!./examples/timeline-horizontal-axis-example.component.ts';
 import * as timelineHorizontalDoubleExampleTs from '!raw-loader!./examples/timeline-horizontal-double-side-example.component.ts';
 import * as timelineVerticalAxisExampleTs from '!raw-loader!./examples/timeline-vertical-double-side-example.component.ts';
+import * as timelineGroupExampleTs from '!raw-loader!./examples/timeline-group-example/timeline-group-example.component.ts';
+import * as timelineGroupExampleHtml from '!raw-loader!./examples/timeline-group-example/timeline-group-example.component.html';
 
 @Component({
     selector: 'fd-timeline-docs',
@@ -82,6 +84,19 @@ export class TimelineDocsComponent {
             language: 'typescript',
             code: timelineBasicDataExampleTs,
             name: 'timeline-horizontal-axis-example.component.ts'
+        }
+    ];
+
+    timelineGroupExample: ExampleFile[] = [
+        {
+            language: 'html',
+            code: timelineGroupExampleHtml,
+            name: 'timeline-group-example.component.html'
+        },
+        {
+            language: 'typescript',
+            code: timelineGroupExampleTs,
+            name: 'timeline-group-example.component.ts'
         }
     ];
 }

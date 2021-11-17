@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 
 @Component({
     selector: 'fdp-platform-radio-group-content-example',
     templateUrl: './platform-radio-group-content-example.component.html'
 })
-export class PlatformRadioGroupContentExampleComponent {
+export class PlatformRadioGroupContentExampleComponent implements AfterViewInit {
     favoriteSeason = '';
     favoriteSeason2 = 'spring';
     favoriteMonth = '';
@@ -32,5 +32,14 @@ export class PlatformRadioGroupContentExampleComponent {
 
     onReset(form: NgForm): void {
         this.form4.reset();
+    }
+
+    ngAfterViewInit(): void {
+        console.log(this.form4.value);
+    }
+
+    setVal(): void {
+        this.form1.controls.radioc1.setValue('spring');
+        console.log(this.form4.value);
     }
 }
