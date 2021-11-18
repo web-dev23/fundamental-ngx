@@ -5,6 +5,7 @@ import { PlatformApprovalFlowModule } from '@fundamental-ngx/platform';
 import { SelectionChangeEvent } from '../../list/list.component';
 import { ApprovalUser } from '../interfaces';
 import { ApprovalFlowUserListComponent } from './approval-flow-user-list.component';
+import { SimpleChanges } from '@angular/core';
 
 
 describe('ApprovalFlowUserListComponent', () => {
@@ -37,7 +38,10 @@ describe('ApprovalFlowUserListComponent', () => {
         await fixture.whenStable();
 
         component.selectedUsers = approvalUsers;
+
+        component.ngOnChanges({ users: {} as any } as SimpleChanges);
         fixture.detectChanges();
+        await fixture.whenRenderingDone();
 
         component.ngAfterViewInit();
 
