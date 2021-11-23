@@ -52,7 +52,7 @@ import { MULTI_INPUT_COMPONENT, MultiInputInterface } from './multi-input.interf
  * Supports Angular Forms.
  */
 @Component({
-    selector: 'fd-multi-input',
+    selector: 'fd-multi-combobox',
     templateUrl: './multi-input.component.html',
     styleUrls: ['./multi-input.component.scss'],
     host: {
@@ -358,7 +358,7 @@ export class MultiInputComponent
             }
         }
 
-        return ['fd-multi-input', 'fd-multi-input-custom', this.class];
+        return ['fd-multi-combobox', 'fd-multi-combobox-custom', this.class];
     }
 
     /** @hidden */

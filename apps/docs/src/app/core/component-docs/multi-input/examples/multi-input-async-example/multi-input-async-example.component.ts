@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
-    selector: 'fd-multi-input-async-example',
+    selector: 'fd-multi-combobox-async-example',
     templateUrl: './multi-input-async-example.component.html'
 })
 export class MultiInputAsyncExampleComponent implements OnInit {

@@ -1,10 +1,10 @@
-<fd-multi-input
+<fd-multi-combobox
     [dropdownValues]="values"
     placeholder="Search here..."
     [itemTemplate]="template"
     [displayFn]="displayFunction"
     [(ngModel)]="selected"
-></fd-multi-input>
+></fd-multi-combobox>
 
 <br />
 Selected: [{{ selected | json }}]

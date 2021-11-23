@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
 
 @Component({
-    selector: 'fd-multi-input-mobile-example',
+    selector: 'fd-multi-combobox-mobile-example',
     templateUrl: './multi-input-mobile-example.component.html'
 })
 export class MultiInputMobileExampleComponent {

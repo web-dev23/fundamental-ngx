@@ -1,5 +1,5 @@
 <div>
-    <fd-multi-input
+    <fd-multi-combobox
         [dropdownValues]="originalData"
         placeholder="Search here"
         [displayFn]="displayFunc"
@@ -8,7 +8,7 @@
         [(ngModel)]="selected"
         (selectedChange)="multiSelectChange()"
     >
-    </fd-multi-input>
+    </fd-multi-combobox>
     <br />
     <button
         fd-button

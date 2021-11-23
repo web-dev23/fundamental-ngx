@@ -1,5 +1,5 @@
-<div class="fd-multi-input fd-multi-input-custom">
-    <div class="fd-multi-input-field">
+<div class="fd-multi-combobox fd-multi-combobox-custom">
+    <div class="fd-multi-combobox">
         <ng-container [ngTemplateOutlet]="control" *ngIf="mobile && !open"></ng-container>
         <fd-popover
             additionalBodyClass="fd-popover-custom-list"
@@ -11,7 +11,7 @@
             [focusTrapped]="true"
             [disabled]="disabled"
             [fillControlMode]="fillControlMode"
-            class="fd-multi-input-popover-custom"
+            class="fd-multi-combobox-popover-custom"
         >
             <fd-popover-control>
                 <form (submit)="_onSubmit()">
@@ -33,7 +33,7 @@
 
 <ng-template #control>
     <fd-input-group
-        class="fd-multi-input-input-group-custom"
+        class="fd-multi-combobox-input-group-custom"
         [state]="state"
         [buttonFocusable]="buttonFocusable"
         [button]="displayAddonButton"
@@ -51,8 +51,8 @@
             [open]="open"
             [tokenizerFocusable]="false"
             (moreClickedEvent)="_moreClicked()"
-            class="fd-multi-input-tokenizer-custom"
-            [class.fd-multi-input-tokenizer-custom--compact]="compact"
+            class="fd-multi-combobox-tokenizer-custom"
+            [class.fd-multi-combobox-tokenizer-custom--compact]="compact"
             tabindex="-1"
         >
             <fd-token
@@ -66,7 +66,7 @@
             </fd-token>
             <input
                 type="text"
-                class="fd-input fd-tokenizer__input fd-multi-input-tokenizer-input"
+                class="fd-input fd-tokenizer__input fd-multi-combobox-tokenizer-input"
                 autocomplete="off"
                 fd-form-control
                 fd-input-group-input
@@ -95,7 +95,7 @@
     <ul
         *ngIf="displayedValues && displayedValues.length"
         fd-list
-        class="fd-multi-input-menu-overflow"
+        class="fd-multi-combobox-menu-overflow"
         [selection]="true"
         [mobileMode]="mobile"
         [compact]="compact"
@@ -120,7 +120,7 @@
         <li
             *ngIf="showAllButton && displayedValues.length < dropdownValues.length"
             fd-list-item
-            class="fd-multi-input-show-all"
+            class="fd-multi-combobox-show-all"
             (keyDown)="_showAllKeyDown($event)"
             (click)="_showAllClicked($event)"
         >

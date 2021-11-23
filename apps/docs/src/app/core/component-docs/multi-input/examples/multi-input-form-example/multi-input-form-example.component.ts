@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-    selector: 'fd-multi-input-form-example',
+    selector: 'fd-multi-combobox-form-example',
     templateUrl: './multi-input-form-example.component.html'
 })
 export class MultiInputFormExampleComponent {

@@ -68,19 +68,19 @@ export class DialogInnerPopoverComponent {
 
             <fd-dialog-body>
                 <div id="fd-dialog-body-1" role="listbox">
-                    <fd-multi-input
+                    <fd-multi-combobox
                         [dropdownValues]="firstOptions"
                         placeholder="Search here..."
                         [displayFn]="displayFunction"
                         [(ngModel)]="selected"
-                    ></fd-multi-input>
+                    ></fd-multi-combobox>
 
-                    <fd-multi-input
+                    <fd-multi-combobox
                         [dropdownValues]="secondOptions"
                         placeholder="Search here..."
                         [displayFn]="displayFunction"
                         [(ngModel)]="selected2"
-                    ></fd-multi-input>
+                    ></fd-multi-combobox>
                 </div>
             </fd-dialog-body>
 

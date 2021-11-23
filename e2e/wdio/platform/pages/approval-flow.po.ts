@@ -20,7 +20,7 @@ export class ApprovalFlowPo extends BaseComponentPo {
     detailsDialogCancelBtn = this.detailsDialog + ' button.fd-button--transparent.fd-dialog__decisive-button';
     detailsDialogSendReminderBtn = this.detailsDialog + ' button.fd-button--emphasized';
 
-    detailsDialogUserTeamButton = this.detailsDialog + ' fd-multi-input button';
+    detailsDialogUserTeamButton = this.detailsDialog + ' fd-multi-combobox button';
     detailsDialogParallelSerialSelect = this.detailsDialog + ' fd-select';
     detailsDialogParallelSerialSelectOption = 'fd-option';
 
@@ -37,7 +37,7 @@ export class ApprovalFlowPo extends BaseComponentPo {
     approvalFlowNodeActionMenu = '.fdp-approval-flow-node__menu-button';
     approvalFlowNodeActionMenuItem = '[role="menuitem"]';
 
-    remaindersSendToInput = 'fd-multi-input fd-tokenizer input';
+    remaindersSendToInput = 'fd-multi-combobox fd-tokenizer input';
     selectItem = '[role="listitem"]';
     bottomMenuItems = '.fd-bar__element button';
 
@@ -56,7 +56,7 @@ export class ApprovalFlowPo extends BaseComponentPo {
 
     optionInput = this.exampleFlow + 'input';
     reminderOptionsButton = this.exampleFlow + '.fd-input-group .fd-button';
-    reminderOptionsList = '.fd-list.fd-multi-input-menu-overflow';
+    reminderOptionsList = '.fd-list.fd-multi-combobox-menu-overflow';
     selectedOptions = this.reminderOptionsList + ' .fd-list__item.is-selected';
     approvedNode = '//span[contains(@class, "fd-object-status--positive")]/../../..';
     inProgressNode = '//span[contains(@class, "fd-object-status--informative")]/../../..';

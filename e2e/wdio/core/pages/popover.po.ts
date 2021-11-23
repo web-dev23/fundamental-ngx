@@ -20,10 +20,10 @@ export class PopoverPo extends CoreBaseComponentPo {
     programmaticControlButton = '#background-ex4 button';
     popoverDialogsButton = '#background-ex5 button';
     popoverDialogsHeader = '.fd-title.fd-title--h5';
-    multiInputButton = '.fd-multi-input button';
+    multiInputButton = '.fd-multi-combobox button';
     multiInputOption = 'li.fd-list__item';
     multiInputSpan = '.no-text-select span';
-    popoverDialogParagraph = 'fd-multi-input~p';
+    popoverDialogParagraph = 'fd-multi-combobox~p';
     clickMeButton = 'fd-dialog-body button';
     popoverDialogMessage = '.fd-popover__popper div';
     hoverElement = 'fd-popover-c-fill .fd-popover__control div';

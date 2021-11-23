@@ -1,8 +1,8 @@
-<fd-multi-input
+<fd-multi-combobox
     [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato']"
     placeholder="Search here..."
     [(ngModel)]="selected"
     [filterFn]="customFilter"
-></fd-multi-input>
+></fd-multi-combobox>
 
 Selected: [{{ selected.toLocaleString() }}]

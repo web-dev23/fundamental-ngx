@@ -22,7 +22,7 @@ import {
 } from '@fundamental-ngx/core/mobile-mode';
 
 @Component({
-    selector: 'fd-multi-input-mobile',
+    selector: 'fd-multi-combobox-mobile',
     templateUrl: './multi-input-mobile.component.html',
     styleUrls: ['./multi-input-mobile.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'fd-multi-input-new-tokens-example',
+    selector: 'fd-multi-combobox-new-tokens-example',
     templateUrl: './multi-input-new-tokens-example.component.html'
 })
 export class MultiInputNewTokensExampleComponent {

@@ -43,7 +43,7 @@
         </ng-container>
 
         <div class="fdp-approval-flow__watchers-input-container" *ngIf="_isEditMode">
-            <fd-multi-input
+            <fd-multi-combobox
                 [compact]="true"
                 [dropdownValues]="_usersForWatchersList"
                 i18n-placeholder
@@ -51,7 +51,7 @@
                 [displayFn]="_displayUserFn"
                 [showAllButton]="true"
                 [(ngModel)]="_selectedWatchers"
-            ></fd-multi-input>
+            ></fd-multi-combobox>
         </div>
     </div>
 

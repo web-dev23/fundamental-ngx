@@ -2,24 +2,24 @@
     <fieldset fd-fieldset>
         <div fd-form-item>
             <label fd-form-label required="true">Valid Multi Input</label>
-            <fd-multi-input
+            <fd-multi-combobox
                 [state]="isValid() ? 'success' : 'error'"
                 formControlName="selectedValues"
                 [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato']"
                 placeholder="Search Here..."
                 required="true"
             >
-            </fd-multi-input>
+            </fd-multi-combobox>
         </div>
         <div fd-form-item>
             <label fd-form-label>Disabled Multi Input</label>
-            <fd-multi-input
+            <fd-multi-combobox
                 formControlName="disabledSelectedValues"
                 [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato']"
                 placeholder="Search Here..."
                 [state]="'information'"
             >
-            </fd-multi-input>
+            </fd-multi-combobox>
         </div>
     </fieldset>
 </form>

@@ -1,31 +1,31 @@
 //TODO evaluate whether this should be in fd-styles
 
-.fd-multi-input-tokenizer-custom {
+.fd-multi-combobox-tokenizer-custom {
     width: calc(100% - 2.25rem);
     &--compact {
         width: calc(100% - 2rem);
     }
 }
 
-.fd-multi-input-input-group-custom {
+.fd-multi-combobox-input-group-custom {
     max-width: 100%;
 }
 
-.fd-multi-input-custom {
+.fd-multi-combobox-custom {
     display: block;
 }
 
-.fd-multi-input-item {
+.fd-multi-combobox-item {
     cursor: pointer;
     padding: 0;
 }
 
-.fd-multi-input-popover-size {
+.fd-multi-combobox-popover-size {
     overflow: auto;
     display: block;
 }
 
-.fd-multi-input-popover-custom.fd-popover-custom {
+.fd-multi-combobox-popover-custom.fd-popover-custom {
     max-width: 100%;
     display: block;
 
@@ -34,13 +34,13 @@
     }
 }
 
-.fd-multi-input-menu-overflow {
+.fd-multi-combobox-menu-overflow {
     max-width: 37.5rem;
     overflow: auto;
 }
 
 .fd-input {
-    &.fd-multi-input-tokenizer-input {
+    &.fd-multi-combobox-tokenizer-input {
         margin-top: 0;
         margin-bottom: 0;
         padding-left: 0;
@@ -48,7 +48,7 @@
     }
 }
 
-.fd-multi-input-show-all {
+.fd-multi-combobox-show-all {
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -58,7 +58,7 @@
     }
 }
 
-.fd-multi-input-checkbox {
+.fd-multi-combobox-checkbox {
     width: 100%;
     cursor: pointer;
 

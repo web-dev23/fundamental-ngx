@@ -111,7 +111,7 @@
             <div fd-form-item>
                 <label fd-form-label i18n="@@platformApprovalFlowAddNodeDialogUserOrTeam">User/Team</label>
 
-                <fd-multi-input
+                <fd-multi-combobox
                     *ngIf="_isSingleUserMode"
                     [compact]="true"
                     [showAllButton]="false"
@@ -119,16 +119,16 @@
                     [displayFn]="_displayUserFn"
                     (openChange)="_goToSelectMode()"
                     (selectedChange)="_setSelectedApprovers($event)"
-                ></fd-multi-input>
+                ></fd-multi-combobox>
 
-                <fd-multi-input
+                <fd-multi-combobox
                     *ngIf="!_isSingleUserMode"
                     [compact]="true"
                     [showAllButton]="false"
                     [(ngModel)]="_selectedTeamArray"
                     [displayFn]="_displayTeamFn"
                     (openChange)="_goToSelectMode()"
-                ></fd-multi-input>
+                ></fd-multi-combobox>
             </div>
 
             <div *ngIf="_nodeType === _nodeTypes.PARALLEL" fd-form-item>
