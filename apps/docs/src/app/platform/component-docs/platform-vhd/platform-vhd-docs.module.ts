@@ -8,7 +8,7 @@ import { SharedDocumentationPageModule } from '../../../documentation/shared-doc
 
 import { ButtonModule } from '@fundamental-ngx/core/button';
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-input';
+import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
 import { TokenModule } from '@fundamental-ngx/core/token';
 import { ToolbarModule } from '@fundamental-ngx/core/toolbar';
 import { PlatformValueHelpDialogModule } from '@fundamental-ngx/platform/value-help-dialog';

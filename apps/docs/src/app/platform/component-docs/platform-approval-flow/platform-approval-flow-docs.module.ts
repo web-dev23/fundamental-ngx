@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { FdDatetimeModule } from '@fundamental-ngx/core/datetime';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-input';
+import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
 import { RtlService } from '@fundamental-ngx/core/utils';
 import { PlatformApprovalFlowModule } from '@fundamental-ngx/platform/approval-flow';
 import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';

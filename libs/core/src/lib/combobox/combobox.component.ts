@@ -268,7 +268,7 @@ export class ComboboxComponent
     includes = false;
 
     /**
-     * The tooltip for the multi-input icon.
+     * The tooltip for the multi-combobox icon.
      */
     @Input()
     title: string;

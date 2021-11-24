@@ -18,7 +18,7 @@ import { ListModule } from '@fundamental-ngx/core/list';
 import { DialogModule, DialogService } from '@fundamental-ngx/core/dialog';
 import { CheckboxModule } from '@fundamental-ngx/core/checkbox';
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-input';
+import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
 import {
     DialogInnerPopoverComponent,
     DialogInnerPopoverExampleComponent

@@ -75,7 +75,7 @@ export const appURLs = {
         messageBox: '/message-box',
         messageStrip: '/message-strip',
         messageToast: '/message-toast',
-        multiInput: '/multi-input',
+        multiСombobox: '/multi-combobox',
         notification: '/notification',
         objectIdentifier: '/object-identifier',
         objectMarker: '/object-marker',

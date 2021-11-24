@@ -289,9 +289,11 @@ export const ROUTES: Routes = [
                     )
             },
             {
-                path: 'multi-input',
+                path: 'multi-combobox',
                 loadChildren: () =>
-                    import('./component-docs/multi-input/multi-input-docs.module').then((m) => m.MultiInputDocsModule)
+                    import('./component-docs/multi-combobox/multi-combobox-docs.module').then(
+                        (m) => m.MultiInputDocsModule
+                    )
             },
             {
                 path: 'notification',

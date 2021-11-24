@@ -33,7 +33,7 @@ export * from '@fundamental-ngx/core/layout-grid';
 export * from '@fundamental-ngx/core/layout-panel';
 export * from '@fundamental-ngx/core/menu';
 export * from '@fundamental-ngx/core/dialog';
-export * from '@fundamental-ngx/core/multi-input';
+export * from '@fundamental-ngx/core/multi-combobox';
 export * from '@fundamental-ngx/core/message-box';
 export * from '@fundamental-ngx/core/message-strip';
 export * from '@fundamental-ngx/core/message-page';

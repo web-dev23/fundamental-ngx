@@ -1,0 +1,140 @@
+<fd-docs-section-title id="simple" componentName="multi-combobox"> Simple Multi Input </fd-docs-section-title>
+<description>
+    The standard version of the component that most people will use regularly. Width of the input can be controlled
+    simply through the top-level component element sizing. Overflowing tokens can be reviewed by swiping the tokens left
+    and right.
+</description>
+<component-example>
+    <fd-multi-combobox-example></fd-multi-combobox-example>
+</component-example>
+<code-example [exampleFiles]="multiInputBasic"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="compact" componentName="multi-combobox"> Compact Multi Input </fd-docs-section-title>
+<description>
+    The compact Multi Input is for large screens. The user can review tokens by pressing the right or left arrows on the
+    keyboard.
+</description>
+<component-example>
+    <fd-multi-combobox-compact-example></fd-multi-combobox-compact-example>
+</component-example>
+<code-example [exampleFiles]="compact"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="mobile" componentName="multi-combobox"> Mobile Mode Multi Input </fd-docs-section-title>
+<description>
+    To use Multi Input in mobile mode:
+    <ul>
+        <li>Set <code>[mobile]</code> property to true</li>
+        <li>
+            Set <code>[mobileConfig]</code> with <code>MobileModeConfig</code> configuration object to customize the
+            look of the control
+        </li>
+    </ul>
+
+    Multi Input Mobile Mode can be configured <strong>globally</strong> by providing
+    <code>MOBILE_MODE_CONFIG</code> token. Check
+    <a [routerLink]="['/core/global-config']" fragment="mobile-mode-config">Global Configuration page</a> for more
+    information.
+</description>
+<component-example>
+    <fd-multi-combobox-mobile-example></fd-multi-combobox-mobile-example>
+</component-example>
+<code-example [exampleFiles]="mobile"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="display-object-property" componentName="multi-combobox">
+    Display Object Property
+</fd-docs-section-title>
+<description>
+    The input supports objects through the <code>displayFn</code> input. The way the object is displayed to the user is
+    fully customizable through providing a function that accepts the object and returns the string to be displayed. The
+    example below shows displaying an object field in full uppercase.
+</description>
+<component-example>
+    <fd-multi-combobox-displaywith-example></fd-multi-combobox-displaywith-example>
+</component-example>
+<code-example [exampleFiles]="display"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="includes" componentName="multi-combobox">
+    Return results including search term
+</fd-docs-section-title>
+<description>
+    By default, the multi-combobox will only return results where the result starts with the search term. By setting
+    <code>[includes]="true"</code>, the multi-combobox will return results where the result includes the search term at
+    any place in the string.
+</description>
+<component-example>
+    <fd-multi-combobox-includes-example></fd-multi-combobox-includes-example>
+</component-example>
+<code-example [exampleFiles]="includes"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="custom-filter" componentName="multi-combobox"> Custom Filter </fd-docs-section-title>
+<description>
+    The input supports custom filters through the <code>filterFn</code> input function. Simply pass a function which
+    accepts an array and a search term, and then returns the desired filtered array. In this example, we are requiring
+    that the search term is case-sensitive.
+</description>
+<component-example>
+    <fd-multi-combobox-filter-example></fd-multi-combobox-filter-example>
+</component-example>
+<code-example [exampleFiles]="filter"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="observable-async" componentName="multi-combobox">
+    Observable Async Example
+</fd-docs-section-title>
+<description>
+    The <code>dropdownValues</code> input can accept an Observable with the async pipe, which could be useful for
+    autocomplete.
+</description>
+<component-example>
+    <fd-multi-combobox-async-example></fd-multi-combobox-async-example>
+</component-example>
+<code-example [exampleFiles]="async"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="reactive-form" componentName="multi-combobox">
+    Multi Input in Reactive Form
+</fd-docs-section-title>
+<description>The multi-combobox component may also be used within an angular reactive form.</description>
+<component-example>
+    <fd-multi-combobox-form-example></fd-multi-combobox-form-example>
+</component-example>
+<code-example [exampleFiles]="form"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="new-tokens" componentName="multi-combobox"> Adding New Tokens </fd-docs-section-title>
+<description>
+    Set <code>[allowNewTokens]</code> to "true" to allow the creation of new tokens in the multi-combobox. Note that if
+    you are populating the multi-combobox with objects and using a custom <code>displayFn</code>, you will also need to
+    implement your own <code>newTokenParseFn</code> so your multi-combobox knows how to format a new object. This
+    function is not required if your collection is simply an array of strings. To customise validation function, you can
+    pass <code>[newTokenValidateFn]</code>, which by default doesn't allow empty strings.
+</description>
+<component-example>
+    <fd-multi-combobox-new-tokens-example></fd-multi-combobox-new-tokens-example>
+</component-example>
+<code-example [exampleFiles]="newTokens"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="custom-item" componentName="multi-combobox"> Custom Item Template </fd-docs-section-title>
+<description>
+    The way the items are rendered in the popover list can be customized by providing an <code>itemTemplate</code> to
+    the component. The <code>itemTemplate</code> should align with the contents of an fd-list-item directive.
+</description>
+<component-example>
+    <fd-multi-combobox-custom-item-example></fd-multi-combobox-custom-item-example>
+</component-example>
+<code-example [exampleFiles]="customItem"></code-example>

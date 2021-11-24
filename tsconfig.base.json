@@ -67,7 +67,7 @@
             "@fundamental-ngx/core/message-toast": ["libs/core/src/lib/message-toast/index.ts"],
             "@fundamental-ngx/core/micro-process-flow": ["libs/core/src/lib/micro-process-flow/index.ts"],
             "@fundamental-ngx/core/mobile-mode": ["libs/core/src/lib/mobile-mode/index.ts"],
-            "@fundamental-ngx/core/multi-input": ["libs/core/src/lib/multi-input/index.ts"],
+            "@fundamental-ngx/core/multi-combobox": ["libs/core/src/lib/multi-combobox/index.ts"],
             "@fundamental-ngx/core/nested-list": ["libs/core/src/lib/nested-list/index.ts"],
             "@fundamental-ngx/core/notification": ["libs/core/src/lib/notification/index.ts"],
             "@fundamental-ngx/core/object-identifier": ["libs/core/src/lib/object-identifier/index.ts"],

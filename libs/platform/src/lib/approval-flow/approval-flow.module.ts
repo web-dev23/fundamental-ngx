@@ -16,7 +16,7 @@ import { IllustratedMessageModule } from '@fundamental-ngx/core/illustrated-mess
 import { MenuModule } from '@fundamental-ngx/core/menu';
 import { MessageStripModule } from '@fundamental-ngx/core/message-strip';
 import { MessageToastModule } from '@fundamental-ngx/core/message-toast';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-input';
+import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
 import { RadioModule } from '@fundamental-ngx/core/radio';
 import { SelectModule } from '@fundamental-ngx/core/select';
 

@@ -61,7 +61,7 @@ export class CoreDocumentationComponent extends DocumentationBaseComponent {
             { url: 'core/message-page', name: 'Message Page' },
             { url: 'core/message-toast', name: 'Message Toast' },
             { url: 'core/micro-process-flow', name: 'Micro Process Flow' },
-            { url: 'core/multi-input', name: 'Multi Input' },
+            { url: 'core/multi-combobox', name: 'Multi Combobox' },
             { url: 'core/notification', name: 'Notification' },
             { url: 'core/object-marker', name: 'Object Marker' },
             { url: 'core/object-identifier', name: 'Object Identifier' },

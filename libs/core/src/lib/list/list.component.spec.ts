@@ -69,7 +69,7 @@ describe('ListComponent', () => {
         expect(component.ref.nativeElement.classList).toContain('fd-list--no-border');
         expect(component.ref.nativeElement.classList).toContain('fd-list--has-message');
         expect(component.ref.nativeElement.classList).toContain('fd-list--compact');
-        expect(component.ref.nativeElement.classList).toContain('fd-list--multi-input');
+        expect(component.ref.nativeElement.classList).toContain('fd-list--multi-combobox');
         expect(component.ref.nativeElement.classList).toContain('fd-list--dropdown');
     });
 });
