@@ -5,7 +5,8 @@
     fdType="transparent"
     glyph="navigation-up-arrow"
     [compact]="compact"
-    [attr.aria-label]="timeConfig?.decreaseLabel"
+    [ariaLabel]="timeConfig?.decreaseLabel"
+    [attr.title]="timeConfig?.decreaseLabel"
     (keyup)="spinnerButtonKeyupHandle($event, true)"
     (click)="scrollUp($event)"
 ></button>
@@ -52,7 +53,8 @@
     fdType="transparent"
     glyph="navigation-down-arrow"
     [compact]="compact"
-    [attr.aria-label]="timeConfig?.increaseLabel"
+    [ariaLabel]="timeConfig?.increaseLabel"
+    [attr.title]="timeConfig?.increaseLabel"
     (keyup)="spinnerButtonKeyupHandle($event)"
     (click)="scrollDown()"
 ></button>

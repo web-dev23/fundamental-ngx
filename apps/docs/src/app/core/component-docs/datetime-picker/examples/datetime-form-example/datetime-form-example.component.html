@@ -1,7 +1,8 @@
 <form [formGroup]="customForm" class="flex-form">
     <div fd-form-item>
-        <label fd-form-label required="true">Valid Date Picker</label>
+        <label fd-form-label required="true" for="reactive-form-datetime-picker-valid-input">Valid Date Picker</label>
         <fd-datetime-picker
+            inputId="reactive-form-datetime-picker-valid-input"
             [state]="isValid() ? 'success' : 'error'"
             [message]="isValid() ? 'This is valid DateTimePicker' : 'This is invalid DateTimePicker'"
             required="true"
@@ -18,8 +19,9 @@
     </div>
     <br /><br />
     <div fd-form-item>
-        <label fd-form-label>Disabled Date Picker</label>
+        <label fd-form-label for="reactive-form-datetime-picker-input-disabled">Disabled Date Picker</label>
         <fd-datetime-picker
+            inputId="reactive-form-datetime-picker-input-disabled"
             state="information"
             message="This is disabled DateTimePicker"
             formControlName="disabledDate"

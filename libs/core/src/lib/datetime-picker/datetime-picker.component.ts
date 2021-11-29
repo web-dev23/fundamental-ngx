@@ -30,6 +30,8 @@ import { InputGroupInputDirective } from '@fundamental-ngx/core/input-group';
 
 import { createMissingDateImplementationError } from './errors';
 
+let pickerUniqueId = 0;
+
 /**
  * The datetime picker component is an opinionated composition of the fd-popover,
  * fd-calendar and fd-time components to accomplish the UI pattern for picking a date and time.
@@ -65,6 +67,10 @@ import { createMissingDateImplementationError } from './errors';
 export class DatetimePickerComponent<D>
     implements OnInit, OnDestroy, OnChanges, AfterViewInit, ControlValueAccessor, Validator
 {
+    /** Id of the calendar. If none is provided, one will be generated. */
+    @Input()
+    id = 'fd-datetime-picker-' + pickerUniqueId++;
+
     /** Placeholder for the inner input element. */
     @Input()
     placeholder = '';
@@ -165,11 +171,11 @@ export class DatetimePickerComponent<D>
 
     /** Aria label for the datetime picker input. */
     @Input()
-    datetimeInputLabel = 'Datetime input';
+    datetimeInputLabel = 'Date/Time input';
 
     /** Aria label for the button to show/hide the calendar. */
     @Input()
-    displayDatetimeToggleLabel = 'Display calendar toggle';
+    displayDatetimeToggleLabel = 'Open picker';
 
     /** Whether a null input is considered valid. */
     @Input()
@@ -206,7 +212,7 @@ export class DatetimePickerComponent<D>
      * Whether AddOn Button should be focusable, set to true by default
      */
     @Input()
-    buttonFocusable = false;
+    buttonFocusable = true;
 
     /**
      * Special days mark, it can be used by passing array of object with
@@ -326,6 +332,11 @@ export class DatetimePickerComponent<D>
 
     /** @hidden */
     _displayHours: boolean;
+
+    /** @hidden */
+    get _pickerDialogId(): string {
+        return `${this.id}-dialog`;
+    }
 
     /** @hidden */
     private readonly _onDestroy$: Subject<void> = new Subject<void>();
@@ -572,8 +583,9 @@ export class DatetimePickerComponent<D>
      * Looks like no one uses it. Should be removed?
      */
     focusArrowLeft(): void {
-        if (this._elRef.nativeElement.querySelector('#' + this._calendarComponent.id + '-left-arrow')) {
-            this._elRef.nativeElement.querySelector('#' + this._calendarComponent.id + '-left-arrow').focus();
+        const leftArrow = this._elRef.nativeElement.querySelector('#' + this._calendarComponent.id + '-left-arrow');
+        if (leftArrow) {
+            leftArrow.focus();
         }
     }
 
@@ -624,6 +636,13 @@ export class DatetimePickerComponent<D>
     /** Method that provides information if model selected date/dates have properly types and are valid */
     isCurrentModelValid(): boolean {
         return this._isModelValid(this.date);
+    }
+
+    /** @hidden */
+    _preventFocusOnToggler(event: MouseEvent): void {
+        if (!this.buttonFocusable) {
+            event.preventDefault();
+        }
     }
 
     /** Method that provides information if FdDateTime passed as arg has properly types and is valid */

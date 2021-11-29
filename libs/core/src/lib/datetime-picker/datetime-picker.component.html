@@ -3,7 +3,7 @@
         [(isOpen)]="isOpen"
         (isOpenChange)="_onOpenStateChanged($event)"
         [focusTrapped]="true"
-        [focusAutoCapture]="false"
+        [focusAutoCapture]="true"
         [triggers]="[]"
         [disabled]="disabled"
         [placement]="placement"
@@ -16,31 +16,52 @@
                 [state]="state"
                 [disabled]="disabled"
                 [isControl]="true"
-                [button]="true"
-                [buttonFocusable]="buttonFocusable"
-                glyph="date-time"
-                [isExpanded]="isOpen"
-                [glyphAriaLabel]="displayDatetimeToggleLabel"
-                [iconTitle]="displayDatetimeToggleLabel"
-                (addOnButtonClicked)="togglePopover()"
             >
                 <input
                     type="text"
                     class="fd-input"
+                    aria-autocomplete="none"
                     fd-input-group-input
                     [(ngModel)]="_inputFieldDate"
                     [attr.aria-label]="datetimeInputLabel"
                     [attr.id]="inputId"
                     [attr.aria-required]="required"
+                    [attr.aria-expanded]="isOpen"
                     [placeholder]="placeholder"
                     [compact]="compact"
                     [disabled]="disabled"
                     (ngModelChange)="handleInputChange($event)"
                     (focus)="onTouched()"
+                    [attr.aria-describedby]="id + '-input-open-dialog-shortcuts'"
                 />
+                <span fd-input-group-addon button="true">
+                    <button
+                        fd-button
+                        type="button"
+                        fdType="transparent"
+                        [compact]="compact"
+                        [attr.tabindex]="buttonFocusable ? 0 : -1"
+                        [attr.title]="displayDatetimeToggleLabel"
+                        glyph="date-time"
+                        [class.is-expanded]="isOpen"
+                        [attr.aria-expanded]="isOpen"
+                        [ariaLabel]="displayDatetimeToggleLabel"
+                        [attr.aria-controls]="_pickerDialogId"
+                        [disabled]="disabled"
+                        (mousedown)="_preventFocusOnToggler($event)"
+                        (click)="togglePopover()"
+                    ></button>
+                </span>
             </fd-input-group>
         </fd-popover-control>
-        <fd-popover-body [attr.aria-expanded]="isOpen" [attr.aria-hidden]="!isOpen" [style.display]="'block'">
+        <fd-popover-body
+            [attr.id]="_pickerDialogId"
+            [attr.aria-expanded]="isOpen"
+            [attr.aria-hidden]="!isOpen"
+            style="display: block"
+            role="dialog"
+            aria-modal="true"
+        >
             <fd-form-message [embedded]="true" *ngIf="_message" [type]="state">
                 {{ _message }}
             </fd-form-message>
