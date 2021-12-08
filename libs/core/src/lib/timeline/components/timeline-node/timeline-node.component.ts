@@ -32,8 +32,9 @@ export class TimelineNodeComponent implements OnInit, OnDestroy {
     @ViewChild('lineEl')
     lineEl: ElementRef;
 
-    /** @hidden Whether or not this timeline node should be displayed. Will be set to false when a timeline group is collapsed. */
-    expanded = true;
+    /* The group header value for this node. */
+    @Input()
+    group: string;
 
     /** @hidden */
     constructor(public el: ElementRef, private _timelinePositionControl: TimelinePositionControlService) {}

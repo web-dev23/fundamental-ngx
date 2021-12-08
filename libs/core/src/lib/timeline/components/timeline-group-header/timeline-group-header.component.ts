@@ -1,21 +1,16 @@
-import { ChangeDetectionStrategy, Component, Input, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+    ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
 
 @Component({
     selector: 'fd-timeline-group',
-    template: `<div class="fd-timeline__group-header-container">
-        <div
-            class="fd-timeline__group-header"
-            (click)="_headerClicked()"
-            [ngClass]="{ 'fd-timeline__group-header--collapsed': !expanded }"
-            tabindex="0"
-        >
-            <span class="fd-timeline__group-header-icon">
-                <i [ngClass]="expanded ? 'sap-icon--navigation-down-arrow' : 'sap-icon--navigation-right-arrow'"></i>
-            </span>
-            <span class="fd-timeline__group-header-text">{{ groupTitle }}</span>
-        </div>
-        <div class="fd-timeline__group-header-bar" *ngIf="!expanded"></div>
-    </div>`,
+    templateUrl: './timeline-group-header.component.html',
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -26,11 +21,16 @@ export class TimelineGroupHeaderComponent {
     /** Whether or not this timeline is expanded. */
     expanded = true;
 
+    /** Event emitted when the dragged file exits the dropzone. */
+    @Output()
+    readonly headerClicked = new EventEmitter<{ groupTitle: string; expanded: boolean }>();
+
     /*Ref to ViewContainerRef instance*/
     constructor(public viewContainer: ViewContainerRef) {}
 
     /** @hidden */
     _headerClicked(): void {
         this.expanded = !this.expanded;
+        this.headerClicked.emit({ groupTitle: this.groupTitle, expanded: this.expanded });
     }
 }

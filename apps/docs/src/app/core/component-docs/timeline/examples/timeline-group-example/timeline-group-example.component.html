@@ -1,6 +1,6 @@
 <div class="docs-timeline-example-container__col docs-timeline-example-container__col--left">
-    <fd-timeline [dataSource]="data" [trackBy]="trackBy" [groupBy]="groupBy">
-        <fd-timeline-node *fd-timeline-node-def="let node">
+    <fd-timeline [dataSource]="data" [trackBy]="trackBy" [groupBy]="groupBy" layout="left">
+        <fd-timeline-node *fd-timeline-node-def="let node" [group]="node.date.getFullYear().toString()">
             <fd-timeline-node-header>
                 <fd-avatar [circle]="true" size="xs" [label]="node.user.name" [image]="node.user.avatar"></fd-avatar>
                 <fd-timeline-node-header-info>

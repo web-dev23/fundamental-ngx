@@ -4,9 +4,9 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentFactory,
     ComponentFactoryResolver,
     ContentChildren,
+    EmbeddedViewRef,
     Input,
     IterableChangeRecord,
     IterableDiffer,
@@ -20,6 +20,7 @@ import {
     SimpleChanges,
     TrackByFunction,
     ViewChild,
+    ViewChildren,
     ViewContainerRef,
     ViewEncapsulation
 } from '@angular/core';
@@ -32,8 +33,8 @@ import { TimelineNodeDefDirective, TimelineNodeOutletContext } from './directive
 import { TimelinePositionControlService } from './services/timeline-position-control.service';
 import { TimelineAxis, TimeLinePositionStrategy, TimelineSidePosition } from './types';
 import { TimelineSecondListOutletDirective } from './directives/timeline-second-list-outlet.directive';
-import { TimelineGroupHeaderComponent } from './components/timeline-group-header/timeline-group-header.component';
 import { TimelineNodeComponent } from './components/timeline-node/timeline-node.component';
+import { TimelineGroupHeaderComponent } from './components/timeline-group-header/timeline-group-header.component';
 
 @Component({
     selector: 'fd-timeline',
@@ -64,10 +65,9 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     trackBy: TrackByFunction<T>;
 
     /**
-     * (Optional) Function used to group timeline items.
+     * Optional function used to group timeline items.
      */
     @Input()
-    @Optional()
     groupBy: TrackByFunction<T>;
 
     /**
@@ -102,10 +102,17 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
     private _timelineNodes: QueryList<TimelineNodeComponent>;
 
     /** @hidden */
+    @ViewChildren(TimelineGroupHeaderComponent)
+    private _groupHeaders: QueryList<TimelineGroupHeaderComponent>;
+
+    /** @hidden */
     _canShowFirstList = true;
 
     /** @hidden */
     _canShowSecondList = true;
+
+    /** @hidden */
+    _groups = {};
 
     /** Differ used to find the changes in the data provided by the data source. */
     private _dataDifferForFirstList: IterableDiffer<T>;
@@ -212,11 +219,45 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         );
     }
 
-    /** @hidden */
     private _handleGroups(): void {
-        console.log(this._timelineNodes);
-        this._timelineNodes.forEach((node, index) => {
-            console.log(node);
+        this._groups = {};
+        if (this.groupBy) {
+            this.dataSource.forEach((item, index) => {
+                const groupValue = this.groupBy(index, item);
+                if (this._groups[groupValue] === undefined) {
+                    this._groups[groupValue] = [item];
+                } else {
+                    this._groups[groupValue].push(item);
+                }
+            });
+        }
+
+        Object.keys(this._groups).forEach((group) => {
+            const factory = this._resolver.resolveComponentFactory(TimelineGroupHeaderComponent);
+            const viewContainer = this._firstListOutlet?.viewContainer;
+            const timelineGroupHeader = viewContainer.createComponent(factory);
+            timelineGroupHeader.instance.groupTitle = group;
+            timelineGroupHeader.instance.headerClicked.subscribe((e) => {
+                this._handleHeaderClicked(e);
+            });
+            for (let i = 0; i < viewContainer.length; i++) {
+                const viewRef = <EmbeddedViewRef<any>>viewContainer.get(i);
+                if (this.groupBy(i, viewRef.context.$implicit).toString() === group) {
+                    viewContainer.move(timelineGroupHeader.hostView, i);
+                    break;
+                }
+            }
+        });
+
+        this._cd.markForCheck();
+    }
+
+    private _handleHeaderClicked(e: any): void {
+        this._timelineNodes.forEach((node) => {
+            if (node.group === e.groupTitle) {
+                const nativeEl = node.el.nativeElement;
+                nativeEl.style.display = e.expanded ? 'flex' : 'none';
+            }
         });
     }
 
@@ -236,10 +277,6 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         const context = new TimelineNodeOutletContext<T>(nodeData);
 
         vcr.createEmbeddedView(node.template, context, index);
-
-        // const factory = this._resolver.resolveComponentFactory(TimelineGroupHeaderComponent);
-        // const timelineGroupHeader = vcr.createComponent(factory);
-        // timelineGroupHeader.instance.groupTitle = 'asdf';
     }
 
     /**

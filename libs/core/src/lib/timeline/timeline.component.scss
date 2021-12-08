@@ -72,7 +72,8 @@ $line-width: 0.0625rem;
             }
         }
 
-        .fd-timeline__post {
+        .fd-timeline__post,
+        .fd-timeline__group-header-container {
             @include fd-set-margin-right(1.25rem);
         }
 
@@ -169,7 +170,8 @@ $line-width: 0.0625rem;
             }
         }
 
-        .fd-timeline__post {
+        .fd-timeline__post,
+        .fd-timeline__group-header-container {
             margin-bottom: 1.25rem;
         }
 
