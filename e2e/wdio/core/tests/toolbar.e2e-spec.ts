@@ -2,6 +2,7 @@ import { ToolbarPo } from '../pages/toolbar.po';
 import {
     checkElementScreenshot,
     click,
+    doesItExist,
     getAttributeByName,
     getElementArrayLength,
     getElementPlaceholder,
@@ -14,7 +15,8 @@ import {
     saveElementScreenshot,
     scrollIntoView,
     setValue,
-    waitForElDisplayed
+    waitForElDisplayed,
+    waitForPresent
 } from '../../driver/wdio';
 import { fruitArr, currentDay, date, placeholder, testText } from '../fixtures/appData/toolbar-contents';
 
@@ -36,9 +38,9 @@ describe('Toolbar test suite', () => {
         selectedMinutes,
         navigationUpArrowButton,
         navigationDownArrowButton,
-        timeItem,
+        timeColumn,
         period,
-        dayInCalendarButtonByValue,
+        clickDayInCalendarButtonByValue,
         dateTimeButton,
         okButton,
         dateTimeInput,
@@ -49,7 +51,8 @@ describe('Toolbar test suite', () => {
         popoverButton,
         popoverToggledButton,
         popoverSplitButton,
-        popoverDropDown
+        popoverDropDown,
+        overflowInput
     } = toolbarPage;
 
     beforeAll(() => {
@@ -119,7 +122,7 @@ describe('Toolbar test suite', () => {
         it('verify date time picker example', () => {
             scrollIntoView(dateTimeButton);
             click(dateTimeButton);
-            click(dayInCalendarButtonByValue(currentDay.toString()));
+            clickDayInCalendarButtonByValue(currentDay);
             selectHoursMinutesAndPeriod();
             click(okButton);
             expect(getValue(dateTimeInput)).toEqual(date);
@@ -136,15 +139,28 @@ describe('Toolbar test suite', () => {
 
         it('verify popover input has placeholder', () => {
             scrollIntoView(toolbarOverflowExample + moreButton);
-            click(toolbarOverflowExample + moreButton);
-            expect(getElementPlaceholder(popoverInput)).toBe(placeholder);
+            if (getElementArrayLength(overflowInput) === 2) {
+                expect(getElementPlaceholder(overflowInput, 1)).toBe(placeholder);
+            }
+            if (getElementArrayLength(overflowInput) === 1) {
+                click(toolbarOverflowExample + moreButton);
+                waitForPresent(popoverInput);
+                expect(getElementPlaceholder(popoverInput)).toBe(placeholder);
+            }
         });
 
         it('verify that possible enter value popover input', () => {
             scrollIntoView(toolbarOverflowExample + moreButton);
-            click(toolbarOverflowExample + moreButton);
-            setValue(popoverInput, testText);
-            expect(getValue(popoverInput)).toBe(testText);
+            if (getElementArrayLength(overflowInput) === 2) {
+                setValue(overflowInput, testText, 1);
+                expect(getValue(overflowInput, 1)).toBe(testText);
+            }
+            if (getElementArrayLength(overflowInput) === 1) {
+                click(toolbarOverflowExample + moreButton);
+                waitForPresent(popoverInput);
+                setValue(popoverInput, testText);
+                expect(getValue(popoverInput)).toBe(testText);
+            }
         });
 
         it('verify popover buttons are clickable', () => {
@@ -199,11 +215,11 @@ describe('Toolbar test suite', () => {
         while (getText(selectedHours) !== hour.toString()) {
             click(navigationUpArrowButton);
         }
-        click(timeItem, 1);
+        click(timeColumn, 1);
         while (getText(selectedMinutes) !== minute.toString()) {
             click(navigationDownArrowButton);
         }
-        click(timeItem, 2);
+        click(timeColumn, 2);
         click(period);
     }
 });

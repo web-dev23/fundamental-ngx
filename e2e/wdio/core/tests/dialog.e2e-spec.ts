@@ -223,11 +223,12 @@ describe('dialog test suite', () => {
 
             expect(getText(dialogCartOutput)).not.toEqual(startingPrice);
             clearAndCloseDialog();
-        }, 1);
+        });
 
         it('should check ability to clear dialog/cart', () => {
             openDialog(complexDialog);
             waitForNotDisplayed(busyIndicator);
+            waitForElDisplayed(dialogItems);
 
             click(dialogItems, 1);
             click(dialogItems, 3);
@@ -235,7 +236,7 @@ describe('dialog test suite', () => {
 
             expect(getText(dialogCartOutput)).toEqual(defaultPrice);
             clearAndCloseDialog();
-        }, 1);
+        });
 
         it('should check dialog search', () => {
             if (browserIsFirefox()) {
@@ -250,7 +251,7 @@ describe('dialog test suite', () => {
 
             expect(getText(dialogItems).toLowerCase()).toContain(papayaFruit);
             clearAndCloseDialog();
-        }, 1);
+        });
 
         it('should check resizing dialog', () => {
             if (browserIsFirefox()) {
@@ -449,7 +450,7 @@ describe('dialog test suite', () => {
 
         it('should check dialog verticalPadding option', () => {
             openDialog(playgroundDialog);
-            // tslint:disable-next-line:radix
+            // eslint-disable-next-line radix
             const dialogPaddingValue = parseInt(
                 getCSSPropertyByName(dialogBody, topPaddingProperty).value.replace('px', '')
             );
@@ -459,7 +460,7 @@ describe('dialog test suite', () => {
             closeDialog();
             click(playgroundDialog + checkboxes, 9);
             openDialog(playgroundDialog);
-            // tslint:disable-next-line:radix
+            // eslint-disable-next-line radix
             const newDialogPaddingValue = parseInt(
                 getCSSPropertyByName(dialogBody, topPaddingProperty).value.replace('px', '')
             );
