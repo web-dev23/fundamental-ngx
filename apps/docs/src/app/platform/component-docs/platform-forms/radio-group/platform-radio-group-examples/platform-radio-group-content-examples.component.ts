@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { MessageToastService } from '@fundamental-ngx/core/message-toast';
 
@@ -6,7 +6,7 @@ import { MessageToastService } from '@fundamental-ngx/core/message-toast';
     selector: 'fdp-platform-radio-group-content-example',
     templateUrl: './platform-radio-group-content-example.component.html'
 })
-export class PlatformRadioGroupContentExampleComponent implements AfterViewInit {
+export class PlatformRadioGroupContentExampleComponent {
     favoriteSeason = '';
     favoriteSeason2 = 'spring';
     favoriteMonth = '';
@@ -39,14 +39,5 @@ export class PlatformRadioGroupContentExampleComponent implements AfterViewInit 
         this._messageToastService.open(content, {
             duration: 5000
         });
-    }
-
-    ngAfterViewInit(): void {
-        console.log(this.form4.value);
-    }
-
-    setVal(): void {
-        this.form1.controls.radioc1.setValue('spring');
-        console.log(this.form4.value);
     }
 }

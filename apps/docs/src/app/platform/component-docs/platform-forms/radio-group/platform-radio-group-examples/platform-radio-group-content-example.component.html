@@ -2,7 +2,13 @@
 <p>Compact radio group with 'default' state and with default selection</p>
 <fdp-form-group [formGroup]="form1">
     <fdp-form-field #ffl1 id="radioc1" rank="1">
-        <fdp-radio-group name="radioc1" contentDensity="compact" [isInline]="false" [formControl]="ffl1.formControl">
+        <fdp-radio-group
+            name="radioc1"
+            contentDensity="compact"
+            selected="spring"
+            [isInline]="false"
+            [formControl]="ffl1.formControl"
+        >
             <fdp-radio-button value="winter">Winter</fdp-radio-button>
             <fdp-radio-button value="spring">Spring</fdp-radio-button>
             <fdp-radio-button value="summer">Summer</fdp-radio-button>
@@ -12,8 +18,6 @@
 </fdp-form-group>
 <p style="margin-left: 2rem">Selected value: {{ form1.controls.radioc1?.value }}</p>
 <br />
-
-<button (click)="setVal()"></button>
 
 <p>Inline cozy radio group</p>
 <fdp-form-group [formGroup]="form2">
