@@ -1,5 +1,6 @@
 import { TimelineNodeComponent } from '../../components/timeline-node/timeline-node.component';
 import { TimelineAxis } from '../../types';
+import { TimelineGroupHeaderComponent } from '../..';
 
 export abstract class BaseStrategy {
     /** Offset between nodes lines */
@@ -12,15 +13,20 @@ export abstract class BaseStrategy {
     private readonly VERTICAL_TOP_LIST_OFFSET = 24;
 
     /** Calculate styles for timeline nodes */
-    abstract calculateStyles(nodes: TimelineNodeComponent[]): any;
+    abstract calculateStyles(nodes: (TimelineNodeComponent | TimelineGroupHeaderComponent)[]): any;
 
     /** @hidden */
-    protected _getOffset(node: TimelineNodeComponent): number {
+    protected _getOffset(node: TimelineNodeComponent | TimelineGroupHeaderComponent): number {
         return node.glyph ? this.BIG_OFFSET : this.SMALL_OFFSET;
     }
 
     /** @hidden */
-    protected _getTwoListFromOne(nodes: TimelineNodeComponent[]): [TimelineNodeComponent[], TimelineNodeComponent[]] {
+    protected _getTwoListFromOne(
+        nodes: (TimelineNodeComponent | TimelineGroupHeaderComponent)[]
+    ): [
+        (TimelineNodeComponent | TimelineGroupHeaderComponent)[],
+        (TimelineNodeComponent | TimelineGroupHeaderComponent)[]
+    ] {
         const lastIndexInFirstList = Math.floor(nodes.length / 2);
         const firstList = nodes.slice(0, lastIndexInFirstList + 1);
         const secondList = nodes.slice(lastIndexInFirstList + 1, nodes.length);
@@ -28,7 +34,10 @@ export abstract class BaseStrategy {
     }
 
     /** @hidden */
-    protected _setStylesForSingleList(nodes: TimelineNodeComponent[], axis: TimelineAxis): void {
+    protected _setStylesForSingleList(
+        nodes: (TimelineNodeComponent | TimelineGroupHeaderComponent)[],
+        axis: TimelineAxis
+    ): void {
         const [offsetProperty, sizeProperty] =
             axis === 'horizontal' ? ['offsetLeft', 'width'] : ['offsetTop', 'height'];
 
@@ -49,7 +58,10 @@ export abstract class BaseStrategy {
     }
 
     /** @hidden */
-    protected _setStylesForDoubleList(nodes: TimelineNodeComponent[], axis: TimelineAxis): void {
+    protected _setStylesForDoubleList(
+        nodes: (TimelineNodeComponent | TimelineGroupHeaderComponent)[],
+        axis: TimelineAxis
+    ): void {
         const [firstList, secondList] = this._getTwoListFromOne(nodes);
         const [offsetProp, sizeProp, sizeOffsetProp] =
             axis === 'horizontal' ? ['offsetLeft', 'width', 'offsetWidth'] : ['offsetTop', 'height', 'offsetHeight'];

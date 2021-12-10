@@ -1,20 +1,15 @@
-<!--div class="fd-timeline__node-container">
-    <div class="fd-timeline__icon-wrapper">
-        <div class="fd-timeline__node" [class.fd-timeline__node--icon]="!!glyph">
-            <fd-icon *ngIf="glyph" [glyph]="glyph"></fd-icon>
-        </div>
-    </div>
+<div class="fd-timeline__node-container">
+    <div class="fd-timeline__node fd-timeline__node--grouping" *ngIf="!expanded"></div>
     <div #lineEl class="fd-timeline__connecting-line"></div>
 </div>
-<div tabindex="0" role="timelineitem" [attr.aria-label]="ariaLabel" class="fd-timeline__post">
-    <ng-content></ng-content>
-</div-->
-
 <div class="fd-timeline__group-header-container">
     <div
         class="fd-timeline__group-header"
         (click)="_headerClicked()"
-        [ngClass]="{ 'fd-timeline__group-header--collapsed': !expanded }"
+        [ngClass]="{
+            'fd-timeline__group-header--collapsed': !expanded,
+            'fd-timeline__group-header--horizontal': axis === 'horizontal'
+        }"
         tabindex="0"
     >
         <span class="fd-timeline__group-header-icon">

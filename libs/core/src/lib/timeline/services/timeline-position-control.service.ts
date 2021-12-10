@@ -3,12 +3,13 @@ import { TimelineNodeComponent } from '../components/timeline-node/timeline-node
 import { TimeLinePositionStrategy } from '../types';
 import { BaseStrategy } from './position-strategies/base-strategy';
 import { PositionStrategyFactory } from './position-strategies/position-strategy-factory';
+import { TimelineGroupHeaderComponent } from '..';
 
 @Injectable()
 export class TimelinePositionControlService {
     /* List of TimelineNodeComponent */
     /** @hidden */
-    private _nodeItems: TimelineNodeComponent[] = [];
+    private _nodeItems: (TimelineNodeComponent | TimelineGroupHeaderComponent)[] = [];
 
     /* Current position strategy. It depends on axis and layout */
     /** @hidden */
@@ -25,11 +26,11 @@ export class TimelinePositionControlService {
     }
 
     /** Register TimelineNodeComponent */
-    registerNode(node: TimelineNodeComponent): void {
+    registerNode(node: TimelineNodeComponent | TimelineGroupHeaderComponent): void {
         this._nodeItems.push(node);
     }
     /** Remove TimelineNodeComponent */
-    removeNode(node: TimelineNodeComponent): void {
+    removeNode(node: TimelineNodeComponent | TimelineGroupHeaderComponent): void {
         this._nodeItems = this._nodeItems.filter((item) => item !== node);
     }
 }

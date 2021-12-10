@@ -15,7 +15,6 @@ import {
     OnChanges,
     OnDestroy,
     OnInit,
-    Optional,
     QueryList,
     SimpleChanges,
     TrackByFunction,
@@ -236,6 +235,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
             const factory = this._resolver.resolveComponentFactory(TimelineGroupHeaderComponent);
             const viewContainer = this._firstListOutlet?.viewContainer;
             const timelineGroupHeader = viewContainer.createComponent(factory);
+            timelineGroupHeader.instance.axis = this.axis;
             timelineGroupHeader.instance.groupTitle = group;
             timelineGroupHeader.instance.headerClicked.subscribe((e) => {
                 this._handleHeaderClicked(e);
@@ -250,6 +250,7 @@ export class TimelineComponent<T> implements OnInit, OnDestroy, OnChanges, After
         });
 
         this._cd.markForCheck();
+        this._timelinePositionControlService.calculatePositions();
     }
 
     private _handleHeaderClicked(e: any): void {
