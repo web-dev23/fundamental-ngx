@@ -80,6 +80,9 @@ export class BreadcrumbComponent implements AfterContentInit, OnInit, OnDestroy 
     @Input()
     reverse = false;
 
+    @Input()
+    tabIndex = '0';
+
     /** @hidden */
     containerBoundary: number;
 
