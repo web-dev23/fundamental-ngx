@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MultiInputComponent } from './multi-combobox.component';
+import { MultiComboboxComponent } from './multi-combobox.component';
 import { TokenModule } from '@fundamental-ngx/core/token';
 import { FormsModule } from '@angular/forms';
 import { PopoverModule } from '@fundamental-ngx/core/popover';
@@ -13,7 +13,7 @@ import { LinkModule } from '@fundamental-ngx/core/link';
 import { AutoCompleteModule } from '@fundamental-ngx/core/utils';
 
 @NgModule({
-    declarations: [MultiInputComponent],
+    declarations: [MultiComboboxComponent],
     imports: [
         CommonModule,
         TokenModule,
@@ -27,6 +27,6 @@ import { AutoCompleteModule } from '@fundamental-ngx/core/utils';
         LinkModule,
         AutoCompleteModule
     ],
-    exports: [MultiInputComponent]
+    exports: [MultiComboboxComponent]
 })
-export class MultiInputModule {}
+export class MultiComboboxModule {}

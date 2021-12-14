@@ -174,7 +174,7 @@ export const API_FILES = {
         'DialogFooterComponent',
         'DialogRef'
     ],
-    multiInput: ['MultiInputComponent'],
+    multiCombobox: ['MultiComboboxComponent'],
     messageBox: [
         'MessageBoxRef',
         'MessageBoxConfig',

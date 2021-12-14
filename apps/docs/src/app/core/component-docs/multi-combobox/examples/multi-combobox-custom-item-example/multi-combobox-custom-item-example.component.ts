@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'fd-multi-combobox-custom-item-example',
     templateUrl: './multi-combobox-custom-item-example.component.html'
 })
-export class MultiInputCustomItemExampleComponent {
+export class MultiComboboxCustomItemExampleComponent {
     values = [
         { name: 'Photo Voltaic', icon: 'photo-voltaic' },
         { name: 'Settings', icon: 'settings' },

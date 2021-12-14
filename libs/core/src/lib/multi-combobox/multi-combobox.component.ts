@@ -41,9 +41,9 @@ import {
     uuidv4
 } from '@fundamental-ngx/core/utils';
 
-import { MultiInputMobileComponent } from './multi-combobox-mobile/multi-combobox-mobile.component';
-import { MultiInputMobileModule } from './multi-combobox-mobile/multi-combobox-mobile.module';
-import { MULTI_INPUT_COMPONENT, MultiInputInterface } from './multi-combobox.interface';
+import { MultiComboboxMobileComponent } from './multi-combobox-mobile/multi-combobox-mobile.component';
+import { MultiComboboxMobileModule } from './multi-combobox-mobile/multi-combobox-mobile.module';
+import { MULTI_INPUT_COMPONENT, MultiComboboxInterface } from './multi-combobox.interface';
 
 /**
  * Input field with multiple selection enabled. Should be used when a user can select between a
@@ -61,7 +61,7 @@ import { MULTI_INPUT_COMPONENT, MultiInputInterface } from './multi-combobox.int
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => MultiInputComponent),
+            useExisting: forwardRef(() => MultiComboboxComponent),
             multi: true
         },
         MenuKeyboardService
@@ -69,8 +69,15 @@ import { MULTI_INPUT_COMPONENT, MultiInputInterface } from './multi-combobox.int
     encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MultiInputComponent
-    implements MultiInputInterface, ControlValueAccessor, CssClassBuilder, OnInit, OnChanges, AfterViewInit, OnDestroy
+export class MultiComboboxComponent
+    implements
+        MultiComboboxInterface,
+        ControlValueAccessor,
+        CssClassBuilder,
+        OnInit,
+        OnChanges,
+        AfterViewInit,
+        OnDestroy
 {
     /** Placeholder for the input field. */
     @Input()
@@ -108,7 +115,7 @@ export class MultiInputComponent
     @Input()
     searchTerm = '';
 
-    /** Id attribute for input element inside MultiInput component */
+    /** Id attribute for input element inside MultiCombobox component */
     @Input()
     inputId = '';
 
@@ -655,8 +662,8 @@ export class MultiInputComponent
 
         await this._dynamicComponentService.createDynamicModule(
             { listTemplate: this.listTemplate, controlTemplate: this.controlTemplate },
-            MultiInputMobileModule,
-            MultiInputMobileComponent,
+            MultiComboboxMobileModule,
+            MultiComboboxMobileComponent,
             this._viewContainerRef,
             injector
         );

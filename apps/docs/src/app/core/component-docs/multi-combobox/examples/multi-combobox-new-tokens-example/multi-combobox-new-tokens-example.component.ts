@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'fd-multi-combobox-new-tokens-example',
     templateUrl: './multi-combobox-new-tokens-example.component.html'
 })
-export class MultiInputNewTokensExampleComponent {
+export class MultiComboboxNewTokensExampleComponent {
     values = [
         { name: 'Apple' },
         { name: 'Banana' },

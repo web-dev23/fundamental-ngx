@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 import { DialogService } from '@fundamental-ngx/core/dialog';
 import { takeUntil } from 'rxjs/operators';
-import { MULTI_INPUT_COMPONENT, MultiInputInterface } from '../multi-combobox.interface';
+import { MULTI_INPUT_COMPONENT, MultiComboboxInterface } from '../multi-combobox.interface';
 import {
     MOBILE_MODE_CONFIG,
     MobileModeBase,
@@ -28,8 +28,8 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class MultiInputMobileComponent
-    extends MobileModeBase<MultiInputInterface>
+export class MultiComboboxMobileComponent
+    extends MobileModeBase<MultiComboboxInterface>
     implements OnInit, AfterViewInit, OnDestroy
 {
     /** @hidden */
@@ -51,15 +51,15 @@ export class MultiInputMobileComponent
     constructor(
         elementRef: ElementRef,
         dialogService: DialogService,
-        @Inject(MULTI_INPUT_COMPONENT) multiInputComponent: MultiInputInterface,
+        @Inject(MULTI_INPUT_COMPONENT) multiComboboxComponent: MultiComboboxInterface,
         @Optional() @Inject(MOBILE_MODE_CONFIG) mobileModes: MobileModeConfigToken[]
     ) {
-        super(elementRef, dialogService, multiInputComponent, MobileModeControl.MULTI_INPUT, mobileModes);
+        super(elementRef, dialogService, multiComboboxComponent, MobileModeControl.MULTI_INPUT, mobileModes);
     }
 
     /** @hidden */
     ngOnInit(): void {
-        this._listenOnMultiInputOpenChange();
+        this._listenOnMultiComboboxOpenChange();
     }
 
     /** @hidden */
@@ -102,7 +102,7 @@ export class MultiInputMobileComponent
     }
 
     /** @hidden */
-    private _listenOnMultiInputOpenChange(): void {
+    private _listenOnMultiComboboxOpenChange(): void {
         this._component.openChange.pipe(takeUntil(this._onDestroy$)).subscribe((isOpen) => this._toggleDialog(isOpen));
     }
 

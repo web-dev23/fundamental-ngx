@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'fd-multi-combobox-includes-example',
     templateUrl: './multi-combobox-includes-example.component.html'
 })
-export class MultiInputIncludesExampleComponent {
+export class MultiComboboxIncludesExampleComponent {
     selected = [];
 }

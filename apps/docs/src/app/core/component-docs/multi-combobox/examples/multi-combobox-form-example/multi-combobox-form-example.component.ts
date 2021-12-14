@@ -5,7 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
     selector: 'fd-multi-combobox-form-example',
     templateUrl: './multi-combobox-form-example.component.html'
 })
-export class MultiInputFormExampleComponent {
+export class MultiComboboxFormExampleComponent {
     customForm = new FormGroup({
         selectedValues: new FormControl({ value: ['Apple', 'Banana'], disabled: false }),
         disabledSelectedValues: new FormControl({ value: ['Pineapple', 'Tomato'], disabled: true })

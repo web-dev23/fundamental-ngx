@@ -1,7 +1,7 @@
 import { waitForElDisplayed } from '../../driver/wdio';
 import { CoreBaseComponentPo } from './core-base-component.po';
 
-export class MultiInputPo extends CoreBaseComponentPo {
+export class MultiComboboxPo extends CoreBaseComponentPo {
     private url = '/multi-combobox';
     root = '#page-content';
 
@@ -10,10 +10,10 @@ export class MultiInputPo extends CoreBaseComponentPo {
     disableInputs = 'div.is-disabled';
     options = 'fd-checkbox.ng-untouched';
     expandedDropdown = '.fd-list';
-    multiInputOptions = 'fd-multi-combobox[inputid="multiInput"] .fd-token__text span';
+    multiComboboxOptions = 'fd-multi-combobox[inputid="multiInput"] .fd-token__text span';
     buttonShowAll = 'a.fd-link';
-    hiddenAddonButtonInputOptions = 'fd-multi-combobox[inputid="noAddonMultiInput1"] .fd-token__text span';
-    compactMultiInputOptions = '.fd-token--compact .fd-token__text span';
+    hiddenAddonButtonInputOptions = 'fd-multi-combobox[inputid="noAddonMultiCombobox1"] .fd-token__text span';
+    compactMultiComboboxOptions = '.fd-token--compact .fd-token__text span';
     approveButton = '.fd-button--emphasized';
     multiSelectButton = '.custom-multi-combobox-select-all-bar-element button';
     mobileInputOptions = 'fd-multi-combobox-mobile-example .fd-token__text span';

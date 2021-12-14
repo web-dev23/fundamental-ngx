@@ -22,7 +22,7 @@ import { PopoverMobileExampleComponent } from './examples/popover-mobile/popover
 import { PopoverTriggerExampleComponent } from './examples/popover-trigger-example/popover-trigger-example.component';
 import { PopoverModule } from '@fundamental-ngx/core/popover';
 import { SideNavigationModule } from '@fundamental-ngx/core/side-navigation';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
+import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
 import { DialogModule } from '@fundamental-ngx/core/dialog';
 import { ListModule } from '@fundamental-ngx/core/list';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
@@ -49,7 +49,7 @@ const routes: Routes = [
         SharedDocumentationPageModule,
         PopoverModule,
         SideNavigationModule,
-        MultiInputModule,
+        MultiComboboxModule,
         DialogModule,
         ListModule,
         AvatarModule,

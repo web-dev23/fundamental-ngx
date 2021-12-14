@@ -2,31 +2,31 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
-import { MultiInputHeaderComponent } from './multi-combobox-header/multi-combobox-header.component';
-import { MultiInputDocsComponent } from './multi-combobox-docs.component';
-import { MultiInputAsyncExampleComponent } from './examples/multi-combobox-async-example/multi-combobox-async-example.component';
-import { MultiInputDisplaywithExampleComponent } from './examples/multi-combobox-displaywith-example/multi-combobox-displaywith-example.component';
-import { MultiInputExampleComponent } from './examples/multi-combobox-example/multi-combobox-example.component';
-import { MultiInputFilterExampleComponent } from './examples/multi-combobox-filter-example/multi-combobox-filter-example.component';
-import { MultiInputFormExampleComponent } from './examples/multi-combobox-form-example/multi-combobox-form-example.component';
-import { MultiInputCompactExampleComponent } from './examples/multi-combobox-compact-example/multi-combobox-compact-example.component';
-import { MultiInputNewTokensExampleComponent } from './examples/multi-combobox-new-tokens-example/multi-combobox-new-tokens-example.component';
-import { MultiInputMobileExampleComponent } from './examples/multi-combobox-mobile-example/multi-combobox-mobile-example.component';
+import { MultiComboboxHeaderComponent } from './multi-combobox-header/multi-combobox-header.component';
+import { MultiComboboxDocsComponent } from './multi-combobox-docs.component';
+import { MultiComboboxAsyncExampleComponent } from './examples/multi-combobox-async-example/multi-combobox-async-example.component';
+import { MultiComboboxDisplaywithExampleComponent } from './examples/multi-combobox-displaywith-example/multi-combobox-displaywith-example.component';
+import { MultiComboboxExampleComponent } from './examples/multi-combobox-example/multi-combobox-example.component';
+import { MultiComboboxFilterExampleComponent } from './examples/multi-combobox-filter-example/multi-combobox-filter-example.component';
+import { MultiComboboxFormExampleComponent } from './examples/multi-combobox-form-example/multi-combobox-form-example.component';
+import { MultiComboboxCompactExampleComponent } from './examples/multi-combobox-compact-example/multi-combobox-compact-example.component';
+import { MultiComboboxNewTokensExampleComponent } from './examples/multi-combobox-new-tokens-example/multi-combobox-new-tokens-example.component';
+import { MultiComboboxMobileExampleComponent } from './examples/multi-combobox-mobile-example/multi-combobox-mobile-example.component';
 import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
-import { MultiInputIncludesExampleComponent } from './examples/multi-combobox-includes-example/multi-combobox-includes-example.component';
-import { MultiInputCustomItemExampleComponent } from './examples/multi-combobox-custom-item-example/multi-combobox-custom-item-example.component';
+import { MultiComboboxIncludesExampleComponent } from './examples/multi-combobox-includes-example/multi-combobox-includes-example.component';
+import { MultiComboboxCustomItemExampleComponent } from './examples/multi-combobox-custom-item-example/multi-combobox-custom-item-example.component';
 import { FormModule } from '@fundamental-ngx/core/form';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
+import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
 import { IconModule } from '@fundamental-ngx/core/icon';
 import { ListModule } from '@fundamental-ngx/core/list';
 
 const routes: Routes = [
     {
         path: '',
-        component: MultiInputHeaderComponent,
+        component: MultiComboboxHeaderComponent,
         children: [
-            { path: '', component: MultiInputDocsComponent },
-            { path: 'api', component: ApiComponent, data: { content: API_FILES.multiInput } }
+            { path: '', component: MultiComboboxDocsComponent },
+            { path: 'api', component: ApiComponent, data: { content: API_FILES.multiCombobox } }
         ]
     }
 ];
@@ -36,24 +36,24 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         SharedDocumentationPageModule,
         FormModule,
-        MultiInputModule,
+        MultiComboboxModule,
         ListModule,
         IconModule
     ],
     exports: [RouterModule],
     declarations: [
-        MultiInputDocsComponent,
-        MultiInputHeaderComponent,
-        MultiInputExampleComponent,
-        MultiInputFormExampleComponent,
-        MultiInputAsyncExampleComponent,
-        MultiInputFilterExampleComponent,
-        MultiInputDisplaywithExampleComponent,
-        MultiInputCompactExampleComponent,
-        MultiInputNewTokensExampleComponent,
-        MultiInputMobileExampleComponent,
-        MultiInputIncludesExampleComponent,
-        MultiInputCustomItemExampleComponent
+        MultiComboboxDocsComponent,
+        MultiComboboxHeaderComponent,
+        MultiComboboxExampleComponent,
+        MultiComboboxFormExampleComponent,
+        MultiComboboxAsyncExampleComponent,
+        MultiComboboxFilterExampleComponent,
+        MultiComboboxDisplaywithExampleComponent,
+        MultiComboboxCompactExampleComponent,
+        MultiComboboxNewTokensExampleComponent,
+        MultiComboboxMobileExampleComponent,
+        MultiComboboxIncludesExampleComponent,
+        MultiComboboxCustomItemExampleComponent
     ]
 })
-export class MultiInputDocsModule {}
+export class MultiComboboxDocsModule {}

@@ -13,7 +13,7 @@ import {
     waitForPresent
 } from '../../driver/wdio';
 
-import { MultiInputPo } from '../pages/multi-combobox.po';
+import { MultiComboboxPo } from '../pages/multi-combobox.po';
 
 import {
     testOptionsArray1,
@@ -25,17 +25,17 @@ import {
 } from '../fixtures/appData/multi-combobox-contents';
 
 describe('Multi input test suite', () => {
-    const multiInputPage = new MultiInputPo();
+    const multiComboboxPage = new MultiComboboxPo();
     const {
         activeDropdownButtons,
         activeInputs,
         disableInputs,
         options,
-        multiInputOptions,
+        multiComboboxOptions,
         buttonShowAll,
         expandedDropdown,
         hiddenAddonButtonInputOptions,
-        compactMultiInputOptions,
+        compactMultiComboboxOptions,
         multiSelectButton,
         approveButton,
         mobileInputOptions,
@@ -51,20 +51,20 @@ describe('Multi input test suite', () => {
         popover,
         compactExampleTokens,
         dialogCheckbox
-    } = multiInputPage;
+    } = multiComboboxPage;
 
     beforeAll(() => {
-        multiInputPage.open();
-        waitForPresent(multiInputPage.title);
+        multiComboboxPage.open();
+        waitForPresent(multiComboboxPage.title);
     }, 1);
 
     afterEach(() => {
         refreshPage();
-        waitForPresent(multiInputPage.title);
+        waitForPresent(multiComboboxPage.title);
     }, 1);
 
     it('Check RTL/LTR orientation', () => {
-        multiInputPage.checkRtlSwitch();
+        multiComboboxPage.checkRtlSwitch();
     });
 
     it('Verify inputs should have placeholder', () => {
@@ -99,7 +99,7 @@ describe('Multi input test suite', () => {
         expect(newTokenCount).toEqual(originalTokenCount);
     });
 
-    it('should check multiInput options stay open when clicking checkbox', () => {
+    it('should check MultiCombobox options stay open when clicking checkbox', () => {
         click(activeDropdownButtons);
         waitForElDisplayed(popover);
         click(checkboxInput);
@@ -107,7 +107,7 @@ describe('Multi input test suite', () => {
         expect(isElementDisplayed(popover)).toBe(true, 'popover not displayed');
     });
 
-    it('should check multiInput options close when clicking on list item', () => {
+    it('should check multiCombobox options close when clicking on list item', () => {
         click(activeDropdownButtons);
         waitForElDisplayed(popover);
         click(listItem);
@@ -132,10 +132,10 @@ describe('Multi input test suite', () => {
             scrollIntoView(options, 15);
             click(options, 15);
             click(activeDropdownButtons);
-            const inputOptionsLength = getElementArrayLength(multiInputOptions);
+            const inputOptionsLength = getElementArrayLength(multiComboboxOptions);
             for (let i = 0; i < inputOptionsLength; i++) {
-                scrollIntoView(multiInputOptions, i);
-                expect(getText(multiInputOptions, i)).toBe(testOptionsArray1[i]);
+                scrollIntoView(multiComboboxOptions, i);
+                expect(getText(multiComboboxOptions, i)).toBe(testOptionsArray1[i]);
             }
         });
     });
@@ -163,10 +163,10 @@ describe('Multi input test suite', () => {
     describe('Check Compact Multi Input', () => {
         it('verify Compact Multi Input by select each option', () => {
             scrollIntoView(activeDropdownButtons, 1);
-            const inputOptionsLength = getElementArrayLength(compactMultiInputOptions);
+            const inputOptionsLength = getElementArrayLength(compactMultiComboboxOptions);
             for (let i = 0; i < inputOptionsLength; i++) {
-                scrollIntoView(compactMultiInputOptions, i);
-                expect(getText(compactMultiInputOptions, i)).toBe(testOptionsArray1[i]);
+                scrollIntoView(compactMultiComboboxOptions, i);
+                expect(getText(compactMultiComboboxOptions, i)).toBe(testOptionsArray1[i]);
             }
             click(activeDropdownButtons, 1);
             const optionsLength = getElementArrayLength(checkboxInput);
@@ -176,8 +176,8 @@ describe('Multi input test suite', () => {
             }
             click(activeDropdownButtons, 1);
             for (let i = 0; i < inputOptionsLength - 4; i++) {
-                scrollIntoView(compactMultiInputOptions, i);
-                expect(getText(compactMultiInputOptions, i)).toBe(testOptionsArray3[i]);
+                scrollIntoView(compactMultiComboboxOptions, i);
+                expect(getText(compactMultiComboboxOptions, i)).toBe(testOptionsArray3[i]);
             }
         });
     });
@@ -337,8 +337,8 @@ describe('Multi input test suite', () => {
 
     xdescribe('Check visual regression', () => {
         it('should check examples visual regression', () => {
-            multiInputPage.saveExampleBaselineScreenshot();
-            expect(multiInputPage.compareWithBaseline()).toBeLessThan(5);
+            multiComboboxPage.saveExampleBaselineScreenshot();
+            expect(multiComboboxPage.compareWithBaseline()).toBeLessThan(5);
         });
     });
 });

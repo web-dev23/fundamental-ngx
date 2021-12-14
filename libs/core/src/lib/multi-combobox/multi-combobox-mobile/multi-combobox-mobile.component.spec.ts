@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { MultiInputMobileComponent } from './multi-combobox-mobile.component';
+import { MultiComboboxMobileComponent } from './multi-combobox-mobile.component';
 import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
 import { DynamicComponentService } from '@fundamental-ngx/core/utils';
 import { EventEmitter } from '@angular/core';
 import { DialogModule } from '@fundamental-ngx/core/dialog';
-import { MultiInputComponent } from '../multi-combobox.component';
+import { MultiComboboxComponent } from '../multi-combobox.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MULTI_INPUT_COMPONENT } from '../multi-combobox.interface';
 
-describe('MultiInputMobileComponent', () => {
-    let component: MultiInputMobileComponent;
+describe('MultiComboboxMobileComponent', () => {
+    let component: MultiComboboxMobileComponent;
     let anyComponent: any;
-    let fixture: ComponentFixture<MultiInputMobileComponent>;
+    let fixture: ComponentFixture<MultiComboboxMobileComponent>;
 
-    const multiInputConfigObject: MobileModeConfig = {
+    const multiComboboxConfigObject: MobileModeConfig = {
         title: 'title',
         approveButtonText: 'approve',
         cancelButtonText: 'cancel',
@@ -23,9 +23,9 @@ describe('MultiInputMobileComponent', () => {
 
     const backupData: any[] = ['option 1', 'option 2', 'option 3'];
 
-    let mockedMultiInputComponent: Partial<MultiInputComponent> = {
+    let mockedMultiComboboxComponent: Partial<MultiComboboxComponent> = {
         selected: backupData,
-        mobileConfig: multiInputConfigObject,
+        mobileConfig: multiComboboxConfigObject,
         dialogDismiss: (backupArguments: any[]) => {},
         selectAllItems: () => {},
         dialogApprove: () => {},
@@ -36,17 +36,17 @@ describe('MultiInputMobileComponent', () => {
         waitForAsync(() => {
             TestBed.configureTestingModule({
                 imports: [DialogModule, BrowserAnimationsModule],
-                declarations: [MultiInputMobileComponent],
+                declarations: [MultiComboboxMobileComponent],
                 providers: [
                     DynamicComponentService,
-                    { provide: MULTI_INPUT_COMPONENT, useValue: mockedMultiInputComponent }
+                    { provide: MULTI_INPUT_COMPONENT, useValue: mockedMultiComboboxComponent }
                 ]
             }).compileComponents();
         })
     );
 
     beforeEach(() => {
-        mockedMultiInputComponent = {
+        mockedMultiComboboxComponent = {
             selected: backupData,
             mobileConfig: {
                 title: 'title',
@@ -59,7 +59,7 @@ describe('MultiInputMobileComponent', () => {
             dialogApprove: () => {},
             openChange: new EventEmitter<boolean>()
         };
-        fixture = TestBed.createComponent(MultiInputMobileComponent);
+        fixture = TestBed.createComponent(MultiComboboxMobileComponent);
         component = fixture.componentInstance;
         anyComponent = <any>component;
         fixture.detectChanges();
@@ -70,7 +70,7 @@ describe('MultiInputMobileComponent', () => {
     });
 
     it('should get multi input config, when it is passed by input', () => {
-        expect(anyComponent.mobileConfig).toEqual(multiInputConfigObject);
+        expect(anyComponent.mobileConfig).toEqual(multiComboboxConfigObject);
     });
 
     it('should open and close with approve', () => {

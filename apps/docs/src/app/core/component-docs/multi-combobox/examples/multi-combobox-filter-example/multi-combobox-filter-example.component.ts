@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'fd-multi-combobox-filter-example',
     templateUrl: './multi-combobox-filter-example.component.html'
 })
-export class MultiInputFilterExampleComponent {
+export class MultiComboboxFilterExampleComponent {
     selected = [];
 
     customFilter(content: any[], searchTerm: string): any[] {

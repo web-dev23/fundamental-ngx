@@ -1,6 +1,6 @@
-<label fd-label for="multiInput">Multi Input</label>
+<label fd-label for="multiCombobox">Multi Input</label>
 <fd-multi-combobox
-    inputId="multiInput"
+    inputId="multiCombobox"
     [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato', 'Kiwi', 'Strawberry', 'Blueberry', 'Orange']"
     placeholder="Search here..."
     [(ngModel)]="selected"
@@ -10,9 +10,9 @@ Selected: [{{ selected.toLocaleString() }}]
 
 <br /><br />
 
-<label fd-label for="disabledMultiInput1">Disabled Multi Input</label>
+<label fd-label for="disabledMultiCombobox1">Disabled Multi Input</label>
 <fd-multi-combobox
-    inputId="disabledMultiInput1"
+    inputId="disabledMultiCombobox1"
     [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato']"
     placeholder="Search here..."
     [disabled]="true"
@@ -23,9 +23,9 @@ Selected: [{{ secondSelected.toLocaleString() }}]
 
 <br /><br />
 
-<label fd-label for="noAddonMultiInput1">Hidden Addon Button</label>
+<label fd-label for="noAddonMultiCombobox1">Hidden Addon Button</label>
 <fd-multi-combobox
-    inputId="noAddonMultiInput1"
+    inputId="noAddonMultiCombobox1"
     [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato']"
     placeholder="Search here..."
     [(ngModel)]="thirdSelected"
@@ -36,9 +36,9 @@ Selected: [{{ thirdSelected.toLocaleString() }}]
 
 <br /><br />
 
-<label fd-label for="multiInputDisabledAutoComplete">Disable Auto Complete</label>
+<label fd-label for="multiComboboxDisabledAutoComplete">Disable Auto Complete</label>
 <fd-multi-combobox
-    inputId="multiInputDisabledAutoComplete"
+    inputId="multiComboboxDisabledAutoComplete"
     [autoComplete]="false"
     [dropdownValues]="['Apple', 'Banana', 'Pineapple', 'Tomato', 'Kiwi', 'Strawberry', 'Blueberry', 'Orange']"
     placeholder="Search here..."

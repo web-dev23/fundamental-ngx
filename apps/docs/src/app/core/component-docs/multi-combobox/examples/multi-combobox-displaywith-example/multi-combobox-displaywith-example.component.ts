@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     selector: 'fd-multi-combobox-displaywith-example',
     templateUrl: './multi-combobox-displaywith-example.component.html'
 })
-export class MultiInputDisplaywithExampleComponent {
+export class MultiComboboxDisplaywithExampleComponent {
     values = [
         { name: 'Apple' },
         { name: 'Banana' },

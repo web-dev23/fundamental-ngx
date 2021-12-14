@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { MultiInputComponent, MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
+import { MultiComboboxComponent, MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
 import {
     ContentDensityService,
     DEFAULT_CONTENT_DENSITY,
@@ -8,21 +8,21 @@ import {
     RtlService
 } from '@fundamental-ngx/core/utils';
 
-describe('MultiInputComponent', () => {
-    let component: MultiInputComponent;
-    let fixture: ComponentFixture<MultiInputComponent>;
+describe('MultiComboboxComponent', () => {
+    let component: MultiComboboxComponent;
+    let fixture: ComponentFixture<MultiComboboxComponent>;
 
     beforeEach(
         waitForAsync(() => {
             TestBed.configureTestingModule({
-                imports: [MultiInputModule],
+                imports: [MultiComboboxModule],
                 providers: [DynamicComponentService, RtlService, ContentDensityService]
             }).compileComponents();
         })
     );
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(MultiInputComponent);
+        fixture = TestBed.createComponent(MultiComboboxComponent);
         component = fixture.componentInstance;
         component.dropdownValues = ['displayedValue', 'displayedValue2'];
         fixture.detectChanges();

@@ -37,8 +37,8 @@ import { ExampleFile } from '../../../documentation/core-helpers/code-example/ex
     templateUrl: './multi-combobox-docs.component.html',
     styleUrls: ['./multi-combobox-docs.component.scss']
 })
-export class MultiInputDocsComponent {
-    multiInputBasic: ExampleFile[] = [
+export class MultiComboboxDocsComponent {
+    multiComboboxBasic: ExampleFile[] = [
         {
             language: 'html',
             code: simpleH,
@@ -46,7 +46,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputExampleComponent',
+            component: 'MultiComboboxExampleComponent',
             code: simpleT,
             fileName: 'multi-combobox-example'
         }
@@ -60,7 +60,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputDisplaywithExampleComponent',
+            component: 'MultiComboboxDisplaywithExampleComponent',
             code: displayT,
             fileName: 'multi-combobox-displaywith-example'
         }
@@ -74,7 +74,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputFilterExampleComponent',
+            component: 'MultiComboboxFilterExampleComponent',
             code: filterT,
             fileName: 'multi-combobox-filter-example'
         }
@@ -88,7 +88,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputIncludesExampleComponent',
+            component: 'MultiComboboxIncludesExampleComponent',
             code: includesT,
             fileName: 'multi-combobox-includes-example'
         }
@@ -102,7 +102,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputAsyncExampleComponent',
+            component: 'MultiComboboxAsyncExampleComponent',
             code: asyncT,
             fileName: 'multi-combobox-async-example'
         }
@@ -116,7 +116,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputCompactExampleComponent',
+            component: 'MultiComboboxCompactExampleComponent',
             code: compactT,
             fileName: 'multi-combobox-compact-example'
         }
@@ -130,7 +130,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputFormExampleComponent',
+            component: 'MultiComboboxFormExampleComponent',
             code: formT,
             fileName: 'multi-combobox-form-example'
         }
@@ -144,7 +144,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputMobileExampleComponent',
+            component: 'MultiComboboxMobileExampleComponent',
             code: mobileT,
             fileName: 'multi-combobox-mobile-example'
         }
@@ -158,7 +158,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputNewTokensExampleComponent',
+            component: 'MultiComboboxNewTokensExampleComponent',
             code: newTokensT,
             fileName: 'multi-combobox-new-tokens-example'
         }
@@ -172,7 +172,7 @@ export class MultiInputDocsComponent {
         },
         {
             language: 'typescript',
-            component: 'MultiInputCustomItemExampleComponent',
+            component: 'MultiComboboxCustomItemExampleComponent',
             code: customT,
             fileName: 'multi-combobox-custom-item-example'
         }

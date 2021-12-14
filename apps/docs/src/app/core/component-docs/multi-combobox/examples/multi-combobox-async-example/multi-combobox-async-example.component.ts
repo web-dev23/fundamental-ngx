@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
     selector: 'fd-multi-combobox-async-example',
     templateUrl: './multi-combobox-async-example.component.html'
 })
-export class MultiInputAsyncExampleComponent implements OnInit {
+export class MultiComboboxAsyncExampleComponent implements OnInit {
     selected = [];
 
     dropdownValues;

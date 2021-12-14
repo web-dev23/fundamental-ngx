@@ -5,7 +5,7 @@ import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
     selector: 'fd-multi-combobox-mobile-example',
     templateUrl: './multi-combobox-mobile-example.component.html'
 })
-export class MultiInputMobileExampleComponent {
+export class MultiComboboxMobileExampleComponent {
     selectedValues: any[] = [];
 
     secondConfig: MobileModeConfig = {

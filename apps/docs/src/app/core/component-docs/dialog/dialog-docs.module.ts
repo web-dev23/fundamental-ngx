@@ -18,7 +18,7 @@ import { ListModule } from '@fundamental-ngx/core/list';
 import { DialogModule, DialogService } from '@fundamental-ngx/core/dialog';
 import { CheckboxModule } from '@fundamental-ngx/core/checkbox';
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
+import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
 import {
     DialogInnerPopoverComponent,
     DialogInnerPopoverExampleComponent
@@ -44,7 +44,7 @@ const routes: Routes = [
         DialogModule,
         InputGroupModule,
         A11yModule,
-        MultiInputModule,
+        MultiComboboxModule,
         CheckboxModule
     ],
     exports: [RouterModule],

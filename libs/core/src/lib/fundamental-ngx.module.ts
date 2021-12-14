@@ -61,7 +61,7 @@ import { TableModule } from '@fundamental-ngx/core/table';
 import { SwitchModule } from '@fundamental-ngx/core/switch';
 import { StatusIndicatorModule } from '@fundamental-ngx/core/status-indicator';
 import { MessageToastModule } from '@fundamental-ngx/core/message-toast';
-import { MultiInputModule } from '@fundamental-ngx/core/multi-combobox';
+import { MultiComboboxModule } from '@fundamental-ngx/core/multi-combobox';
 import { MessageBoxModule } from '@fundamental-ngx/core/message-box';
 import { LayoutGridModule } from '@fundamental-ngx/core/layout-grid';
 import { LayoutPanelModule } from '@fundamental-ngx/core/layout-panel';
@@ -133,7 +133,7 @@ import { ScrollbarModule } from '@fundamental-ngx/core/scrollbar';
         MessageBoxModule,
         MessageStripModule,
         MessageToastModule,
-        MultiInputModule,
+        MultiComboboxModule,
         NestedListModule,
         NotificationModule,
         ObjectIdentifierModule,

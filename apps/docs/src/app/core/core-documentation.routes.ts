@@ -292,7 +292,7 @@ export const ROUTES: Routes = [
                 path: 'multi-combobox',
                 loadChildren: () =>
                     import('./component-docs/multi-combobox/multi-combobox-docs.module').then(
-                        (m) => m.MultiInputDocsModule
+                        (m) => m.MultiComboboxDocsModule
                     )
             },
             {

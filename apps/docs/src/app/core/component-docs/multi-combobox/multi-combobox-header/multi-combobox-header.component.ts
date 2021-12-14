@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
     templateUrl: './multi-combobox-header.component.html',
     styleUrls: ['./multi-combobox-header.component.scss']
 })
-export class MultiInputHeaderComponent {}
+export class MultiComboboxHeaderComponent {}

@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     selector: 'fd-multi-combobox-compact-example',
     templateUrl: './multi-combobox-compact-example.component.html'
 })
-export class MultiInputCompactExampleComponent {
+export class MultiComboboxCompactExampleComponent {
     selected = ['Apple', 'Banana', 'Pineapple', 'Tomato', 'Kiwi', 'Strawberry', 'Blueberry', 'Orange'];
 }
