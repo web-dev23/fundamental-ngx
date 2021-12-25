@@ -48,17 +48,6 @@ $fd-table-scrollbar-width-with-border: calc(#{$fd-table-scrollbar-width} + var(-
         }
     }
 
-    .#{$block}__body-table,
-    .#{$block}__header-table,
-    .#{$block}__body-hs-table {
-        /** table-layout:fixed does not work with absolutely positioned cells instead we need to keep each cell with defined width */
-        table-layout: auto;
-        width: 100%;
-        /** need to keep borders separate in order to align cells which are absolutely positioned */
-        border-collapse: separate;
-        border-spacing: 0;
-    }
-
     /** Temporary until arrow keyboard navigation not implemented */
     .fd-table__body:focus {
         outline-offset: -0.1875rem;
@@ -106,6 +95,10 @@ $fd-table-scrollbar-width-with-border: calc(#{$fd-table-scrollbar-width} + var(-
                 cursor: grabbing;
             }
 
+            &.fd-dnd-item {
+                position: inherit;
+            }
+
             &.fd-dnd-on-drag {
                 &.fd-dnd-placeholder {
                     padding-left: 2.8rem;
@@ -151,137 +144,25 @@ $fd-table-scrollbar-width-with-border: calc(#{$fd-table-scrollbar-width} + var(-
         margin-top: 0;
     }
 
-    &.#{$block}--no-outer-border {
-        .#{$block}__header,
-        .#{$block}__body,
-        .#{$block}__body-hs {
-            border-left: none;
-            border-right: none;
-
-            @include fd-rtl {
-                border-left: none;
-                border-right: none;
-
-                .fd-table__cell:first-child {
-                    border-right: none;
-                }
-            }
-        }
-
-        .#{$block}__header {
-            &-scrollbar-mock,
-            .fd-table__cell {
-                border-top: none;
-            }
-        }
-
-        .#{$block}__body {
-            border-bottom: none;
-        }
-    }
-
     &__container {
         position: relative;
         overflow: hidden;
         outline: none;
     }
 
-    &__header,
-    .#{$block}__body {
-        position: relative;
-        overflow: hidden;
-        border-left: $fd-table-border;
-        border-left: $fd-table-border-var;
+    .fd-table__header {
+        .fd-table__cell {
+            margin-top: 0;
+            max-height: 100%;
 
-        @include fd-rtl() {
-            border-left: none;
-            border-right: $fd-table-border;
-            border-right: $fd-table-border-var;
-
-            .fd-table__cell:first-child {
-                border-right: none;
-            }
-        }
-
-        .fd-table--fixed {
-            .fd-table__header,
-            .fd-table__body {
-                border-right: none;
-            }
-        }
-    }
-
-    &__header {
-        padding-right: $fd-table-scrollbar-width-with-border;
-
-        @include fd-rtl() {
-            padding-right: 0;
-            padding-left: $fd-table-scrollbar-width-with-border;
-        }
-
-        &-scrollbar-mock {
-            @include fdp-table-scrollbar-mock();
-        }
-
-        .fd-table--fixed {
-            overflow: hidden;
-        }
-
-        .fd-table {
-            .fd-table__cell,
-            .fd-table__cell--mock {
-                border-top: $fd-table-border;
-                border-top: $fd-table-border-var;
-                border-bottom: $fd-table-border;
-                border-bottom: $fd-table-border-var;
+            .fd-table__popover--custom {
+                display: none;
             }
 
-            .fd-table__cell {
-                margin-top: 0;
-                max-height: 100%;
-
-                .fd-table__popover--custom {
-                    display: none;
-                }
-
-                .fdp-table__navigation-indicator {
-                    opacity: 0;
-                    visibility: hidden;
-                }
-            }
-        }
-    }
-
-    &__body {
-        &-hs {
-            box-sizing: border-box;
-            border-left: $fd-table-border;
-            border-left: $fd-table-border-var;
-            background: var(--fdScrollbar_Track_Color, #ffffff);
-            padding-right: $fd-table-scrollbar-width;
-
-            @include fd-rtl() {
-                padding-right: 0;
-                padding-left: $fd-table-scrollbar-width;
-                border-left: none;
-                border-right: $fd-table-border;
-                border-right: $fd-table-border-var;
-            }
-
-            &-wrap {
-                width: 100%;
-                position: relative;
-            }
-
-            &-spacer {
-                position: absolute;
-                height: 1px;
+            .fdp-table__navigation-indicator {
+                opacity: 0;
                 visibility: hidden;
             }
-        }
-
-        .fd-table--fixed {
-            @include fdp-table-hide-scrollbar();
         }
     }
 
@@ -296,97 +177,24 @@ $fd-table-scrollbar-width-with-border: calc(#{$fd-table-scrollbar-width} + var(-
             width: 100%;
         }
 
-        &:not(.fixed-height) .fd-table__row:last-of-type {
-            .fd-table__cell {
-                border-bottom: 0;
-            }
+        &:not(.fd-table__body--fixed-height) .fd-table__row:last-of-type .fd-table__cell {
+            border-bottom: 0;
         }
 
-        .fd-table__body {
-            border-left: none;
-
-            @include fd-rtl() {
-                border-left: $fd-table-border;
-                border-left: $fd-table-border-var;
-                border-right: none;
-            }
-        }
-
-        &.fixed-height {
+        .fd-table__body--fixed-height {
             background-color: #fff;
             background-color: var(--sapList_Background, #fff);
         }
     }
 
     .fd-table__cell {
-        &--checkbox {
-            border-left: none;
-            border-right: $fd-table-border;
-            border-right: $fd-table-border-var;
-
-            & + .fd-table__cell--fixed {
-                border-left: none;
-            }
-
-            @include fd-rtl() {
-                border-left: $fd-table-border;
-                border-left: $fd-table-border-var;
-
-                & + .fd-table__cell {
-                    border-right: none;
-                }
-            }
-        }
-
-        &--group {
-            min-width: 100%;
-            border-left: none;
-
-            /**
-                Due to the changed table-layout group row cell may looe it's top border.
-                For example when previous (relatively to the group row) row columns tolal width < 100% of the table.
-            */
-            &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: -0.0625rem;
-                left: 0;
-                right: 0;
-                border-top: $fd-table-border;
-                border-top: $fd-table-border-var;
-            }
-        }
-
-        &--status-indicator {
-            border-left: none;
-            border-right: $fd-table-border;
-            border-right: $fd-table-border-var;
-
-            @include fd-rtl {
-                border-right: none;
-            }
-        }
-
         /** Temporary until column width can fit content */
         .fdp-table__navigation-indicator {
             margin: auto;
         }
-
-        @include fd-rtl() {
-            /** Because last child always a mock */
-            &:nth-last-child(2):not(.#{$block}__cell--group) {
-                border-left: $fd-table-border;
-                border-left: $fd-table-border-var;
-            }
-        }
     }
 
-    .fd-dnd-item {
-        position: inherit;
-    }
-
-    // TODO(d.stepanenko): styles below should be moved into fundamental-styles
+    // TODO (d.stepanenko): styles below should be moved into fundamental-styles
     .fd-table__cell--fixed {
         position: sticky;
         display: table-cell;
@@ -396,6 +204,7 @@ $fd-table-scrollbar-width-with-border: calc(#{$fd-table-scrollbar-width} + var(-
         // positioning checkbox in the middle of the cell
         display: flex;
         height: 100%;
+
         .fd-checkbox__label {
             align-self: center;
             margin: 0;

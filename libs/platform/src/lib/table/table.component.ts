@@ -43,12 +43,7 @@ import { TableService } from './table.service';
 import { CollectionFilter, CollectionGroup, CollectionSort, CollectionStringFilter, TableState } from './interfaces';
 import { SearchInput } from './interfaces/search-field.interface';
 import { FILTER_STRING_STRATEGY, SelectionMode, SortDirection, TableRowType } from './enums';
-import {
-    DEFAULT_TABLE_STATE,
-    ROW_HEIGHT,
-    SELECTION_COLUMN_WIDTH,
-    SEMANTIC_HIGHLIGHTING_COLUMN_WIDTH
-} from './constants';
+import { DEFAULT_TABLE_STATE, SELECTION_COLUMN_WIDTH, SEMANTIC_HIGHLIGHTING_COLUMN_WIDTH } from './constants';
 import { TableDataSource } from './domain/table-data-source';
 import { ArrayTableDataSource } from './domain/array-data-source';
 import { ObservableTableDataSource } from './domain/observable-data-source';
@@ -347,8 +342,8 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
     readonly columnHeaderPopovers: QueryList<PopoverComponent>;
 
     /** @hidden */
-    @ViewChild('tableContainer')
-    readonly tableContainer: ElementRef<HTMLDivElement>;
+    @ViewChild('tableContainer', { read: ElementRef })
+    readonly tableContainer: ElementRef;
 
     /** @hidden */
     @ContentChildren(TableColumn)
@@ -567,7 +562,7 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
     private contentDensityManuallySet = false;
 
     /** @hidden */
-    private get _selectionColumnWidth(): number {
+    get _selectionColumnWidth(): number {
         return this._isShownSelectionColumn ? SELECTION_COLUMN_WIDTH.get(this.contentDensity) : 0;
     }
 
@@ -576,8 +571,8 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
         return this.semanticHighlighting ? SEMANTIC_HIGHLIGHTING_COLUMN_WIDTH : 0;
     }
 
-    /** @hidden Sum of widths of fixed columns (semantic highlighting, selection) */
-    get _fixedColumnsPadding(): number {
+    /** @hidden Sum of widths of utility fixed columns (semantic highlighting, selection, etc) */
+    get _utilityColumnsWidth(): number {
         return this._semanticHighlightingColumnWidth + this._selectionColumnWidth;
     }
 
@@ -888,7 +883,7 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
         /** Themeable scrollbar has 0.75rem in dimension */
         const scrollbarSizeInPx = 12;
 
-        return this._tableWidthPx - this._fixedColumnsPadding - scrollbarSizeInPx - 1;
+        return this._tableWidthPx - this._utilityColumnsWidth - scrollbarSizeInPx - 1;
     }
 
     // Private API
@@ -900,7 +895,6 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
         }
 
         const isLastColumn = columnIndex === this._visibleColumns.length - 1;
-
         if (isLastColumn && this._isShownNavigationColumn) {
             return 'start';
         }
@@ -1050,24 +1044,6 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
         this._closePopoverForColumnByFieldName(field);
     }
 
-    /** @hidden */
-    _getCellHeightPx(parentRow: HTMLTableRowElement): string {
-        return parentRow ? parentRow.getBoundingClientRect().height + 'px' : 'unset';
-    }
-
-    /** @hidden */
-    _getSelectionCellStyles(parentRow: HTMLTableRowElement): { [styleProp: string]: string } {
-        const rtlKey = this._rtl ? 'right' : 'left';
-        const selectionColumnWidth = SELECTION_COLUMN_WIDTH.get(this.contentDensity) + 'px';
-
-        return {
-            [rtlKey]: this._semanticHighlightingColumnWidth + 'px',
-            'min-width': selectionColumnWidth,
-            'max-width': selectionColumnWidth,
-            height: this._getCellHeightPx(parentRow)
-        };
-    }
-
     _getRowClasses(row: TableRow<T>): string {
         const treeRowClass = this._isTreeRow(row) ? 'fdp-table__row--tree' : '';
         const rowClasses = this._getRowCustomCssClasses(row);
@@ -1077,32 +1053,17 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
 
     /** @hidden */
     _getCellStyles(column: TableColumn): { [styleProp: string]: number | string } {
-        const styles: { [property: string]: number | string } = {};
+        const columnWidth = this._tableColumnResizeService.getColumnWidthStyle(column);
 
-        if (this._freezableColumns.has(column.name)) {
-            const key = this._rtl ? 'right.px' : 'left.px';
-            styles[key] =
-                this._semanticHighlightingColumnWidth +
-                this._selectionColumnWidth +
-                this._tableColumnResizeService.getPrevColumnsWidth(column.name);
+        if (columnWidth == null) {
+            return null;
         }
 
-        const columnWidth = this._tableColumnResizeService.getColumnWidthStyle(column);
-        styles['min-width'] = columnWidth;
-        styles['max-width'] = columnWidth;
-        styles['width'] = columnWidth;
-
-        return styles;
-    }
-
-    /** @hidden */
-    _getFreezableSelectionCellStyles(): { [key: string]: string | number } {
-        return { 'min-width.px': this._selectionColumnWidth, 'max-width.px': this._selectionColumnWidth };
-    }
-
-    /** @hidden */
-    _getRowHeight(): number {
-        return ROW_HEIGHT.get(this.contentDensity);
+        return {
+            'min-width': columnWidth,
+            'max-width': columnWidth,
+            width: columnWidth
+        };
     }
 
     /** @hidden */
@@ -1985,6 +1946,7 @@ export class TableComponent<T = any> extends Table implements AfterViewInit, OnD
                 .pipe(debounceTime(100))
                 .subscribe(() => {
                     this.recalculateTableColumnWidth();
+
                     if (this._freezableColumns.size) {
                         this._tableColumnResizeService.updateFrozenColumnsWidth();
                     }

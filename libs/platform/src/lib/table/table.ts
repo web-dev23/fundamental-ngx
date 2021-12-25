@@ -10,7 +10,7 @@ import { TableColumn } from './components/table-column/table-column';
 
 export abstract class Table {
     /** Sum of widths of fixed columns (semantic highlighting, selection) */
-    abstract get _fixedColumnsPadding(): number;
+    abstract get _utilityColumnsWidth(): number;
 
     /** Freezable column names and their respective indexes */
     abstract get _freezableColumns(): ReadonlyMap<string, number>;

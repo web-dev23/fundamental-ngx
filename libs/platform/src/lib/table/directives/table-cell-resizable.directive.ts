@@ -13,7 +13,7 @@ export const TABLE_CELL_RESIZABLE_THRESHOLD_PX = 4;
  */
 @Directive({ selector: '[fdpTableCellResizable]' })
 export class PlatformTableCellResizableDirective implements AfterViewInit {
-    /** First column can be resized only by its end */
+    /** Cell resizable side: start, end or both */
     @Input('fdpTableCellResizable')
     set resizableSide(value: TableColumnResizableSide) {
         if (!value) {

@@ -124,19 +124,22 @@ export class TableColumnResizeService implements OnDestroy {
         this._calculateColumnsWidth();
     }
 
-    /** checks if freezable columns in total exceeds the size of table viewport. If yes, reduces each column equally  */
+    /** Checks if freezable columns in total exceeds the size of table viewport. If yes, reduces each column equally  */
     updateFrozenColumnsWidth(): void {
         const maxWidth = this._tableRef.getMaxAllowedFreezableColumnsWidth();
         const freezeToNextColumnName = this._visibleColumnNames[this._tableRef._freezableColumns.size];
         const actualWidth = this.getPrevColumnsWidth(freezeToNextColumnName);
+
         if (actualWidth > maxWidth) {
             const reduceBy = actualWidth / maxWidth;
+
             [...this._tableRef._freezableColumns.keys()].forEach((columnName) => {
                 const currentWidth = this._columnsWidthMap.get(columnName);
                 const newWidth = Math.floor(currentWidth / reduceBy);
                 this._columnsWidthMap.set(columnName, newWidth);
                 this._columnsWidthChangeSourceMap.set(columnName, ColumnWidthChangeSource.Resize);
             });
+
             this._markForCheck.next();
         }
     }
@@ -160,11 +163,13 @@ export class TableColumnResizeService implements OnDestroy {
                     if (calculatedWidth) {
                         return calculatedWidth + 'px';
                     }
+
                     break;
                 case ColumnWidthChangeSource.WidthInput:
                     if (column.width) {
                         return this.getColumnWidth(column.width);
                     }
+
                     break;
             }
         }
@@ -185,10 +190,13 @@ export class TableColumnResizeService implements OnDestroy {
         if (!width.trim().endsWith('%')) {
             return width;
         }
-        const percent = parseFloat(width);
+
         if (!this._tableRef._tableWidthPx) {
             throw new Error('Cannot resolve column width until table width is set');
         }
+
+        const percent = parseFloat(width);
+
         return (this._tableRef._tableWidthPx * percent) / 100 + 'px';
     }
 
@@ -239,6 +247,7 @@ export class TableColumnResizeService implements OnDestroy {
 
         if (resizerPosition != null) {
             const scrollLeftOffset = this._scrollLeft * (this._rtl ? 1 : -1);
+
             this._resizerPosition = resizerPosition - TABLE_RESIZER_BORDER_WIDTH + scrollLeftOffset;
         }
     }
