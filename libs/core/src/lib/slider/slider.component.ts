@@ -606,6 +606,7 @@ export class SliderComponent implements OnInit, OnChanges, OnDestroy, ControlVal
         } else {
             this._singleSliderCurrentValuePrefix = this.singleSliderCurrentValuePrefix;
         }
+        this.onTouched();
         this._cdr.markForCheck();
     }
 
@@ -621,7 +622,6 @@ export class SliderComponent implements OnInit, OnChanges, OnDestroy, ControlVal
 
         if (emitEvent) {
             this.onChange(value);
-            this.onTouched();
         }
         this._cdr.markForCheck();
     }

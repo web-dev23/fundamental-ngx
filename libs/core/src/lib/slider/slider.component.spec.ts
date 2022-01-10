@@ -2,8 +2,9 @@ import { Component, QueryList, ViewChildren } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { runValueAccessorTests } from 'ngx-cva-test-suite';
 
-import { SliderComponent, SliderModule } from '@fundamental-ngx/core/slider';
+import { SliderComponent, SliderModule, SliderValueTargets } from '@fundamental-ngx/core/slider';
 import { whenStable } from '@fundamental-ngx/core/tests';
 
 @Component({
@@ -210,3 +211,17 @@ xdescribe('SliderComponent', () => {
 function getPixelsByPercentage(width: number, percentage: number): number {
     return (width * percentage) / 100;
 }
+
+runValueAccessorTests({
+    component: SliderComponent,
+    testModuleMetadata: {
+        imports: [SliderModule]
+    },
+    supportsOnBlur: true,
+    nativeControlSelector: `.fd-slider__handle`,
+    internalValueChangeSetter: (fixture, value) => {
+        fixture.componentInstance._updateValueFromInput(value, SliderValueTargets.SINGLE_SLIDER);
+    },
+    getComponentValue: (fixture) => fixture.componentInstance.value,
+    getValues: () => [1, 2, 3]
+});
