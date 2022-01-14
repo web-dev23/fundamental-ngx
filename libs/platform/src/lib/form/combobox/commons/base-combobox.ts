@@ -114,6 +114,10 @@ export abstract class BaseCombobox extends CollectionBaseInput implements AfterV
     @Input()
     mobileConfig: MobileModeConfig;
 
+    /** Whether AddOn Button should be focusable, set to false by default */
+    @Input()
+    buttonFocusable = false;
+
     /** Tells the combo if we need to group items */
     @Input()
     group = false;

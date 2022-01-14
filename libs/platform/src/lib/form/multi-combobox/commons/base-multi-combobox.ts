@@ -118,6 +118,10 @@ export abstract class BaseMultiCombobox extends CollectionBaseInput implements A
     @Input()
     mobileConfig: MobileModeConfig;
 
+    /** Whether AddOn Button should be focusable, set to false by default */
+    @Input()
+    buttonFocusable = false;
+
     /** Tells the multi-combobox if we need to group items. */
     @Input()
     group = false;

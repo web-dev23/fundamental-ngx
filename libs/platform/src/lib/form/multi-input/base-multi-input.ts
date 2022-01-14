@@ -103,6 +103,10 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
     @Input()
     mobileConfig: MobileModeConfig;
 
+    /** Whether AddOn Button should be focusable, set to false by default */
+    @Input()
+    buttonFocusable = false;
+
     /** Tells the multi input if we need to group items */
     @Input()
     group = false;
