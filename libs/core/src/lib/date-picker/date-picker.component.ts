@@ -581,7 +581,7 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
              * For single mode, if the date is invalid, model is changed, it refresh currently
              * input field text, but it does not refresh currently displayed day
              */
-            selected = selected as D;
+            selected = this._parseDate(selected);
             this.selectedDate = selected;
 
             if (this._isSingleModelValid(this.selectedDate)) {
@@ -599,7 +599,10 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
             selected = selected as DateRange<D>;
 
             if (selected?.start) {
-                this.selectedRangeDate = { start: selected.start, end: selected.end };
+                this.selectedRangeDate = {
+                    start: this._parseDate(selected.start),
+                    end: this._parseDate(selected.end)
+                };
 
                 if (this._isRangeModelValid(this.selectedRangeDate)) {
                     this._refreshCurrentlyDisplayedCalendarDate(selected.start);
@@ -632,7 +635,7 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
                 this.selectedDateChange.emit(this.selectedDate);
                 return;
             }
-            const date = this._dateTimeAdapter.parse(dateStr, this._dateTimeFormats.parse.dateInput);
+            const date = this._parseDate(dateStr);
 
             /** Check if dates are equal, if so, there is no need to make any changes */
             if (!this._dateTimeAdapter.datesEqual(date, this.selectedDate)) {
@@ -662,8 +665,8 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
                 return;
             }
             const [startDateStr, endDateStr] = dateStr.split(this._rangeDelimiter);
-            const startDate = this._dateTimeAdapter.parse(startDateStr, this._dateTimeFormats.parse.dateInput);
-            const endDate = this._dateTimeAdapter.parse(endDateStr, this._dateTimeFormats.parse.dateInput);
+            const startDate = this._parseDate(startDateStr);
+            const endDate = this._parseDate(endDateStr);
 
             /**
              * Check if dates are equal, if dates are the same there is no need to make any changes
@@ -772,6 +775,11 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
     /** @hidden */
     private _formatDate(date: Nullable<D>): string {
         return this._dateTimeAdapter.format(date, this._dateTimeFormats.display.dateInput);
+    }
+
+    /** @hidden */
+    private _parseDate(date: unknown): D | null {
+        return this._dateTimeAdapter.parse(date, this._dateTimeFormats.parse.dateInput);
     }
 
     /** @hidden */

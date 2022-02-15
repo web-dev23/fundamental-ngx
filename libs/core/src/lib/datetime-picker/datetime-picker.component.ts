@@ -546,7 +546,7 @@ export class DatetimePickerComponent<D>
      * Function that provides support for ControlValueAccessor that allows to use [(ngModel)] or forms
      */
     writeValue(selected: D): void {
-        this.date = selected;
+        this.date = this._parseDate(selected);
         this._isInvalidDateInput = !this._isModelValid(this.date);
         if (this.isCurrentModelValid()) {
             this._setTempDateTime();
@@ -646,7 +646,7 @@ export class DatetimePickerComponent<D>
             this.onChange(null);
             return;
         }
-        this.date = this._dateTimeAdapter.parse(inputStr, this._dateTimeFormats.parse.dateTimeInput);
+        this.date = this._parseDate(inputStr);
         this._isInvalidDateInput = !this._isModelValid(this.date);
 
         if (!this._isInvalidDateInput) {
@@ -719,6 +719,11 @@ export class DatetimePickerComponent<D>
         this._popoverFormMessage.message = this._message ?? '';
         this._popoverFormMessage.triggers = this._messageTriggers;
         this._popoverFormMessage.messageType = this._state;
+    }
+
+    /** @hidden */
+    private _parseDate(date: unknown): D | null {
+        return this._dateTimeAdapter.parse(date, this._dateTimeFormats.parse.dateInput);
     }
 
     /** @hidden */
