@@ -25,7 +25,7 @@ import listWithNoData from '!./platform-list-examples/platform-list-with-nodata-
 import listWithUnRead from '!./platform-list-examples/platform-list-with-unread-example.component.html?raw';
 import listWithNoSeperator from '!./platform-list-examples/platform-list-with-no-seperator-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-list',

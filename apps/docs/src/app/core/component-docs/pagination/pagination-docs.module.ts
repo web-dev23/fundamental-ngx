@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { PaginationHeaderComponent } from './pagination-header/pagination-header.component';
 import { PaginationDocsComponent } from './pagination-docs.component';
@@ -10,7 +9,7 @@ import { PaginationShowingExampleComponent } from './examples/pagination-showing
 import { PaginationPerPageExampleComponent } from './examples/pagination-per-page/pagination-per-page-example.component';
 import { PaginationMobileExampleComponent } from './examples/pagination-mobile/pagination-mobile-example.component';
 
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { PaginationModule } from '@fundamental-ngx/core/pagination';
 import { ToolbarModule } from '@fundamental-ngx/core/toolbar';
 import { SelectModule } from '@fundamental-ngx/core/select';

@@ -3,9 +3,8 @@ import { TimelineDocsComponent } from './timeline-docs.component';
 import { TimelineHeaderDocsComponent } from './timeline-header-docs/timeline-header-docs.component';
 import { TimelineBasicExampleComponent } from './examples/timeline-basic-example/timeline-basic-example.component';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { TimelineModule } from '@fundamental-ngx/core/timeline';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
 

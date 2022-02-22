@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import { PlatformDynamicPagePageOverflowService } from './platform-dynamic-page-examples/platform-dynamic-page-page-overflow.service';
 
 import dynamicPageBasicExample from '!./platform-dynamic-page-examples/platform-dynamic-page-example.component.html?raw';

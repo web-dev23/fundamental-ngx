@@ -9,12 +9,11 @@ import {
 } from '@fundamental-ngx/platform/form';
 import { BusyIndicatorModule } from '@fundamental-ngx/core/busy-indicator';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { PlatformMultiComboboxHeaderComponent } from './platform-multi-combobox-header/platform-multi-combobox-header.component';
 import { PlatformMultiComboboxDocsComponent } from './platform-multi-combobox-docs.component';
-import { MULTI_COMBOBOX_MOBILE_CONFIG } from '../../../documentation/utilities/consts';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { MULTI_COMBOBOX_MOBILE_CONFIG } from '@fundamental-ngx/docs/common/shared-utils';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { MultiComboboxDatasourceExampleComponent } from './examples/multi-combobox-datasource/multi-combobox-datasource-example.component';
 import { MultiComboboxMobileExampleComponent } from './examples/multi-combobox-mobile/multi-combobox-mobile-example.component';
 import { MultiComboboxGroupExampleComponent } from './examples/multi-combobox-group/multi-combobox-group-example.component';

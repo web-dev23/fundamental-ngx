@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import inputGroupButtonSrc from '!./examples/input-group-button-example.component.html?raw';
 import inputGroupIconSrc from '!./examples/input-group-icon-example.component.html?raw';
@@ -12,8 +11,7 @@ import formInputTsSrc from '!./examples/input-group-form-example/input-group-for
 import formInputHtmlSrc from '!./examples/input-group-form-example/input-group-form-example.component.html?raw';
 import complexInputHtml from '!./examples/input-group-complex-example.component.html?raw';
 import statesInputHtml from '!./examples/input-group-states-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { Icons } from '../../../documentation/utilities/icons';
+import { ExampleFile, Icons } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-input-group',

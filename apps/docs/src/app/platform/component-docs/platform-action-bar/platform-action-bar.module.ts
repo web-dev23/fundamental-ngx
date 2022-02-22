@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { PlatformActionBarHeaderComponent } from './platform-action-bar-header/platform-action-bar-header.component';
 import { PlatformActionBarDocsComponent } from './platform-action-bar-docs.component';

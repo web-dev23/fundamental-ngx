@@ -6,7 +6,7 @@ import actionSheetDefaultSrc from '!./examples/action-sheet-default/action-sheet
 import actionSheetDefaultSrcTs from '!./examples/action-sheet-default/action-sheet-default-example.component.ts?raw';
 import actionSheetMobileSrc from '!./examples/action-sheet-mobile/action-sheet-mobile-example.component.html?raw';
 import actionSheetMobileSrcTs from '!./examples/action-sheet-mobile/action-sheet-mobile-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-action-sheet',

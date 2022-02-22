@@ -18,7 +18,7 @@ import fileUploaderMaxH from '!./examples/file-uploader-max-example/file-uploade
 import fileUploaderMinT from '!./examples/file-uploader-min-example/file-uploader-min-example.component.ts?raw';
 import fileUploaderMinH from '!./examples/file-uploader-min-example/file-uploader-min-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-file-uploader',

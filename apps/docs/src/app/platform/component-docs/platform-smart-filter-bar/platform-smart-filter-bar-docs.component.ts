@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformBasicSfbSrc from '!./platform-smart-filter-bar-examples/platform-smart-filter-bar-basic-example.component.html?raw';
 import platformBasicSfbTsCode from '!./platform-smart-filter-bar-examples/platform-smart-filter-bar-basic-example.component.ts?raw';

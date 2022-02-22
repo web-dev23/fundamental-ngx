@@ -8,7 +8,7 @@ import segmentedButtonFormTs from '!./examples/segmented-button-form-example/seg
 import segmentedButtonFormHtml from '!./examples/segmented-button-form-example/segmented-button-form-example.component.html?raw';
 import segmentedButtonCustomTs from '!./examples/segmented-button-complex-example/segmented-button-complex-example.component.ts?raw';
 import segmentedButtonCustomHtml from '!./examples/segmented-button-complex-example/segmented-button-complex-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-segmented-button',

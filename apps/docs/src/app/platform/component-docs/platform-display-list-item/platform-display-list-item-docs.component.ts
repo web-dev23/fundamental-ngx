@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import dliSrc from '!./platform-display-list-item-examples/platform-display-list-item-example.component.html?raw';
 import borderLessDLISrc from '!./platform-display-list-item-examples/platform-display-list-item-border-less-example.component.html?raw';

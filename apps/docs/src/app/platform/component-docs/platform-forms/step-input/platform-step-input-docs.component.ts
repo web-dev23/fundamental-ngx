@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import exampleScss from '!./platform-step-input-examples/platform-step-input-example.scss?raw';
 import exampleHtml from '!./platform-step-input-examples/platform-number-step-input-example.component.html?raw';

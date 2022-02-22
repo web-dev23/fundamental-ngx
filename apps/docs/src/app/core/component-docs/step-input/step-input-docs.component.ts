@@ -7,7 +7,7 @@ import stepInputFormSrc from '!./examples/step-input-form-example/step-input-for
 import stepInputLabelSrc from '!./examples/step-input-label-example/step-input-label-example.component.ts?raw';
 import stepInputLocaleSrc from '!./examples/step-input-locale-example/step-input-locale-example.component.ts?raw';
 import stepInputStateSrc from '!./examples/step-input-state-example/step-input-state-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-select',

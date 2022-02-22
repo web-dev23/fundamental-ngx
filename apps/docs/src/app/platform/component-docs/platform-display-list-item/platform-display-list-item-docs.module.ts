@@ -7,8 +7,7 @@ import { ToolbarModule } from '@fundamental-ngx/core/toolbar';
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';
 import { PlatformListModule, DisplayListItemModule } from '@fundamental-ngx/platform/list';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 
 import { PlatformDisplayListItemHeaderComponent } from './platform-display-list-item-header/platform-display-list-item-header.component';

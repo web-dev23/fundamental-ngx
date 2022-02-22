@@ -4,7 +4,7 @@ import formHtml from '!./examples/radio-example.component.html?raw';
 import formTs from '!./examples/radio-examples.component.ts?raw';
 import formGroupInputHtml from '!./examples/radio-form-group-example.component.html?raw';
 import formGroupInputTs from '!./examples/radio-form-group-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-radio',

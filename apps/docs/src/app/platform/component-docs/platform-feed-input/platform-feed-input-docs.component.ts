@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import feedInputH from '!./platform-feed-input-examples/platform-feed-input-example/platform-feed-input-example.component.html?raw';
 import feedInputT from '!./platform-feed-input-examples/platform-feed-input-example/platform-feed-input-example.component?raw';

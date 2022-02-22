@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import tableHtmlSrc from '!./examples/table-example.component.html?raw';
 import tableTsSrc from '!./examples/table-example.component.ts?raw';
@@ -8,8 +7,8 @@ import tableWithoutBordersHtmlSrc from '!./examples/table-without-borders-exampl
 import tableWithoutBordersTsSrc from '!./examples/table-without-borders-example.component.ts?raw';
 import tableColumnSortHtmlSrc from '!./examples/table-column-sorting-example.component.html?raw';
 import tableColumnSortTsSrc from '!./examples/table-column-sorting-example.component.ts?raw';
-import tableColumnSortPipeTs from '!../../../documentation/core-helpers/pipes/sort.pipe.ts?raw';
-import tableColumnFilterPipeTs from '!../../../documentation/core-helpers/pipes/filter.pipe.ts?raw';
+// import tableColumnSortPipeTs from '!../../../documentation/core-helpers/pipes/sort.pipe.ts?raw';
+// import tableColumnFilterPipeTs from '!../../../documentation/core-helpers/pipes/filter.pipe.ts?raw';
 import tableActivableHtmlSrc from '!./examples/table-activable-example.component.html?raw';
 import tableActivableTsSrc from '!./examples/table-activable-example.component.ts?raw';
 import tableToolbarHtmlSrc from '!./examples/table-toolbar-example.component.html?raw';
@@ -33,8 +32,8 @@ import tableCustomTs from '!./examples/table-custom-columns-example/table-custom
 import tableDialogCustom from '!./examples/table-custom-columns-example/table-custom-dialog.component.ts?raw';
 import tableNavigatableRowHtml from '!./examples/table-navigatable-row-example.component.html?raw';
 import tableNavigatableRowTs from '!./examples/table-navigatable-row-example.component.ts?raw';
-import tableFilterPipe from '!../../../documentation/core-helpers/pipes/filter.pipe.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+// import tableFilterPipe from '!../../../documentation/core-helpers/pipes/filter.pipe.ts?raw';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-table',
@@ -152,15 +151,15 @@ export class TableDocsComponent {
             fileName: 'table-custom-dialog',
             component: 'TableCustomDialogComponent',
             name: 'Dialog Component'
-        },
-        {
-            language: 'typescript',
-            code: tableFilterPipe,
-            fileName: 'filter-pipe',
-            component: 'FilterPipe',
-            pipe: true,
-            name: 'Filter Pipe'
         }
+        // {
+        //     language: 'typescript',
+        //     code: tableFilterPipe,
+        //     fileName: 'filter-pipe',
+        //     component: 'FilterPipe',
+        //     pipe: true,
+        //     name: 'Filter Pipe'
+        // }
     ];
 
     tableColumnSortExample: ExampleFile[] = [
@@ -174,23 +173,23 @@ export class TableDocsComponent {
             component: 'TableColumnSortingExampleComponent',
             code: tableColumnSortTsSrc,
             fileName: 'table-column-sorting-example'
-        },
-        {
-            language: 'typescript',
-            component: 'SortByPipe',
-            code: tableColumnSortPipeTs,
-            pipe: true,
-            fileName: 'table-example-sorting',
-            name: 'Sort Pipe'
-        },
-        {
-            language: 'typescript',
-            component: 'FilterPipe',
-            code: tableColumnFilterPipeTs,
-            pipe: true,
-            fileName: 'table-example-filter',
-            name: 'Filter Pipe'
         }
+        // { // TODO(ds): e2e-refactor
+        //     language: 'typescript',
+        //     component: 'SortByPipe',
+        //     code: tableColumnSortPipeTs,
+        //     pipe: true,
+        //     fileName: 'table-example-sorting',
+        //     name: 'Sort Pipe'
+        // },
+        // {
+        //     language: 'typescript',
+        //     component: 'FilterPipe',
+        //     code: tableColumnFilterPipeTs,
+        //     pipe: true,
+        //     fileName: 'table-example-filter',
+        //     name: 'Filter Pipe'
+        // }
     ];
 
     tableActivableExample: ExampleFile[] = [

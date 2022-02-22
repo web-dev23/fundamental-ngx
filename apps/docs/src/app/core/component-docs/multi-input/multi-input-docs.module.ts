@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { MultiInputHeaderComponent } from './multi-input-header/multi-input-header.component';
 import { MultiInputDocsComponent } from './multi-input-docs.component';
@@ -12,7 +11,7 @@ import { MultiInputFormExampleComponent } from './examples/multi-input-form-exam
 import { MultiInputCompactExampleComponent } from './examples/multi-input-compact-example/multi-input-compact-example.component';
 import { MultiInputNewTokensExampleComponent } from './examples/multi-input-new-tokens-example/multi-input-new-tokens-example.component';
 import { MultiInputMobileExampleComponent } from './examples/multi-input-mobile-example/multi-input-mobile-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { MultiInputIncludesExampleComponent } from './examples/multi-input-includes-example/multi-input-includes-example.component';
 import { MultiInputCustomItemExampleComponent } from './examples/multi-input-custom-item-example/multi-input-custom-item-example.component';
 import { FormModule } from '@fundamental-ngx/core/form';

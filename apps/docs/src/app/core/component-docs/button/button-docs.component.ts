@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
+
 import buttonScss from '!./examples/button-examples.component.scss?raw';
 import buttonOptionsExample from '!./examples/button-menu-example.component.html?raw';
 import buttonIconsExample from '!./examples/button-icons-example.component.html?raw';
 import buttonSizesExample from '!./examples/button-sizes-example.component.html?raw';
 import buttonStateExample from '!./examples/button-state-example.component.html?raw';
 import buttonTypesExample from '!./examples/button-types-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { Icons } from '../../../documentation/utilities/icons';
+import { ExampleFile, Icons } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-button',

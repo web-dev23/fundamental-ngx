@@ -26,7 +26,7 @@ import groupingSrc from '!./platform-form-generator-examples/platform-form-gener
 import customFieldLayoutHtml from '!./platform-form-generator-examples/platform-form-generator-custom-field-layout-example.component.html?raw';
 import customFieldLayoutSrc from '!./platform-form-generator-examples/platform-form-generator-custom-field-layout-example.component.ts?raw';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-form-generator',

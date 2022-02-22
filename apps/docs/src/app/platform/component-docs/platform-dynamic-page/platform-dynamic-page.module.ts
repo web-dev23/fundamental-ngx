@@ -9,8 +9,7 @@ import { DynamicPageModule } from '@fundamental-ngx/core/dynamic-page';
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';
 import { PlatformDynamicPageModule } from '@fundamental-ngx/platform/dynamic-page';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 import { PlatformDynamicPageDocsComponent } from './platform-dynamic-page-docs.component';
 import { PlatformDynamicPageExampleComponent } from './platform-dynamic-page-examples/platform-dynamic-page-example.component';

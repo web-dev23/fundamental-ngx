@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import paginationSrc from '!./examples/pagination-example.component.ts?raw';
 
@@ -12,7 +11,7 @@ import paginationPerPageTs from '!./examples/pagination-per-page/pagination-per-
 import paginationMobileHtml from '!./examples/pagination-mobile/pagination-mobile-example.component.html?raw';
 import paginationMobileTs from '!./examples/pagination-mobile/pagination-mobile-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-pagination',

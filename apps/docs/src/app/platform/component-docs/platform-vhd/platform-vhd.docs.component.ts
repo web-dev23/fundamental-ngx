@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import basicVhdHtml from '!./platform-vhd-examples/platform-vhd-basic-example.component.html?raw';
 import basicVhdTs from '!./platform-vhd-examples/platform-vhd-basic-example.component.ts?raw';

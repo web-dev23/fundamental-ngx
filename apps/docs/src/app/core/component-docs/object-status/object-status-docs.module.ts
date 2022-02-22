@@ -1,6 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ObjectStatusDocsComponent } from './object-status-docs.component';
 import {
@@ -13,7 +12,7 @@ import {
     ObjectStatusLargeExampleComponent
 } from './examples/object-status-examples.component';
 import { ObjectStatusHeaderComponent } from './object-status-header/object-status-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ObjectStatusModule } from '@fundamental-ngx/core/object-status';
 import { ObjectStatusDefaultExampleComponent } from './examples/object-status-default-example.component';
 

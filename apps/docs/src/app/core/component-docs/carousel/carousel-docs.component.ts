@@ -20,7 +20,7 @@ import carouselErrorMessageHtml from '!./examples/carousel-error-message-example
 import carouselLoadingContentTs from '!./examples/carousel-loading-content-example.component.ts?raw';
 import carouselLoadingContentHtml from '!./examples/carousel-loading-content-example.component.html?raw';
 import carouselExampleScss from '!./examples/carousel-example.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-input',

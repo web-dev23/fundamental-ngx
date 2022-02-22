@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import sliSrc from '!./platform-standard-list-item-examples/platform-standard-list-item-example.component.html?raw';
 import borderLessSLISrc from '!./platform-standard-list-item-examples/platform-standard-list-item-border-less-example.component.html?raw';

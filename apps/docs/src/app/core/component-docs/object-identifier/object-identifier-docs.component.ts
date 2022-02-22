@@ -5,7 +5,7 @@ import ObjectIdentifierBoldExampleHtml from '!./examples/object-identifier-bold-
 import ObjectIdentifierDescriptiveExampleHtml from '!./examples/object-identifier-descriptive-example.component.html?raw';
 import ObjectIdentifierTableExampleHtml from '!./examples/object-identifier-table-example.component.html?raw';
 import ObjectIdentifierTableExampleTs from '!./examples/object-identifier-table-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-object-identifier',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import FacetGroupExample from '!./facet-examples/facet-group-example.component.html?raw';
 import FormFacetExample from '!./facet-examples/form-facet-example.component.html?raw';

@@ -17,11 +17,11 @@ import listSelectionH from '!./examples/list-selection-example/list-selection-ex
 import listSelectionTs from '!./examples/list-selection-example/list-selection-example.component.ts?raw';
 import listFilterTs from '!./examples/list-data-example/list-data-example.component.ts?raw';
 import listFilterH from '!./examples/list-data-example/list-data-example.component.html?raw';
-import listSortPipe from '!../../../documentation/core-helpers/pipes/sort.pipe.ts?raw';
+// import listSortPipe from '!../../../documentation/core-helpers/pipes/sort.pipe.ts?raw';
 import infiniteScrollSrcHtml from '!./examples/list-infinite-scroll-example.component.html?raw';
 import infiniteScrollSrcTs from '!./examples/list-infinite-scroll-example.component.ts?raw';
 import listInteractiveHtml from '!./examples/list-interactive-example/list-interactive-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-list',
@@ -107,15 +107,15 @@ export class ListDocsComponent {
             code: listFilterTs,
             fileName: 'list-data-example',
             component: 'ListDataExampleComponent'
-        },
-        {
-            language: 'typescript',
-            component: 'SortByPipe',
-            code: listSortPipe,
-            pipe: true,
-            fileName: 'sort',
-            name: 'Sort Pipe'
         }
+        // { // TODO(ds): e2e-refactor
+        //     language: 'typescript',
+        //     component: 'SortByPipe',
+        //     code: listSortPipe,
+        //     pipe: true,
+        //     fileName: 'sort',
+        //     name: 'Sort Pipe'
+        // }
     ];
 
     keyboardList: ExampleFile[] = [

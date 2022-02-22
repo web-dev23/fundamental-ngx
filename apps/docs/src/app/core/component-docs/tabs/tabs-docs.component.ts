@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import tabSrc from '!./examples/tabs-example/tabs-example.component.html?raw';
 import tabForm from '!./examples/tab-form-element-example/tab-form-element-example.component.html?raw';
@@ -19,8 +18,7 @@ import stackedTabT from '!./examples/tab-stacked-content-example/tab-stacked-con
 import stackedTabH from '!./examples/tab-stacked-content-example/tab-stacked-content-example.component.html?raw';
 import collapsibleTabT from '!./examples/tab-collapsible-example/tab-collapsible-example.component.ts?raw';
 import collapsibleTabH from '!./examples/tab-collapsible-example/tab-collapsible-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { Icons } from '../../../documentation/utilities/icons';
+import { ExampleFile, Icons } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-tabs',

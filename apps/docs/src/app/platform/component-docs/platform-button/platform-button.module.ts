@@ -3,8 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 
 import { PlatformButtonDocsComponent } from './platform-button-docs.component';

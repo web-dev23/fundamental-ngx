@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import toolbarTypeExampleHtml from '!./examples/toolbar-type-example.component.html?raw';
 import toolbarTitleExampleHtml from '!./examples/toolbar-title-example.component.html?raw';
 import toolbarSpacerExampleHtml from '!./examples/toolbar-spacer-example.component.html?raw';

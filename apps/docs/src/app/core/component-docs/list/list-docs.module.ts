@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ListHeaderComponent } from './list-header/list-header.component';
 import { ListDocsComponent } from './list-docs.component';
@@ -12,7 +11,7 @@ import {
     ListSecondaryExampleComponent
 } from './examples/list-examples.component';
 
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ListDndExampleComponent } from './examples/list-dnd-example/list-dnd-example.component';
 import { ListSelectionExampleComponent } from './examples/list-selection-example/list-selection-example.component';
 import { ListBorderlessExampleComponent } from './examples/list-borderless-example/list-borderless-example.component';
@@ -21,7 +20,7 @@ import { ListNavigationExampleComponent } from './examples/list-navigation-examp
 import { ListKeyboardExampleComponent } from './examples/list-keyboard-example/list-keyboard-example.component';
 import { ListNavIndicatorExampleComponent } from './examples/list-nav-indicator-example/list-nav-indicator-example.component';
 import { ListDataExampleComponent } from './examples/list-data-example/list-data-example.component';
-import { SharedDocumentationModule } from '../../../documentation/shared-documentation.module';
+import { SharedDocumentationModule } from '@fundamental-ngx/docs/common/shared-utils';
 import { ListInteractiveExampleComponent } from './examples/list-interactive-example/list-interactive-example.component';
 import { ListModule } from '@fundamental-ngx/core/list';
 import { LinkModule } from '@fundamental-ngx/core/link';

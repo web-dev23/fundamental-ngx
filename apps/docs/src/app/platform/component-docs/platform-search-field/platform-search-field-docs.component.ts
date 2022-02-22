@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformSearchFieldExampleScss from '!./platform-search-field-examples/platform-search-field-example.component.scss?raw';
 import platformBasicSearchFieldSrc from '!./platform-search-field-examples/platform-search-field-basic-example.component.html?raw';

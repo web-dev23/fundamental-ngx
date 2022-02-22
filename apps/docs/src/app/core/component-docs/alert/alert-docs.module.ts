@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { AlertDocsComponent } from './alert-docs.component';
 import { AlertExampleComponent } from './examples/alert-example.component';
@@ -10,7 +9,7 @@ import { AlertInlineExampleComponent } from './examples/alert-inline-example.com
 import { AlertWidthExampleComponent } from './examples/alert-width-example.component';
 import { AlertHeaderComponent } from './alert-header/alert-header.component';
 import { AlertModule, AlertService } from '@fundamental-ngx/core/alert';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 const routes: Routes = [
     {

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import sliderBasicHtml from '!./examples/base/slider-basic-example.component.html?raw';
 import sliderBasicTs from '!./examples/base/slider-basic-example.component?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-slider',

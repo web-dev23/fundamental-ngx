@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
-import { SharedDocumentationModule } from '../../../documentation/shared-documentation.module';
+import { SharedDocumentationModule } from '@fundamental-ngx/docs/common/shared-utils';
 import { UploadCollectionDocsComponent } from './upload-collection-docs.component';
 import { UploadCollectionExampleComponent } from './examples/upload-collection-example.component';
 import { UploadCollectionHeaderComponent } from './upload-collection-header/upload-collection-header.component';
 import { UploadCollectionModule } from '@fundamental-ngx/core/upload-collection';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { UploadCollectionSmallExampleComponent } from './examples/upload-collection-small-example.component';
 import { UploadCollectionCustomExampleComponent } from './examples/upload-collection-custom-example.component';
 import { UploadCollectionEmptyExampleComponent } from './examples/upload-collection-empty-example.component';

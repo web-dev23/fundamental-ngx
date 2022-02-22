@@ -4,7 +4,7 @@ import disabledDragFixedCardLayoutH from '!./examples/disabled-drag-drop/fixed-c
 import disabledDragFixedCardLayoutTs from '!./examples/disabled-drag-drop/fixed-card-layout-disabled-drag.component.ts?raw';
 import mobileFixedCardlayoutH from '!./examples/mobile/fixed-card-layout-mobile-examples.component.html?raw';
 import mobileFixedCardlayoutTs from '!./examples/mobile/fixed-card-layout-mobile-examples.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'fd-fixed-card-layout-docs',

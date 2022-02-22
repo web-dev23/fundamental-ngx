@@ -31,7 +31,8 @@
                                     "scope:fd",
                                     "scope:fdp",
                                     "scope:fn",
-                                    "scope:moment-adapter"
+                                    "scope:moment-adapter",
+                                    "scope:docs"
                                 ]
                             }
                         ],

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import wizardHtml from '!./examples/wizard-example.component.html?raw';
 import wizardTs from '!./examples/wizard-example.component.ts?raw';
 import wizardScss from '!./examples/wizard-example.component.scss?raw';

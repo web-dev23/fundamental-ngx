@@ -9,7 +9,7 @@ import contentRadioGroupSrcCode from '!./platform-radio-group-examples/platform-
 import disabledRadioGroupSrc from '!./platform-radio-group-examples/platform-radio-group-disabled-example.component.html?raw';
 import disabledRadioGroupSrcCode from '!./platform-radio-group-examples/platform-radio-group-disabled-examples.component.ts?raw';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-radio-group',

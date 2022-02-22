@@ -5,8 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { FdpFormGroupModule } from '@fundamental-ngx/platform/form';
 import { PlatformSliderModule } from '@fundamental-ngx/platform/slider';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 
 import { COMPONENTS } from './examples';

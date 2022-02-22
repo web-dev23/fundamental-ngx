@@ -19,7 +19,7 @@ import calendarFormSourceT from '!./examples/calendar-form-example/calendar-form
 import calendarFormSourceH from '!./examples/calendar-form-example/calendar-form-example.component.html?raw';
 import calendarFormSourceScss from '!./examples/calendar-form-example/calendar-form-example.component.scss?raw';
 import calendarProgrammaticallySource from '!./examples/calendar-programmatically-change-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-calendar',

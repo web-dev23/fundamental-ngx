@@ -18,7 +18,7 @@ import sideNavigationObjectSrc from '!./examples/side-navigation-object-example/
 import sideNavigationObjectSrcTs from '!./examples/side-navigation-object-example/side-navigation-object-example.component.ts?raw';
 import sideNavigationCondensedObjectSrc from '!./examples/side-navigation-condensed-object-example/side-navigation-condensed-object-example.component.html?raw';
 import sideNavigationCondensedObjectSrcTs from '!./examples/side-navigation-condensed-object-example/side-navigation-condensed-object-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-side-navigation',

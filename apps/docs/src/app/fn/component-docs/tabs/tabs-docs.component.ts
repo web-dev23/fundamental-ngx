@@ -1,11 +1,10 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import tabSrc from '!./examples/tabs-example/tabs-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { Icons } from '../../../documentation/utilities/icons';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
+import { Icons } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-tabs',

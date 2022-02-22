@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import PlatformObjectStatusDefaultExampleScss from '!./platform-object-status-example/platform-object-status-example.component.scss?raw';
 import PlatformObjectStatusDefaultExample from '!./platform-object-status-example/platform-object-status-example.component.html?raw';

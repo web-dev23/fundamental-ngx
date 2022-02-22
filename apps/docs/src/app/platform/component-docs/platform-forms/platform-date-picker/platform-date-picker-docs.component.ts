@@ -10,7 +10,7 @@ import datepickerFormatTs from '!./platform-date-picker-examples/platform-date-p
 import datepickerFormatHtml from '!./platform-date-picker-examples/platform-date-picker-format-example.component.html?raw';
 import datePickerUpdateOnBlurSrcTs from '!./platform-date-picker-examples/platform-date-picker-update-on-blur-example.component.ts?raw';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-datepicker',

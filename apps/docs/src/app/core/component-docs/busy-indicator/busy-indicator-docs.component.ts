@@ -8,7 +8,7 @@ import BusyIndicatorExtendedHtml from '!./examples/busy-indicator-extended-examp
 import BusyIndicatorExtendedTs from '!./examples/busy-indicator-extended-example.component.ts?raw';
 import BusyIndicatorWrapperTs from '!./examples/busy-indicator-wrapper-example.component.ts?raw';
 import BusyIndicatorWrapperHtml from '!./examples/busy-indicator-wrapper-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-busy-indicator-docs',

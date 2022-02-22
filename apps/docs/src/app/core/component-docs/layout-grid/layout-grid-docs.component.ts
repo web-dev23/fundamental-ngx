@@ -26,7 +26,7 @@ import layoutGridRowSrc from '!./examples/layout-grid-row-example.component.html
 import layoutGridNoGapSrcTs from '!./examples/layout-grid-no-gap-example.component.ts?raw';
 import layoutGridNoGapSrc from '!./examples/layout-grid-no-gap-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-layoutGrid',

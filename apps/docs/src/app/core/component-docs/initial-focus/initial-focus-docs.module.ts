@@ -7,12 +7,11 @@ import { SelectModule } from '@fundamental-ngx/core/select';
 import { SliderModule } from '@fundamental-ngx/core/slider';
 import { StepInputModule } from '@fundamental-ngx/core/step-input';
 import { InitialFocusModule } from '@fundamental-ngx/core/utils';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { InitialFocusHeaderComponent } from './initial-focus-header/initial-focus-header.component';
 import { InitialFocusDocsComponent } from './initial-focus-docs.component';
 import { InitialFocusBasicExampleComponent } from './examples/initial-focus-basic-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { InitialFocusComplexExampleComponent } from './examples/initial-focus-complex-example.component';
 
 const routes: Routes = [

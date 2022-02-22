@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformFormLayoutContainerSrc from '!./platform-form-container-examples/platform-form-container-recommended-example.component.html?raw';
 import platformFormLayoutContainerTsCode from '!./platform-form-container-examples/platform-form-container-recommended-example.component.ts?raw';

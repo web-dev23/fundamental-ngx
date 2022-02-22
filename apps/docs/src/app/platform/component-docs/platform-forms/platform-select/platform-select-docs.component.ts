@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import selectModeHtml from '!./platform-select-examples/platform-select-mode-example/platform-select-mode-example.component.html?raw';
 import selectModeTs from '!./platform-select-examples/platform-select-mode-example/platform-select-mode-example.component.ts?raw';

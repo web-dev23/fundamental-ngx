@@ -33,7 +33,7 @@ import popoverTriggerTsSrc from '!./examples/popover-trigger-example/popover-tri
 import mobilePopoverHtmlSrc from '!./examples/popover-mobile/popover-mobile-example.component.html?raw';
 import mobilePopoverTsSrc from '!./examples/popover-mobile/popover-mobile-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-popover',

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ContentDensityHeaderComponent } from './content-density-header/content-density-header.component';
 import { ContentDensityDocsComponent } from './content-density-docs.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ContentDensityExampleComponent } from './examples/content-density-example.component';
 import { SelectModule } from '@fundamental-ngx/core/select';
 

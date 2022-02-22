@@ -19,7 +19,7 @@ import PlatformMultiInputCompactExampleComponentTs from '!./platform-multi-input
 import PlatformMultiInputLoadingExampleComponent from '!./platform-multi-input-example/platform-multi-input-loading-example.component.html?raw';
 import PlatformMultiInputLoadingExampleComponentTs from '!./platform-multi-input-example/platform-multi-input-loading-example.component.ts?raw';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'fd-platform-multi-input-docs',

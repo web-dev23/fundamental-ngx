@@ -4,9 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MicroProcessFlowModule } from '@fundamental-ngx/core/micro-process-flow';
 import { IconModule } from '@fundamental-ngx/core/icon';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { MicroProcessFlowDocsComponent } from './micro-process-flow-docs.component';
 import { MicroProcessFlowHeaderComponent } from './micro-process-flow-header/micro-process-flow-header.component';

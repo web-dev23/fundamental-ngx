@@ -11,7 +11,7 @@ import triCheckboxhtml from '!./platform-checkbox-examples/platform-tristate-che
 import triCheckboxSrc from '!./platform-checkbox-examples/platform-tristate-checkbox.component.ts?raw';
 import a11yCheckboxhtml from '!./platform-checkbox-examples/platform-checkbox-a11y.component.html?raw';
 import a11yCheckboxSrc from '!./platform-checkbox-examples/platform-checkbox-a11y.component.ts?raw';
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-checkbox',

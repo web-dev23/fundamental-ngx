@@ -1,4 +1,4 @@
-import { Schema } from '../../schema/models/schema.model';
+import { Schema } from '@fundamental-ngx/docs/common/schema';
 
 // components
 import { PlatformButtonDocsComponent } from './platform-button/platform-button-docs.component';

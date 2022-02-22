@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ScrollbarModule } from '@fundamental-ngx/core/scrollbar';
 
 import { API_FILES } from '../../api-files';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ScrollbarHeaderComponent } from './scrollbar-header/scrollbar-header.component';
 import { ScrollbarDocsComponent } from './scrollbar-docs.component';
 

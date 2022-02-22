@@ -3784,6 +3784,58 @@
             },
             "tags": ["scope:docs", "type:app"]
         },
+        "docs-common-schema": {
+            "projectType": "library",
+            "root": "libs/docs/common/schema",
+            "sourceRoot": "libs/docs/common/schema/src",
+            "prefix": "fundamental-ngx",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "libs/docs/common/schema/src/test.ts",
+                        "tsConfig": "libs/docs/common/schema/tsconfig.spec.json",
+                        "karmaConfig": "libs/docs/common/schema/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/docs/common/schema/src/**/*.ts",
+                            "libs/docs/common/schema/src/**/*.html"
+                        ]
+                    }
+                }
+            },
+            "tags": ["scope:docs", "type:util"]
+        },
+        "docs-common-shared-utils": {
+            "projectType": "library",
+            "root": "libs/docs/common/shared-utils",
+            "sourceRoot": "libs/docs/common/shared-utils/src",
+            "prefix": "fundamental-ngx",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "libs/docs/common/shared-utils/src/test.ts",
+                        "tsConfig": "libs/docs/common/shared-utils/tsconfig.spec.json",
+                        "karmaConfig": "libs/docs/common/shared-utils/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/docs/common/shared-utils/src/**/*.ts",
+                            "libs/docs/common/shared-utils/src/**/*.html"
+                        ]
+                    }
+                }
+            },
+            "tags": ["scope:docs", "type:util"]
+        },
         "docs-e2e": {
             "root": "apps/docs-e2e",
             "projectType": "application",

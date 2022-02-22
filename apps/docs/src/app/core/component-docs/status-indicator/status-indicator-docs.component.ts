@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import StatusIndicatorDefaultComponent from '!./example/status-indicator-default.component.html?raw';
 import StatusIndicatorSizeComponent from '!./example/status-indicator-size.component.html?raw';
 import StatusIndicatorFillTypeComponent from '!./example/status-indicator-fill-type.component.html?raw';

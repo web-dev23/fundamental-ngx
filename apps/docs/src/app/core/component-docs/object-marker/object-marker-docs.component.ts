@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import ObjectMarkerExample from '!./examples/object-marker-example.component.html?raw';
 import ObjectMarkerIconandText from '!./examples/object-marker-Icon-text-example.component.html?raw';
 import ObjectMarkerClickable from '!./examples/object-marker-clickable-example.component.html?raw';

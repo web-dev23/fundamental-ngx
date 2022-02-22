@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import messageToastContentExample from '!./examples/message-toast-content-example.component.ts?raw';
 import messageToastExample from '!./examples/message-toast-example.component.ts?raw';
 import messageToastExampleHtml from '!./examples/message-toast-example.component.html?raw';

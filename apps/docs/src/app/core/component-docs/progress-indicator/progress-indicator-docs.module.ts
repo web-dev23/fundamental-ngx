@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ProgressIndicatorDocsComponent } from './progress-indicator-docs.component';
 import { ProgressIndicatorHeaderComponent } from './progress-indicator-header/progress-indicator-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ProgressIndicatorDefaultComponent } from './example/progress-indicator-default.component';
 import { ProgressIndicatorModule } from '@fundamental-ngx/core/progress-indicator';
 import { ProgressIndicatorStateComponent } from './example/progress-indicator-state.component';

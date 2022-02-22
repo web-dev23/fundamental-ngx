@@ -20,7 +20,7 @@ import dateTimeDisabledHtml from '!./examples/datetime-disabled-example/datetime
 import dateTimeDisabledTs from '!./examples/datetime-disabled-example/datetime-disabled-example.component.ts?raw';
 import dateTimeFormHtml from '!./examples/datetime-form-example/datetime-form-example.component.html?raw';
 import dateTimeFormTs from '!./examples/datetime-form-example/datetime-form-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-datetime-picker-docs',

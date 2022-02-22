@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile, DocsThemeService } from '@fundamental-ngx/docs/common/shared-utils';
 import themeSwitcherSrc from '!./examples/theme-switcher-example.component.html?raw';
 import themeUrlSrc from '!./examples/theme-url-example.component.html?raw';
 import themeSwitcherSrcTs from '!./examples/theme-switcher-example.component.ts?raw';
 import themeUrlSrcTs from '!./examples/theme-url-example.component.ts?raw';
-import { DocsThemeService } from '../../../documentation/services/docs-theme.service';
 import { ThemeServiceOutput } from '@fundamental-ngx/core/utils';
 
 @Component({

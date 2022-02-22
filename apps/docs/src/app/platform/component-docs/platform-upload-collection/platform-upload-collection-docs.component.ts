@@ -13,7 +13,7 @@ import uploadCollectionReadonlyHtml from '!./platform-upload-collection-examples
 import uploadCollectionTurnOffTs from '!./platform-upload-collection-examples/platform-upload-collection-turn-off-example.component?raw';
 import uploadCollectionTurnOffHtml from '!./platform-upload-collection-examples/platform-upload-collection-turn-off-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-platform-upload-collection',

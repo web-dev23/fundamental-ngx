@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import iconTabBarTextTypeHtml from '!./examples/platform-icon-tab-bar-text-type-example/platform-icon-tab-bar-text-type-example.component.html?raw';
 import iconTabBarTextTypeTs from '!./examples/platform-icon-tab-bar-text-type-example/platform-icon-tab-bar-text-type-example.component.ts?raw';

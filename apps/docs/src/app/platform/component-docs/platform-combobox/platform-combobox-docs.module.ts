@@ -7,11 +7,10 @@ import { MOBILE_MODE_CONFIG } from '@fundamental-ngx/core/mobile-mode';
 import { PlatformComboboxModule, FdpFormGroupModule } from '@fundamental-ngx/platform/form';
 import { BusyIndicatorModule } from '@fundamental-ngx/core/busy-indicator';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { PlatformComboboxDocsComponent } from './platform-combobox-docs.component';
 import { PlatformComboboxHeaderComponent } from './platform-combobox-header/platform-combobox-header.component';
-import { COMBOBOX_MOBILE_CONFIG } from '../../../documentation/utilities/consts';
+import { COMBOBOX_MOBILE_CONFIG } from '@fundamental-ngx/docs/common/shared-utils';
 import { ComboboxStandardComponent } from './examples/combobox-standard/combobox-standard.component';
 import { ComboboxMobileExampleComponent } from './examples/combobox-mobile/combobox-mobile-example.component';
 import { ComboboxDatasourceExampleComponent } from './examples/combobox-datasource/combobox-datasource-example.component';
@@ -20,7 +19,7 @@ import { ComboboxTemplatesExampleComponent } from './examples/combobox-templates
 import { ComboboxGroupExampleComponent } from './examples/combobox-group/combobox-group-example.component';
 import { ComboboxFormsExampleComponent } from './examples/combobox-forms/combobox-forms-example.component';
 import { ComboboxStateComponent } from './examples/combobox-states/combobox-states-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ComboboxBylineExampleComponent } from './examples/combobox-byline/combobox-byline-example.component';
 import { ComboboxLoadingExampleComponent } from './examples/combobox-loading/combobox-loading-example.component';
 

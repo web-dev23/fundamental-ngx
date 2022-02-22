@@ -18,7 +18,7 @@ import tokenizerTsCode from '!./examples/tokenizer-example/tokenizer-example.com
 import tokenizerCompactH from '!./examples/tokenizer-compact-example/tokenizer-compact-example.component.html?raw';
 import tokenizerCompactTsCode from '!./examples/tokenizer-compact-example/tokenizer-compact-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-token-docs',

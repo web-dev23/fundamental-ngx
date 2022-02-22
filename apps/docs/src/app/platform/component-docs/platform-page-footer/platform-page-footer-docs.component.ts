@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformFooterExampleHtml from '!./platform-page-footer-example/platform-page-footer-example.component.html?raw';
 import platformFooterWithIconHtml from '!./platform-page-footer-example/platform-page-footer-with-icon-example.component.html?raw';

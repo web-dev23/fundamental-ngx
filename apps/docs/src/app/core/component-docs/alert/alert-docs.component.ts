@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 import alertExampleHtml from '!./examples/alert-example.component.html?raw';
 import alertExampleScs from '!./examples/alert-example.component.scss?raw';
 import alertContent from '!./examples/alert-content.component.ts?raw';
@@ -12,7 +11,7 @@ import alertInlineExampleScs from '!./examples/alert-inline-example.component.sc
 import alertWidthExampleHtml from '!./examples/alert-width-example.component.html?raw';
 import alertWidthExampleTs from '!./examples/alert-width-example.component.ts?raw';
 import alertWidthExampleScss from '!./examples/alert-width-example.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-alert',

@@ -4,9 +4,8 @@ import { PlatformInputDocsComponent } from './platform-input-docs.component';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../../api-files';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { PopoverModule } from '@fundamental-ngx/core/popover';
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';

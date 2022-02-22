@@ -8,8 +8,7 @@ import { ListModule } from '@fundamental-ngx/core/list';
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';
 import { PlatformSelectModule, FdpFormGroupModule } from '@fundamental-ngx/platform/form';
 
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../../api-files';
 import { PlatformSelectHeaderComponent } from './platform-select-header/platform-select-header.component';
 import { PlatformSelectDocsComponent } from './platform-select-docs.component';

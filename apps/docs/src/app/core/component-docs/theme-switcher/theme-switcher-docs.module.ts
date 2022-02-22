@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ThemeSwitcherHeaderComponent } from './theme-switcher-header/theme-switcher-header.component';
 import { ThemeSwitcherDocsComponent } from './theme-switcher-docs.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { examples } from './examples';
 import { ObjectStatusModule } from '@fundamental-ngx/core/object-status';
 import { ThemesService } from '@fundamental-ngx/core/utils';

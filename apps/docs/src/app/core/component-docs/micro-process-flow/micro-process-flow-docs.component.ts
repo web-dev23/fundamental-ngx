@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import microProcessFlowExampleHtml from '!./examples/micro-process-flow-example.component.html?raw';
 import microProcessFlowExampleTs from '!./examples/micro-process-flow-example.component.ts?raw';

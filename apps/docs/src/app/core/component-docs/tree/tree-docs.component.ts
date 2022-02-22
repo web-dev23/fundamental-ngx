@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
+import { Schema } from '@fundamental-ngx/docs/common/schema';
 
 @Component({
     selector: 'app-tree',

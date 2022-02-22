@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import objectAttribute from '!./platform-object-attribute-examples/platform-object-attribute-example.component.html?raw';
 import objectAttributeTruncate from '!./platform-object-attribute-examples/platform-object-attribute-truncate-example.component.html?raw';

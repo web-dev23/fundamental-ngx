@@ -19,12 +19,10 @@ import { PlatformMultiInputGroupedExampleComponent } from './platform-multi-inpu
 import { PlatformMultiInputDeclineExampleComponent } from './platform-multi-input-example/platform-multi-input-decline-example.component';
 import { PlatformMultiInputComplexExampleComponent } from './platform-multi-input-example/platform-multi-input-complex-example.component';
 import { PlatformMultiInputMobileExampleComponent } from './platform-multi-input-example/platform-multi-input-mobile-example.component';
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../../api-files';
 import { PlatformMultiInputDisabledExampleComponent } from './platform-multi-input-example/platform-multi-input-disabled.component';
-import { SharedDocumentationModule } from '../../../../documentation/shared-documentation.module';
-import { MULTI_INPUT_MOBILE_CONFIG } from '../../../../documentation/utilities/consts/mobile-mode-configuration-tokens';
+import { SharedDocumentationModule, MULTI_INPUT_MOBILE_CONFIG } from '@fundamental-ngx/docs/common/shared-utils';
 import { PlatformMultiInputReactiveExampleComponent } from './platform-multi-input-example/platform-multi-input-reactive-example.component';
 import { PlatformMultiInputCompactExampleComponent } from './platform-multi-input-example/platform-multi-input-compact-example.component';
 import { PlatformMultiInputLoadingExampleComponent } from './platform-multi-input-example/platform-multi-input-loading-example.component';

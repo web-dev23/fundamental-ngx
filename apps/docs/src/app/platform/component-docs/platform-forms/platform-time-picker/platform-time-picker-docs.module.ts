@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { API_FILES } from '../../../api-files';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { SegmentedButtonModule } from '@fundamental-ngx/core/segmented-button';
 import { FdDatetimeModule } from '@fundamental-ngx/core/datetime';

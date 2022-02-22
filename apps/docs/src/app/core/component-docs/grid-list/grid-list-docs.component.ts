@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import gridListDefaultTs from '!./examples/default/grid-list-example.component?raw';
 import gridListSingleSelectTs from '!./examples/single-select/grid-list-single-select-example.component?raw';

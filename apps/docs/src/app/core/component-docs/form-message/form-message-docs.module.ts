@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { FormMessageHeaderComponent } from './form-message-header/form-message-header.component';
 import { FormMessageDocsComponent } from './form-message-docs.component';
 import { FormMessageExampleComponent } from './examples/form-message-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { FormModule } from '@fundamental-ngx/core/form';
 import { PopoverModule } from '@fundamental-ngx/core/popover';
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';

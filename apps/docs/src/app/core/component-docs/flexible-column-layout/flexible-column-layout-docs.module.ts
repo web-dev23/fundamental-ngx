@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 
 import { FlexibleColumnLayoutDocsComponent } from './flexible-column-layout-docs.component';

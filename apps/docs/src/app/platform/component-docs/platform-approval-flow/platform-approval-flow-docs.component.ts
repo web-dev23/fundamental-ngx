@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import approvalFlowSrc from '!./platform-approval-flow-examples/platform-approval-flow-example.component.html?raw';
 import approvalFlowTsSrc from '!./platform-approval-flow-examples/platform-approval-flow-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-approval-flow',

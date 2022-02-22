@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import switchSizeHtml from '!./switch-examples/switch-sizes-example/switch-sizes-example.component.html?raw';
 import switchDisableHtml from '!./switch-examples/disabled-switch-example/disabled-switch-example.component.html?raw';

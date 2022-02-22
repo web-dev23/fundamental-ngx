@@ -15,7 +15,7 @@ import datePickerRangeDisableH from '!./examples/date-picker-range-disabled-exam
 import datePickerSingleDisableTs from '!./examples/date-picker-disable-func-example/date-picker-disable-func-example.component.ts?raw';
 import datePickerSingleDisableH from '!./examples/date-picker-disable-func-example/date-picker-disable-func-example.component.html?raw';
 import datePickerUpdateOnBlurSrcTs from '!./examples/date-picker-update-on-blur-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-date-picker',

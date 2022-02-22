@@ -4,7 +4,7 @@ import selectrc from '!./examples/select-example/select-example.component.html?r
 import selectFormsrc from '!./examples/select-example/select-forms-example.component.html?raw';
 import selectEditablerc from '!./examples/select-example/select-editable-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-select',

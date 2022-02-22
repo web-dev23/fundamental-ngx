@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { FileUploaderHeaderComponent } from './file-uploader-header/file-uploader-header.component';
 import { FileUploaderDocsComponent } from './file-uploader-docs.component';
 import { API_FILES } from '../../api-files';

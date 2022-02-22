@@ -18,7 +18,7 @@ import customIconTs from '!./examples/ri-custom-icon-example.component.ts?raw';
 import displayModeHtml from '!./examples/ri-display-mode-example.component.html?raw';
 import displayModeTs from '!./examples/ri-display-mode-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-rating-indicator',

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { IllustratedMessageHeaderComponent } from './illustrated-message-header/illustrated-message-header.component';
 import { IllustratedMessageDocsComponent } from './illustrated-message-docs.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { IllustratedMessageExampleComponent } from './examples/illustrated-message-example.component';
 import { IllustratedMessageDialogExampleComponent } from './examples/illustrated-message-dialog-example.component';

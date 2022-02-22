@@ -7,7 +7,7 @@ import checkboxReactiveFormsTsCode from '!./examples/checkbox-reactive-forms-exa
 import checkboxStatesTsCode from '!./examples/checkbox-states-example.component.ts?raw';
 import checkboxCustomLabelTsCode from '!./examples/checkbox-custom-label-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-input',

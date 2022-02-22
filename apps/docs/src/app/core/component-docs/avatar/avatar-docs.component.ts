@@ -23,7 +23,7 @@ import avatarBordersHtml from '!./examples/avatar-borders-example.component.html
 import avatarBackgroundWithAlterOptionsImageTs from '!./examples/avatar-default-image-with-alternative-options-example.component.ts?raw';
 import avatarBackgroundImageWithAlterOptionsHtml from '!./examples/avatar-default-image-with-alternative-options-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-avatar',

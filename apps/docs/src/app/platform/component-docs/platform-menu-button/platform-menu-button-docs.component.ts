@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import menuButtonSrc from '!./platform-menu-button-examples/platform-menu-button-example.component.html?raw';
 import cozyMenuButtonSrc from '!./platform-menu-button-examples/platform-menu-button-cozy-example.component.html?raw';
 import compactMenuButtonSrc from '!./platform-menu-button-examples/platform-menu-button-compact-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-link',

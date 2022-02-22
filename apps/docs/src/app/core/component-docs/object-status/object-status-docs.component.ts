@@ -9,7 +9,7 @@ import ObjectStatusInvertedTextExample from '!./examples/object-status-inverted-
 import ObjectStatusInvertedGenericExample from '!./examples/object-status-inverted-generic-text-example.component.html?raw';
 import ObjectStatusLargeExample from '!./examples/object-status-large-example.component.html?raw';
 import objectStatusExamplesScss from '!./examples/object-status-examples.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-object-status',

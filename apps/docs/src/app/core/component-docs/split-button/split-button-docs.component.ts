@@ -1,6 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import buttonSplitOptionsExampleTs from '!./examples/split-button-options-example.component.ts?raw';
 import buttonSplitProgrammaticalyExampleTs from '!./examples/split-button-programmatical-example.component.ts?raw';
@@ -14,7 +13,7 @@ import buttonSplitProgrammaticalyExample from '!./examples/split-button-programm
 import buttonSplitOptionsExample from '!./examples/split-button-options-example.component.html?raw';
 import buttonSplitIcons from '!./examples/split-button-icons-example.component.html?raw';
 import buttonSplitTemplateExample from '!./examples/split-button-template-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-split-button',

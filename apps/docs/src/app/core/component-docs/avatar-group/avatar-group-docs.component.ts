@@ -6,7 +6,7 @@ import avatarGroupGroupTs from '!./examples/avatar-group-group-type-example.comp
 import avatarGroupGroupHtml from '!./examples/avatar-group-group-type-example.component.html?raw';
 import avatarGroupDataServiceTs from '!./examples/avatar-group-data-example.service.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-avatar-group',

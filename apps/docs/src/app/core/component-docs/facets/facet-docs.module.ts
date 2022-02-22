@@ -9,8 +9,7 @@ import { ObjectStatusModule } from '@fundamental-ngx/core/object-status';
 import { RatingIndicatorModule } from '@fundamental-ngx/core/rating-indicator';
 import { TextModule } from '@fundamental-ngx/core/text';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 import { FacetDocsComponent } from './facet-docs.component';
 import { CustomFacetExampleComponent } from './facet-examples/custom-facet-example.component';

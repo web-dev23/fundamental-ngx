@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FdDatetimeModule } from '@fundamental-ngx/core/datetime';
 import { FdpFormGroupModule, PlatformDatetimePickerModule } from '@fundamental-ngx/platform/form';
 
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../../api-files';
 import { PlatformDatetimePickerDocsComponent } from './platform-datetime-picker-docs.component';
 import { PlatformDatetimePickerBasicExampleComponent } from './platform-datetime-picker-examples/platform-datetime-picker-basic-example.component';

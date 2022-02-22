@@ -8,14 +8,14 @@ import switchDisableExampleScssCode from '!./examples/disabled-switch-example/di
 import switchBindingExampleHtml from '!./examples/switch-binding-example/switch-binding-example.component.html?raw';
 import switchBindingExampleTsCode from '!./examples/switch-binding-example/switch-binding-example.component.ts?raw';
 import switchBindingExampleScssCode from '!./examples/switch-binding-example/switch-binding-example.component.scss?raw';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
+
 import switchFormExampleHtmlSrc from '!./examples/switch-form-example/switch-forms-example.component.html?raw';
 import switchFormExampleTsCode from '!./examples/switch-form-example/switch-forms-example.component.ts?raw';
 import semanticSwitchExampleHtml from '!./examples/semantic-switch-example/semantic-switch-example.component.html?raw';
 import semanticSwitchExampleTs from '!./examples/semantic-switch-example/semantic-switch-example.component.ts?raw';
 import switchFormExampleScssCode from '!./examples/switch-form-example/switch-forms-example.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-switch',

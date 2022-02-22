@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import panelExpandableHtmlExample from '!./platform-panel-examples/platform-panel-expandable-example.component.html?raw';
 import panelExpandableTsExample from '!./platform-panel-examples/platform-panel-expandable-example.component.ts?raw';

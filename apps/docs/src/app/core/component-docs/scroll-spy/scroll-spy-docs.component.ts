@@ -7,7 +7,7 @@ import standardSCSS from '!./examples/scroll-spy-example/scroll-spy-example.comp
 import customH from '!./examples/scroll-spy-custom-example/scroll-spy-custom-example.component.html?raw';
 import customT from '!./examples/scroll-spy-custom-example/scroll-spy-custom-example.component.ts?raw';
 import customSCSS from '!./examples/scroll-spy-custom-example/scroll-spy-custom-example.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-scroll-spy-docs',

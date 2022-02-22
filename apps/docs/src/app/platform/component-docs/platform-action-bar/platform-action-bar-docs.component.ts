@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import simpleActionBarHtml from '!./platform-action-bar-examples/platform-action-bar-simple-example.component.html?raw';
 import simpleActionBarTs from '!./platform-action-bar-examples/platform-action-bar-simple-example.component.ts?raw';
 import actionBarBackButtonTS from '!./platform-action-bar-examples/platform-action-bar-with-back-button-example.component.ts?raw';

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MOBILE_MODE_CONFIG } from '@fundamental-ngx/core/mobile-mode';
-import { SEARCH_FIELD_MOBILE_CONFIG } from '../../../documentation/utilities/consts';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
+import { SEARCH_FIELD_MOBILE_CONFIG } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { PlatformSearchFieldModule } from '@fundamental-ngx/platform/search-field';
 import { PlatformSearchFieldHeaderComponent } from './platform-search-field-header/platform-search-field-header.component';

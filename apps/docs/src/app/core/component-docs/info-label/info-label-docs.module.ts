@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { InfoLabelDocsComponent } from './info-label-docs.component';
 import {
@@ -10,7 +9,7 @@ import {
     InfoLableNumericIconExampleComponent
 } from './examples/info-label-examples.component';
 import { InfoLabelHeaderComponent } from './info-label-header/info-label-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { InfoLabelModule } from '@fundamental-ngx/core/info-label';
 
 const routes: Routes = [

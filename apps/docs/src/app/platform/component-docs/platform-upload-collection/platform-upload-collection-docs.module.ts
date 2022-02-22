@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PlatformUploadCollectionModule } from '@fundamental-ngx/platform/upload-collection';
 
 import { API_FILES } from '../../api-files';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { PlatformUploadColletionDocsComponent } from './platform-upload-collection-docs.component';
 import { PlatformUploadCollectionExampleComponent } from './platform-upload-collection-examples/platform-upload-collection-example.component';
 import { PlatformUploadCollectionDisabledExampleComponent } from './platform-upload-collection-examples/platform-upload-collection-disabled-example.component';

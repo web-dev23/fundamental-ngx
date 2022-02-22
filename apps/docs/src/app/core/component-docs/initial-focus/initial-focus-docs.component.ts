@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import basicExampleHtml from '!./examples/initial-focus-basic-example.component.html?raw';
 import basicExampleTs from '!./examples/initial-focus-basic-example.component.ts?raw';
 

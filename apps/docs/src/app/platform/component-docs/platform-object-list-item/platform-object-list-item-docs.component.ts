@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import borderLessOLISrc from '!./platform-object-list-item-examples/platform-object-list-item-border-less-example.component.html?raw';
 import borderLessOLITs from '!./platform-object-list-item-examples/platform-object-list-item-border-less-example.component.ts?raw';

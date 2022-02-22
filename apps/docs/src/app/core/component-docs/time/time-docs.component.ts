@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import timeSrc from '!./examples/time-example.component.html?raw';
 import timeMeridianSrc from '!./examples/time-12-example.component.html?raw';
@@ -25,7 +24,7 @@ import timeI18nSrc from '!./examples/time-i18n-example.component.ts?raw';
 import timeFormHtmlSrc from '!./examples/time-form-example.component.html?raw';
 import timeFormTsSrc from '!./examples/time-form-example.component.ts?raw';
 import timeFormScssSrc from '!./examples/time-form-example.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-time',

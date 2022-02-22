@@ -11,10 +11,9 @@ import { ActionBarBackExampleComponent } from './examples/action-bar-back-exampl
 import { ActionBarLongStringTitleTruncationExampleComponent } from './examples/action-bar-long-string-title-truncation-example.component';
 import { ActionBarMobileExampleComponent } from './examples/action-bar-mobile-example.component';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ActionBarModule } from '@fundamental-ngx/core/action-bar';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 const routes: Routes = [
     {

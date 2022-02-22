@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import timelineBasicDataExampleTs from '!./examples/timeline-basic-example/timeline-example-data.ts?raw';
 import timelineBasicExampleTs from '!./examples/timeline-basic-example/timeline-basic-example.component.ts?raw';
 import timelineBasicExampleHtml from '!./examples/timeline-basic-example/timeline-basic-example.component.html?raw';

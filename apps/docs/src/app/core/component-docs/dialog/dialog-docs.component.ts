@@ -40,9 +40,8 @@ import formDialogHtml from '!./examples/dialog-form/form-dialog-example.componen
 import popoverDialogTs from '!./examples/dialog-inner-popover/dialog-inner-popover.component.ts?raw';
 
 import { DialogService } from '@fundamental-ngx/core/dialog';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
-import { Schema } from '../../../schema/models/schema.model';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 import dialogExamplesScss from '!./examples/dialog-examples.component.scss?raw';
 

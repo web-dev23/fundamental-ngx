@@ -7,7 +7,7 @@ import momentAdapterOptionsSrcHtml from '!./examples/moment-adapter-options-exam
 import momentDatetimeFormatsSrcTs from '!./examples/moment-datetime-formats-example.component.ts?raw';
 import momentDatetimeFormatsSrcHtml from '!./examples/moment-datetime-formats-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-moment-datetime-adapter',

@@ -11,7 +11,7 @@ import bylineInteractiveTs from '!./examples/list-byline-interactive-example/lis
 import bylineInteractiveHtml from '!./examples/list-byline-interactive-example/list-byline-interactive-example.component.html?raw';
 import bylineWrapTs from '!./examples/list-byline-wrap-example/list-byline-wrap-example.component.ts?raw';
 import bylineWrapHtml from '!./examples/list-byline-wrap-example/list-byline-wrap-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-list-byline',

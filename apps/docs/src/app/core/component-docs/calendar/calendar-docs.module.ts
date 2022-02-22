@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { CalendarDocsComponent } from './calendar-docs.component';
@@ -17,7 +16,7 @@ import { CalendarOptionsExampleComponent } from './examples/calendar-options-exa
 import { CalendarGridExampleComponent } from './examples/calendar-grid-example/calendar-grid-example.component';
 import { CalendarSpecialDayExampleComponent } from './examples/calendar-special-day-example/calendar-special-day-example.component';
 import { CalendarMarkHoverComponent } from './examples/calendar-mark-hover/calendar-mark-hover.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { FormModule } from '@fundamental-ngx/core/form';
 import { DialogModule } from '@fundamental-ngx/core/dialog';
 import { CheckboxModule } from '@fundamental-ngx/core/checkbox';

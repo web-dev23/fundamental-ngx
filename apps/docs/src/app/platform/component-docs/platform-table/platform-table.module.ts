@@ -16,8 +16,7 @@ import { IllustratedMessageModule } from '@fundamental-ngx/core/illustrated-mess
 import { FdpFormGroupModule } from '@fundamental-ngx/platform/form';
 
 import { API_FILES } from '../../api-files';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { PlatformTableHeaderComponent } from './platform-table-header/platform-table-header.component';
 import { PlatformTableDocsComponent } from './platform-table-docs.component';

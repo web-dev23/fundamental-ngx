@@ -8,7 +8,7 @@ import contextualMenuExample from '!./examples/action-bar-contextual-menu-exampl
 import mobileExample from '!./examples/action-bar-mobile-example.component.html?raw';
 import mobileExampleTs from '!./examples/action-bar-mobile-example.component.ts?raw';
 import noBackButtonExample from '!./examples/action-bar-no-back-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-action-bar',

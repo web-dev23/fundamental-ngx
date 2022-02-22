@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { API_FILES } from '../../api-files';
 import { TableDocsHeaderComponent } from './table-docs-header/table-docs-header.component';
 import { TableDocsComponent } from './table-docs.component';
@@ -24,7 +23,7 @@ import { TableFocusableExampleComponent } from './examples/table-focusable-examp
 import { TableNavigatableRowExampleComponent } from './examples/table-navigatable-row-example.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { SharedDocumentationModule } from '../../../documentation/shared-documentation.module';
+import { SharedDocumentationModule } from '@fundamental-ngx/docs/common/shared-utils';
 import { FormModule } from '@fundamental-ngx/core/form';
 import { ListModule } from '@fundamental-ngx/core/list';
 import { TableModule } from '@fundamental-ngx/core/table';

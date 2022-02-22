@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformBasicMenuSrc from '!./platform-menu-examples/platform-menu-basic-example.component.html?raw';
 import platformBasicMenuTsCode from '!./platform-menu-examples/platform-menu-basic-example.component.ts?raw';

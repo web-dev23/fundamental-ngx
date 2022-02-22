@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { BarDocsComponent } from './bar-docs.component';
 import {
@@ -14,7 +13,7 @@ import { BarHeaderExampleComponent } from './examples/bar-header-example.compone
 import { BarPageExampleComponent } from './examples/bar-page-example.component';
 import { BarPageResponsiveExampleComponent } from './examples/bar-page-responsive-example.component';
 import { BarHeaderComponent } from './bar-header/bar-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
 import { BarModule } from '@fundamental-ngx/core/bar';
 import { BarWithTitleExampleComponent } from './examples/bar-with-title-example.component';

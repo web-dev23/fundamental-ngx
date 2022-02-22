@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
+
 import messageStripExampleHtml from '!./examples/message-strip-example.component.html?raw';
 import messageStripExampleScs from '!./examples/message-strip-example.component.scss?raw';
 import messageStripNoIconExampleHtml from '!./examples/message-strip-noicon-example.component.html?raw';
 import messageStripWidthExampleHtml from '!./examples/message-strip-width-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-message-strip',

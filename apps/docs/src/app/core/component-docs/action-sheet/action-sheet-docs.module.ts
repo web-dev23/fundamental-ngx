@@ -3,9 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActionSheetModule } from '@fundamental-ngx/core/action-sheet';
 import { ActionSheetHeaderComponent } from './action-sheet-header/action-sheet-header.component';
 import { ActionSheetDocsComponent } from './action-sheet-docs.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { examples } from './examples';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 
 const routes: Routes = [

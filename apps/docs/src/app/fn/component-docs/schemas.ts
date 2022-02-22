@@ -1,4 +1,4 @@
-import { Schema } from '../../schema/models/schema.model';
+import { Schema } from '@fundamental-ngx/docs/common/schema';
 
 export const COMPONENT_SCHEMAS: { [name: string]: Schema } = {
     media: {

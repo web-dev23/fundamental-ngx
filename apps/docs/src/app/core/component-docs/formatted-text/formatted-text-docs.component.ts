@@ -9,7 +9,7 @@ import linkFormattedTextTs from '!./examples/links/formatted-text-links-example.
 import scriptFormattedTextHtml from '!./examples/script/formatted-text-script-example.component.html?raw';
 import scriptFormattedTextTs from '!./examples/script/formatted-text-script-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-input',

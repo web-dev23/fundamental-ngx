@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import splitterDefaultHtml from '!./examples/default/splitter-default-example.component.html?raw';
 import splitterDefaultTs from '!./examples/default/splitter-default-example.component.ts?raw';

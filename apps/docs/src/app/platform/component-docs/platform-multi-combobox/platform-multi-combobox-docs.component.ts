@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import multiComboboxDatasourceHtml from '!./examples/multi-combobox-datasource/multi-combobox-datasource-example.component.html?raw';
 import multiComboboxDatasourceTs from '!./examples/multi-combobox-datasource/multi-combobox-datasource-example.component?raw';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import timePickerBasicHtml from '!./examples/platform-time-picker-basic-example.component.html?raw';
 import timePickerBasicTs from '!./examples/platform-time-picker-basic-example.component.ts?raw';
 import timePickerReactiveHtml from '!./examples/platform-time-picker-reactive-example.component.html?raw';

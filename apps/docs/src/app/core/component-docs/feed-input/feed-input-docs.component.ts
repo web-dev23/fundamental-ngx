@@ -5,7 +5,7 @@ import feedInputPlaceholderH from '!./examples/feed-input-placeholder-example/fe
 import feedInputNoAvatarH from '!./examples/feed-input-no-avatar-example/feed-input-no-avatar-example.component.html?raw';
 import feedInputDisabledH from '!./examples/feed-input-disabled-example/feed-input-disabled-example.component.html?raw';
 import feedInputMaxHeightH from '!./examples/feed-input-grow-example/feed-input-grow-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-feed-input',

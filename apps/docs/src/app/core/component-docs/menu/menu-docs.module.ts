@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { MenuHeaderComponent } from './menu-header/menu-header.component';
 import { MenuDocsComponent } from './menu-docs.component';
@@ -11,7 +10,7 @@ import {
 } from './examples/menu-examples.component';
 
 import { MenuWithSubmenuExampleComponent } from './examples/menu-with-submenu-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { MenuModule } from '@fundamental-ngx/core/menu';
 import { MenuMobileExampleComponent } from './examples/menu-mobile-example.component';
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import linkH from '!./examples/link-example.component.html?raw';
 import linkTs from '!./examples/link-example.component.ts?raw';
 

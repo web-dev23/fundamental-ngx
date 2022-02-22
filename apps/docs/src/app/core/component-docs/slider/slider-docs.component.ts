@@ -15,9 +15,8 @@ import sliderTooltipTs from '!./examples/tooltip/slider-tooltip-example.componen
 import sliderCozyHtml from '!./examples/cozy/slider-cozy-example.component.html?raw';
 import sliderCozyTs from '!./examples/cozy/slider-cozy-example.component?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
-import { Schema } from '../../../schema/models/schema.model';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
+import { SchemaFactoryService, Schema } from '@fundamental-ngx/docs/common/schema';
 
 @Component({
     selector: 'app-slider',

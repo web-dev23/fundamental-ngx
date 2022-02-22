@@ -7,7 +7,7 @@ import contentCheckboxGroupHtml from '!./platform-checkbox-group-examples/platfo
 import contentCheckboxGroupTs from '!./platform-checkbox-group-examples/platform-checkbox-group-content-checkbox.component.ts?raw';
 import checkboxGroupExampleHtml from '!./platform-checkbox-group-examples/platform-checkbox-group-example.component.html?raw';
 import checkboxGroupExampleTs from '!./platform-checkbox-group-examples/platform-checkbox-group-examples.component.ts?raw';
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-checkbox-group',

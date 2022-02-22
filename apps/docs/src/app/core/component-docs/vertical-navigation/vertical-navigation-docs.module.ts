@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { VerticalNavigationDocsComponent } from './vertical-navigation-docs.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { VerticalNavigationDefaultExampleComponent } from './examples/vertical-navigation-default-example.component';
 import { VerticalNavigationModule } from '@fundamental-ngx/core/vertical-navigation';
 import { TableModule } from '@fundamental-ngx/core/table';

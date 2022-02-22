@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformObjectMarkerExampleScss from '!./object-marker-example/object-marker-example.scss?raw';
 import platformObjectMarkerDefaultExampleHtml from '!./object-marker-example/object-marker/object-marker-example.component.html?raw';

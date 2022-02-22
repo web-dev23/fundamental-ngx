@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { StatusIndicatorDocsComponent } from './status-indicator-docs.component';
 import { StatusIndicatorHeaderComponent } from './status-indicator-header/status-indicator-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { StatusIndicatorDefaultComponent } from './example/status-indicator-default.component';
 import { StatusIndicatorSizeComponent } from './example/status-indicator-size.component';
 import { StatusIndicatorFillTypeComponent } from './example/status-indicator-fill-type.component';

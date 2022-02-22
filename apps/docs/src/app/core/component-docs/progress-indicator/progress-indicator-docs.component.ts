@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import ProgressIndicatorDefaultComponent from '!./example/progress-indicator-default.component.html?raw';
 import ProgressIndicatorDefaultComponentTs from '!./example/progress-indicator-default.component.ts?raw';
 import ProgressIndicatorTruncationComponent from '!./example/progress-indicator-truncation.component.html?raw';

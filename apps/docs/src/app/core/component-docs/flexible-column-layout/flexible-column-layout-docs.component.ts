@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import defaultFlexibleColumnLayoutHtml from '!./examples/default/flexible-column-layout-example.component.html?raw';
 import defaultFlexibleColumnLayoutTs from '!./examples/default/flexible-column-layout-example.component.ts?raw';

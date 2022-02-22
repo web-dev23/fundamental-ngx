@@ -30,7 +30,7 @@ import mobileT from '!./examples/multi-input-mobile-example/multi-input-mobile-e
 import customH from '!./examples/multi-input-custom-item-example/multi-input-custom-item-example.component.html?raw';
 import customT from '!./examples/multi-input-custom-item-example/multi-input-custom-item-example.component.ts?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-multi-input-docs',

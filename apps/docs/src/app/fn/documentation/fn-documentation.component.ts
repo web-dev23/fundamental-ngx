@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DocumentationBaseComponent } from '../../documentation/documentation-base.component';
+import { DocumentationBaseComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { components, guides, sections } from './fn-documentation-data';
 
 @Component({

@@ -6,7 +6,7 @@ import inlineHelpTriggerHtml from '!./examples/inline-help-trigger-example.compo
 import inlineHelpStylesTs from '!./examples/inline-help-styled-example.component.ts?raw';
 import inlineHelpStylesHtml from '!./examples/inline-help-styled-example.component.html?raw';
 import inlineHelpTemplateHtml from '!./examples/inline-help-template-example/inline-help-template-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-inline-help',

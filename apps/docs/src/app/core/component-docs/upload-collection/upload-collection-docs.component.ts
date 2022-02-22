@@ -10,7 +10,7 @@ import uploadCollectionComplexHtml from '!./examples/upload-collection-complex-e
 import uploadCollectionComplexTs from '!./examples/upload-collection-complex-example.component.ts?raw';
 import uploadCollectionEmptyHtml from '!./examples/upload-collection-empty-example.component.html?raw';
 import uploadCollectionEmptyTs from '!./examples/upload-collection-empty-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-upload-collection',

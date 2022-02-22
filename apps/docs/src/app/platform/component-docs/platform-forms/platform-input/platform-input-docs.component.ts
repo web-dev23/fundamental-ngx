@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformInputDefaultTypesSrc from '!./platform-input-example/platform-input-example.component.html?raw';
 import platformInputDefaultTypesTsSrc from '!./platform-input-example/platform-input-example.component?raw';

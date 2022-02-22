@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
 import { AvatarDocsComponent } from './avatar-docs.component';
 import { AvatarHeaderComponent } from './avatar-header/avatar-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { AvatarAccentColorsExampleComponent } from './examples/avatar-accent-colors-example.component';
 import { AvatarBordersExampleComponent } from './examples/avatar-borders-example.component';
 import { AvatarBackgroundImageExampleComponent } from './examples/avatar-background-image-example.component';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import PlatformInfoLableDefaultExample from '!./platform-info-label-example/platform-info-label-example.component.html?raw';
 import PlatformInfoLableNumericExample from '!./platform-info-label-example/platform-info-label-numeric-example.component.html?raw';

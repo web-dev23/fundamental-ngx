@@ -9,7 +9,7 @@ import datetimePickerTemplateHtml from '!./platform-datetime-picker-examples/pla
 import datetimePickerTemplateTs from '!./platform-datetime-picker-examples/platform-datetime-picker-template-example.component.ts?raw';
 import datetimePickerUpdateOnBlurTs from '!./platform-datetime-picker-examples/platform-datetime-picker-update-on-blur-example.component.ts?raw';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-datetime-picker',

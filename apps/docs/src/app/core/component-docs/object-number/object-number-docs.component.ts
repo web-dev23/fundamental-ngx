@@ -8,7 +8,7 @@ import statusHtml from '!./examples/object-number-status-example.component.html?
 import decimalHtml from '!./examples/object-number-decimal-example.component.html?raw';
 import truncationHtml from '!./examples/object-number-truncation-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-object-number',

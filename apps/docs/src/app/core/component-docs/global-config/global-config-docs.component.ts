@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import dialogGlobalConfigSrc from '!./examples/dialog-global-config-example/dialog-global-config-example.module.ts?raw';
 import messageBoxGlobalConfigSrc from '!./examples/message-box-global-config-example/message-box-global-config-example.module.ts?raw';
 import stepInputConfigurationSrc from '!./examples/mobile-mode-global-config-example/mobile-mode-global-config-example.module.ts?raw';

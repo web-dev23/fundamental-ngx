@@ -8,7 +8,7 @@ import productSwitchDndTs from '!./examples/product-switch-dnd-example.component
 
 import listProductSwitchH from '!./examples/product-switch-list/product-switch-list-example.component.html?raw';
 import listProductSwitchTs from '!./examples/product-switch-list/product-switch-list-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-product-switch',

@@ -7,7 +7,7 @@ import menuMobileHtml from '!./examples/menu-mobile-example.component.html?raw';
 import menuSeparatorHtml from '!./examples/menu-separator-example.component.html?raw';
 import menuWithSubmenuHtml from '!./examples/menu-with-submenu-example.component.html?raw';
 import menuWithSubmenuTs from '!./examples/menu-with-submenu-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-menu',

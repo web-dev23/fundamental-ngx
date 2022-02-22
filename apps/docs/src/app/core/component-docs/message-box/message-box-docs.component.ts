@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import templateBasedTs from '!./examples/template-based/template-based-message-box-example.component.ts?raw';
 import templateBasedHtml from '!./examples/template-based/template-based-message-box-example.component.html?raw';

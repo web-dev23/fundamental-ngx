@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import inputGroupStandardExampleHtml from '!./platform-input-group-examples/platform-input-group-standard-example.component.html?raw';
 import inputGroupCompactExampleHtml from '!./platform-input-group-examples/platform-input-group-compact-example.component.html?raw';

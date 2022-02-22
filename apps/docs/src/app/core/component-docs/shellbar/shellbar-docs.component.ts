@@ -10,7 +10,7 @@ import sideNavShellbarScss from '!./examples/shellbar-side-nav/shellbar-side-nav
 import sideNavResponsiveShellbarTs from '!./examples/shellbar-side-nav-responsive/shellbar-side-nav-responsive-example.component.ts?raw';
 import sideNavResponsiveShellbarScss from '!./examples/shellbar-side-nav-responsive/shellbar-side-nav-responsive-example.component.scss?raw';
 import sideNavResponsiveShellbarHtml from '!./examples/shellbar-side-nav-responsive/shellbar-side-nav-responsive-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-shellbar',

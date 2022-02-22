@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import platformFileUploadDefaultTypesSrc from '!./platform-file-uploader-examples/platform-file-uploader-example.component.html?raw';
 import platformFileUploadDefaultTypesScssSrc from '!./platform-file-uploader-examples/platform-file-uploader-example.component.scss?raw';

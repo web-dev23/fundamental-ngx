@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import cardExampleHtml from '!./examples/card-example.component.html?raw';
 import cardCompactExampleHtml from '!./examples/card-compact-example.component.html?raw';

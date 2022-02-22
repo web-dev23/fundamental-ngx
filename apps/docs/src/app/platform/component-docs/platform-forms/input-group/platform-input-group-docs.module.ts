@@ -5,10 +5,9 @@ import { IconModule } from '@fundamental-ngx/core/icon';
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';
 import { PlatformInputGroupModule, FdpFormGroupModule } from '@fundamental-ngx/platform/form';
 
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../../api-files';
-import { SharedDocumentationModule } from '../../../../documentation/shared-documentation.module';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationModule } from '@fundamental-ngx/docs/common/shared-utils';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 
 import { PlatformInputGroupHeaderComponent } from './platform-input-group-header/platform-input-group-header.component';
 import { PlatformInputGroupDocsComponent } from './platform-input-group-docs.component';

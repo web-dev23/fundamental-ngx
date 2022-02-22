@@ -9,7 +9,7 @@ import badgeSrc from '!./examples/badge-tile-example.component.html?raw';
 import feedSrc from '!./examples/feed-tile-example.component.html?raw';
 import lineSrc from '!./examples/line-tile-example.component.html?raw';
 import clickableSrc from '!./examples/clickable-tile-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-tile',

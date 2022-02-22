@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import defaultHtmlExample from '!./examples/wizard-generator-default-example.component.html?raw';
 import defaultTsExample from '!./examples/wizard-generator-default-example.component.ts?raw';

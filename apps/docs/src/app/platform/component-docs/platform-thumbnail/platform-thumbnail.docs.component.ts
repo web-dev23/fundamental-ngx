@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import basicThumbnailHtml from '!./platform-thumbnail-examples/platform-thumbnail-basic-example.component.html?raw';
 import basicThumbnailTs from '!./platform-thumbnail-examples/platform-thumbnail-basic-example.component.ts?raw';
 import horizontalThumbnailHtml from '!./platform-thumbnail-examples/platform-thumbnail-horizontal-example.component.html?raw';

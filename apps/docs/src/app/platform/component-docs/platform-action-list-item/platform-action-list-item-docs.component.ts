@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 import aliSrc from '!./platform-action-list-item-examples/platform-action-list-item-example.component.html?raw';
 import aliSrcTs from '!./platform-action-list-item-examples/platform-action-list-item-example.component?raw';

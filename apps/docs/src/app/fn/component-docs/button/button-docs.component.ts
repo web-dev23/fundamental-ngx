@@ -7,7 +7,7 @@ import buttonoutlinerc from '!./examples/button-example/button-outline-example.c
 import buttonlinkrc from '!./examples/button-example/button-link-example.component.html?raw';
 import buttonnakedrc from '!./examples/button-example/button-naked-example.component.html?raw';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-button',

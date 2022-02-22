@@ -29,7 +29,7 @@ import comboboxSeaTs from '!./examples/combobox-search-function-example.componen
 import comboboxSeaHtml from '!./examples/combobox-search-function-example.component.html?raw';
 import comboboxProgramHtml from '!./examples/combobox-open-control-example.component.html?raw';
 import comboboxProgramTs from '!./examples/combobox-open-control-example.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import comboboxSearchFieldHTMLSrc from '!./examples/combobox-search-field-example.component.html?raw';
 import comboboxSearchFieldTSSrc from '!./examples/combobox-search-field-example.component.ts?raw';
 

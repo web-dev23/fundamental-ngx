@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { NotificationDocsHeaderComponent } from './notification-docs-header/notification-docs-header.component';
 import { NotificationDocsComponent } from './notification-docs.component';
@@ -9,7 +8,7 @@ import { NotificationExampleContentComponent } from './examples/component-as-con
 import { NotificationOptionsExampleComponent } from './examples/notification-options/notification-options-example.component';
 import { NotificationOpenTemplateExampleComponent } from './examples/template-as-content/notification-open-template-example.component';
 import { NotificationGroupExampleComponent } from './examples/notification-group/notification-group-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { NotificationModule, NotificationService } from '@fundamental-ngx/core/notification';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
 import { MessageStripModule } from '@fundamental-ngx/core/message-strip';

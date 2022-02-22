@@ -3,7 +3,7 @@ import InfoLableDefaultExample from '!./examples/info-label-default-example.comp
 import InfoLableTextExample from '!./examples/info-label-text-example.component.html?raw';
 import InfoLabelIconTextExample from '!./examples/info-label-text-icon-example.component.html?raw';
 import InfoLableNumericIconExample from '!./examples/info-label-icon-numeric-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-info-label',

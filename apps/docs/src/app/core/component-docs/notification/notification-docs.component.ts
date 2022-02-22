@@ -6,7 +6,7 @@ import optionsTs from '!./examples/notification-options/notification-options-exa
 import optionsH from '!./examples/notification-options/notification-options-example.component.html?raw';
 import templateTs from '!./examples/template-as-content/notification-open-template-example.component.ts?raw';
 import templateH from '!./examples/template-as-content/notification-open-template-example.component.html?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import groupTs from '!./examples/notification-group/notification-group-example.component.ts?raw';
 import groupH from '!./examples/notification-group/notification-group-example.component.html?raw';
 

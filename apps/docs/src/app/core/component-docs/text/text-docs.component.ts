@@ -10,7 +10,7 @@ import textHyphenationTs from '!./examples/text-hyphenation.component.ts?raw';
 import textHyphenationScss from '!./examples/text-hyphenation.component.scss?raw';
 import textExpandableHtml from '!./examples/text-expandable.component.html?raw';
 import textExpandableTs from '!./examples/text-expandable.component.ts?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-input',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 import illustratedMessageSrc from '!./examples/illustrated-message-example.component.html?raw';
 import illustratedMessageTsCode from '!./examples/illustrated-message-example.component.ts?raw';
 

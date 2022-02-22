@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 
 import { MessagePageDocsComponent } from './message-page-docs.component';
@@ -13,7 +12,7 @@ import { MessagePageActionsExampleComponent } from './examples/message-page-exam
 import { MessagePageCustomIconExampleComponent } from './examples/message-page-examples.component';
 import { MessagePageNoIconExampleComponent } from './examples/message-page-examples.component';
 
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { MessagePageModule } from '@fundamental-ngx/core/message-page';
 import { LinkModule } from '@fundamental-ngx/core/link';
 

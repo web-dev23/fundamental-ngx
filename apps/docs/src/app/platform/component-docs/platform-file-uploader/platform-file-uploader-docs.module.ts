@@ -8,10 +8,9 @@ import { FdpFormGroupModule, PlatformFileUploaderModule } from '@fundamental-ngx
 
 import { PlatformFileUploaderDocsComponent } from './platform-file-uploader-docs.component';
 import { API_FILES } from '../../api-files';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { PlatformFileUploaderHeaderComponent } from './platform-file-uploader-header/platform-file-uploader-header.component';
 import { PlatformFileUploaderExampleComponent } from './platform-file-uploader-examples/platform-file-uploader-example.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { PlatformFileUploaderMinFileSizeExampleComponent } from './platform-file-uploader-examples/platform-file-uploader-min-file-size-example.component';
 import { PlatformFileUploaderMaxFileSizeExampleComponent } from './platform-file-uploader-examples/platform-file-uploader-max-file-size-example.component';
 import { PlatformFileUploaderCompactExampleComponent } from './platform-file-uploader-examples/platform-file-uploader-compact-example.component';

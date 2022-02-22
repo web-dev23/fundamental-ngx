@@ -11,9 +11,8 @@ import {
     TableSortChangeEvent
 } from '@fundamental-ngx/platform/table';
 
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
-import { Schema } from '../../../schema/models/schema.model';
-import { SchemaFactoryService } from '../../../schema/services/schema-factory/schema-factory.service';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
+import { Schema, SchemaFactoryService } from '@fundamental-ngx/docs/common/schema';
 
 import platformTableDefaultSrc from '!./platform-table-examples/platform-table-default-example.component.html?raw';
 import platformTableDefaultTsSrc from '!./platform-table-examples/platform-table-default-example.component.ts?raw';

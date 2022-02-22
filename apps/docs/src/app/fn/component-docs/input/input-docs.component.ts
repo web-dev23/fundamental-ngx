@@ -4,7 +4,7 @@ import formStateHtml from '!./examples/input-state-example.component.html?raw';
 import formGroupInputHtml from '!./examples/input-form-group-example.component.html?raw';
 import formGroupInputTs from '!./examples/input-form-group-example.component.ts?raw';
 import formGroupInputScss from '!./examples/input-form-group-example.component.scss?raw';
-import { ExampleFile } from '../../../documentation/core-helpers/code-example/example-file';
+import { ExampleFile } from '@fundamental-ngx/docs/common/shared-utils';
 
 @Component({
     selector: 'app-input',

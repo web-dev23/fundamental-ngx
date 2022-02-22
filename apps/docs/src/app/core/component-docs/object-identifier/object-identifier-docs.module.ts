@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApiComponent } from '../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../api-files';
 import { ObjectIdentifierDocsComponent } from './object-identifier-docs.component';
 import { ObjectIdentifierHeaderComponent } from './object-identifier-header/object-identifier-header.component';
-import { SharedDocumentationPageModule } from '../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import {
     ObjectIdentifierBoldExampleComponent,
     ObjectIdentifierDefaultExampleComponent,

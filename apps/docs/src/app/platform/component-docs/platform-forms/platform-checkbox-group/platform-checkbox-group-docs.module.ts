@@ -6,9 +6,8 @@ import {
     FdpFormGroupModule
 } from '@fundamental-ngx/platform/form';
 import { PlatformButtonModule } from '@fundamental-ngx/platform/button';
-import { ApiComponent } from '../../../../documentation/core-helpers/api/api.component';
 import { API_FILES } from '../../../api-files';
-import { SharedDocumentationPageModule } from '../../../../documentation/shared-documentation-page.module';
+import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { PlatformCheckboxGroupDocsComponent } from './platform-checkbox-group-docs.component';
 import { PlatformCheckboxGroupHeaderComponent } from './platform-checkbox-group-header/platform-checkbox-group-header.component';
 import { PlatformCheckboxGroupExampleComponent } from './platform-checkbox-group-examples/platform-checkbox-group-examples.component';
