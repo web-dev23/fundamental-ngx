@@ -3,6 +3,8 @@ import { DocumentationBaseComponent } from '@fundamental-ngx/docs/common/shared-
 import { guides, components, layouts, utilities, adapters, sections } from './core-documentation-data';
 
 @Component({
+    // TODO(ds): e2e-refactor
+    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'core-documentation',
     styleUrls: ['./core-documentation.component.scss'],
     templateUrl: './core-documentation.component.html'

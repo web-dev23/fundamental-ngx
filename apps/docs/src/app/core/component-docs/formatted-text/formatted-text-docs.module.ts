@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { FormattedTextHeaderComponent } from './formatted-text-header/formatted-text-header.component';
 import { FormattedTextDocsComponent } from './formatted-text-docs.component';
 import { FormattedTextExampleComponent } from './examples/base/formatted-text-example.component';

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { DatePickerHeaderComponent } from './date-picker-header/date-picker-header.component';
 import { DatePickerDocsComponent } from './date-picker-docs.component';
 import { DatePickerRangeExampleComponent } from './examples/date-picker-range-example.component';

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '../../api-files';
-
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { MessagePageDocsComponent } from './message-page-docs.component';
 import { MessagePageHeaderComponent } from './message-page-header/message-page-header.component';
 import { MessagePageFilterExampleComponent } from './examples/message-page-examples.component';

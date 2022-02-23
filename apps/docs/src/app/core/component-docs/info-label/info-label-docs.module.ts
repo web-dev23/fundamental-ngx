@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { InfoLabelDocsComponent } from './info-label-docs.component';
 import {
     InfoLableDefaultExampleComponent,

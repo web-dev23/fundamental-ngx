@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { PopoverHeaderComponent } from './popover-header/popover-header.component';
 import { PopoverDocsComponent } from './popover-docs.component';
 import { PopoverCFillComponent } from './examples/popover-c-fill/popover-c-fill.component';

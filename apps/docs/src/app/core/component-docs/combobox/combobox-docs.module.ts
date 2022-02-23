@@ -6,7 +6,7 @@ import { FormModule } from '@fundamental-ngx/core/form';
 import { ComboboxModule } from '@fundamental-ngx/core/combobox';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { ComboboxHeaderComponent } from './combobox-header/combobox-header.component';
 import { ComboboxDocsComponent } from './combobox-docs.component';
 import { examples } from './examples';

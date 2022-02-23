@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { TimeHeaderComponent } from './time-header/time-header.component';
 import { TimeDocsComponent } from './time-docs.component';
 import { TimeOnlyHoursExampleComponent } from './examples/time-only-hours-example.component';

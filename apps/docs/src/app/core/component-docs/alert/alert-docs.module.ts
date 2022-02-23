@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { AlertDocsComponent } from './alert-docs.component';
 import { AlertExampleComponent } from './examples/alert-example.component';
 import { AlertComponentAsContentExampleComponent } from './examples/alert-component-as-content-example.component';

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { IconHeaderComponent } from './icon-header/icon-header.component';
 import { IconDocsComponent } from './icon-docs.component';
 import { IconExampleComponent } from './examples/icon-example.component';

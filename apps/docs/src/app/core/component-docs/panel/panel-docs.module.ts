@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { PanelDocsHeaderComponent } from './panel-docs-header/panel-docs-header.component';
 import { PanelDocsComponent } from './panel-docs.component';
 import { PanelExpandableExampleComponent } from './examples/panel-expandable-examples.component';

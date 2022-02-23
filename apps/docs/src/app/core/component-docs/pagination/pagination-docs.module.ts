@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { PaginationHeaderComponent } from './pagination-header/pagination-header.component';
 import { PaginationDocsComponent } from './pagination-docs.component';
 

@@ -1,7 +1,11 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
+// TODO(ds): e2e-refactor - move to lib
 import { Routes } from '@angular/router';
-import { CoreDocumentationComponent } from './documentation/core-documentation.component';
-import { HomeDocsComponent } from './component-docs/core-home/core-home.component';
-import { NewComponentComponent } from './component-docs/new-component/new-component.component';
+import {
+    CoreDocumentationComponent,
+    HomeDocsComponent,
+    NewComponentComponent
+} from '@fundamental-ngx/docs/component-docs/core/core-main';
 
 // BEING UPDATED WITH THE SAP-COMPONENT SCHEMATIC; DO NOT MODIFY THE STRUCTURE!
 export const ROUTES: Routes = [

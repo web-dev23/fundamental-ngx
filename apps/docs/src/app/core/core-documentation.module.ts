@@ -1,12 +1,15 @@
+// TODO(ds): e2e-refactor - move to lib
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MarkdownModule } from 'ngx-markdown';
 
 import { ROUTES } from './core-documentation.routes';
-import { CoreDocumentationComponent } from './documentation/core-documentation.component';
-import { HomeDocsComponent } from './component-docs/core-home/core-home.component';
-import { NewComponentComponent } from './component-docs/new-component/new-component.component';
+import {
+    CoreDocumentationComponent,
+    HomeDocsComponent,
+    NewComponentComponent
+} from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { MOBILE_MODE_CONFIG } from '@fundamental-ngx/core/mobile-mode';
 import {
     DocsThemeService,
@@ -19,10 +22,18 @@ import {
     StackblitzService,
     SharedDocumentationModule
 } from '@fundamental-ngx/docs/common/shared-utils';
+import { SchemaModule } from '@fundamental-ngx/docs/common/schema';
+import { COMPONENT_SCHEMAS } from './schemas';
 
 @NgModule({
     declarations: [HomeDocsComponent, NewComponentComponent, CoreDocumentationComponent],
-    imports: [SharedDocumentationModule, MarkdownModule.forChild(), RouterModule.forChild(ROUTES), ScrollingModule],
+    imports: [
+        SharedDocumentationModule,
+        SchemaModule.forRoot(COMPONENT_SCHEMAS),
+        MarkdownModule.forChild(),
+        RouterModule.forChild(ROUTES),
+        ScrollingModule
+    ],
     providers: [
         StackblitzService,
         DocsThemeService,

@@ -10,7 +10,7 @@ import { RatingIndicatorModule } from '@fundamental-ngx/core/rating-indicator';
 import { TextModule } from '@fundamental-ngx/core/text';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { FacetDocsComponent } from './facet-docs.component';
 import { CustomFacetExampleComponent } from './facet-examples/custom-facet-example.component';
 import {

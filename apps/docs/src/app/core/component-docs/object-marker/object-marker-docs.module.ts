@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ObjectMarkerDocsComponent } from './object-marker-docs.component';
 import { ObjectMarkerHeaderComponent } from './object-marker-header/object-marker-header.component';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import {
     ObjectMarkerExampleComponent,
     ObjectMarkerIconAndTextExampleComponent,

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { TimePickerHeaderComponent } from './time-picker-header/time-picker-header.component';
 import { TimePickerDocsComponent } from './time-picker-docs.component';
 import { TimePickerExampleComponent } from './examples/time-picker-example.component';

@@ -11,7 +11,7 @@ import { ActionBarBackExampleComponent } from './examples/action-bar-back-exampl
 import { ActionBarLongStringTitleTruncationExampleComponent } from './examples/action-bar-long-string-title-truncation-example.component';
 import { ActionBarMobileExampleComponent } from './examples/action-bar-mobile-example.component';
 
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { ActionBarModule } from '@fundamental-ngx/core/action-bar';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 

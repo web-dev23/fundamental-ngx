@@ -3836,6 +3836,32 @@
             },
             "tags": ["scope:docs", "type:util"]
         },
+        "docs-component-docs-core-main": {
+            "projectType": "library",
+            "root": "libs/docs/component-docs/core/core-main",
+            "sourceRoot": "libs/docs/component-docs/core/core-main/src",
+            "prefix": "fundamental-ngx",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "libs/docs/component-docs/core/core-main/src/test.ts",
+                        "tsConfig": "libs/docs/component-docs/core/core-main/tsconfig.spec.json",
+                        "karmaConfig": "libs/docs/component-docs/core/core-main/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/docs/component-docs/core/core-main/src/**/*.ts",
+                            "libs/docs/component-docs/core/core-main/src/**/*.html"
+                        ]
+                    }
+                }
+            },
+            "tags": ["scope:docs", "type:feature"]
+        },
         "docs-e2e": {
             "root": "apps/docs-e2e",
             "projectType": "application",

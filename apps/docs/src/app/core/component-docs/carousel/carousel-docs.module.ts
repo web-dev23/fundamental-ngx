@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { CarouselHeaderComponent } from './carousel-header/carousel-header.component';
 import { CarouselDocsComponent } from './carousel-docs.component';
 import { CarouselOneActiveItemExampleComponent } from './examples/carousel-one-active-item-example.component';

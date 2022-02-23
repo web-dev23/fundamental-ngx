@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { MessageStripDocsComponent } from './message-strip-docs.component';
 import { MessageStripExampleComponent } from './examples/message-strip-example.component';
 import { MessageStripNoIconExampleComponent } from './examples/message-strip-noicon-example.component';

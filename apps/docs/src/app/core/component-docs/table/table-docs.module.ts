@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '../../api-files';
+import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
 import { TableDocsHeaderComponent } from './table-docs-header/table-docs-header.component';
 import { TableDocsComponent } from './table-docs.component';
 import { TableExampleComponent } from './examples/table-example.component';
