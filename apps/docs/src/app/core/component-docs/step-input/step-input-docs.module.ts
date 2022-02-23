@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { StepInputDocsComponent } from './step-input-docs.component';
 import { StepInputHeaderComponent } from './step-input-header/step-input-header.component';
 import { StepInputDefaultExampleComponent } from './examples/step-inpt-default-example/step-input-default-example.component';

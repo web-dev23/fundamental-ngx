@@ -3,8 +3,6 @@ import { ExampleFile } from '../code-example/example-file';
 import hljs from 'highlight.js/lib';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'fd-code-snippet',
     styles: ['.bordered { border: 1px solid beige }'],
     template: `

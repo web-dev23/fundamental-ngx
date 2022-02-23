@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { FileUploaderHeaderComponent } from './file-uploader-header/file-uploader-header.component';
 import { FileUploaderDocsComponent } from './file-uploader-docs.component';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { FileUploaderExampleComponent } from './examples/file-uploader-example/file-uploader-example.component';
 import { FileUploaderDragDisabledExampleComponent } from './examples/file-uploader-drag-disabled-example/file-uploader-drag-disabled-example.component';
 import { FileUploaderMaxExampleComponent } from './examples/file-uploader-max-example/file-uploader-max-example.component';

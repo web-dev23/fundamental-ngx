@@ -3,8 +3,6 @@ import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 import { Property } from '../../models/schema.model';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'schema-group',
     templateUrl: 'schema-group.component.html',
     styleUrls: ['schema-group.component.scss']

@@ -16,8 +16,6 @@ import { StackblitzService } from '../stackblitz/stackblitz.service';
 import { CodeSnippetComponent } from '../code-snippet/code-snippet.component';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'code-example',
     templateUrl: './code-example.component.html',
     styleUrls: ['./code-example.component.scss'],

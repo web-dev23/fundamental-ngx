@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { ShellbarDocsHeaderComponent } from './shellbar-docs-header/shellbar-docs-header.component';
 import { ShellbarDocsComponent } from './shellbar-docs.component';
 import { ShellbarBasicExampleComponent } from './examples/shellbar-basic-example.component';

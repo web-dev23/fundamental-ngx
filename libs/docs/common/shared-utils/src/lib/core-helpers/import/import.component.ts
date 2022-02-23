@@ -2,8 +2,6 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Libraries } from '../../utilities/libraries';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'import',
     template: `
         <code>

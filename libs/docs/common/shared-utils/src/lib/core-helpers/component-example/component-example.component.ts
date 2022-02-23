@@ -6,8 +6,6 @@ import { RtlService } from '@fundamental-ngx/core/utils';
 let componentExampleUniqueId = 0;
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'component-example',
     template: `
         <div class="docs-tile docs-component" [class.docs-tile-example-background]="hasBackground" [id]="id">

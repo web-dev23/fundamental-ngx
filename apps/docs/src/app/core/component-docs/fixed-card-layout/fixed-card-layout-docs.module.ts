@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { FixedCardLayoutDocsComponent } from './fixed-card-layout-docs.component';
 import { FixedCardLayoutDocsHeaderComponent } from './fixed-card-layout-docs-header/fixed-card-layout-docs-header.component';
 import { FixedCardLayoutDisabledDragExampleComponent } from './examples/disabled-drag-drop/fixed-card-layout-disabled-drag.component';

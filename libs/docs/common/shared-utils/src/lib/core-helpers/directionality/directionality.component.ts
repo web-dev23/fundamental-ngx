@@ -2,8 +2,6 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { RtlService } from '@fundamental-ngx/core/utils';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'rtl-switch',
     template: `
         <label fd-form-label> Simulate RTL </label>

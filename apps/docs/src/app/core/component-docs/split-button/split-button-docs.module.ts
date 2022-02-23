@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { SplitButtonHeaderComponent } from './split-button-header/split-button-header.component';
 import { SplitButtonDocsComponent } from './split-button-docs.component';
 import { ButtonSplitTypesExampleComponent } from './examples/split-button-types-example.component';

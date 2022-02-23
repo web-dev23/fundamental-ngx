@@ -12,8 +12,6 @@ import { ContentDensity, ContentDensityService, ThemesService } from '@fundament
 import { ShellbarMenuItem, ShellbarSizes } from '@fundamental-ngx/core/shellbar';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'fd-docs-toolbar',
     templateUrl: './toolbar.component.html',
     styleUrls: ['./toolbar.component.scss'],

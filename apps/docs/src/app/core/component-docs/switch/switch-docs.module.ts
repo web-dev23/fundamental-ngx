@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { SwitchHeaderComponent } from './switch-header/switch-header.component';
 import { SwitchDocsComponent } from './switch-docs.component';
 import { SwitchSizesExampleComponent } from './examples/switch-sizes-example/switch-sizes-example.component';

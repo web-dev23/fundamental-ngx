@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { CalendarDocsComponent } from './calendar-docs.component';
 import { CalendarRangeExampleComponent } from './examples/calendar-range-example.component';

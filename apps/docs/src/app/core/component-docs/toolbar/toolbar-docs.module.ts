@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { ToolbarDocsComponent } from './toolbar-docs.component';
 import { ToolbarHeaderComponent } from './toolbar-header/toolbar-header.component';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import {
     ToolbarTypeExampleComponent,
     ToolbarTitleExampleComponent,

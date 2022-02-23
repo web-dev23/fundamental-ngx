@@ -13,8 +13,7 @@ const routes: Routes = [
         data: {
             library: 'Core'
         },
-        loadChildren: () =>
-            import('@fundamental-ngx/docs/component-docs/core/core-main').then((m) => m.CoreDocumentationModule)
+        loadChildren: () => import('./core/core-documentation.module').then((m) => m.CoreDocumentationModule)
     },
     {
         path: 'platform',

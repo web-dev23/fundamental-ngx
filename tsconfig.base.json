@@ -111,9 +111,9 @@
             "@fundamental-ngx/core/wizard": ["libs/core/src/lib/wizard/index.ts"],
             "@fundamental-ngx/docs/common/schema": ["libs/docs/common/schema/src/index.ts"],
             "@fundamental-ngx/docs/common/shared-utils": ["libs/docs/common/shared-utils/src/index.ts"],
-            "@fundamental-ngx/docs/component-docs/core/core-main": [
-                "libs/docs/component-docs/core/core-main/src/index.ts"
-            ],
+            "@fundamental-ngx/docs/core/action-bar": ["libs/docs/core/action-bar/src/index.ts"],
+            "@fundamental-ngx/docs/core/action-sheet": ["libs/docs/core/action-sheet/src/index.ts"],
+            "@fundamental-ngx/docs/core/core-main": ["libs/docs/core/core-main/src/index.ts"],
             "@fundamental-ngx/fn": ["libs/fn/src/lib/index.ts"],
             "@fundamental-ngx/fn/button": ["libs/fn/src/lib/button/index.ts"],
             "@fundamental-ngx/fn/checkbox": ["libs/fn/src/lib/checkbox/index.ts"],

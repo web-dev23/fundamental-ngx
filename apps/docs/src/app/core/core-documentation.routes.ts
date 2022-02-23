@@ -5,7 +5,7 @@ import {
     CoreDocumentationComponent,
     HomeDocsComponent,
     NewComponentComponent
-} from '@fundamental-ngx/docs/component-docs/core/core-main';
+} from '@fundamental-ngx/docs/core/core-main';
 
 // BEING UPDATED WITH THE SAP-COMPONENT SCHEMATIC; DO NOT MODIFY THE STRUCTURE!
 export const ROUTES: Routes = [
@@ -18,15 +18,12 @@ export const ROUTES: Routes = [
             { path: 'new-component', component: NewComponentComponent },
             {
                 path: 'action-bar',
-                loadChildren: () =>
-                    import('./component-docs/action-bar/action-bar-docs.module').then((m) => m.ActionBarDocsModule)
+                loadChildren: () => import('@fundamental-ngx/docs/core/action-bar').then((m) => m.ActionBarDocsModule)
             },
             {
                 path: 'action-sheet',
                 loadChildren: () =>
-                    import('./component-docs/action-sheet/action-sheet-docs.module').then(
-                        (m) => m.ActionSheetDocsModule
-                    )
+                    import('@fundamental-ngx/docs/core/action-sheet').then((m) => m.ActionSheetDocsModule)
             },
             {
                 path: 'alert',

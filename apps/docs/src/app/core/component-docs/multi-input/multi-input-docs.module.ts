@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { MultiInputHeaderComponent } from './multi-input-header/multi-input-header.component';
 import { MultiInputDocsComponent } from './multi-input-docs.component';
 import { MultiInputAsyncExampleComponent } from './examples/multi-input-async-example/multi-input-async-example.component';

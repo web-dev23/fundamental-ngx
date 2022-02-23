@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { LayoutPanelDocsHeaderComponent } from './layout-panel-docs-header/layout-panel-docs-header.component';
 import { LayoutPanelDocsComponent } from './layout-panel-docs.component';
 import { LayoutPanelExampleComponent } from './examples/layout-panel-examples.component';

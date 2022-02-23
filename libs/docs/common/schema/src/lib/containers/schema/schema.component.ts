@@ -5,8 +5,6 @@ import { Subject } from 'rxjs';
 import { Properties, Schema } from '../../models/schema.model';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'schema',
     templateUrl: 'schema.component.html',
     styleUrls: ['schema.component.scss']

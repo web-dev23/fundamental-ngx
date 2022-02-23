@@ -9,7 +9,7 @@ import { InputGroupModule } from '@fundamental-ngx/core/input-group';
 import { MomentDatetimeModule } from '@fundamental-ngx/moment-adapter';
 
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { MomentDatetimeAdapterHeaderComponent } from './moment-datetime-adapter-header/moment-datetime-adapter-header.component';
 import { MomentDatetimeAdapterDocsComponent } from './moment-datetime-adapter-docs.component';
 import { DatePickerMomentAdapterExampleComponent } from './examples/date-picker-moment-adapter-example.component';

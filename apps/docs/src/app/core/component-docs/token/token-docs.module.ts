@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { TokenHeaderComponent } from './token-header/token-header.component';
 import { TokenDocsComponent } from './token-docs.component';
 import { TokenExampleComponent } from './examples/token-example/token-example.component';

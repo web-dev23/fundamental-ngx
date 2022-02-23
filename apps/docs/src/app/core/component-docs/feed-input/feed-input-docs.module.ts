@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { FeedInputDocsComponent } from './feed-input-docs.component';
 import { FeedInputExampleComponent } from './examples/feed-input-example/feed-input-example.component';
 import { FeedInputHeaderComponent } from './feed-input-header/feed-input-header.component';

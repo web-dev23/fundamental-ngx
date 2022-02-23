@@ -2,8 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Schema } from '@fundamental-ngx/docs/common/schema';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'playground',
     templateUrl: './playground.component.html',
     styleUrls: ['./playground.components.scss']

@@ -7,7 +7,7 @@ import { SplitterModule } from '@fundamental-ngx/core/splitter';
 import { SharedDocumentationPageModule, ApiComponent } from '@fundamental-ngx/docs/common/shared-utils';
 import { SharedDocumentationModule } from '@fundamental-ngx/docs/common/shared-utils';
 
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { COMPONENTS } from './examples';
 import { SplitterDocsComponent } from './splitter-docs.component';
 import { SplitterHeaderComponent } from './splitter-header/splitter-header.component';

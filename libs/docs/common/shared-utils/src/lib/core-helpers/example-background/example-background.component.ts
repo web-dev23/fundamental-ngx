@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'background-switch',
     template: `
         <label fd-form-label> Switch background </label>

@@ -9,7 +9,7 @@ import {
     CoreDocumentationComponent,
     HomeDocsComponent,
     NewComponentComponent
-} from '@fundamental-ngx/docs/component-docs/core/core-main';
+} from '@fundamental-ngx/docs/core/core-main';
 import { MOBILE_MODE_CONFIG } from '@fundamental-ngx/core/mobile-mode';
 import {
     DocsThemeService,

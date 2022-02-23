@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Libraries } from '../../utilities/libraries';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'fd-docs-section-title',
     template: `
         <h2 [id]="id" #title class="docs-header-link">

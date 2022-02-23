@@ -3836,26 +3836,78 @@
             },
             "tags": ["scope:docs", "type:util"]
         },
-        "docs-component-docs-core-main": {
+        "docs-core-action-bar": {
             "projectType": "library",
-            "root": "libs/docs/component-docs/core/core-main",
-            "sourceRoot": "libs/docs/component-docs/core/core-main/src",
+            "root": "libs/docs/core/action-bar",
+            "sourceRoot": "libs/docs/core/action-bar/src",
             "prefix": "fundamental-ngx",
             "architect": {
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "main": "libs/docs/component-docs/core/core-main/src/test.ts",
-                        "tsConfig": "libs/docs/component-docs/core/core-main/tsconfig.spec.json",
-                        "karmaConfig": "libs/docs/component-docs/core/core-main/karma.conf.js"
+                        "main": "libs/docs/core/action-bar/src/test.ts",
+                        "tsConfig": "libs/docs/core/action-bar/tsconfig.spec.json",
+                        "karmaConfig": "libs/docs/core/action-bar/karma.conf.js"
                     }
                 },
                 "lint": {
                     "builder": "@nrwl/linter:eslint",
                     "options": {
                         "lintFilePatterns": [
-                            "libs/docs/component-docs/core/core-main/src/**/*.ts",
-                            "libs/docs/component-docs/core/core-main/src/**/*.html"
+                            "libs/docs/core/action-bar/src/**/*.ts",
+                            "libs/docs/core/action-bar/src/**/*.html"
+                        ]
+                    }
+                }
+            },
+            "tags": ["type:docs", "scope:docs"]
+        },
+        "docs-core-action-sheet": {
+            "projectType": "library",
+            "root": "libs/docs/core/action-sheet",
+            "sourceRoot": "libs/docs/core/action-sheet/src",
+            "prefix": "fundamental-ngx",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "libs/docs/core/action-sheet/src/test.ts",
+                        "tsConfig": "libs/docs/core/action-sheet/tsconfig.spec.json",
+                        "karmaConfig": "libs/docs/core/action-sheet/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/docs/core/action-sheet/src/**/*.ts",
+                            "libs/docs/core/action-sheet/src/**/*.html"
+                        ]
+                    }
+                }
+            },
+            "tags": ["type:docs", "scope:docs"]
+        },
+        "docs-core-core-main": {
+            "projectType": "library",
+            "root": "libs/docs/core/core-main",
+            "sourceRoot": "libs/docs/core/core-main/src",
+            "prefix": "fundamental-ngx",
+            "architect": {
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "libs/docs/core/core-main/src/test.ts",
+                        "tsConfig": "libs/docs/core/core-main/tsconfig.spec.json",
+                        "karmaConfig": "libs/docs/core/core-main/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "libs/docs/core/core-main/src/**/*.ts",
+                            "libs/docs/core/core-main/src/**/*.html"
                         ]
                     }
                 }

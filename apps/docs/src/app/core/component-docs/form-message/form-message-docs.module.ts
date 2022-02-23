@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { FormMessageHeaderComponent } from './form-message-header/form-message-header.component';
 import { FormMessageDocsComponent } from './form-message-docs.component';
 import { FormMessageExampleComponent } from './examples/form-message-example.component';

@@ -9,8 +9,6 @@ import { BehaviorSubject } from 'rxjs';
 
 const SMALL_SCREEN_BREAKPOINT = 992;
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'sections-toolbar',
     templateUrl: './sections-toolbar.component.html',
     styleUrls: ['./sections-toolbar.component.scss']

@@ -4,8 +4,6 @@ import { ApiDocsService } from '../../services/api-docs.service';
 import { MenuComponent } from '@fundamental-ngx/core/menu';
 
 @Component({
-    // TODO(ds): e2e-refactor
-    // eslint-disable-next-line @angular-eslint/component-selector
     selector: 'fd-api',
     templateUrl: './api.component.html',
     styleUrls: ['./api.component.scss']

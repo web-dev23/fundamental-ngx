@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { ListHeaderComponent } from './list-header/list-header.component';
 import { ListDocsComponent } from './list-docs.component';
 import { ListInfiniteScrollExampleComponent } from './examples/list-infinite-scroll-example.component';

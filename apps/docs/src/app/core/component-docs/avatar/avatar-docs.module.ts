@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { API_FILES } from '@fundamental-ngx/docs/component-docs/core/core-main';
+import { API_FILES } from '@fundamental-ngx/docs/core/core-main';
 import { AvatarModule } from '@fundamental-ngx/core/avatar';
 import { AvatarDocsComponent } from './avatar-docs.component';
 import { AvatarHeaderComponent } from './avatar-header/avatar-header.component';
