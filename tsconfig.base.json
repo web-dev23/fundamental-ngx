@@ -17,6 +17,13 @@
         "lib": ["es2018", "dom"],
         "esModuleInterop": true,
         "paths": {
+            "@fundamental-ngx/components-e2e/core/action-bar-e2e": [
+                "apps/components-e2e/core/action-bar-e2e/src/index.ts"
+            ],
+            "@fundamental-ngx/components-e2e/core/action-sheet-e2e": [
+                "apps/components-e2e/core/action-sheet-e2e/src/index.ts"
+            ],
+            "@fundamental-ngx/components-e2e/shared": ["apps/components-e2e/shared/src/index.ts"],
             "@fundamental-ngx/core": ["libs/core/src/lib/index.ts"],
             "@fundamental-ngx/core/action-bar": ["libs/core/src/lib/action-bar/index.ts"],
             "@fundamental-ngx/core/action-sheet": ["libs/core/src/lib/action-sheet/index.ts"],

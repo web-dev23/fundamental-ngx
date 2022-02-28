@@ -22,6 +22,7 @@
         "copy-app-docs": "cp libs/core/src/lib/README.md apps/docs/src/assets/CORE_README.md && cp PLATFORM_README.md apps/docs/src/assets/PLATFORM_README.md",
         "deploy-docs": "angular-cli-ghpages -d dist/apps/docs --branch gh-pages",
         "sync-versions": "./ci-scripts/sync-version.sh",
+        "e2e:wdio:temp": "npx wdio wdio.conf.js --baseUrl=\"http://localhost:4200/\" --spec=./apps/components-e2e/core/action-bar-e2e/src/integration/**/*.e2e-spec.ts",
         "e2e:wdio": "TS_NODE_PROJECT=./e2e/tsconfig.json npx wdio wdio.conf.js --baseUrl=\"http://localhost:4200/\"",
         "e2e:wdio:core": "TS_NODE_PROJECT=./e2e/tsconfig.json npx wdio wdio.conf.js --spec core --baseUrl=\"http://localhost:4200/\"",
         "e2e:wdio:platform": "TS_NODE_PROJECT=./e2e/tsconfig.json npx wdio wdio.conf.js --spec platform --baseUrl=\"http://localhost:4200/\"",

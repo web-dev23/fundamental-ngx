@@ -3836,6 +3836,61 @@
             },
             "tags": ["scope:docs", "type:util"]
         },
+        "docs-components-e2e-core-action-bar-e2e": {
+            "root": "apps/components-e2e/core/action-bar-e2e",
+            "sourceRoot": "apps/components-e2e/core/action-bar-e2e/src",
+            "projectType": "library",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["apps/components-e2e/core/action-bar-e2e/**/*.ts"]
+                    }
+                },
+                "e2e-temp": {
+                    "builder": "@nrwl/workspace:run-commands",
+                    "options": {
+                        "commands": [
+                            {
+                                "command": "make hello"
+                            }
+                        ]
+                    }
+                }
+            },
+            "tags": ["type:e2e", "scope:e2e"]
+        },
+        "docs-components-e2e-core-action-sheet-e2e": {
+            "root": "apps/components-e2e/core/action-sheet-e2e",
+            "sourceRoot": "apps/components-e2e/core/action-sheet-e2e/src",
+            "projectType": "library",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["apps/components-e2e/core/action-sheet-e2e/**/*.ts"]
+                    }
+                }
+            },
+            "tags": ["type:e2e", "scope:e2e"]
+        },
+        "docs-components-e2e-shared": {
+            "root": "apps/components-e2e/shared",
+            "sourceRoot": "apps/components-e2e/shared/src",
+            "projectType": "library",
+            "architect": {
+                "lint": {
+                    "builder": "@nrwl/linter:eslint",
+                    "outputs": ["{options.outputFile}"],
+                    "options": {
+                        "lintFilePatterns": ["apps/components-e2e/shared/**/*.ts"]
+                    }
+                }
+            },
+            "tags": []
+        },
         "docs-core-action-bar": {
             "projectType": "library",
             "root": "libs/docs/core/action-bar",

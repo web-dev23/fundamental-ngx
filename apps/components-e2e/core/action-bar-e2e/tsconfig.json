@@ -1,0 +1,13 @@
+{
+    "extends": "../../../../tsconfig.base.json",
+    "compilerOptions": {
+        "types": ["node", "@wdio/sync", "@wdio/jasmine-framework", "wdio-image-comparison-service", "axe-core"]
+    },
+    "include": [],
+    "files": [],
+    "references": [
+        {
+            "path": "./tsconfig.e2e.json"
+        }
+    ]
+}

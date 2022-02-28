@@ -352,8 +352,12 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function () {
+        console.log(
+            'BEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFOREBEFORE'
+        );
         require('ts-node').register({
-            project: 'e2e/tsconfig.json'
+            project: './apps/components-e2e/core/action-bar-e2e/tsconfig.e2e.json',
+            showConfig: true
         });
 
         browser.addCommand(

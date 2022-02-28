@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../../../../dist/out-tsc",
+        "declaration": true,
+        "types": ["node", "@wdio/sync", "@wdio/jasmine-framework", "wdio-image-comparison-service", "axe-core"]
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["**/*.spec.ts"]
+}
