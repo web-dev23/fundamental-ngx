@@ -1,3 +1,15 @@
-<ng-container *ngIf="active">
-    <ng-content></ng-content>
-</ng-container>
+<ng-template #titleTemplate>
+    <ng-container *ngIf="tabTitle; else titleInput">
+        <ng-template [ngTemplateOutlet]="tabTitle.templateRef"></ng-template>
+    </ng-container>
+    <ng-template #titleInput>{{ title }}</ng-template>
+</ng-template>
+
+<ng-template #bodyTemplate>
+    <ng-container *ngIf="tabContent; else loadFromContent">
+        <ng-template [ngTemplateOutlet]="tabContent.templateRef"></ng-template>
+    </ng-container>
+    <ng-template #loadFromContent>
+        <ng-content></ng-content>
+    </ng-template>
+</ng-template>

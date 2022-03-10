@@ -1,1 +1,5 @@
-@import '~@fundamental-styles/fn/dist/fn-tabs';
+@import '~@fundamental-styles/fn/dist/fn-tabs.css';
+:host {
+    display: flex;
+    flex-direction: column;
+}

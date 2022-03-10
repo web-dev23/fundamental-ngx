@@ -1,13 +1,54 @@
-<div class="fn-tabs" [class]="mode ? 'fn-tabs--' + mode : ''" role="tablist">
-    <a
-        *ngFor="let tab of _tabsList; let i = index"
-        fn-tab-item
-        [active]="tab.active"
-        [disabled]="tab.disabled"
-        (click)="setActiveTab(i)"
-        (keydown)="_tabHeaderKeyHandler(i, $event)"
+<ul
+    class="fn-tabs"
+    fnFocusableList
+    fnSelectableList
+    (fnResize)="tabsHeaderHostResize$.next($event)"
+    navigationDirection="horizontal"
+    [selected]="selectedTab"
+    (selectedChange)="onTabSelect($event)"
+    [toggle]="toggle"
+>
+    <ng-container *ngFor="let tab of sortedTabs?.visible; trackBy: trackByFn">
+        <li
+            fn-internal-tab-item
+            [selected]="tab.selected"
+            [value]="tab.value"
+            [fnDisabled]="tab.disabled"
+            (nativeInteraction)="nativeInteraction(tab, $event)"
+            [ngClass]="tab.classes"
+            fnSelectableItem
+            fnFocusable
+        >
+            <ng-template [ngTemplateOutlet]="tab.titleTemplate"></ng-template>
+        </li>
+    </ng-container>
+    <li fn-tabs-list-postfix #postfixElement>
+        <button
+            fn-button
+            fnType="layout"
+            glyph="overflow"
+            [style.visibility]="isCollapsed ? 'visible' : 'hidden'"
+            [fnDisabled]="!isCollapsed"
+        ></button>
+    </li>
+</ul>
+
+<ng-container *ngFor="let tab of tabs">
+    <ng-container *ngIf="shouldRender(tab)">
+        <div [hidden]="isHidden(tab)">
+            <ng-template [ngTemplateOutlet]="tab.bodyTemplate"></ng-template>
+        </div>
+    </ng-container>
+</ng-container>
+
+<h5>Hidden tabs, that should go to the popover</h5>
+<ul fnFocusableList>
+    <li
+        *ngFor="let hiddenTab of sortedTabs?.hidden"
+        fnFocusable
+        (fnClicked)="onTabSelect(hiddenTab.value)"
+        [fnDisabled]="hiddenTab.disabled"
     >
-        {{ tab.title }}
-    </a>
-</div>
-<ng-content></ng-content>
+        <ng-template [ngTemplateOutlet]="hiddenTab.titleTemplate"></ng-template>
+    </li>
+</ul>
