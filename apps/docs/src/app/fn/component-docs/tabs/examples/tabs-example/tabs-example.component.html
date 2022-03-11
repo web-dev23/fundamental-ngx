@@ -1,23 +1,28 @@
 <h4>Default tabs (Group):</h4>
-<fn-tabs>
-    <fn-tab title="One"> First tab content </fn-tab>
-    <fn-tab title="Two"> Second tab content </fn-tab>
-    <fn-tab title="Three"> Third tab content </fn-tab>
-    <fn-tab title="Four" [disabled]="true"> Fourth tab content </fn-tab>
+<fn-tabs loadingStrategy="preload" [collapseOverflow]="collapseOverflow">
+    <fn-tabs-list>
+        <fn-tab
+            title="first title"
+            (click)="onTabClick($event)"
+            (dblclick)="onMouseOver($event)"
+            (keydown.k)="onKeydown($event)"
+            [class.something]="true"
+        >
+            Tab body goes here
+        </fn-tab>
+        <fn-tab *ngFor="let tab of tabs; let i = index">
+            <span *fnTabTitle style="white-space: nowrap">{{ i }} tab</span>
+            <div *fnTabContent class="fn-tab-example-tab-content">{{ i }} tab body</div>
+        </fn-tab>
+        <li fn-tabs-list-postfix>
+            <button fn-button fnType="layout" glyph="overflow"></button>
+        </li>
+    </fn-tabs-list>
 </fn-tabs>
-<br /><br /><br />
-<h4>Individual tabs</h4>
-<fn-tabs mode="individual">
-    <fn-tab title="One"> First tab content </fn-tab>
-    <fn-tab title="Two"> Second tab content </fn-tab>
-    <fn-tab title="Three"> Third tab content </fn-tab>
-    <fn-tab title="Four" [disabled]="true"> Fourth tab content </fn-tab>
-</fn-tabs>
-<br /><br /><br />
-<h4>Line tabs</h4>
-<fn-tabs mode="line">
-    <fn-tab title="One"> First tab content </fn-tab>
-    <fn-tab title="Two"> Second tab content </fn-tab>
-    <fn-tab title="Three"> Third tab content </fn-tab>
-    <fn-tab title="Four" [disabled]="true"> Fourth tab content </fn-tab>
-</fn-tabs>
+
+<button
+    fn-button
+    (click)="collapseOverflow = !collapseOverflow"
+    label="Toggle collapseOverflow"
+    style="margin-top: 20px"
+></button>

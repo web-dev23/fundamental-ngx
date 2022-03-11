@@ -8,7 +8,7 @@ export interface ITab {
     disabled: boolean;
     selected?: boolean;
     selectedChange: (selected: boolean) => void;
-    nativeInteraction: (event: Event) => void;
     tabInstance: TabComponent;
     classes: string;
+    listeners: Record<string, Array<(...args: any) => void>>;
 }

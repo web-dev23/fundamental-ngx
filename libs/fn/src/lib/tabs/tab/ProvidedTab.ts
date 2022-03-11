@@ -10,6 +10,6 @@ export abstract class ProvidedTab implements ITab {
     value: string;
     classes: string;
     abstract selectedChange: (selected: boolean) => void;
-    abstract nativeInteraction: (event: Event) => void;
     abstract tabInstance: TabComponent;
+    abstract listeners: Record<string, Array<(...args: any) => void>>;
 }

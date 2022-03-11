@@ -98,6 +98,7 @@ export class TabsComponent implements AfterViewInit {
     ) {}
 
     registerTabs(tabs: ITab[]): void {
+        console.log({ tabs });
         this.sortedTabs = { visible: tabs, hidden: [] };
         if (this.selectedTab && !this.tabs.find((item) => item.value === this.selectedTab)) {
             this.selectedTab = this.tabs.find((item) => !item.disabled)?.value;
@@ -296,9 +297,5 @@ export class TabsComponent implements AfterViewInit {
         this.tabs.forEach((iTab) => {
             iTab.selectedChange(iTab.value === this.selectedTab);
         });
-    }
-
-    nativeInteraction(tab: AnalyzedTab, $event: Event): void {
-        tab.nativeInteraction($event);
     }
 }

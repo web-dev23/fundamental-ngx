@@ -14,10 +14,10 @@
             [selected]="tab.selected"
             [value]="tab.value"
             [fnDisabled]="tab.disabled"
-            (nativeInteraction)="nativeInteraction(tab, $event)"
             [ngClass]="tab.classes"
+            [listeners]="tab.listeners"
             fnSelectableItem
-            fnFocusable
+            fnFocusableItem
         >
             <ng-template [ngTemplateOutlet]="tab.titleTemplate"></ng-template>
         </li>
