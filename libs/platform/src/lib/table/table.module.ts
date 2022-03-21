@@ -69,6 +69,7 @@ import { PlatformTableCellResizableDirective } from './directives/table-cell-res
 import { PlatformTableColumnResizerComponent } from './components/table-column-resizer/table-column-resizer.component';
 import { NoDataWrapperComponent } from './components/no-data-wrapper/no-data-wrapper.component';
 import { TableEditableCellComponent } from './components/table-editable-cell/table-editable-cell.component';
+import { I18nModule } from '@fundamental-ngx/i18n';
 
 @NgModule({
     imports: [
@@ -89,6 +90,7 @@ import { TableEditableCellComponent } from './components/table-editable-cell/tab
         DialogModule,
         PlatformSearchFieldModule,
         IconModule,
+        I18nModule,
         SelectModule,
         LayoutGridModule,
         PanelModule,

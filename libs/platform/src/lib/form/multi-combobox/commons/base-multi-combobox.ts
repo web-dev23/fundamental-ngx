@@ -164,7 +164,7 @@ export abstract class BaseMultiCombobox extends CollectionBaseInput implements A
 
     /** Sets title attribute to addon button. */
     @Input()
-    addonIconTitle = 'Select Options';
+    addonIconTitle: string;
 
     /** Sets invalid entry message. */
     @Input()
