@@ -18,6 +18,8 @@
         "build-artifacts": "nx build core --configuration production && nx build platform --configuration production && nx build moment-adapter --configuration production && nx build fn --configuration production && nx build docs",
         "build-deploy-library": "nx build core --configuration production && nx build platform --configuration production && nx build moment-adapter --configuration production && nx build fn --configuration production && npm run build:schematics && npm run build:platform-schematics && npm run build:moment-adapter-schematics && npm run sync-versions && cp PLATFORM_README.md dist/libs/platform/PLATFORM_README.md",
         "build-pack-library": "nx build core --configuration production && nx build platform --configuration production && nx build moment-adapter --configuration production && nx build fn --configuration production && npm run build:schematics && npm run build:platform-schematics && npm run build:moment-adapter-schematics && npm run sync-versions && cd dist/libs/core/ && npm pack && cd ../platform && npm pack && cd ../moment-adapter && npm pack && cd ../..",
+        "build:stats": "ng build --stats-json",
+        "analyze": "webpack-bundle-analyzer dist/apps/docs/stats.json",
         "copy-docs": "cp README.md apps/docs/src/assets/README.md && cp NEW_COMPONENT.md apps/docs/src/assets/NEW_COMPONENT.md && npm run copy-app-docs",
         "copy-app-docs": "cp libs/core/src/lib/README.md apps/docs/src/assets/CORE_README.md && cp PLATFORM_README.md apps/docs/src/assets/PLATFORM_README.md",
         "deploy-docs": "angular-cli-ghpages -d dist/apps/docs --branch gh-pages",
@@ -232,7 +234,8 @@
         "wdio-chromedriver-service": "6.0.4",
         "wdio-html-format-reporter": "0.4.0",
         "wdio-image-comparison-service": "2.0.0",
-        "webdriverio": "7.16.16"
+        "webdriverio": "7.16.16",
+        "webpack-bundle-analyzer": "4.5.0"
     },
     "lint-staged": {
         "*.{js,ts,html,md,scss,css,json,yml}": "nx format:write --files=",
