@@ -7,10 +7,8 @@
         fd-button
         fdType="transparent"
         glyph="decline"
-        i18n-aria-label
-        aria-label="Cancel"
-        i18n-title
-        title="Cancel"
+        [attr.aria-label]="'coreGridList.filterBarCancelButtonTitle' | fdTranslate"
+        [title]="'coreGridList.filterBarCancelButtonTitle' | fdTranslate"
         [compact]="true"
         class="fd-grid-list__filter-button"
         (click)="close.emit()"

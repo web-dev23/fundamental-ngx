@@ -73,9 +73,9 @@ describe('DisplayListItemComponent', () => {
         expect(listItems.length).toEqual(4);
     });
 
-    it('Display items should has aria-label attribute', () => {
+    it('Display items should have aria-label attribute', () => {
         const spanElems = fixture.debugElement.queryAll(By.css('span'));
-        expect(spanElems.length).toEqual(10);
+        expect(spanElems.length).toEqual(8);
         expect(spanElems[1].nativeElement.getAttribute('aria-label')).toContain('secondary 1');
     });
 
