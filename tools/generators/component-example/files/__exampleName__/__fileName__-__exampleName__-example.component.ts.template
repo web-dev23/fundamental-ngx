@@ -1,0 +1,9 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+
+@Component({
+  selector: 'fundamental-ngx-<%= componentName %>-<%= exampleName %>-example',
+  templateUrl: './<%= componentName %>-<%= exampleName %>-example.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class <%= componentClassName %><%= exampleClassName %>ExampleComponent {}
+

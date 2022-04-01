@@ -1,0 +1,1 @@
+<<%= componentTagName %>></<%= componentTagName %>>
