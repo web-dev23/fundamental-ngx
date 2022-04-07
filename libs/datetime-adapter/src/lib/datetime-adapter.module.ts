@@ -7,10 +7,10 @@ import { DAYJS_DATETIME_FORMATS } from './dayjs-datetime-formats';
 @NgModule({
     providers: [{ provide: DatetimeAdapter, useClass: DayjsDatetimeAdapter }]
 })
-export class DayjsDatetimeAdapterModule {}
+export class DatetimeAdapterModule {}
 
 @NgModule({
-    imports: [DayjsDatetimeAdapterModule],
+    imports: [DatetimeAdapterModule],
     providers: [{ provide: DATE_TIME_FORMATS, useValue: DAYJS_DATETIME_FORMATS }]
 })
-export class DayjsDatetimeModule {}
+export class DatetimeModule {}
