@@ -17,7 +17,8 @@ import { SharedDocumentationPageModule } from '../../../documentation/shared-doc
 import { FormModule } from '@fundamental-ngx/core/form';
 import { SelectModule } from '@fundamental-ngx/core/select';
 import { InputGroupModule } from '@fundamental-ngx/core/input-group';
-import { FdDatetimeModule } from '@fundamental-ngx/core/datetime';
+import { FdDatetimePipesModule } from '@fundamental-ngx/core/datetime';
+import { DayjsDatetimeAdapterModule } from '@fundamental-ngx/datetime-adapter';
 import { DatetimePickerModule } from '@fundamental-ngx/core/datetime-picker';
 import { SegmentedButtonModule } from '@fundamental-ngx/core/segmented-button';
 import { PipeModule } from '@fundamental-ngx/core/utils';
@@ -38,7 +39,8 @@ const routes: Routes = [
         FormModule,
         SelectModule,
         InputGroupModule,
-        FdDatetimeModule,
+        FdDatetimePipesModule,
+        DayjsDatetimeAdapterModule,
         DatetimePickerModule,
         SegmentedButtonModule,
         SharedDocumentationPageModule,

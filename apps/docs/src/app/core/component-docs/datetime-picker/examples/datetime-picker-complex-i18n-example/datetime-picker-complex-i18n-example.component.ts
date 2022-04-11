@@ -1,15 +1,15 @@
 import { Component, LOCALE_ID, ViewChild } from '@angular/core';
 import {
-    FdDate,
-    DatetimeAdapter,
-    FdDatetimeAdapter,
-    DATE_TIME_FORMATS,
-    FD_DATETIME_FORMATS
-} from '@fundamental-ngx/core/datetime';
+    DayjsDatetimeAdapter,
+    DAYJS_DATETIME_FORMATS,
+    loadLocales
+} from '@fundamental-ngx/datetime-adapter';
+import { DATE_TIME_FORMATS, DatetimeAdapter } from '@fundamental-ngx/core/datetime';
 import { DatetimePickerComponent } from '@fundamental-ngx/core/datetime-picker';
+import dayjs, { Dayjs } from 'dayjs';
 
 const placeholders = new Map([
-    ['en-ca', 'mm/dd/yyyy, hh:mm a'],
+    ['en', 'mm/dd/yyyy, hh:mm a'],
     ['fr', 'dd/mm/yyyy  hh:mm'],
     ['bg', 'дд.мм.гг чч:мм'],
     ['de', 'dd.mm.yy, hh:mm'],
@@ -25,28 +25,32 @@ const placeholders = new Map([
         // Due to the limit of this example we must provide it on this level.
         {
             provide: LOCALE_ID,
-            useValue: 'en-ca'
+            useValue: 'en'
         },
         {
             provide: DatetimeAdapter,
-            useClass: FdDatetimeAdapter
+            useClass: DayjsDatetimeAdapter
         },
         {
             provide: DATE_TIME_FORMATS,
-            useValue: FD_DATETIME_FORMATS
+            useValue: DAYJS_DATETIME_FORMATS
         }
     ]
 })
 export class DatetimePickerComplexI18nExampleComponent {
-    locale = 'en-ca';
+    readonly localeOptions = ['en', 'fr', 'de', 'bg', 'ar', 'zh'];
+    locale = this.localeOptions[0];
 
-    date = FdDate.getNow();
+    date = dayjs();
 
     placeholder = placeholders.get(this.locale);
 
-    @ViewChild(DatetimePickerComponent) datetimePickerComponent: DatetimePickerComponent<FdDate>;
+    @ViewChild(DatetimePickerComponent) datetimePickerComponent: DatetimePickerComponent<Dayjs>;
 
-    constructor(private datetimeAdapter: DatetimeAdapter<FdDate>) {}
+    constructor(private datetimeAdapter: DatetimeAdapter<any>) {
+        // loading of locales should be done asyncronously in the root of your application
+        loadLocales(this.localeOptions); // TODO: loader
+    }
 
     public setLocale(locale: string): void {
         this.locale = locale;
