@@ -6,8 +6,8 @@ import dayjs from 'dayjs';
 import { DatetimeAdapter } from '@fundamental-ngx/core/datetime';
 
 import { DayjsDatetimeAdapter } from './dayjs-datetime-adapter';
-import { DayjsDatetimeModule } from './dayjs-datetime.module';
-import { loadLocale } from './dayjs-i18n-utils';
+import { DatetimeModule } from './datetime-adapter.module';
+import { loadLocales } from './dayjs-i18n-utils';
 
 export const JAN = 0,
     FEB = 1,
@@ -28,15 +28,13 @@ describe('DayjsDatetimeAdapter', () => {
 
     beforeAll(async () => {
         // prepare locales, that are used in tests
-        await loadLocale('ja');
-        await loadLocale('ar-ma');
-        dayjs.locale('en');
+        await loadLocales(['ja', 'ar-ma']);
     });
 
     beforeEach(
         waitForAsync(() => {
             TestBed.configureTestingModule({
-                imports: [DayjsDatetimeModule]
+                imports: [DatetimeModule]
             }).compileComponents();
         })
     );
@@ -266,17 +264,21 @@ describe('DayjsDatetimeAdapter', () => {
     });
 
     it('should parse "en" date string', () => {
-        expect(adapter.parse('1/1/2017', 'M/D/YYYY').format()).toEqual(dayjs(new Date(2017, JAN, 1)).format());
+        expect(adapter.parse('1/1/2017', 'M/D/YYYY')?.format()).toEqual(dayjs(new Date(2017, JAN, 1)).format());
+    });
+
+    it('should parse "en" datetime string with localized format', () => {
+        expect(adapter.parse('1/1/2017', 'L HH:mm:ss A')?.format()).toEqual(dayjs(new Date(2017, JAN, 1)).format());
     });
 
     it('should parse "en" time string', () => {
-        expect(adapter.parse('10:30:00 PM', 'HH:mm:ss A').format()).toEqual(dayjs(new Date().setHours(22, 30, 0)).format());
-        expect(adapter.parse('10:30:00', 'HH:mm:ss').format()).toEqual(dayjs(new Date().setHours(10, 30, 0)).format());
+        expect(adapter.parse('10:30:00 PM', 'HH:mm:ss A')?.format()).toEqual(dayjs(new Date().setHours(22, 30, 0)).format());
+        expect(adapter.parse('10:30:00', 'HH:mm:ss')?.format()).toEqual(dayjs(new Date().setHours(10, 30, 0)).format());
     });
 
     it('should parse number', () => {
         const timestamp = new Date(2017, JAN, 1).getTime();
-        expect(adapter.parse(timestamp).format()).toEqual(dayjs(new Date(2017, JAN, 1)).format());
+        expect(adapter.parse(timestamp)?.format()).toEqual(dayjs(new Date(2017, JAN, 1)).format());
     });
 
     it('should parse Date', () => {
@@ -456,19 +458,40 @@ describe('DayjsDatetimeAdapter', () => {
         adapter.setLocale('ar-ma');
         expect(adapter.getDayPeriodNames()).toEqual([ 'م','ص', ]);
     });
+
+    it('should parse longDateFormats', () => {
+        expect(adapter._prepareFormat('L')).toBe('MM/DD/YYYY');
+        expect(adapter._prepareFormat('L LT')).toBe('MM/DD/YYYY h:mm A');
+        expect(adapter._prepareFormat('L LT MMMM.D.YY hh:mm:ss')).toBe('MM/DD/YYYY h:mm A MMMM.D.YY hh:mm:ss');
+        expect(adapter._prepareFormat('L LT randomtext')).toBe('MM/DD/YYYY h:mm A randomtext');
+    });
+
+    it('should parse longDateFormats in other locales', () => {
+        adapter.setLocale('ja');
+        expect(adapter._prepareFormat('L')).toBe('YYYY/MM/DD');
+        expect(adapter._prepareFormat('L LT')).toBe('YYYY/MM/DD HH:mm');
+        expect(adapter._prepareFormat('L LT MMMM.D.YY hh:mm:ss')).toBe('YYYY/MM/DD HH:mm MMMM.D.YY hh:mm:ss');
+        expect(adapter._prepareFormat('L LT randomtext')).toBe('YYYY/MM/DD HH:mm randomtext');
+        adapter.setLocale('ar-ma');
+        expect(adapter._prepareFormat('L')).toBe('DD/MM/YYYY');
+        expect(adapter._prepareFormat('L LT')).toBe('DD/MM/YYYY HH:mm');
+        expect(adapter._prepareFormat('L LT MMMM.D.YY hh:mm:ss')).toBe('DD/MM/YYYY HH:mm MMMM.D.YY hh:mm:ss');
+        expect(adapter._prepareFormat('L LT randomtext')).toBe('DD/MM/YYYY HH:mm randomtext');
+    });
+    
 });
 
 describe('MomentDatetimeAdapter with LOCALE_ID override', () => {
     let adapter: DayjsDatetimeAdapter;
 
     beforeAll(async () => {
-        await loadLocale('da');
+        await loadLocales('da');
     });
 
     beforeEach(
         waitForAsync(() => {
             TestBed.configureTestingModule({
-                imports: [DayjsDatetimeModule],
+                imports: [DatetimeModule],
                 providers: [{ provide: LOCALE_ID, useValue: 'da' }]
             }).compileComponents();
         })
@@ -492,7 +515,7 @@ describe('MomentDatetimeAdapter with LOCALE_ID override', () => {
 
     it('should throw an error if locale is not preloaded', async () => {
         expect(() => adapter.setLocale('en-au')).toThrow();
-        await loadLocale('en-au');
+        await loadLocales('en-au');
         expect(() => adapter.setLocale('en-au')).not.toThrow();
     });
     

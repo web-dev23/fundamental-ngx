@@ -232,11 +232,11 @@ export class DayjsDatetimeAdapter extends DatetimeAdapter<Dayjs> {
             throw Error('DayjsDateTimeAdapter: Cannot format invalid date.');
         }
 
-        return date.format(displayFormat);
+        return date.locale(dayjs.locale()).format(displayFormat);
     }
 
     createDate(year: number, month: number, date: number): Dayjs {
-        const result = this._createDayjsDate(new Date(year, month, date)).locale(this.locale);
+        const result = this._createDayjsDate(new Date(year, month - 1, date)).locale(this.locale);
 
         if (!result.isValid()) {
             throw Error(`Invalid date "${date}" for month with index "${month}" and year "${year}".`);
@@ -335,29 +335,32 @@ export class DayjsDatetimeAdapter extends DatetimeAdapter<Dayjs> {
 
     /**
      * @hidden
-     * _prepareFormat will remove escaped text, and will check for dayjs localized formats.
-     * But it works only with simple long date formats, combined formats will not be handled,
-     * for example these will not be handled: 'MM-DD-YYYY LT', 'L LT'.
+     * will attempt to parse longDataFormat (e.g. "L", "LT") and convert it to simple one.
      */
     _prepareFormat(displayFormat: string): string {
-        return displayFormat; // TODO
-        // const format = displayFormat.trim();
-        // const longDateFormat: LongDateFormatSpec = this._dayjsLocaleData.longDateFormat(format);
-
-        // for (const key in longDateFormat) {
-        //     if (Object.prototype.hasOwnProperty.call(longDateFormat, key) && format === key) {
-        //         return longDateFormat[key];
-        //     }
-        // }
-
-        // return format;
+        displayFormat = displayFormat.trim();
+        try {
+            const formats: object = dayjs.Ls[dayjs.locale()].formats;
+            // this is the regular expression to parse format taken from dayjs repo
+            // https://github.com/iamkun/dayjs/blob/dev/src/plugin/localizedFormat/utils.js
+            return displayFormat.replace(/(\[[^\]]+])|(LTS?|l{1,4}|L{1,4})/g, (_, a, b) => a || formats[b] || displayFormat);
+        } catch (e) {
+            return displayFormat;
+        }
     }
 
     /** @hidden */
     _createDayjsDate(date?: ConfigType, format?: string): Dayjs {
         const { strict, useUtc }: DayjsDatetimeAdapterOptions = this._options || {};
 
-        return useUtc ? dayjs.utc(date, format, strict) : dayjs(date, format, strict);
+        const method = useUtc ? dayjs.utc : dayjs;
+        let parsed = method(date, format, strict);
+        // dayjs strictly follows the provided format
+        // so partial strings will not be resolved. in this case attempt to resolve without formatting
+        if (!parsed?.isValid() && format) {
+            parsed = method(date, undefined, strict);
+        }
+        return parsed;
     }
 }
 

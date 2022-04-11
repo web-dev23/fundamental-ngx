@@ -15,11 +15,8 @@
     ],
     "compilerOptions": {
         "forceConsistentCasingInFileNames": true,
-        "strict": true,
-        "noImplicitOverride": true,
         "noPropertyAccessFromIndexSignature": true,
-        "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true
+        "noImplicitReturns": false,
     },
     "angularCompilerOptions": {
         "strictInjectionParameters": true,
