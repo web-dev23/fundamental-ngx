@@ -19,6 +19,7 @@ import {
 import { Subscription } from 'rxjs';
 import { DialogBodyComponent } from '@fundamental-ngx/core/dialog';
 import { scrollTop } from '@fundamental-ngx/core/utils';
+import { Nullable } from '@fundamental-ngx/core/shared';
 import { WizardStepComponent } from './wizard-step/wizard-step.component';
 import { WizardProgressBarDirective } from './wizard-progress-bar/wizard-progress-bar.directive';
 import { WizardContentComponent } from './wizard-content/wizard-content.component';
@@ -79,7 +80,7 @@ export class WizardComponent implements AfterViewInit, OnDestroy {
      * is the combined height of the shellbar, wizard header and wizard footer.
      */
     @Input()
-    contentHeight: string;
+    contentHeight: Nullable<string | null>;
 
     /**
      * Whether or not apply responsive paddings styling.

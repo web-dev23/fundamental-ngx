@@ -4,7 +4,7 @@
     <fdp-form-generator
         *ngIf="_visibleFormGroupIds[form.id] !== false"
         [mainTitle]="form.title"
-        [columnLayout]="form.columnLayout"
+        [columnLayout]="form.columnLayout || null"
         [formName]="form.id"
         [formItems]="form.formItems"
         [unifiedLayout]="unifiedLayout"

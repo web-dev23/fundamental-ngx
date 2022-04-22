@@ -70,7 +70,7 @@ export class ResponsiveBreakpointsService {
 
     /** @hidden when screen size changes from one breakpoint to another */
     private _breakPointMeet(breakPointMatches: BreakpointState): string {
-        let breakPointName: string;
+        let breakPointName: string | undefined;
 
         if (breakPointMatches.matches) {
             for (const breakpoint in breakPointMatches.breakpoints) {
@@ -80,7 +80,7 @@ export class ResponsiveBreakpointsService {
             }
         }
 
-        return breakPointName;
+        return breakPointName ?? 'S';
     }
 
     /** @hidden */

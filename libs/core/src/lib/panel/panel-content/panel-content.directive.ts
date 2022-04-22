@@ -21,27 +21,27 @@ export class PanelContentDirective {
     /** Custom height of the content container. */
     @Input()
     @HostBinding('style.height')
-    height: string = null;
+    height: string | null = null;
 
     /** Custom min-height of the content container. */
     @Input()
     @HostBinding('style.min-height')
-    minHeight: string = null;
+    minHeight: string | null = null;
 
     /** Custom max-height of the content container. */
     @Input()
     @HostBinding('style.max-height')
-    maxHeight: string = null;
+    maxHeight: string | null = null;
 
     /** aria-label attribute of the host element element. */
     @Input()
     @HostBinding('attr.aria-label')
-    ariaLabel: string = null;
+    ariaLabel: string | null = null;
 
     /** aria-labelledby attribute of the host element element. */
     @Input()
     @HostBinding('attr.aria-labelledby')
-    ariaLabelledBy: string = null;
+    ariaLabelledBy: string | null = null;
 
     /** role attribute of the host element. */
     @Input()
@@ -51,5 +51,18 @@ export class PanelContentDirective {
     /** Id of the host element. */
     @Input()
     @HostBinding('attr.id')
-    id: string = 'fd-panel-content-' + panelContentUniqueId++;
+    set id(value: string | undefined) {
+        this._id = value || this._defaultId;
+    }
+
+    get id(): string {
+        return this._id;
+    }
+
+    /** @hidden */
+    private readonly _defaultId = 'fd-panel-content-' + panelContentUniqueId++;;
+    
+    /** @hidden */
+    private _id: string = this._defaultId;
+
 }

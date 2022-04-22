@@ -47,7 +47,7 @@ import { PlatformSearchFieldMobileModule } from './search-field-mobile/search-fi
 
 export interface SearchInput {
     text: string;
-    category: string;
+    category: string | null;
 }
 
 export interface SuggestionItem {
@@ -227,7 +227,7 @@ export class SearchFieldComponent
      * Currently set category.
      * @hidden
      */
-    _currentCategory: ValueLabelItem;
+    _currentCategory?: ValueLabelItem;
 
     /**
      * Whether or not to show typeahead dropdown.
@@ -281,7 +281,7 @@ export class SearchFieldComponent
     private _currentSearchSuggestionAnnoucementMessage = '';
 
     /** @hidden */
-    private _suggestionOverlayRef: OverlayRef;
+    private _suggestionOverlayRef: OverlayRef | null;
 
     /** @hidden */
     private _suggestionPortal: TemplatePortal;
@@ -657,9 +657,14 @@ export class SearchFieldComponent
     name: 'suggestionMatches'
 })
 export class SuggestionMatchesPipe implements PipeTransform {
-    transform(values: string[], match: string, mobile = false): string[] {
-        return mobile && !match
-            ? values
-            : (values || []).filter((value) => value.toLowerCase().indexOf(match?.trim().toLowerCase()) > -1);
+    transform(values: string[] | null, match: string, mobile = false): string[] {
+        if (!values) {
+            values = [];
+        }
+        if (mobile && !match) {
+            return values;
+        }
+        const processedMatch = match.trim().toLowerCase();
+        return values.filter((value) => value.toLowerCase().indexOf(processedMatch) > -1);
     }
 }
