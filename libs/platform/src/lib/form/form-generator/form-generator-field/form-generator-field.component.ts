@@ -76,6 +76,9 @@ export class FormGeneratorFieldComponent {
         if (this.field.formItem?.placeholder) {
             return this.field.formItem?.placeholder as string;
         }
-        return this.field.formItem?.useMessageAsPlaceholder && (this.field.formItem?.message as string);
+        if (this.field.formItem?.useMessageAsPlaceholder) {
+            return this.field.formItem?.message as string;
+        }
+        return '';
     }
 }

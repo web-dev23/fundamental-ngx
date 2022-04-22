@@ -21,7 +21,7 @@ import { DOCUMENT } from '@angular/common';
 import { fromEvent, Subject, Subscription } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 
-import { FormStates } from '@fundamental-ngx/core/shared';
+import { FormStates, Nullable } from '@fundamental-ngx/core/shared';
 import { ContentDensityService } from '@fundamental-ngx/core/utils';
 
 import { InputGroupAddOnDirective, InputGroupInputDirective } from './input-group-directives';
@@ -135,15 +135,15 @@ export class InputGroupComponent implements ControlValueAccessor, OnInit, OnDest
 
     /** Label applied to button with glyph element. */
     @Input()
-    glyphAriaLabel: string;
+    glyphAriaLabel: Nullable<string>;
 
     /** The tooltip for the input group icon. */
     @Input()
-    iconTitle: string;
+    iconTitle: Nullable<string>;
 
     /** the associated ids for the input aria-labelledby field */
     @Input()
-    ariaLabelledby: string;
+    ariaLabelledby: Nullable<string>;
 
     /** Event emitted when the add-on button is clicked. */
     @Output()

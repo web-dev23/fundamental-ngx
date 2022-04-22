@@ -65,7 +65,7 @@ export abstract class BaseInput
         return this.controlInvalid ? 'error' : 'default';
     }
 
-    set state(state: FormStates) {
+    set state(state: FormStates | undefined) {
         if (!state || isValidControlState(state)) {
             this._state = state || 'default';
         } else if (isDevMode()) {
@@ -75,7 +75,7 @@ export abstract class BaseInput
 
     /** Holds the message with respect to state */
     @Input()
-    stateMessage: string;
+    stateMessage: Nullable<string>;
 
     /**
      * @hidden

@@ -14,14 +14,12 @@ import {
 
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { ESCAPE } from '@angular/cdk/keycodes';
+import { CdkTrapFocus } from '@angular/cdk/a11y';
 
 import { Subject } from 'rxjs';
 
-import { ARROW_SIZE, ArrowPosition } from '@fundamental-ngx/core/shared';
-import { PopoverFlippedXDirection } from '@fundamental-ngx/core/shared';
+import { ARROW_SIZE, ArrowPosition, Nullable, PopoverFlippedXDirection, PopoverPosition } from '@fundamental-ngx/core/shared';
 import { ContentDensityService, KeyUtil } from '@fundamental-ngx/core/utils';
-import { PopoverPosition } from '@fundamental-ngx/core/shared';
-import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { NotificationGroupComponent } from '@fundamental-ngx/core/notification';
 
 /**
@@ -80,10 +78,10 @@ export class PopoverBodyComponent {
     _arrowClasses: string[] = [];
 
     /** Additional style to put margin into body component, to give a place for arrow */
-    _marginStyle: string = null;
+    _marginStyle: Nullable<string> = null;
 
     /** @hidden text rendered inside popover's body */
-    text: string = null;
+    text: Nullable<string> = null;
 
     /** @hidden template rendered inside popover's body */
     _templateToDisplay: TemplateRef<any>;
