@@ -1,7 +1,7 @@
 <ng-container [formGroup]="form">
     <ng-container [formGroupName]="formGroupName">
         <fdp-select
-            [contentDensity]="formItem.guiOptions?.contentDensity"
+            [contentDensity]="formItem.guiOptions?.contentDensity || 'cozy'"
             [placeholder]="formItem.placeholder || formItem.message"
             [inline]="formItem.guiOptions?.inline !== false"
             [name]="name"

@@ -23,7 +23,7 @@ export class BaseButton {
      * Native type of button element
      */
     @Input()
-    type = 'button';
+    type: Nullable<string> = 'button';
 
     /** Position of glyph related to text */
     @Input()

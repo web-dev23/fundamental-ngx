@@ -60,7 +60,7 @@ export class PopoverService extends BasePopoverClass {
     private _lastActiveElement: HTMLElement;
 
     /** @hidden */
-    private _templateData?: PopoverTemplate;
+    private _templateData: Nullable<PopoverTemplate>;
 
     /** @hidden */
     private _prevTrigger: string;
@@ -91,7 +91,7 @@ export class PopoverService extends BasePopoverClass {
      * - templateData - in case of having already PopoverBodyComponent, there is way to pass container, template containing
      *   PopoverComponent and PopoverComponent instance
      */
-    initialise(triggerElement: ElementRef, config?: BasePopoverClass, templateData?: PopoverTemplate): void {
+    initialise(triggerElement: ElementRef, config?: BasePopoverClass, templateData?: PopoverTemplate | null): void {
         this._templateData = templateData;
         this._triggerElement = triggerElement;
 
@@ -160,7 +160,7 @@ export class PopoverService extends BasePopoverClass {
     }
 
     /** method updating template or text inside rendered PopoverBody */
-    updateContent(stringContent: string, templateContent: TemplateRef<any>): void {
+    updateContent(stringContent: string, templateContent: TemplateRef<any> | null): void {
         this.stringContent = stringContent;
         this.templateContent = templateContent;
         if (this._getPopoverBody()) {
@@ -407,14 +407,15 @@ export class PopoverService extends BasePopoverClass {
 
     /** @hidden */
     private _passVariablesToBody(): void {
-        this._getPopoverBody().text = this.stringContent;
-        this._getPopoverBody()._additionalBodyClass = this.additionalBodyClass;
-        this._getPopoverBody()._focusTrapped = this.focusTrapped;
-        this._getPopoverBody()._maxWidth = this.maxWidth;
-        this._getPopoverBody()._noArrow = this.noArrow;
-        this._getPopoverBody()._focusAutoCapture = this.focusAutoCapture;
-        this._getPopoverBody()._templateToDisplay = this.templateContent!;
-        this._getPopoverBody()._closeOnEscapeKey = this.closeOnEscapeKey;
+        const body = this._getPopoverBody();
+        body.text = this.stringContent;
+        body._additionalBodyClass = this.additionalBodyClass;
+        body._focusTrapped = this.focusTrapped;
+        body._maxWidth = this.maxWidth;
+        body._noArrow = this.noArrow;
+        body._focusAutoCapture = this.focusAutoCapture;
+        body._templateToDisplay = this.templateContent!;
+        body._closeOnEscapeKey = this.closeOnEscapeKey;
         this._detectChanges();
     }
 

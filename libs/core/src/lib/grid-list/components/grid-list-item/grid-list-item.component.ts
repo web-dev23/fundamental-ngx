@@ -30,7 +30,7 @@ import { GridList } from './../grid-list/grid-list-base.component';
 let gridListItemUniqueId = 0;
 
 export interface GridListItemOutputEvent<T> {
-    index: number;
+    index?: number;
     value?: T;
 }
 
@@ -219,7 +219,7 @@ export class GridListItemComponent<T> implements OnChanges, AfterViewInit, OnDes
             throw new Error('Grid List Item must have [value] attribute.');
         }
 
-        if (this.selected) {
+        if (this.selected && this.value && this._index != null) {
             const action = this.selectionMode !== 'multiSelect' ? null : GridListSelectionActions.ADD;
             const value = this.value;
 
@@ -233,10 +233,10 @@ export class GridListItemComponent<T> implements OnChanges, AfterViewInit, OnDes
     _index?: number;
 
     /** @hidden */
-    private _selectionMode?: GridListSelectionMode;
+    private _selectionMode: GridListSelectionMode = 'none';
 
     /** @hidden */
-    private _gridLayoutClasses?: string[] = [];
+    private _gridLayoutClasses: string[] = [];
 
     /** @hidden */
     private readonly subscription = new Subscription();
@@ -292,7 +292,7 @@ export class GridListItemComponent<T> implements OnChanges, AfterViewInit, OnDes
     _singleSelect(event: Event): void {
         this._preventDefault(event);
 
-        if (typeof this._selectedItem !== 'undefined') {
+        if (typeof this._selectedItem !== 'undefined' || !this.value || this._index == null) {
             return;
         }
         this._gridList.setSelectedItem(this.value, this._index);
@@ -306,6 +306,9 @@ export class GridListItemComponent<T> implements OnChanges, AfterViewInit, OnDes
 
     /** @hidden */
     _selectionItem(value: boolean | number | T, event?: MouseEvent): void {
+        if (!this.value || this._index == null) {
+            return;
+        }
         const action =
             this.selectionMode !== 'multiSelect'
                 ? null
@@ -414,7 +417,7 @@ export class GridListItemComponent<T> implements OnChanges, AfterViewInit, OnDes
             return false;
         }
 
-        while (!element.parentElement.classList.contains('fd-grid-list__item')) {
+        while (element.parentElement && !element.parentElement.classList.contains('fd-grid-list__item')) {
             if (element.classList.contains('fd-toolbar--extra-content')) {
                 return true;
             }

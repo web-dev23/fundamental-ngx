@@ -1,12 +1,12 @@
 <ng-container [formGroup]="form">
     <ng-container [formGroupName]="formGroupName">
         <fdp-multi-input
-            [contentDensity]="formItem.guiOptions?.contentDensity"
+            [contentDensity]="formItem.guiOptions?.contentDensity || 'cozy'"
             [formControlName]="name"
             [placeholder]="formItem.placeholder || formItem.message"
             type="text"
             [name]="name"
-            [dataSource]="formItem.choices"
+            [dataSource]="formItem.choices || []"
             displayKey="label"
             lookupKey="label"
             [autofocus]="true"

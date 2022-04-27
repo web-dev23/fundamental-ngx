@@ -1,7 +1,7 @@
 <ng-container [formGroup]="form">
     <ng-container [formGroupName]="formGroupName">
         <fdp-textarea
-            [contentDensity]="formItem.guiOptions?.contentDensity"
+            [contentDensity]="formItem.guiOptions?.contentDensity || 'cozy'"
             [placeholder]="formItem.placeholder || formItem.message"
             [name]="name"
             [formControlName]="name"

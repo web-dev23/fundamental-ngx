@@ -51,7 +51,7 @@ export class PopoverBodyComponent {
     _noArrow = true;
 
     /** Whether the popover container needs an extra class for styling. */
-    _additionalBodyClass: string;
+    _additionalBodyClass: Nullable<string>;
 
     /** Whether the popover should be focusTrapped. */
     _focusTrapped = false;
@@ -69,7 +69,7 @@ export class PopoverBodyComponent {
     _popoverBodyMinWidth: number;
 
     /** @hidden Property bind to popover's body */
-    _maxWidth: number;
+    _maxWidth: Nullable<number>;
 
     /** @hidden Property bind to popover's body */
     _closeOnEscapeKey = false;
@@ -149,12 +149,14 @@ export class PopoverBodyComponent {
     }
 
     /** @hidden */
-    private _addMarginStyle(arrowDirection: ArrowPosition): void {
-        this._renderer2.setStyle(
-            this._elementRef.nativeElement,
-            PopoverPosition.getMarginDirection(arrowDirection),
-            ARROW_SIZE
-        );
+    private _addMarginStyle(arrowDirection: ArrowPosition | null): void {
+        if (arrowDirection) {
+            this._renderer2.setStyle(
+                this._elementRef.nativeElement,
+                PopoverPosition.getMarginDirection(arrowDirection),
+                ARROW_SIZE
+            );
+        }
     }
 
     /** @hidden */

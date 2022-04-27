@@ -33,6 +33,7 @@ import { DatetimeAdapter, DateTimeFormats, DATE_TIME_FORMATS } from '@fundamenta
 import { PopoverFormMessageService } from '@fundamental-ngx/core/form';
 import { PopoverService } from '@fundamental-ngx/core/popover';
 import { ContentDensityService } from '@fundamental-ngx/core/utils';
+import { Nullable } from '@fundamental-ngx/core/shared';
 import { InputGroupInputDirective } from '@fundamental-ngx/core/input-group';
 
 import { createMissingDateImplementationError } from './errors';
@@ -104,7 +105,7 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
         this._popoverFormMessage.message = message;
     }
     /** @hidden */
-    _message: string = null;
+    _message: string | null = null;
 
     /** The trigger events that will open/close the message box.
      *  Accepts any [HTML DOM Events](https://www.w3schools.com/jsref/dom_obj_event.asp). */
@@ -220,9 +221,9 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
      *  Can be `success`, `error`, `warning`, `information` or blank for default.
      */
     @Input()
-    set state(state: FormStates) {
-        this._state = state;
-        this._popoverFormMessage.messageType = state;
+    set state(state: Nullable<FormStates>) {
+        this._state = state || 'default';
+        this._popoverFormMessage.messageType = state || 'default';
     }
     /** @hidden */
     get state(): FormStates {
@@ -232,7 +233,7 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
         return this._state;
     }
     /** @hidden */
-    private _state: FormStates = null;
+    private _state: FormStates = 'default';
 
     /**
      * Whether AddOn Button should be focusable
@@ -336,7 +337,7 @@ export class DatePickerComponent<D> implements OnInit, OnDestroy, AfterViewInit,
     _inputElement: ElementRef;
 
     /** @hidden The value of the input */
-    _inputFieldDate: string = null;
+    _inputFieldDate: string | null = null;
 
     /** @hidden Whether the date input is invalid */
     _isInvalidDateInput = false;

@@ -31,7 +31,7 @@
                                 [ngClass]="_inlineColumnLayoutClass"
                                 [style.order]="field.rank"
                             >
-                                <ng-container *ngTemplateOutlet="field?.renderer"></ng-container>
+                                <ng-container *ngTemplateOutlet="field?.renderer || null"></ng-container>
                             </div>
                         </div>
                     </div>

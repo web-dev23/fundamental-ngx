@@ -130,9 +130,11 @@ export abstract class InLineLayoutCollectionBaseInput extends CollectionBaseInpu
         return this._inlineLayout;
     }
 
-    set inlineLayout(layout: InlineLayout) {
-        this._inlineLayout = layout;
-        this._isInLineLayoutEnabled = true;
+    set inlineLayout(layout: InlineLayout | undefined) {
+        if (layout) {
+            this._inlineLayout = layout;
+            this._isInLineLayoutEnabled = true;
+        }
         this._setFieldLayout(layout);
     }
 
@@ -190,7 +192,11 @@ export abstract class InLineLayoutCollectionBaseInput extends CollectionBaseInpu
     }
 
     /** @hidden set values of inline for each screen layout */
-    private _setFieldLayout(inlineLayout: InlineLayout): void {
+    private _setFieldLayout(inlineLayout?: InlineLayout): void {
+        if (!inlineLayout) {
+            this._isInLineLayoutEnabled = false;
+            return;
+        }
         try {
             this._sIsInline = !!inlineLayout['S'];
             this._mdIsInline = !!inlineLayout['M'];

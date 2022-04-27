@@ -16,6 +16,7 @@ import { TabTitleDirective } from '../tab-utils/tab-directives';
 import { TabItemState } from '../tab-item/tab-item.directive';
 import { TabsService } from '../tabs.service';
 import { Subject } from 'rxjs';
+import { Nullable } from '@fundamental-ngx/core/shared';
 
 let tabPanelUniqueId = 0;
 
@@ -74,7 +75,7 @@ export class TabPanelComponent implements OnChanges {
 
     /** Semantic type of the tab item */
     @Input()
-    tabState?: TabItemState;
+    tabState: Nullable<TabItemState>;
 
     /** Event that is emitted when the tab panel has been opened. */
     @Output()

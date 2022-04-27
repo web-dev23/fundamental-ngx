@@ -186,7 +186,7 @@ export class DynamicPageComponent extends BaseComponent implements AfterContentI
     _onSelectedTabChange(event: TabPanelComponent): void {
         const content = this.contentComponents.find((contentComponent) => contentComponent.id === event.id);
 
-        this.tabChange.emit(new DynamicPageTabChangeEvent(content, event));
+        content && this.tabChange.emit(new DynamicPageTabChangeEvent(content, event));
     }
 
     /** @hidden */

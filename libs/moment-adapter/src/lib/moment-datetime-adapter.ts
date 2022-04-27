@@ -253,7 +253,7 @@ export class MomentDatetimeAdapter extends DatetimeAdapter<Moment> {
 
     clone(date: Moment): Moment {
         if (!date) {
-            return;
+            return moment();
         }
 
         return date.clone().locale(this.locale);

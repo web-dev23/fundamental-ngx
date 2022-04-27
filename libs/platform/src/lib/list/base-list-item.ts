@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 import { ENTER, SPACE } from '@angular/cdk/keycodes';
 
 import { ContentDensity, KeyUtil } from '@fundamental-ngx/core/utils';
+import { Nullable } from '@fundamental-ngx/core/shared';
 import { CheckboxComponent } from '@fundamental-ngx/core/checkbox';
 import { RadioButtonComponent } from '@fundamental-ngx/core/radio';
 import { BaseComponent } from '@fundamental-ngx/platform/shared';
@@ -81,7 +82,7 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
 
     /** Description of the title*/
     @Input()
-    description: string;
+    description: Nullable<string>;
 
     /** To invert the status of secondary text*/
     @Input()

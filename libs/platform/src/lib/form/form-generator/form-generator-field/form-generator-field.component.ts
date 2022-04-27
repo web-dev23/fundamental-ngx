@@ -61,7 +61,7 @@ export class FormGeneratorFieldComponent {
     /**
      * Describes hint options for field label
      */
-    @Input() hintOptions: FieldHintOptions;
+    @Input() hintOptions?: FieldHintOptions;
 
     /**
      * Form field component.

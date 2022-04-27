@@ -1,7 +1,7 @@
 <ng-container [formGroup]="form">
     <ng-container [formGroupName]="formGroupName">
         <fdp-switch
-            [contentDensity]="formItem.guiOptions?.contentDensity"
+            [contentDensity]="formItem.guiOptions?.contentDensity || 'cozy'"
             [name]="name"
             [semantic]="formItem.guiOptions?.additionalData?.semantic"
             [formControlName]="name"

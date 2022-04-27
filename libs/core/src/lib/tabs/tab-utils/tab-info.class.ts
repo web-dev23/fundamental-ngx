@@ -2,6 +2,7 @@ import { TemplateRef } from '@angular/core';
 
 import { TabPanelComponent } from '../tab-panel/tab-panel.component';
 import { TabItemState } from '../tab-item/tab-item.directive';
+import { Nullable } from '@fundamental-ngx/core/shared';
 
 /** @hidden */
 export class TabInfo {
@@ -51,7 +52,7 @@ export class TabInfo {
     }
 
     /** @hidden */
-    get tabState(): TabItemState {
+    get tabState(): Nullable<TabItemState> {
         return this.panel.tabState;
     }
 
