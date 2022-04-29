@@ -96,7 +96,7 @@ export class InputGroupComponent implements ControlValueAccessor, OnInit, OnDest
 
     /** The icon value for the add-on. */
     @Input()
-    glyph: string;
+    glyph: Nullable<string>;
 
     /** Whether the icon add-on or the text add-on is a button. */
     @Input()

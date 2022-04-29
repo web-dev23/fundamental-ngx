@@ -1,3 +1,5 @@
+import { Nullable } from '@fundamental-ngx/core/shared';
+
 /**
  * Base Calendar Cell
  */
@@ -45,3 +47,7 @@ export class DefaultCalendarActiveCellStrategy<
         return cells[0] || null;
     }
 }
+
+export type EscapeFocusFunction = Nullable<(event?: KeyboardEvent) => void>;
+
+export type DisableDateFunction<D> = Nullable<(date: D) => boolean>;

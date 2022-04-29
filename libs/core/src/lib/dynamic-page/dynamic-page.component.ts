@@ -214,7 +214,7 @@ export class DynamicPageComponent implements AfterViewInit, OnDestroy {
     }
 
     /** @hidden */
-    private _getCalculatedFullHeight(element: HTMLElement): string {
+    private _getCalculatedFullHeight(element: HTMLElement): string | null {
         if (!element) {
             return null;
         }

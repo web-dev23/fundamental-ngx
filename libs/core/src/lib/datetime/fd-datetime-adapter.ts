@@ -266,7 +266,7 @@ export class FdDatetimeAdapter extends DatetimeAdapter<FdDate> {
         return new FdDate(date.year, date.month, date.day, date.hour, date.minute, date.second);
     }
 
-    isValid(date: FdDate): boolean {
+    isValid(date: FdDate): date is FdDate {
         if (!(date instanceof FdDate)) {
             return false;
         }

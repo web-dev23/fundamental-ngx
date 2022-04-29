@@ -17,13 +17,13 @@ export class DialogContentBase {
     ariaModal?: boolean;
 
     /** Aria label for the dialog component element. */
-    ariaLabel: Nullable<string>;
+    ariaLabel?: Nullable<string>;
 
     /** Aria labelby for the dialog component element. */
-    ariaLabelledBy: Nullable<string>;
+    ariaLabelledBy?: Nullable<string>;
 
     /** Aria DescribedBy for the dialog component element.. */
-    ariaDescribedBy: Nullable<string>;
+    ariaDescribedBy?: Nullable<string>;
 
     /** Approve Button Click Callback */
     approveButtonCallback?: () => void;
