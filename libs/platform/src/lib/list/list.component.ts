@@ -137,7 +137,7 @@ export class ListComponent extends CollectionBaseInput implements OnInit, AfterV
     @Output()
     selectedItemChange: EventEmitter<SelectionChangeEvent> = new EventEmitter<SelectionChangeEvent>();
     /** Access child element, for checking link content*/
-    @ViewChild('link', { read: ElementRef })
+    @ViewChild('linkElement', { read: ElementRef })
     anchor: ElementRef;
     @ContentChild(ListItemDef)
     listItemDef: ListItemDef;

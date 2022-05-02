@@ -22,6 +22,7 @@ import {
     GridListSelectionEvent
 } from './../../models/grid-list-selection.models';
 import { RangeSelector } from '@fundamental-ngx/core/utils';
+import { Nullable } from '@fundamental-ngx/core/shared';
 import { GridList } from './grid-list-base.component';
 
 let gridListUniqueId = 0;
@@ -45,7 +46,7 @@ export class GridListComponent<T> extends GridList<T> implements OnChanges, Afte
 
     /** Sets the `aria-label` attribute to the element. */
     @Input()
-    ariaLabel: string;
+    ariaLabel: Nullable<string>;
 
     /**
      * Defines the mode of Grid List

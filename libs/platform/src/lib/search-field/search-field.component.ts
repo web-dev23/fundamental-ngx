@@ -35,6 +35,7 @@ import { fromEvent, isObservable, merge, Observable, of, Subject } from 'rxjs';
 import { filter, map, take, takeUntil } from 'rxjs/operators';
 
 import { DynamicComponentService, KeyUtil, RtlService } from '@fundamental-ngx/core/utils';
+import { Nullable } from '@fundamental-ngx/core/shared';
 import { PopoverComponent } from '@fundamental-ngx/core/popover';
 import { MobileModeConfig } from '@fundamental-ngx/core/mobile-mode';
 import { BaseComponent, SearchFieldDataSource } from '@fundamental-ngx/platform/shared';
@@ -174,7 +175,7 @@ export class SearchFieldComponent
      * Not shown in the UI, only visible by the screen-readers.
      */
     @Input()
-    ariaLabel: string;
+    ariaLabel: Nullable<string>;
 
     /**
      * Id of elements (separated by space) for setting aria-labelledby for search input

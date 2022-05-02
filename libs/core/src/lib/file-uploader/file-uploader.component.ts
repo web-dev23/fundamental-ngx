@@ -108,7 +108,7 @@ export class FileUploaderComponent implements ControlValueAccessor, OnInit, OnDe
 
     /** value for input element. */
     @Input()
-    buttonAriaLabel: string;
+    buttonAriaLabel: Nullable<string>;
 
     /** boolean value to enable compact mode */
     @Input()

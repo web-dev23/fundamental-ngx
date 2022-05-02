@@ -22,7 +22,7 @@ export class TabInfo {
     }
 
     /** Tab header title */
-    get title(): string {
+    get title(): Nullable<string> {
         return this.panel.title;
     }
 
@@ -37,17 +37,17 @@ export class TabInfo {
     }
 
     /** @hidden */
-    get id(): string {
+    get id(): Nullable<string> {
         return this.panel.id;
     }
 
     /** @hidden */
-    get ariaLabel(): string {
+    get ariaLabel(): Nullable<string> {
         return this.panel.ariaLabel;
     }
 
     /** @hidden */
-    get ariaLabelledBy(): string {
+    get ariaLabelledBy(): Nullable<string> {
         return this.panel.ariaLabelledBy;
     }
 
@@ -62,7 +62,7 @@ export class TabInfo {
     }
 
     /** @hidden */
-    get count(): string {
+    get count(): Nullable<string> {
         return this.panel.count;
     }
 

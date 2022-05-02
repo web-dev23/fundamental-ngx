@@ -116,7 +116,7 @@ export class StepInputComponent implements OnInit, AfterViewInit, OnDestroy, Con
     }
 
     /** Control value */
-    get value(): Nullable<number> {
+    get value(): number | null {
         return this._value;
     }
 
@@ -191,16 +191,16 @@ export class StepInputComponent implements OnInit, AfterViewInit, OnDestroy, Con
     /** Emits event when input gets focused */
     @Output()
     // eslint-disable-next-line @angular-eslint/no-output-on-prefix
-    onFocusIn: EventEmitter<void> = new EventEmitter<void>();
+    onFocusIn = new EventEmitter<void>();
 
     /** Emits event when input loses focus */
     @Output()
     // eslint-disable-next-line @angular-eslint/no-output-on-prefix
-    onFocusOut: EventEmitter<void> = new EventEmitter<void>();
+    onFocusOut = new EventEmitter<void>();
 
     /** Emits new value when control value has changed */
     @Output()
-    valueChange = new EventEmitter<Nullable<number>>();
+    valueChange = new EventEmitter<number | null>();
 
     /** @hidden */
     @ViewChild('incrementBtn', { read: ElementRef })
@@ -224,7 +224,7 @@ export class StepInputComponent implements OnInit, AfterViewInit, OnDestroy, Con
     focused: boolean;
 
     /** @hidden */
-    private _value: number | null;
+    private _value: number | null = null;
 
     /** @hidden */
     private _numerals: RegExp;

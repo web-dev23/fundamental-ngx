@@ -8,7 +8,7 @@ import {
     OnInit
 } from '@angular/core';
 import { applyCssClass, CssClassBuilder } from '@fundamental-ngx/core/utils';
-import { NullableObj, Nullable } from '@fundamental-ngx/core/shared';
+import { NullableObject, Nullable } from '@fundamental-ngx/core/shared';
 
 export type ObjectStatus = 'negative' | 'critical' | 'positive' | 'informative';
 
@@ -116,7 +116,7 @@ export class ObjectStatusComponent implements OnChanges, OnInit, CssClassBuilder
     }
 }
 
-type ObjectStatusData = NullableObj<{
+type ObjectStatusData = NullableObject<{
     status: ObjectStatus;
     inverted: boolean;
     large: boolean;
