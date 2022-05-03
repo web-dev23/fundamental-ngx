@@ -124,7 +124,7 @@ describe('FormGeneratorService', () => {
     it('should add custom component and return it by the type', async () => {
         service.addComponent(TestCustomComponent, ['slider']);
 
-        expect(service.getComponentDefinitionByType('slider').component).toEqual(TestCustomComponent);
+        expect(service.getComponentDefinitionByType('slider')?.component).toEqual(TestCustomComponent);
     });
 
     it('should check hide second field', async () => {
