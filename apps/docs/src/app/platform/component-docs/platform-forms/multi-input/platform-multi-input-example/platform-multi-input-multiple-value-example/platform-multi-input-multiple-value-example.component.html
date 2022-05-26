@@ -1,0 +1,16 @@
+<fdp-form-group>
+    <fdp-form-field label="Add new token" id="multi-input-simple" placeholder="Field placeholder text">
+        <fdp-multi-input
+            placeholder="Field placeholder text"
+            type="text"
+            id="fdp-id-default"
+            name="input1"
+            displayKey="state"
+            selectionMode="multi"
+            [dataSource]="datasource"
+            (selectionChange)="showValues($event)"
+            [selectedItems]="selected"
+        >
+        </fdp-multi-input>
+    </fdp-form-field>
+</fdp-form-group>

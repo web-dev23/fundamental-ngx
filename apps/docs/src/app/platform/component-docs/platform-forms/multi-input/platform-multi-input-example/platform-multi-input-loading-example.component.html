@@ -1,5 +1,5 @@
 <fdp-form-group>
-    <fdp-form-field label="Loading" id="multi-input-loading">
+    <fdp-form-field id="multi-input-loading" label="Loading">
         <fd-busy-indicator [loading]="loading" ariaLabel="loading" title="Please Wait">
             <fdp-multi-input
                 placeholder="Field placeholder text"
@@ -8,7 +8,6 @@
                 name="input-loading"
                 [dataSource]="dataSource"
                 displayKey="state"
-                [autofocus]="true"
                 (onDataRequested)="onDataRequested()"
                 (onDataReceived)="onDataReceived()"
                 [(ngModel)]="selected"

@@ -20,7 +20,6 @@ import { runValueAccessorTests } from 'ngx-cva-test-suite';
                 label="Default Multi Input Field"
                 id="input-simple"
                 name="reactiveFormInput"
-                zone="zLeft"
                 rank="1"
                 placeholder="Field placeholder text"
             >
@@ -42,6 +41,8 @@ import { runValueAccessorTests } from 'ngx-cva-test-suite';
 class PlatformMulitiInputTestComponent {
     @ViewChild(PlatformMultiInputComponent)
     platformMultiInputComponent: PlatformMultiInputComponent;
+
+    selected: any = null;
 
     contentDensity: ContentDensity = 'cozy';
     LIST_ELEMENTS = [{ name: 'Name1' }, { name: 'Name2' }, { name: 'Name3' }, { name: 'Name4' }];
@@ -81,8 +82,9 @@ describe('PlatformMultiInputComponent', () => {
         const toggleButton = fixture.nativeElement.querySelectorAll('fd-input--compact');
         expect(toggleButton.length).toBe(0);
     });
+
     it('should check adding number of tokens in the component', async () => {
-        component.platformMultiInputComponent.addToArray('name1');
+        component.platformMultiInputComponent.addToArray(new Event('click'), 'name1');
         fixture.detectChanges();
         const toggleButton = fixture.nativeElement.querySelectorAll('.fd-token');
         expect(toggleButton.length).toBe(1);

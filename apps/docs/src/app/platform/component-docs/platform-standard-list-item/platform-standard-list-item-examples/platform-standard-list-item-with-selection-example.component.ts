@@ -62,7 +62,7 @@ export class ListDataProvider extends DataProvider<Address> {
 })
 export class PlatformStandardListItemWithSelectionExampleComponent implements AfterViewInit {
     _dataSource = new ListDataSource<Address>(new ListDataProvider());
-    _selectedItems: any[] = [];
+    _selectedItems: any[] = [this._dataSource[0]];
 
     selectionMode: SelectionType = 'multi';
     selectionModeLabel = `${this.selectionMode} selectable`;

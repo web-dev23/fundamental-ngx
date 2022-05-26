@@ -65,7 +65,7 @@ export class PlatformMultiInputExampleComponent {
     ];
     selectedItem2 = null;
 
-    selected = [{ state: 'Alabama', city: 'Montgomery' }];
+    selected = [this._datasource[0]];
 
     showValues(item: MultiInputSelectionChangeEvent): void {
         this.selectedItem2 = item.payload;

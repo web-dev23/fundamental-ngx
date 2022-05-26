@@ -11,7 +11,6 @@
                 formControlName="item"
                 placeholder="Field placeholder text"
                 type="text"
-                id="fdp-id-reactive"
                 name="input1"
                 [dataSource]="_datasource"
                 displayKey="state"
@@ -23,7 +22,8 @@
             <span *ngIf="errors.required"> Value is required </span>
         </ng-template>
     </fdp-form-group>
-    <p>Form Selected Item: {{ customForm.value | json }}</p>
+    <p>Form Selected Item:</p>
+    <pre>{{ customForm.value | json }}</pre>
     <p>Form state: {{ customForm.status }}</p>
     <fdp-button contentDensity="compact" type="submit" style="margin-left: 2rem" label="Submit"></fdp-button>
     <fdp-button

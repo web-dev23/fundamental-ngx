@@ -18,6 +18,8 @@ import PlatformMultiInputCompactExampleComponent from '!./platform-multi-input-e
 import PlatformMultiInputCompactExampleComponentTs from '!./platform-multi-input-example/platform-multi-input-compact-example.component.ts?raw';
 import PlatformMultiInputLoadingExampleComponent from '!./platform-multi-input-example/platform-multi-input-loading-example.component.html?raw';
 import PlatformMultiInputLoadingExampleComponentTs from '!./platform-multi-input-example/platform-multi-input-loading-example.component.ts?raw';
+import PlatformMultiInputMultipleValueExampleComponent from '!./platform-multi-input-example/platform-multi-input-multiple-value-example/platform-multi-input-multiple-value-example.component.html?raw';
+import PlatformMultiInputMultipleValueExampleComponentTs from '!./platform-multi-input-example/platform-multi-input-multiple-value-example/platform-multi-input-multiple-value-example.component.ts?raw';
 
 import { ExampleFile } from '../../../../documentation/core-helpers/code-example/example-file';
 
@@ -141,6 +143,19 @@ export class PlatformMultiInputDocsComponent {
             code: PlatformMultiInputLoadingExampleComponentTs,
             fileName: 'platform-multi-input-loading-example',
             component: 'PlatformMultiInputLoadingExampleComponent'
+        }
+    ];
+    multiInputMultipleValue: ExampleFile[] = [
+        {
+            language: 'html',
+            code: PlatformMultiInputMultipleValueExampleComponent,
+            fileName: 'platform-multi-input-multiple-value'
+        },
+        {
+            language: 'typescript',
+            code: PlatformMultiInputMultipleValueExampleComponentTs,
+            fileName: 'platform-multi-input-multiple-value-example',
+            component: 'PlatformMultiInputMultipleValueExampleComponent'
         }
     ];
 }

@@ -7,7 +7,6 @@
         [attr.id]="id"
         [selected]="_selected"
         [tabindex]="-1"
-        (click)="_onItemClick()"
         (keydown)="_onKeyDown($event)"
         (keyup)="_onKeyUp($event)"
         class="fd-list__item--link"
@@ -170,7 +169,8 @@
     >
         <fd-checkbox
             *ngIf="selectionMode === 'multi'"
-            (click)="$event.stopPropagation()"
+            role="checkbox"
+            (click)="_onCheckboxClick($event)"
             [compact]="contentDensity | isCompactDensity"
             [(ngModel)]="_selected"
             [attr.aria-selected]="_selected"

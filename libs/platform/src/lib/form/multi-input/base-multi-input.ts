@@ -31,7 +31,7 @@ import {
     UP_ARROW
 } from '@angular/cdk/keycodes';
 
-import { combineLatest, fromEvent, isObservable, Observable, Subject, Subscription } from 'rxjs';
+import { BehaviorSubject, combineLatest, fromEvent, isObservable, Observable, Subject, Subscription } from 'rxjs';
 import { takeUntil, startWith } from 'rxjs/operators';
 
 import { DialogConfig } from '@fundamental-ngx/core/dialog';
@@ -52,7 +52,8 @@ import {
     MultiInputOption,
     ArrayMultiInputDataSource,
     ObservableMultiInputDataSource,
-    MultiInputDataSource
+    MultiInputDataSource,
+    SelectableOptionItem
 } from '@fundamental-ngx/platform/shared';
 import { PlatformMultiInputComponent } from './multi-input.component';
 import { TextAlignment } from '../combobox';
@@ -69,6 +70,12 @@ export class MultiInputSelectionChangeEvent {
 
 @Directive()
 export abstract class BaseMultiInput extends CollectionBaseInput implements AfterViewInit, OnChanges, OnDestroy {
+    /** Selected values from the list items. */
+    @Input()
+    _selectedItems: any[] = [];
+
+    _selectedSuggestions: any[] = [];
+
     /** Provides maximum height for the optionPanel */
     @Input()
     maxHeight = '250px';
@@ -174,6 +181,8 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
     /** @hidden */
     @ContentChildren(TemplateDirective)
     customTemplates: QueryList<TemplateDirective>;
+
+    showSelectedList$ = new BehaviorSubject<any>(false);
 
     /** @hidden
      * Custom Option item Template
@@ -499,10 +508,31 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
          * its here.
          */
         this._dsSubscription = new Subscription();
-        const dsSub = combineLatest([initDataSource.open(), this._updateDataSourceValues$.pipe(startWith(null))])
+        const dsSub = combineLatest([
+            initDataSource.open(),
+            this.showSelectedList$,
+            this._updateDataSourceValues$.pipe(startWith(null))
+        ])
             .pipe(takeUntil(this._destroyed))
-            .subscribe(([data]) => {
-                this._suggestions = this._convertToOptionItems(data);
+            .subscribe(([data, isShowSelectedList]) => {
+                if (!isShowSelectedList) {
+                    this._suggestions = this._convertToOptionItems(data).map((optionItem: SelectableOptionItem) => {
+                        const selectedElement = this._selectedItems.find(
+                            (selectedItem: SelectableOptionItem) => selectedItem.label === optionItem.label
+                        );
+                        if (selectedElement) {
+                            optionItem.selected = true;
+                        }
+                        return optionItem;
+                    });
+                }
+
+                if (isShowSelectedList) {
+                    this._suggestions = this._convertToOptionItems(this._selectedItems);
+                }
+
+                this._newSuggestions = this._suggestions;
+
                 this.stateChanges.next('initDataSource.open().');
 
                 this.cd.markForCheck();
@@ -696,7 +726,8 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
             const value = items[i];
             selectItems.push({
                 label: this.displayValue(value),
-                value
+                value,
+                selected: this._selectedItems?.includes(value) || false
             });
         }
 

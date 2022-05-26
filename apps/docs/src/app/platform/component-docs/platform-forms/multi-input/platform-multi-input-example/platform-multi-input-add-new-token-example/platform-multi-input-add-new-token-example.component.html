@@ -1,15 +1,11 @@
 <fdp-form-group>
-    <fdp-form-field
-        label="Default Multi Input Field"
-        id="multi-input-simple"
-        [rank]="1"
-        placeholder="Field placeholder text"
-    >
+    <fdp-form-field label="Add new token" id="multi-input-simple" placeholder="Field placeholder text">
         <fdp-multi-input
+            placeholder="Field placeholder text"
             type="text"
             id="fdp-id-default"
             name="input1"
-            [dataSource]="_datasource"
+            [dataSource]="datasource"
             (selectionChange)="showValues($event)"
             displayKey="state"
             [(ngModel)]="selected"

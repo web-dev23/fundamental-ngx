@@ -739,9 +739,11 @@ export class FormFieldComponent implements FormField, AfterContentInit, AfterVie
             this.control.id = this.id;
             this.control.required = this.required;
 
-            if (this.placeholder) {
-                this.control.placeholder = this.placeholder;
-            }
+            // this.placeholder
+            //     ? this.control.placeholder = this.placeholder
+            //     : this.control.placeholder = '';
+
+            this.control.placeholder = this.placeholder ? this.placeholder : '';
         }
     }
 

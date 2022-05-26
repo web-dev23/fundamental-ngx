@@ -41,6 +41,7 @@ export class ActionChangeEvent {
 export class ModifyItemEvent {
     source: BaseListItem;
     action: 'delete' | 'edit';
+    checkboxEvent: boolean;
 }
 
 @Directive({ selector: '[fdpItemDef]' })
@@ -262,6 +263,16 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
             this._selected = this.value === this._selectionValue;
         }
     }
+
+    @Input()
+    get selected(): boolean {
+        return this._selected;
+    }
+
+    set selected(value: boolean) {
+        this._selected = value;
+    }
+
     /**
      * @hidden
      * Show navigation for single list
@@ -315,11 +326,13 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
             this._selected = !this._selected;
         }
 
-        const event = new ModifyItemEvent();
-        event.source = this;
-        this._focused = !this._focused;
-        this.itemSelected.emit(event);
-        this._changeDetectorRef.markForCheck();
+        if (this.selectionMode !== 'delete') {
+            const event = new ModifyItemEvent();
+            event.source = this;
+            this._focused = !this._focused;
+            this.itemSelected.emit(event);
+            this._changeDetectorRef.markForCheck();
+        }
     }
 
     /** @hidden */
@@ -350,19 +363,24 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
      * Handler for mouse events
      */
     @HostListener('click', ['$event'])
-    _onClick(event: MouseEvent): void {
+    _onCheckboxClick(event: MouseEvent): void {
+        const $event = new ModifyItemEvent();
+
         if (this.checkboxComponent && !this.anchor) {
             if (!this.checkboxComponent.elementRef.nativeElement.contains(event.target as Node)) {
                 // clicking on the checkbox is not suppressed
                 // so we should only process clicks if clicked on the list-item, not checkbox itself
                 this.checkboxComponent.nextValue();
+            } else {
+                $event.checkboxEvent = true;
+                event.stopPropagation();
             }
 
             this.radioButtonComponent?.valueChange(event);
         }
 
         this._changeDetectorRef.markForCheck();
-        const $event = new ModifyItemEvent();
+        // const $event = new ModifyItemEvent(true);
         $event.source = this;
         this.itemSelected.emit($event);
     }

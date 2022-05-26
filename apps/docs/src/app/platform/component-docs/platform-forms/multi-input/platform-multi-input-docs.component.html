@@ -37,7 +37,10 @@
 <fd-docs-section-title id="decline" componentName="multi-input">
     Multi Input With Decline List type
 </fd-docs-section-title>
-<description> This example shows default Multi Input with simple list implementation. </description>
+<description>
+    Clicking the More label opens a popover below the input field, in which all selected items are shown. You can
+    deselect an item by clicking its delete icon.
+</description>
 <component-example>
     <fdp-platform-multi-input-decline-example></fdp-platform-multi-input-decline-example>
 </component-example>
@@ -62,7 +65,16 @@
 
 <separator></separator>
 
-<fd-docs-section-title id="reactive" componentName="multi-input"> Multi Input reactive </fd-docs-section-title>
+<fd-docs-section-title id="multiple-value" componentName="multi-input"> Multi Selection </fd-docs-section-title>
+<description> Pass Multiple Value </description>
+<component-example>
+    <fdp-platform-multi-input-multiple-value-example></fdp-platform-multi-input-multiple-value-example>
+</component-example>
+<code-example [exampleFiles]="multiInputMultipleValue"></code-example>
+
+<separator></separator>
+
+<fd-docs-section-title id="reactive" componentName="multi-input"> Multi Input in Reactive Form </fd-docs-section-title>
 <description>
     This example shows default Multi Input with simple list implementation to support mobile interface.
 </description>
@@ -82,3 +94,14 @@
     <fdp-platform-multi-input-loading-example></fdp-platform-multi-input-loading-example>
 </component-example>
 <code-example [exampleFiles]="multiInputLoading"></code-example>
+
+<separator></separator>
+
+<!--<fd-docs-section-title id="new-token" componentName="multi-input"> Add new token </fd-docs-section-title>-->
+<!--<description>-->
+<!--    Add new token description-->
+<!--</description>-->
+<!--<component-example>-->
+<!--    <fdp-platform-multi-input-add-new-token-example></fdp-platform-multi-input-add-new-token-example>-->
+<!--</component-example>-->
+<!--<code-example [exampleFiles]="multiInputNewToken"></code-example>-->

@@ -71,6 +71,7 @@ export class PlatformMultiInputLoadingExampleComponent {
     onDataRequested(): void {
         this.loading = true;
     }
+
     onDataReceived(): void {
         this.loading = false;
     }
