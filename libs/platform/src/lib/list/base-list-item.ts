@@ -330,6 +330,7 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
             const event = new ModifyItemEvent();
             event.source = this;
             this._focused = !this._focused;
+            console.log('emit!');
             this.itemSelected.emit(event);
             this._changeDetectorRef.markForCheck();
         }
@@ -346,7 +347,7 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
             this._onKeyboardClick(event);
         }
 
-        this.anchor?.nativeElement.click();
+        // this.anchor?.nativeElement.click();
 
         if (this.rowSelection) {
             this._selected = !this._selected;
@@ -354,6 +355,8 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
 
         const $event = new ModifyItemEvent();
         $event.source = this;
+        console.log('emit add by enter');
+
         this.itemSelected.emit($event);
         this._changeDetectorRef.markForCheck();
     }
@@ -380,8 +383,8 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
         }
 
         this._changeDetectorRef.markForCheck();
-        // const $event = new ModifyItemEvent(true);
         $event.source = this;
+        console.log('emit');
         this.itemSelected.emit($event);
     }
 

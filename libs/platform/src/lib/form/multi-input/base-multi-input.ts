@@ -369,6 +369,7 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
         this.openChange.next(this.isOpen);
         this._cd.markForCheck();
     }
+
     /** Closes the select popover body. */
     close(): void {
         this.isOpen = false;
@@ -516,7 +517,7 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
             .pipe(takeUntil(this._destroyed))
             .subscribe(([data, isShowSelectedList]) => {
                 if (!isShowSelectedList) {
-                    this._suggestions = this._convertToOptionItems(data).map((optionItem: SelectableOptionItem) => {
+                    this._suggestions = this._convertToOptionItems(data).map((optionItem: MultiInputOption) => {
                         const selectedElement = this._selectedItems.find(
                             (selectedItem: SelectableOptionItem) => selectedItem.label === optionItem.label
                         );
@@ -667,7 +668,8 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
             const selectItem: MultiInputOption = {
                 label: key,
                 value: null,
-                isGroup: true
+                isGroup: true,
+                selected: false
             };
 
             const currentGroup = group[key];
@@ -694,7 +696,8 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
                 label: this.displayValue(value),
                 avatarSrc: this.avatarsrc ? this.objectGet(value, this.avatarsrc) : null,
                 description: this.description ? this.objectGet(value, this.description) : null,
-                value
+                value,
+                selected: this._selectedItems?.includes(value) || false
             });
         }
 
@@ -709,7 +712,7 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
         const selectItems: MultiInputOption[] = [];
         for (let i = 0; i < items.length; i++) {
             const value = items[i];
-            selectItems.push({ label: value, value });
+            selectItems.push({ label: value, value, selected: this._selectedItems?.includes(value) || false });
         }
 
         return selectItems;

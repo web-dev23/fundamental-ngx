@@ -28,7 +28,6 @@ import { MULTI_INPUT_MOBILE_CONFIG } from '../../../../documentation/utilities/c
 import { PlatformMultiInputReactiveExampleComponent } from './platform-multi-input-example/platform-multi-input-reactive-example.component';
 import { PlatformMultiInputCompactExampleComponent } from './platform-multi-input-example/platform-multi-input-compact-example.component';
 import { PlatformMultiInputLoadingExampleComponent } from './platform-multi-input-example/platform-multi-input-loading-example.component';
-import { PlatformMultiInputAddNewTokenExampleComponent } from './platform-multi-input-example/platform-multi-input-add-new-token-example/platform-multi-input-add-new-token-example.component';
 import { PlatformMultiInputMultipleValueExampleComponent } from './platform-multi-input-example/platform-multi-input-multiple-value-example/platform-multi-input-multiple-value-example.component';
 
 const routes: Routes = [
@@ -56,7 +55,6 @@ const routes: Routes = [
         PlatformMultiInputReactiveExampleComponent,
         PlatformMultiInputCompactExampleComponent,
         PlatformMultiInputLoadingExampleComponent,
-        PlatformMultiInputAddNewTokenExampleComponent,
         PlatformMultiInputMultipleValueExampleComponent
     ],
     imports: [

@@ -155,7 +155,7 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
     listTemplate: TemplateRef<any>;
 
     @ViewChild(ListComponent)
-    listTemplateDD: ListComponent;
+    listTemplateDD: ListComponent<any>;
 
     constructor(
         readonly cd: ChangeDetectorRef,
@@ -217,22 +217,40 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
     }
 
     /** @hidden */
-    addToArray(event: any, item: any, index?: number): void {
+    addToArray(event: any, item: any): void {
+        const index = this.selectedItems.findIndex((selectvalue) => selectvalue.label === item.label);
+
+        if (index === -1) {
+            this._selectedItems.push(item);
+        } else {
+            this.removeToken(item);
+        }
+
         if (!this.mobile && !event.checkboxEvent) {
             this.close();
         }
 
-        const toRemoveSet = new Set();
-        const current = event.source;
+        // const toRemoveSet = new Set();
+        // const current = event.source;
 
-        if (current.selected) {
-            toRemoveSet.add(item.value);
-        } else {
-            this._selectedItems.push(item);
-        }
+        console.log('index', index);
 
-        console.log(toRemoveSet.has(item.value));
-        this._selectedItems = this._selectedItems.filter((s) => !toRemoveSet.has(s.value));
+        // if (current.selected) {
+        //     toRemoveSet.add(item.value);
+        // } else {
+        //     this._selectedItems.push(item);
+        // }
+
+        // const index = this.selectedItems.findIndex((selectvalue) => selectvalue.label === item.value.label);
+        // if (index === -1) {
+        //     this.selectedItems.push(item.value);
+        //     if (!this.mobile) {
+        //         this.close();
+        //     }
+        // }
+
+        // console.log(toRemoveSet.has(item.value));
+        // this.selectedItems = this._selectedItems.filter((s) => !toRemoveSet.has(s.value));
 
         this._updateModel(this.selectedItems);
         this.searchInputElement.nativeElement.focus();
@@ -290,12 +308,11 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
 
     /** @hidden */
     removeToken(token: any): void {
-        console.log('remove!');
         this.selectedItems.splice(this.selectedItems.indexOf(token), 1);
         this.emitChangeEvent(token ? this.selectedItems : null);
         this.searchInputElement.nativeElement.focus();
-        if (this.selected.length === 0) {
-            this._selected = [];
+        if (this.selectedItems.length === 0) {
+            this._selectedItems = [];
         }
         this._updateModel(this.selectedItems);
         this._cd.markForCheck();
@@ -355,6 +372,9 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
 
         const [item] = this.isGroup ? this._suggestions[0]?.children || [] : this._suggestions;
         if (item && item.label === event.term) {
+            console.log('event', event);
+            console.log('item', item);
+
             this.addToArray(event, item);
         }
 
