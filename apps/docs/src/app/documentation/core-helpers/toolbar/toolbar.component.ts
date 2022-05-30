@@ -1,21 +1,20 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
+import { CompleteThemeDefinition, ThemingService } from '@fundamental-ngx/core/theming';
 import { environment } from '../../../../environments/environment';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Libraries } from '../../utilities/libraries';
 
-import { SafeResourceUrl } from '@angular/platform-browser';
-import { DocsThemeService } from '../../services/docs-theme.service';
 import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, startWith, takeUntil } from 'rxjs/operators';
 import { MenuComponent, MenuKeyboardService } from '@fundamental-ngx/core/menu';
-import { ContentDensity, ContentDensityService, ThemesService } from '@fundamental-ngx/core/utils';
+import { ContentDensity, ContentDensityService } from '@fundamental-ngx/core/utils';
 import { ShellbarMenuItem, ShellbarSizes } from '@fundamental-ngx/core/shellbar';
 
 @Component({
     selector: 'fd-docs-toolbar',
     templateUrl: './toolbar.component.html',
     styleUrls: ['./toolbar.component.scss'],
-    providers: [MenuKeyboardService, ThemesService]
+    providers: [MenuKeyboardService]
 })
 export class ToolbarDocsComponent implements OnInit, OnDestroy {
     @Output()
@@ -24,12 +23,11 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
     @ViewChild('themeMenu')
     themeMenu: MenuComponent;
 
-    cssUrl: SafeResourceUrl;
-    customCssUrl: SafeResourceUrl;
-
     library: Libraries;
 
     size: ShellbarSizes = 'm';
+
+    themes: CompleteThemeDefinition[];
 
     version = {
         id: environment.version,
@@ -59,27 +57,22 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
         }
     ];
 
-    themes = this._themesService.themes;
-
     /** An RxJS Subject that will kill the data stream upon destruction (for unsubscribing)  */
     private readonly _onDestroy$: Subject<void> = new Subject<void>();
 
     constructor(
         private _routerService: Router,
-        private _themesService: ThemesService,
-        private _docsThemeService: DocsThemeService,
         private _contentDensityService: ContentDensityService,
+        private _themingService: ThemingService,
         _route: ActivatedRoute
     ) {
+        this._themingService.init();
         this.library = _route.snapshot.data.library || 'core';
-
-        this._docsThemeService.onThemeChange.pipe(takeUntil(this._onDestroy$)).subscribe((theme) => {
-            this.cssUrl = theme.themeUrl;
-            this.customCssUrl = theme.customThemeUrl;
-        });
     }
 
     ngOnInit(): void {
+        this.themes = this._themingService.getThemes();
+
         this.versions = [
             { id: '0.33.2', url: 'https://620423a8f2458b000724fd5f--fundamental-ngx.netlify.app/' },
             { id: '0.32.0', url: 'https://6130e294b2dc5c00086828de--fundamental-ngx.netlify.app/' },
@@ -108,10 +101,6 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
 
         this.versions.unshift(this.version);
 
-        if (!(this.cssUrl && this.customCssUrl)) {
-            this.selectTheme(this.themes[0].id);
-        }
-
         fromEvent(window, 'resize')
             .pipe(startWith(1), debounceTime(60), takeUntil(this._onDestroy$))
             .subscribe(() => (this.size = this._getShellbarSize()));
@@ -122,13 +111,12 @@ export class ToolbarDocsComponent implements OnInit, OnDestroy {
         this._onDestroy$.complete();
     }
 
-    selectTheme(selectedTheme: string): void {
-        this.cssUrl = this._themesService.setTheme(selectedTheme);
-        this.customCssUrl = this._themesService.setCustomTheme(selectedTheme);
-    }
-
     selectVersion(version: any): void {
         window.open(version.url, '_blank');
+    }
+
+    selectTheme(themeId: string): void {
+        this._themingService.setTheme(themeId);
     }
 
     selectDensity(density: ContentDensity): void {
