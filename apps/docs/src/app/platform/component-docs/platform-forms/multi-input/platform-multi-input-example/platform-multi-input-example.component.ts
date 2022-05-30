@@ -65,7 +65,7 @@ export class PlatformMultiInputExampleComponent {
     ];
     selectedItem2 = null;
 
-    selected = [this._datasource[0]];
+    selected = [this._datasource[0], this._datasource[1], this._datasource[2]];
 
     showValues(item: MultiInputSelectionChangeEvent): void {
         this.selectedItem2 = item.payload;

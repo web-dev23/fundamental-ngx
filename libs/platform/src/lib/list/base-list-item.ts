@@ -320,18 +320,21 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
      * @hidden
      * On item click event will be emitted
      */
-    @HostListener('click')
-    _onItemClick(): void {
+    @HostListener('click', ['$event'])
+    _onItemClick(event?: MouseEvent): void {
+        if (event) {
+            event.stopPropagation();
+        }
+
         if (this.rowSelection && this.selectionMode === 'multi') {
             this._selected = !this._selected;
         }
 
         if (this.selectionMode !== 'delete') {
-            const event = new ModifyItemEvent();
-            event.source = this;
+            const $event = new ModifyItemEvent();
+            $event.source = this;
             this._focused = !this._focused;
-            console.log('emit!');
-            this.itemSelected.emit(event);
+            this.itemSelected.emit($event);
             this._changeDetectorRef.markForCheck();
         }
     }
@@ -347,7 +350,7 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
             this._onKeyboardClick(event);
         }
 
-        // this.anchor?.nativeElement.click();
+        this.anchor?.nativeElement.click();
 
         if (this.rowSelection) {
             this._selected = !this._selected;
@@ -355,8 +358,6 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
 
         const $event = new ModifyItemEvent();
         $event.source = this;
-        console.log('emit add by enter');
-
         this.itemSelected.emit($event);
         this._changeDetectorRef.markForCheck();
     }
@@ -365,7 +366,6 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
      * @hidden
      * Handler for mouse events
      */
-    @HostListener('click', ['$event'])
     _onCheckboxClick(event: MouseEvent): void {
         const $event = new ModifyItemEvent();
 
@@ -384,7 +384,6 @@ export class BaseListItem extends BaseComponent implements OnInit, AfterViewChec
 
         this._changeDetectorRef.markForCheck();
         $event.source = this;
-        console.log('emit');
         this.itemSelected.emit($event);
     }
 

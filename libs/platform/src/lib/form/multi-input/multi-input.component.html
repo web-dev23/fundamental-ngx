@@ -111,7 +111,7 @@
     >
         <ng-container *ngIf="!isGroup">
             <fdp-standard-list-item
-                *ngFor="let listItem of _suggestions; let i = index"
+                *ngFor="let listItem of _suggestions"
                 [title]="listItem.label"
                 [description]="listItem.description || ''"
                 [avatarSrc]="listItem.avatarSrc"

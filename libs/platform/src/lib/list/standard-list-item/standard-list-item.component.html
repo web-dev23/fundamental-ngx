@@ -44,7 +44,7 @@
         [attr.aria-level]="ariaLevel"
         [attr.aria-posinet]="ariaPosinet"
         [class.fd-list__item--inactive]="listType === 'inactive'"
-        (click)="_onItemClick()"
+        (click)="_onItemClick($event)"
         [attr.role]="role"
     >
         <ng-container *ngTemplateOutlet="selectionTemplate"></ng-container>

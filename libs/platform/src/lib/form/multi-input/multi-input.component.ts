@@ -33,7 +33,7 @@ import {
     MultiInputOption,
     isFunction
 } from '@fundamental-ngx/platform/shared';
-import { ListComponent, SelectionType } from '@fundamental-ngx/platform/list';
+import { ListComponent } from '@fundamental-ngx/platform/list';
 
 import { InputType } from '../input/input.component';
 import { AutoCompleteEvent } from '../auto-complete/auto-complete.directive';
@@ -44,6 +44,8 @@ import { MULTIINPUT_COMPONENT } from './multi-input.interface';
 import { MultiInputConfig } from './multi-input.config';
 import { PopoverFillMode } from '@fundamental-ngx/core/shared';
 let uniqueHiddenLabel = 0;
+
+type MultiInputSelectionType = 'none' | 'multi' | 'single';
 
 @Component({
     selector: 'fdp-multi-input',
@@ -82,17 +84,17 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
         return this._selectedItems;
     }
 
-    _selectionMode: SelectionType = 'none';
+    _selectionMode: MultiInputSelectionType = 'none';
 
     /**
      * Selection Mode
      */
     @Input()
-    get selectionMode(): SelectionType {
+    get selectionMode(): MultiInputSelectionType {
         return this._selectionMode;
     }
 
-    set selectionMode(value: SelectionType) {
+    set selectionMode(value: MultiInputSelectionType) {
         this._selectionMode = value;
     }
 
@@ -203,10 +205,6 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
         if (this.autofocus) {
             this.searchInputElement.nativeElement.focus();
         }
-
-        if (this.selectionMode === 'delete') {
-            this._suggestions = this.selectedItems;
-        }
     }
 
     /** @hidden Method to emit change event */
@@ -223,44 +221,17 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
         if (index === -1) {
             this._selectedItems.push(item);
         } else {
-            this.removeToken(item);
+            this.selectedItems.splice(index, 1);
         }
 
         if (!this.mobile && !event.checkboxEvent) {
             this.close();
         }
 
-        // const toRemoveSet = new Set();
-        // const current = event.source;
-
-        console.log('index', index);
-
-        // if (current.selected) {
-        //     toRemoveSet.add(item.value);
-        // } else {
-        //     this._selectedItems.push(item);
-        // }
-
-        // const index = this.selectedItems.findIndex((selectvalue) => selectvalue.label === item.value.label);
-        // if (index === -1) {
-        //     this.selectedItems.push(item.value);
-        //     if (!this.mobile) {
-        //         this.close();
-        //     }
-        // }
-
-        // console.log(toRemoveSet.has(item.value));
-        // this.selectedItems = this._selectedItems.filter((s) => !toRemoveSet.has(s.value));
-
         this._updateModel(this.selectedItems);
         this.searchInputElement.nativeElement.focus();
         this.emitChangeEvent(item.value ? this.selectedItems : null);
-
         this._cd.detectChanges();
-    }
-
-    isSelected(item: any): boolean {
-        return this.selectedItems.some((selectvalue) => selectvalue.label === item.label);
     }
 
     /** @hidden */
