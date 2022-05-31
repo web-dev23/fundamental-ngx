@@ -738,11 +738,6 @@ export class FormFieldComponent implements FormField, AfterContentInit, AfterVie
         if (this.control && this._editable) {
             this.control.id = this.id;
             this.control.required = this.required;
-
-            // this.placeholder
-            //     ? this.control.placeholder = this.placeholder
-            //     : this.control.placeholder = '';
-
             this.control.placeholder = this.placeholder ? this.placeholder : '';
         }
     }

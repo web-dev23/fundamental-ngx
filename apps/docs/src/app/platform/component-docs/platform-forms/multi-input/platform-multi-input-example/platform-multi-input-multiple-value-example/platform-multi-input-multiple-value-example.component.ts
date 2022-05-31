@@ -16,8 +16,6 @@ export class PlatformMultiInputMultipleValueExampleComponent {
         { state: 'Colorado', city: 'Denver' }
     ];
 
-    // datasource = new MultiInputDataSource(new MultiInputDateProvider());
-
     selected = [this.datasource[0], this.datasource[1]];
 
     selectedItem2 = null;

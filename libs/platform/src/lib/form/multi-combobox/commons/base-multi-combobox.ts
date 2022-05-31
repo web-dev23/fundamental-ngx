@@ -456,8 +456,6 @@ export abstract class BaseMultiCombobox extends CollectionBaseInput implements A
 
     /** @hidden */
     searchTermChanged(text: string = this.inputText): void {
-        this.selectedShown$.next(false);
-
         if (text) {
             this.open();
         }
@@ -925,13 +923,8 @@ export abstract class BaseMultiCombobox extends CollectionBaseInput implements A
     private _convertObjectsToDefaultOptionItems(items: any[]): SelectableOptionItem[] {
         const selectItems: SelectableOptionItem[] = [];
 
-        if (this.selectedItems) {
-            console.log('items', this.selectedItems);
-        }
-
         for (let i = 0; i < items.length; i++) {
             const value = items[i];
-            console.log(value);
             selectItems.push({
                 label: this.displayValue(value),
                 value,

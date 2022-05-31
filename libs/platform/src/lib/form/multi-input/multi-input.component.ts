@@ -343,14 +343,7 @@ export class PlatformMultiInputComponent extends BaseMultiInput implements OnIni
 
         const [item] = this.isGroup ? this._suggestions[0]?.children || [] : this._suggestions;
         if (item && item.label === event.term) {
-            console.log('event', event);
-            console.log('item', item);
-
             this.addToArray(event, item);
-        }
-
-        if (!item && event.term) {
-            // this.addToArray(event, { label: event.term });
         }
     }
 

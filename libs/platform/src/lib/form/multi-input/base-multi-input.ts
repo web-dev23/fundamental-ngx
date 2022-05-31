@@ -261,10 +261,13 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
 
     /** @hidden */
     private _matchingStrategy: MatchingStrategy = this.multiInputConfig.matchingStrategy;
+
     /** @hidden */
     private _dsSubscription?: Subscription;
+
     /** @hidden */
     private _element: HTMLElement = this.elementRef.nativeElement;
+
     /** Keys, that won't trigger the popover's open state, when dispatched on search input */
     private readonly _nonOpeningKeys: number[] = [
         ESCAPE,
@@ -385,6 +388,8 @@ export abstract class BaseMultiInput extends CollectionBaseInput implements Afte
 
     /** @hidden */
     searchTermChanged(text: string = this.inputText): void {
+        this.showSelectedList$.next(false);
+
         if (text) {
             this.open();
         }
