@@ -18,8 +18,8 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DOCUMENT } from '@angular/common';
-import { fromEvent, Subject, Subscription } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { fromEvent, merge, Subject, Subscription } from 'rxjs';
+import { takeUntil, mapTo, debounceTime } from 'rxjs/operators';
 
 import { FormStates, Nullable } from '@fundamental-ngx/core/shared';
 import { ContentDensityService } from '@fundamental-ngx/core/utils';
@@ -309,24 +309,18 @@ export class InputGroupComponent implements ControlValueAccessor, OnInit, OnDest
 
     /** @hidden */
     private _listenElementEvents(): void {
-        fromEvent(this.elementRef.nativeElement, 'focus', { capture: true })
+        merge(
+            fromEvent(this.elementRef.nativeElement, 'focus', { capture: true }).pipe(mapTo(true)),
+            fromEvent(this.elementRef.nativeElement, 'blur', { capture: true }).pipe(mapTo(false))
+        )
             .pipe(
-                tap(() => {
-                    this._isFocused = true;
-                    this.changeDetectorRef.markForCheck();
-                }),
+                // debounceTime is needed in order to filter subsequent focus-blur events, that happen simultaneously
+                debounceTime(10),
                 takeUntil(this._onDestroy$)
             )
-            .subscribe();
-
-        fromEvent(this.elementRef.nativeElement, 'blur', { capture: true })
-            .pipe(
-                tap(() => {
-                    this._isFocused = false;
-                    this.changeDetectorRef.markForCheck();
-                }),
-                takeUntil(this._onDestroy$)
-            )
-            .subscribe();
+            .subscribe((focused) => {
+                this._isFocused = focused;
+                this.changeDetectorRef.markForCheck();
+            });
     }
 }

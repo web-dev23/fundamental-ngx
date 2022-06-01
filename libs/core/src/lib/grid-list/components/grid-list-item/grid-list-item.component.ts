@@ -108,6 +108,10 @@ export class GridListItemComponent<T> implements AfterViewInit, OnDestroy {
     @Input()
     ariaLabel: Nullable<string>;
 
+    /** Sets the `aria-label` attribute to the element. */
+    @Input()
+    ariaLabelledBy: Nullable<string>;
+
     /**
      * Defines the type of Grid List Item
      * Types:
@@ -193,7 +197,7 @@ export class GridListItemComponent<T> implements AfterViewInit, OnDestroy {
 
     /** @hidden */
     @ViewChild('gridListItem')
-    _gridListItem: ElementRef;
+    _gridListItem: ElementRef<HTMLDivElement>;
 
     /** @hidden */
     get gridLayoutClasses(): string[] {
@@ -275,8 +279,8 @@ export class GridListItemComponent<T> implements AfterViewInit, OnDestroy {
     }
 
     /** Focus grid list item programmatically */
-    focus(): void {
-        this._gridListItem?.nativeElement.focus();
+    focus(options?: FocusOptions): void {
+        this._gridListItem?.nativeElement.focus(options);
     }
 
     /** @hidden */
@@ -371,11 +375,13 @@ export class GridListItemComponent<T> implements AfterViewInit, OnDestroy {
     _onKeyDown(event: KeyboardEvent): void {
         const target = event.target as HTMLDivElement;
 
-        if (
-            !KeyUtil.isKeyCode(event, [ENTER, SPACE]) ||
-            this.selectionMode === 'none' ||
-            !target.classList.contains('fd-grid-list__item')
-        ) {
+        const isSelectionKeyDown = KeyUtil.isKeyCode(event, [ENTER, SPACE]);
+
+        if (isSelectionKeyDown && this.selectionMode === 'none') {
+            this.press.emit(this._outputEventValue);
+        }
+
+        if (!isSelectionKeyDown || this.selectionMode === 'none' || !target.classList.contains('fd-grid-list__item')) {
             return;
         }
 
