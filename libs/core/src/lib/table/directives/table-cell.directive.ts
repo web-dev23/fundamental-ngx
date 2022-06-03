@@ -1,3 +1,4 @@
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import {
     AfterContentInit,
     Directive,
@@ -6,14 +7,16 @@ import {
     Input,
     QueryList,
     ContentChildren,
-    forwardRef
+    forwardRef,
+    OnDestroy
 } from '@angular/core';
 import { CheckboxComponent } from '@fundamental-ngx/core/checkbox';
+import { fromEvent, Subject, takeUntil } from 'rxjs';
 
 @Directive({
     selector: '[fdTableCell], [fd-table-cell]'
 })
-export class TableCellDirective implements AfterContentInit {
+export class TableCellDirective implements AfterContentInit, OnDestroy {
     /** Whether or not to show the table cell's horizontal borders */
     @HostBinding('class.fd-table__cell--no-horizontal-border')
     @Input()
@@ -66,16 +69,61 @@ export class TableCellDirective implements AfterContentInit {
     @HostBinding('class.fd-table__cell')
     _fdTableCellClass = true;
 
-    constructor(public elementRef: ElementRef) {}
+    private readonly _onDestroy$ = new Subject<void>();
+
+    constructor(public elementRef: ElementRef<HTMLElement>, private liveAnnouncer: LiveAnnouncer) {}
+
+    ngOnDestroy(): void {
+        this._onDestroy$.next();
+    }
 
     /** @hidden */
     ngAfterContentInit(): void {
+        const cell = this.elementRef.nativeElement;
+
         if (this._checkboxes && this._checkboxes.length) {
-            this.elementRef.nativeElement.classList.add('fd-table__cell--checkbox');
+            cell.classList.add('fd-table__cell--checkbox');
         }
 
         if (this.noData) {
-            this.elementRef.nativeElement.setAttribute('colspan', '100%');
+            cell.setAttribute('colspan', '100%');
         }
+
+        fromEvent(cell, 'focusin')
+            .pipe(takeUntil(this._onDestroy$))
+            .subscribe(() => {
+                const data = this.getCellPosition();
+
+                if (!data) {
+                    return;
+                }
+
+                this.liveAnnouncer.clear();
+                // TODO: add input
+                this.liveAnnouncer.announce(
+                    `Column ${data.col + 1} of ${data.totalCols}, row: ${data.row + 1} of ${data.totalRows}`
+                );
+            });
     }
+
+    /** Returns row and col indexes for the cell */
+    getCellPosition(): TableCellPosition | undefined {
+        const body = this.elementRef.nativeElement.closest('tbody');
+        if (!body) {
+            return;
+        }
+        const rows = body.children;
+        const cols = this.elementRef.nativeElement.parentElement!.children;
+        const parentRow = this.elementRef.nativeElement.closest('tr') as HTMLTableRowElement;
+        const row = [...(rows as any as Element[])].indexOf(parentRow);
+        const col = [...(cols as any as Element[])].indexOf(this.elementRef.nativeElement);
+        return { row, col, totalRows: rows.length, totalCols: cols.length };
+    }
+}
+
+export interface TableCellPosition {
+    row: number;
+    col: number;
+    totalRows: number;
+    totalCols: number;
 }

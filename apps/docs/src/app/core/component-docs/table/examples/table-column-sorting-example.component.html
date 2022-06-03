@@ -1,4 +1,4 @@
-<table fd-table>
+<table fd-table aria-label="Column Sorting and Filtering">
     <thead fd-table-header>
         <tr fd-table-row>
             <th
@@ -37,7 +37,7 @@
     </tbody>
 </table>
 
-<fd-menu #menu [compact]="true">
+<fd-menu #menu [compact]="true" [triggers]="['click', 'keydown.space', 'keydown.enter']">
     <li fd-menu-item (click)="sortColumn1(true)">
         <a fd-menu-interactive>
             <fd-menu-addon position="before" glyph="sort-ascending"></fd-menu-addon>

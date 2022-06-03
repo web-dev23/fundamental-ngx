@@ -1,3 +1,4 @@
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { MenuComponent } from '@fundamental-ngx/core/menu';
 
@@ -23,9 +24,12 @@ export class TableColumnSortingExampleComponent implements OnInit {
     @ViewChild('menu')
     menu: MenuComponent;
 
+    constructor(private liveAnnouncer: LiveAnnouncer) {}
+
     sortColumn1(asc: boolean): void {
         this.ascending = asc;
         this.menu.close();
+        this.liveAnnouncer.announce(`Set sort ${asc ? 'ascending' : 'descending'}`, 'assertive');
     }
 
     inputKeyup(event: KeyboardEvent): void {
